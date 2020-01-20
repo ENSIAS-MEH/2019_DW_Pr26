@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
 <html lang="en">
   <head>
     <title>Devenez hôte </title>
@@ -44,20 +43,10 @@
 	    </div>
 	  </nav>
     <!-- END nav -->
- 
-
 
     <br><br>
-    
-     
-          
-          
-          
-        
-        
-        
 
-    <section class="ftco-section goto-here">
+   <section class="ftco-section goto-here">
     	<div class="container">
     		<div class="row justify-content-center">
           <div class="col-md-12 heading-section text-center ftco-animate mb-5">
@@ -65,63 +54,81 @@
             <h4 class="mb-2">Remplir le formulaire suivant pour créer votre compte</h4>
           </div>
         </div>
-       
-        <div class="row block-9 justify-content-center mb-5">
-          <div class="col-md-8 mb-md-5">
-        	<form>
-  <div class="form-row">
+        <div class="row block-9 justify-content-center mb-5" style=" background-color: #D8EBF7;">
+          <div class="col-md-8 mb-md-5" >
+        	<form >	
+  <div class="form-row" >
     <div class="form-group col-md-6">
-      <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+      <label for="inputEmail4">Prénom</label>
+      <input type="text" class="form-control" id="inputEmail4" placeholder="Prénom">
     </div>
     <div class="form-group col-md-6">
-      <label for="inputPassword4">Password</label>
-      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+      <label for="inputPassword4">Nom </label>
+      <input type="text" class="form-control" id="inputPassword4" placeholder="Nom">
     </div>
   </div>
-  <div class="form-group">
-    <label for="inputAddress">Address</label>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Date de naissance</label>
+      <input type="date" class="form-control" id="inputEmail4" placeholder="03/11/1997">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Numéro CIN  </label>
+      <input type="text" class="form-control" id="inputPassword4" placeholder="Nom">
+    </div>
+  </div>
+   <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Sexe </label>
+       <select class="form-control selectpicker" data-style="btn btn-link" id="exampleFormControlSelect1">
+      <option value="Homme">Homme</option>
+      <option value="Femme">Femme</option>
+    </select>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Email</label>
+      <input type="email" class="form-control" id="inputPassword4" placeholder="email@gmail.com">
+    </div>
+  </div>
+   <div class="form-row">
+   <div class="form-group col-md-6">
+      <label for="inputPassword4">Mot de passe </label>
+      <input type="password" class="form-control" id="inputPassword4" placeholder="*******">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Confirmer le mot de passe </label>
+      <input type="password" class="form-control" id="inputPassword4" placeholder="********">
+    </div>
+  </div>
+  
+   <div class="form-group">
+    <label for="inputAddress">adresse</label>
     <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
   </div>
-  <div class="form-group">
-    <label for="inputAddress2">Address 2</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-  </div>
-  <div class="form-row">
+   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputCity">City</label>
-      <input type="text" class="form-control" id="inputCity">
+      <label for="inputEmail4">Pays / Région</label>
+      <input type="text" class="form-control" id="inputEmail4" placeholder="Maroc">
     </div>
-    <div class="form-group col-md-3">
-      <label for="inputState">State</label>
-      <select id="inputState" class="form-control">
-        <option selected>Choose...</option>
-        <option>...</option>
-      </select>
-    </div>
-    <div class="form-group col-md-2 ml-auto">
-      <label for="inputZip">Zip</label>
-      <input type="text" class="form-control" id="inputZip">
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Ville</label>
+      <input type="text" class="form-control" id="inputPassword4" placeholder="Fés">
     </div>
   </div>
-  <div class="form-group">
-    <div class="form-check">
-      <label class="form-check-label">
-          <input class="form-check-input" type="checkbox" value="">
-     Check me out
-          <span class="form-check-sign">
-            <span class="check"></span>
-          </span>
-      </label>
+    <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Numéro de téléphone</label>
+      <input type="text" class="form-control" id="inputEmail4" placeholder="0655681244">
     </div>
   </div>
-  <button type="submit" class="btn btn-primary">Sign in</button>
+  <center>
+  <button type="submit" class="btn btn-success btn-lg">Inscription</button></center>
 </form>
 </div>
         </div>
         </div>
     </section>
-
+    
     <footer class="ftco-footer ftco-section">
       <div class="container">
         <div class="row mb-5">
@@ -164,11 +171,8 @@
       </div>
     </footer>
     
-  
-
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
 
   <script src="js/accueil_js/jquery.min.js"></script>
   <script src="js/accueil_js/jquery-migrate-3.0.1.min.js"></script>
