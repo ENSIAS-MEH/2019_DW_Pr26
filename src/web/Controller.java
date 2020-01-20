@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class Controller
  */
 
-@WebServlet(name = "Controller", urlPatterns = { "/", "/Controller.ma" })
+@WebServlet(name = "Controller", urlPatterns = { "/Accueil.ma", "/Controller.ma" })
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -23,12 +23,11 @@ public class Controller extends HttpServlet {
 			throws ServletException, IOException {
 		String views = "Accueil";
 		String action = getActionKey(request);
-		if (action.equals(""))
+		if (action.equals("Accueil"))
 			views = "Accueil";
 		else
 			views = "/404";
 
-	
 		request.getRequestDispatcher(views + ".jsp").forward(request, response);
 	}
 
