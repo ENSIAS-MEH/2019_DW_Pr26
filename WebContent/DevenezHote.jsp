@@ -56,73 +56,73 @@
         </div>
         <div class="row block-9 justify-content-center mb-5" style=" background-color: #D8EBF7;">
           <div class="col-md-8 mb-md-5" >
-        	<form >	
+        	<form method="post" action="InscriptionVendeur.ma">
   <div class="form-row" >
     <div class="form-group col-md-6">
-      <label for="inputEmail4">Prénom</label>
-      <input type="text" class="form-control" id="inputEmail4" placeholder="Prénom">
+      <label for="inputEmail4">Prénom <span style="color : red ; ">*</span></label>
+      <input type="text" class="form-control" id="inputEmail4" placeholder="Prénom" required="true" namz="prenom">
     </div>
     <div class="form-group col-md-6">
-      <label for="inputPassword4">Nom </label>
-      <input type="text" class="form-control" id="inputPassword4" placeholder="Nom">
+      <label for="inputPassword4">Nom <span style="color : red ; ">*</span> </label>
+      <input type="text" class="form-control" id="inputPassword4" placeholder="Nom" required="true" name="nom">
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputEmail4">Date de naissance</label>
-      <input type="date" class="form-control" id="inputEmail4" placeholder="03/11/1997">
+      <label for="inputEmail4">Date de naissance <span style="color : red ; ">*</span></label>
+      <input type="date" class="form-control" id="inputEmail4" placeholder="03/11/1997" required="true" name="date_naissance">
     </div>
     <div class="form-group col-md-6">
-      <label for="inputPassword4">Numéro CIN  </label>
-      <input type="text" class="form-control" id="inputPassword4" placeholder="Nom">
+      <label for="inputPassword4">Numéro CIN  <span style="color : red ; ">*</span></label>
+      <input type="text" class="form-control" id="inputPassword4" placeholder="Nom" required="true" name="cin">
     </div>
   </div>
    <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputEmail4">Sexe </label>
-       <select class="form-control selectpicker" data-style="btn btn-link" id="exampleFormControlSelect1">
+      <label for="inputEmail4">Sexe <span style="color : red ; ">*</span> </label>
+       <select class="form-control selectpicker" data-style="btn btn-link" id="exampleFormControlSelect1" name="sexe">
       <option value="Homme">Homme</option>
       <option value="Femme">Femme</option>
     </select>
     </div>
     <div class="form-group col-md-6">
-      <label for="inputPassword4">Email</label>
-      <input type="email" class="form-control" id="inputPassword4" placeholder="email@gmail.com">
+      <label for="inputPassword4">Email <span style="color : red ; ">*</span></label>
+      <input type="email" class="form-control" id="inputPassword4" placeholder="email@gmail.com"  required="true" name="email">
     </div>
   </div>
    <div class="form-row">
    <div class="form-group col-md-6">
-      <label for="inputPassword4">Mot de passe </label>
-      <input type="password" class="form-control" id="inputPassword4" placeholder="*******">
+      <label for="inputPassword4">Mot de passe <span style="color : red ; ">*</span> </label>
+      <input type="password" class="form-control" id="password" placeholder="*******" required="true" name="password"  minlength=8>
     </div>
     <div class="form-group col-md-6">
-      <label for="inputPassword4">Confirmer le mot de passe </label>
-      <input type="password" class="form-control" id="inputPassword4" placeholder="********">
+      <label for="inputPassword4">Confirmer le mot de passe <span style="color : red ; ">*</span></label>
+      <input type="password" class="form-control" id="password_confirm" placeholder="********" required="" name="password_confirm">
     </div>
   </div>
   
    <div class="form-group">
     <label for="inputAddress">adresse</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" name="adresse">
   </div>
    <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputEmail4">Pays / Région</label>
-      <input type="text" class="form-control" id="inputEmail4" placeholder="Maroc">
+      <label for="inputEmail4">Pays / Région <span style="color : red ; ">*</span></label>
+      <input type="text" class="form-control" id="inputEmail4" placeholder="Maroc" required="true" name="pays">
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Ville</label>
-      <input type="text" class="form-control" id="inputPassword4" placeholder="Fés">
+      <input type="text" class="form-control" id="inputPassword4" placeholder="Fés" name="ville">
     </div>
   </div>
     <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputEmail4">Numéro de téléphone</label>
-      <input type="text" class="form-control" id="inputEmail4" placeholder="0655681244">
+      <label for="inputEmail4">Numéro de téléphone <span style="color : red ; ">*</span></label>
+      <input type="text" class="form-control" id="inputEmail4" placeholder="065568...." required="true" name="telephone">
     </div>
   </div>
   <center>
-  <button type="submit" class="btn btn-success btn-lg">Inscription</button></center>
+  <button type="submit" class="btn btn-success btn-lg" onclick="return validationFormulaire(); ">Inscription</button></center>
 </form>
 </div>
         </div>
@@ -173,7 +173,7 @@
     
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="js/accueil_js/jquery.min.js"></script>
   <script src="js/accueil_js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/accueil_js/popper.min.js"></script>
@@ -191,6 +191,20 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/accueil_js/google-map.js"></script>
   <script src="js/accueil_js/main.js"></script>
-    
+    <script>
+    $("#password_confirm" ).blur(function() { 
+        if($("#password_confirm" ).val() != $("#password" ).val()){
+			alert('les mot de passe ne sont pas identiques ! merci de confirmez votre mot de passe'); 	
+        }
+    	});
+
+	function validationFormulaire(){
+		if($("#password_confirm" ).val() != $("#password" ).val()){
+			alert('les mot de passe ne sont pas identiques ! merci de confirmez votre mot de passe'); 
+			return false ; 	
+        }
+		return confirm('Confirmer votre adhésion'); 
+		}
+    </script>
   </body>
 </html>
