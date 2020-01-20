@@ -10,32 +10,39 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Controller
  */
-@WebServlet("/Controller")
+
+@WebServlet(name = "Controller", urlPatterns = { "/Accueil.ma", "/Controller.ma" })
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * Default constructor. 
-     */
-    public Controller() {
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		request.getRequestDispatcher("FileTestPlateForme.jsp").forward(request, response);
+	public Controller() {
+		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String views = "Accueil";
+		String action = getActionKey(request);
+		if (action.equals("Accueil"))
+			views = "Accueil";
+		else
+			views = "/404";
+
+		request.getRequestDispatcher(views + ".jsp").forward(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
+	// recuperer le type de la demande de l'utilisateur
+	private String getActionKey(HttpServletRequest request) {
+		String uri = request.getRequestURI();
+		if (uri.contains(".ma"))
+			return uri.substring(uri.lastIndexOf("/") + 1, uri.lastIndexOf(".ma"));
+		else
+			return uri.substring(uri.lastIndexOf("/") + 1, uri.length());
+	}
 }
