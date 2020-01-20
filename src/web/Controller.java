@@ -25,7 +25,9 @@ public class Controller extends HttpServlet {
 		String action = getActionKey(request);
 		if (action.equals("Accueil"))
 			views = "Accueil";
-		else
+		else if(action.equals("DevenezHote")){
+			views = "DevenezHote"; 
+		}else
 			views = "/404";
 
 		request.getRequestDispatcher(views + ".jsp").forward(request, response);
