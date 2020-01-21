@@ -5,16 +5,16 @@ import dao.LocationRepositoryInter;
 import dao.MangementDataBase;
 import models.Vendeur;
 
-public class LocationServicesImpl implements LocationServicesInter{
-	
-	private LocationRepositoryInter locationepositoryImpl; 
-	
+public class LocationServicesImpl implements LocationServicesInter {
+
+	private LocationRepositoryInter locationepositoryImpl;
+
 	public LocationServicesImpl() {
 		super();
-		locationepositoryImpl = new LocationRepositoryImpl(); 
+		locationepositoryImpl = new LocationRepositoryImpl();
 	}
 
-	public void InscriptionVendeur(Vendeur vendeur){
-		locationepositoryImpl.InscriptionVendeur(vendeur); 
+	public void InscriptionVendeur(Vendeur vendeur) {
+		locationepositoryImpl.InscriptionVendeur(vendeur);
 	}
 }

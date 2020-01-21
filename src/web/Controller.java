@@ -9,24 +9,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import web.action.VendeurAction;
 
-/**
- * Servlet implementation class Controller
- */
-
-@WebServlet(name = "Controller", urlPatterns = { "/Accueil.ma", "/Controller.ma", "/DevenezHote.ma","/InscriptionVendeur.ma" })
+@WebServlet(name = "Controller", urlPatterns = { "/Accueil.ma", "/Controller.ma", "/DevenezHote.ma",
+		"/InscriptionVendeur.ma" })
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private VendeurAction vendeurAction ;
-	
+	private VendeurAction vendeurAction;
+
 	public Controller() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	@Override
 	public void init() throws ServletException {
 		// TODO Auto-generated method stub
 		super.init();
-		vendeurAction =  new VendeurAction(); 
+		vendeurAction = new VendeurAction();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -35,9 +32,9 @@ public class Controller extends HttpServlet {
 		String action = getActionKey(request);
 		if (action.equals("Accueil"))
 			views = "Accueil";
-		else if(action.equals("DevenezHote")){
-			views = "DevenezHote"; 
-		}else
+		else if (action.equals("DevenezHote")) {
+			views = "DevenezHote";
+		} else
 			views = "/404";
 
 		request.getRequestDispatcher(views + ".jsp").forward(request, response);
@@ -48,14 +45,12 @@ public class Controller extends HttpServlet {
 		// TODO Auto-generated method stub
 		String views = "Accueil";
 		String action = getActionKey(request);
-		if (action.equals("InscriptionVendeur")){
-			 System.out.println("hello2");
+		if (action.equals("InscriptionVendeur")) {
 			vendeurAction.inscriptionVendeur(request);
-		}else
+		} else
 			views = "/404";
 
 		request.getRequestDispatcher(views + ".jsp").forward(request, response);
-		
 	}
 
 	// recuperer le type de la demande de l'utilisateur

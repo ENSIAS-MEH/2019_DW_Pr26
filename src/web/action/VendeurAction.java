@@ -7,20 +7,20 @@ import business.LocationServicesInter;
 import models.Vendeur;
 
 public class VendeurAction {
-	
-	private Vendeur vendeur; 
-	private LocationServicesInter locationServices ; 
-		
+
+	private Vendeur vendeur;
+	private LocationServicesInter locationServices;
+
 	public VendeurAction() {
 		super();
-		locationServices = (LocationServicesInter) new LocationServicesImpl(); 
+		locationServices = (LocationServicesInter) new LocationServicesImpl();
 	}
 
 	public VendeurAction(Vendeur vendeur) {
 		super();
 		this.vendeur = vendeur;
 	}
-	
+
 	public Vendeur getVendeur() {
 		return vendeur;
 	}
@@ -29,8 +29,10 @@ public class VendeurAction {
 		this.vendeur = vendeur;
 	}
 
-	public void inscriptionVendeur(HttpServletRequest request){
-		vendeur = new Vendeur(request.getParameter("nom"), request.getParameter("prenom"), request.getParameter("date_naissance"), request.getParameter("cin"), request.getParameter("sexe"), request.getParameter("email"), request.getParameter("password"), request.getParameter("adresse"), request.getParameter("pays"), request.getParameter("ville"),request.getParameter("telephone")); 
-		locationServices.InscriptionVendeur(vendeur);
+	public void inscriptionVendeur(HttpServletRequest request) {
+		locationServices.InscriptionVendeur(new Vendeur(request.getParameter("nom"), request.getParameter("prenom"),
+				request.getParameter("date_naissance"), request.getParameter("cin"), request.getParameter("sexe"),
+				request.getParameter("email"), request.getParameter("password"), request.getParameter("adresse"),
+				request.getParameter("pays"), request.getParameter("ville"), request.getParameter("telephone")));
 	}
 }

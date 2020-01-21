@@ -154,7 +154,5 @@ public class Vendeur {
 				+ ", adresse=" + adresse + ", pays=" + pays + ", ville=" + ville + ", num_telephone=" + num_telephone
 				+ "]";
 	}
-	
-	
 
 }
