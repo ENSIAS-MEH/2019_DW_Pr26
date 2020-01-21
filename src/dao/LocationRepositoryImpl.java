@@ -110,6 +110,7 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 	
 	
 	public void inscriptionClient(Client client){
+		System.out.println(client.toString());
 		Connection connection = mangementDataBase.connexionDataBase();
 		try {
 			PreparedStatement ps = connection.prepareStatement("insert into client("
@@ -163,7 +164,7 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 		Client client = null;
 		Connection connection = mangementDataBase.connexionDataBase();
 		try {
-			PreparedStatement ps = connection.prepareStatement("select * from client where email = '"+email+"'");
+			PreparedStatement ps = connection.prepareStatement("select * from client where email = "+email+"");
 			ResultSet rs = ps.executeQuery();
 			if(rs.next()){ 
 				client = new Client();

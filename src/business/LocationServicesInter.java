@@ -1,5 +1,6 @@
 package business;
 
+import models.Client;
 import models.Vendeur;
 
 public interface LocationServicesInter {
@@ -10,6 +11,7 @@ public interface LocationServicesInter {
 	public boolean connexionVendeur(String email,String password);
 
 	
-
+	//Client 
+	public boolean inscriptionClient(Client client);
 	
 }

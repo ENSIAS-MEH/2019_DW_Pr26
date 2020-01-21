@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -65,102 +66,26 @@
 
 	<section class="ftco-section goto-here">
 	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-md-12 heading-section text-center ftco-animate mb-5">
-				<span class="subheading">Créer votre compte</span>
-				<h4 class="mb-2">Remplir le formulaire suivant pour créer votre compte</h4>
-			</div>
-		</div>
-		<div class="row block-9 justify-content-center mb-5"
-			style="background-color: #D8EBF7;">
-			<div class="col-md-8 mb-md-5">
-				<form method="post" action="InscriptionClient.ma">
-					<div class="form-row">
-						<div class="form-group col-md-6">
-							<label for="inputEmail4">Prénom <span style="color: red;">*</span></label>
-							<input type="text" class="form-control" id="inputEmail4"
-								placeholder="Prénom" required="true" name="prenom">
-						</div>
-						<div class="form-group col-md-6">
-							<label for="inputPassword4">Nom <span style="color: red;">*</span>
-							</label> <input type="text" class="form-control" id="inputPassword4"
-								placeholder="Nom" required="true" name="nom">
-						</div>
-					</div>
-					<div class="form-row">
-						<div class="form-group col-md-6">
-							<label for="inputEmail4">Date de naissance <span
-								style="color: red;">*</span></label> <input type="date"
-								class="form-control" id="inputEmail4" placeholder="03/11/1997"
-								required="true" name="date_naissance">
-						</div>
-						<div class="form-group col-md-6">
-							<label for="inputPassword4">Numéro CIN <span
-								style="color: red;">*</span></label> <input type="text"
-								class="form-control" id="inputPassword4" placeholder="CD5...."
-								required="true" name="cin">
-						</div>
-					</div>
-					<div class="form-row">
-						<div class="form-group col-md-6">
-							<label for="inputEmail4">Sexe <span style="color: red;">*</span>
-							</label> <select class="form-control selectpicker"
-								data-style="btn btn-link" id="exampleFormControlSelect1"
-								name="sexe">
-								<option value="Homme">Homme</option>
-								<option value="Femme">Femme</option>
-							</select>
-						</div>
-						<div class="form-group col-md-6">
-							<label for="inputPassword4">Email <span
-								style="color: red;">*</span></label> <input type="email"
-								class="form-control" id="inputPassword4"
-								placeholder="email@gmail.com" required="true" name="email">
-						</div>
-					</div>
-					<div class="form-row">
-						<div class="form-group col-md-6">
-							<label for="inputPassword4">Mot de passe <span
-								style="color: red;">*</span>
-							</label> <input type="password" class="form-control" id="password"
-								placeholder="*******" required="true" name="password"
-								minlength=8>
-						</div>
-						<div class="form-group col-md-6">
-							<label for="inputPassword4">Confirmer le mot de passe <span
-								style="color: red;">*</span></label> <input type="password"
-								class="form-control" id="password_confirm"
-								placeholder="********" required="" name="password_confirm">
-						</div>
-					</div>
-					<div class="form-row">
-						<div class="form-group col-md-6">
-							<label for="inputEmail4">Pays / Région <span
-								style="color: red;">*</span></label> <input type="text"
-								class="form-control" id="inputEmail4" placeholder="Maroc"
-								required="true" name="pays">
-						</div>
-						<div class="form-group col-md-6">
-							<label for="inputPassword4">Ville</label> <input type="text"
-								class="form-control" id="inputPassword4" placeholder="Fés"
-								name="ville">
-						</div>
-					</div>
-					<div class="form-row">
-						<div class="form-group col-md-6">
-							<label for="inputEmail4">Numéro de téléphone <span
-								style="color: red;">*</span></label> <input type="text"
-								class="form-control" id="inputEmail4" placeholder="065568...."
-								required="true" name="telephone">
-						</div>
-					</div>
-					<center>
-						<button type="submit" class="btn btn-success btn-lg"
-							onclick="return validationFormulaire(); ">Inscription</button>
-					</center>
-				</form>
-			</div>
-		</div>
+		
+		
+		 <center>
+		 <div class="card text-center" style="width: 70%; ">
+		 <c:if test="${resultBool == true }">
+  <div class="card-header" style="background-color: #4BB543; color: black;">
+  </c:if>
+  <c:if test="${resultBool == false }">
+  <div class="card-header" style="background-color: #EE615F; color: black;">
+  </c:if>
+    Alert !
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Nouveau compte</h5>
+    <p class="card-text">${reponseCreation }</p>
+    <a href="Accueil.ma" class="btn btn-primary">Accueil</a>
+  </div>
+  
+</div>
+</center>
 	</div>
 	</section>
 
@@ -243,23 +168,5 @@
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 	<script src="js/accueil_js/google-map.js"></script>
 	<script src="js/accueil_js/main.js"></script>
-	<script>
-		$("#password_confirm")
-				.blur(
-						function() {
-							if ($("#password_confirm").val() != $("#password")
-									.val()) {
-								alert('les mot de passe ne sont pas identiques ! merci de confirmez votre mot de passe');
-							}
-						});
-
-		function validationFormulaire() {
-			if ($("#password_confirm").val() != $("#password").val()) {
-				alert('les mot de passe ne sont pas identiques ! merci de confirmez votre mot de passe');
-				return false;
-			}
-			return confirm('Confirmer votre adhésion');
-		}
-	</script>
 </body>
 </html>

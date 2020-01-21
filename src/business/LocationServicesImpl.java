@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import dao.LocationRepositoryImpl;
 import dao.LocationRepositoryInter;
 import dao.MangementDataBase;
+import models.Client;
 import models.Vendeur;
 
 public class LocationServicesImpl implements LocationServicesInter {
@@ -33,6 +34,27 @@ public class LocationServicesImpl implements LocationServicesInter {
 		if(vendeur.getMot_de_passe().equals(password))return true;
 		else return false;
 		
+	}
+	
+	public boolean inscriptionClient(Client client){
+		ArrayList<Client> listeClient = new ArrayList<>();
+	listeClient = locationepositoryImpl.getListClient();
+		for (Client clientTable : listeClient) {
+			if (clientTable.getEmail().equals(client.getEmail())) {
+				return false;
+			}
+		}
+		locationepositoryImpl.inscriptionClient(client);
+		return true;
+	
+		/*
+		Client clientExiste = locationepositoryImpl.getClientByEmail(client.getEmail());
+		if(clientExiste != null){
+			return false ;
+		}
+		locationepositoryImpl.inscriptionClient(client);
+		return true;
+		*/
 	}
 
 }

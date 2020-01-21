@@ -47,6 +47,13 @@ public class Client {
 		this.ville = ville;
 		this.num_telephone = num_telephone;
 	}
+	
+	@Override
+	public String toString() {
+		return "Client [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", date_naissane=" + date_naissane
+				+ ", num_cin=" + num_cin + ", sexe=" + sexe + ", email=" + email + ", mot_de_passe=" + mot_de_passe
+				+ ", pays=" + pays + ", ville=" + ville + ", num_telephone=" + num_telephone + "]";
+	}
 
 	public int getId() {
 		return id;

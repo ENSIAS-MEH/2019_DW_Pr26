@@ -33,7 +33,7 @@ public class VendeurAction {
 		return locationServices.inscriptionVendeur(new Vendeur(request.getParameter("nom"), request.getParameter("prenom"),
 				request.getParameter("date_naissance"), request.getParameter("cin"), request.getParameter("sexe"),
 				request.getParameter("email"), request.getParameter("password"), request.getParameter("adresse"),
-				request.getParameter("pays"), request.getParameter("ville"), request.getParameter("telephone")))== true;
+				request.getParameter("pays"), request.getParameter("ville"), request.getParameter("telephone")));
 			
 		
 	}

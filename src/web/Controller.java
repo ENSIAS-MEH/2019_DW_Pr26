@@ -7,13 +7,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import web.action.ClientAction;
 import web.action.VendeurAction;
 
 @WebServlet(name = "Controller", urlPatterns = { "/Accueil.ma", "/Controller.ma", "/DevenezHote.ma",
-		"/InscriptionVendeur.ma","/ConnexionVendeur.ma","/FormConnexionVendeur.ma","/InscriptionClient.ma","InscriptionClient.ma" })
+		"/InscriptionVendeur.ma","/ConnexionVendeur.ma","/FormConnexionVendeur.ma","/InscriptionClient.ma" })
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private VendeurAction vendeurAction;
+	private ClientAction clientAction; 
 
 	public Controller() {
 		// TODO Auto-generated constructor stub
@@ -24,6 +26,7 @@ public class Controller extends HttpServlet {
 		// TODO Auto-generated method stub
 		super.init();
 		vendeurAction = new VendeurAction();
+		clientAction = new ClientAction(); 
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -68,7 +71,14 @@ public class Controller extends HttpServlet {
 			}
 			
 		}else if(action.equals("InscriptionClient")){
-			
+			if(clientAction.inscriptionClient(request)==true){
+				request.setAttribute("reponseCreation", "Votre compte a bien été créer");
+				request.setAttribute("resultBool", true);
+			}else {
+				request.setAttribute("reponseCreation", "L'adresse email que vous avez utilisé existe déjà");
+				request.setAttribute("resultBool", false);
+			}
+			views = "ResultatCreationClient"; 
 		}else
 			views = "/404";
 
