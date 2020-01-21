@@ -147,4 +147,14 @@ public class Vendeur {
 		this.num_telephone = num_telephone;
 	}
 
+	@Override
+	public String toString() {
+		return "Vendeur [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", date_naissane=" + date_naissane
+				+ ", num_cin=" + num_cin + ", sexe=" + sexe + ", email=" + email + ", mot_de_passe=" + mot_de_passe
+				+ ", adresse=" + adresse + ", pays=" + pays + ", ville=" + ville + ", num_telephone=" + num_telephone
+				+ "]";
+	}
+	
+	
+
 }

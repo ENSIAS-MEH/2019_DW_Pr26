@@ -1,5 +1,9 @@
 package business;
 
-public interface LocationServicesInter {
+import models.Vendeur;
 
+public interface LocationServicesInter {
+	
+	//Vendeur
+	public void InscriptionVendeur(Vendeur vendeur); 
 }

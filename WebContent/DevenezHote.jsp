@@ -79,7 +79,7 @@
 						<div class="form-group col-md-6">
 							<label for="inputEmail4">Prénom <span style="color: red;">*</span></label>
 							<input type="text" class="form-control" id="inputEmail4"
-								placeholder="Prénom" required="true" namz="prenom">
+								placeholder="Prénom" required="true" name="prenom">
 						</div>
 						<div class="form-group col-md-6">
 							<label for="inputPassword4">Nom <span style="color: red;">*</span>
@@ -97,7 +97,7 @@
 						<div class="form-group col-md-6">
 							<label for="inputPassword4">Numéro CIN <span
 								style="color: red;">*</span></label> <input type="text"
-								class="form-control" id="inputPassword4" placeholder="Nom"
+								class="form-control" id="inputPassword4" placeholder="CD5...."
 								required="true" name="cin">
 						</div>
 					</div>

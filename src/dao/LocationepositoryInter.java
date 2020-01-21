@@ -1,5 +1,8 @@
 package dao;
 
-public interface LocationepositoryInter {
+import models.Vendeur;
 
+public interface LocationepositoryInter {
+	
+	public void InscriptionVendeur(Vendeur vendeur); 
 }

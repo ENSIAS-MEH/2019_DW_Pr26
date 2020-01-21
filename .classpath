@@ -10,5 +10,6 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/asus/Downloads/Compressed/Apache/apache-tomcat-9.0.24/lib/servlet-api.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/asus/Desktop/Projet_JEE_S3_ENSIAS/GestionLocationHebergementHotels/WebContent/WEB-INF/lib/mysql-connector-java-8.0.18.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
