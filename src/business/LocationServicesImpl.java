@@ -1,5 +1,7 @@
 package business;
 
+import java.util.ArrayList;
+
 import dao.LocationRepositoryImpl;
 import dao.LocationRepositoryInter;
 import dao.MangementDataBase;
@@ -14,7 +16,15 @@ public class LocationServicesImpl implements LocationServicesInter {
 		locationepositoryImpl = new LocationRepositoryImpl();
 	}
 
-	public void InscriptionVendeur(Vendeur vendeur) {
-		locationepositoryImpl.InscriptionVendeur(vendeur);
+	public boolean inscriptionVendeur(Vendeur vendeur) {
+		ArrayList<Vendeur> listeVendeur = new ArrayList<>();
+		listeVendeur = locationepositoryImpl.getListVendeur();
+		for (Vendeur vendeurTable : listeVendeur) {
+			if (vendeurTable.getEmail().equals(vendeur.getEmail())) {
+				return false;
+			}
+		}
+		locationepositoryImpl.inscriptionVendeur(vendeur);
+		return true;
 	}
 }

@@ -29,10 +29,12 @@ public class VendeurAction {
 		this.vendeur = vendeur;
 	}
 
-	public void inscriptionVendeur(HttpServletRequest request) {
-		locationServices.InscriptionVendeur(new Vendeur(request.getParameter("nom"), request.getParameter("prenom"),
+	public boolean inscriptionVendeur(HttpServletRequest request) {
+		return locationServices.inscriptionVendeur(new Vendeur(request.getParameter("nom"), request.getParameter("prenom"),
 				request.getParameter("date_naissance"), request.getParameter("cin"), request.getParameter("sexe"),
 				request.getParameter("email"), request.getParameter("password"), request.getParameter("adresse"),
-				request.getParameter("pays"), request.getParameter("ville"), request.getParameter("telephone")));
+				request.getParameter("pays"), request.getParameter("ville"), request.getParameter("telephone")))== true;
+			
+		
 	}
 }

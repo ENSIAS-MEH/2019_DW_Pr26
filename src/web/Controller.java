@@ -46,7 +46,14 @@ public class Controller extends HttpServlet {
 		String views = "Accueil";
 		String action = getActionKey(request);
 		if (action.equals("InscriptionVendeur")) {
-			vendeurAction.inscriptionVendeur(request);
+			if(vendeurAction.inscriptionVendeur(request)==true){
+				request.setAttribute("reponseCreation", "Votre compte a bien été créer");
+				request.setAttribute("resultBool", true);
+			}else {
+				request.setAttribute("reponseCreation", "L'adresse email que vous avez utilisé existe déjà");
+				request.setAttribute("resultBool", false);
+			}
+			views = "ResultatCreationVendeur"; 
 		} else
 			views = "/404";
 
