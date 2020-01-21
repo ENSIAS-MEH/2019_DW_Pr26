@@ -68,8 +68,7 @@
 		<div class="row justify-content-center">
 			<div class="col-md-12 heading-section text-center ftco-animate mb-5">
 				<span class="subheading">Créer votre compte</span>
-				<h4 class="mb-2">Remplir le formulaire suivant pour créer votre
-					compte</h4>
+				<h4 class="mb-2">Remplir le formulaire suivant pour créer votre compte</h4>
 			</div>
 		</div>
 		<div class="row block-9 justify-content-center mb-5"

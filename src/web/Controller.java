@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import web.action.VendeurAction;
 
 @WebServlet(name = "Controller", urlPatterns = { "/Accueil.ma", "/Controller.ma", "/DevenezHote.ma",
-		"/InscriptionVendeur.ma" })
+		"/InscriptionVendeur.ma","/ConnexionVendeur.ma","/FormConnexionVendeur.ma" })
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private VendeurAction vendeurAction;
@@ -34,6 +34,8 @@ public class Controller extends HttpServlet {
 			views = "Accueil";
 		else if (action.equals("DevenezHote")) {
 			views = "DevenezHote";
+		}else if (action.equals("FormConnexionVendeur")) {
+			views = "ConnectionVendeur";
 		} else
 			views = "/404";
 
@@ -54,6 +56,15 @@ public class Controller extends HttpServlet {
 				request.setAttribute("resultBool", false);
 			}
 			views = "ResultatCreationVendeur"; 
+		}else if (action.equals("ConnexionVendeur")) {
+			if(vendeurAction.ConnexionVendeur(request)==true){
+			//session
+				views = "AcceuilAfterConnection"; 
+			}else {
+				request.setAttribute("reponseConnexion", "L'adresse email ou le mot de passe est incorrecte");
+				views = "ConnexionVendeur"; 
+			}
+			
 		} else
 			views = "/404";
 

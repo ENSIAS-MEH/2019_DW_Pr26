@@ -37,4 +37,11 @@ public class VendeurAction {
 			
 		
 	}
+
+	public boolean ConnexionVendeur(HttpServletRequest request) {
+		// TODO Auto-generated method stub
+	
+		if(locationServices.connexionVendeur(request.getParameter("email"),request.getParameter("password"))) return true;
+		return false;
+	}
 }
