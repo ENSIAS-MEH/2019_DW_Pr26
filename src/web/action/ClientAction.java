@@ -4,9 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import business.LocationServicesImpl;
 import business.LocationServicesInter;
-import dao.LocationRepositoryImpl;
 import models.Client;
-import models.Vendeur;
 
 public class ClientAction {
 
@@ -40,7 +38,10 @@ public class ClientAction {
 		this.locationServices = locationServices;
 	}
 
-	public boolean inscriptionClient(HttpServletRequest request) {     
-		return locationServices.inscriptionClient(new Client(request.getParameter("nom"), request.getParameter("prenom"), request.getParameter("date_naissance"), request.getParameter("cin"), request.getParameter("sexe"), request.getParameter("email"),  request.getParameter("password"), request.getParameter("pays"), request.getParameter("pays"), request.getParameter("telephone")));
+	public boolean inscriptionClient(HttpServletRequest request) {
+		return locationServices.inscriptionClient(new Client(request.getParameter("nom"),
+				request.getParameter("prenom"), request.getParameter("date_naissance"), request.getParameter("cin"),
+				request.getParameter("sexe"), request.getParameter("email"), request.getParameter("password"),
+				request.getParameter("pays"), request.getParameter("pays"), request.getParameter("telephone")));
 	}
 }

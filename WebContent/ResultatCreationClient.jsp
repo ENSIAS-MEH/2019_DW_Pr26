@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
-<title>Devenez hôte</title>
+<title>Devenez client</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -50,9 +50,10 @@
 				<li class="nav-item"><a href="about.html" class="nav-link">À
 						propos</a></li>
 				<li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
-				<li class="nav-item"><a href="DevenezHote.ma"
-					class="nav-link">Devenez hôte</a></li>
-				<li class="nav-item active"><a href="InscriptionClient.ma" class="nav-link">Inscription</a></li>
+				<li class="nav-item"><a href="DevenezHote.ma" class="nav-link">Devenez
+						hôte</a></li>
+				<li class="nav-item active"><a href="InscriptionClient.ma"
+					class="nav-link">Inscription</a></li>
 				<li class="nav-item"><a href="contact.html" class="nav-link">Connexion</a></li>
 				<li class="nav-item"><a href="contact.ma" class="nav-link">Contact</a></li>
 			</ul>
@@ -66,26 +67,27 @@
 
 	<section class="ftco-section goto-here">
 	<div class="container">
-		
-		
-		 <center>
-		 <div class="card text-center" style="width: 70%; ">
-		 <c:if test="${resultBool == true }">
-  <div class="card-header" style="background-color: #4BB543; color: black;">
-  </c:if>
-  <c:if test="${resultBool == false }">
-  <div class="card-header" style="background-color: #EE615F; color: black;">
-  </c:if>
-    Alert !
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">Nouveau compte</h5>
-    <p class="card-text">${reponseCreation }</p>
-    <a href="Accueil.ma" class="btn btn-primary">Accueil</a>
-  </div>
-  
-</div>
-</center>
+
+
+		<center>
+			<div class="card text-center" style="width: 70%;">
+				<c:if test="${resultBool == true }">
+					<div class="card-header"
+						style="background-color: #4BB543; color: black;">
+				</c:if>
+				<c:if test="${resultBool == false }">
+					<div class="card-header"
+						style="background-color: #EE615F; color: black;">
+				</c:if>
+				Alert !
+			</div>
+			<div class="card-body">
+				<h5 class="card-title">Nouveau compte</h5>
+				<p class="card-text">${reponseCreation }</p>
+				<a href="Accueil.ma" class="btn btn-primary">Accueil</a>
+			</div>
+	</div>
+	</center>
 	</div>
 	</section>
 
@@ -142,11 +144,10 @@
 
 	<!-- loader -->
 	<div id="ftco-loader" class="show fullscreen">
-		<svg class="circular" width="48px" height="48px">
-		<circle class="path-bg" cx="24" cy="24" r="22" fill="none"
-			stroke-width="4" stroke="#eeeeee" />
-		<circle class="path" cx="24" cy="24" r="22" fill="none"
-			stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
+		<svg class="circular" width="48px" height="48px"> <circle
+			class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4"
+			stroke="#eeeeee" /> <circle class="path" cx="24" cy="24" r="22"
+			fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
 	</div>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

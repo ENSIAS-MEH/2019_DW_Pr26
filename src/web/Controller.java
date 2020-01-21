@@ -11,7 +11,7 @@ import web.action.ClientAction;
 import web.action.VendeurAction;
 
 @WebServlet(name = "Controller", urlPatterns = { "/Accueil.ma", "/Controller.ma", "/DevenezHote.ma",
-		"/InscriptionVendeur.ma","/ConnexionVendeur.ma","/FormConnexionVendeur.ma","/InscriptionClient.ma" })
+		"/InscriptionVendeur.ma","/ConnexionVendeur.ma","/FormConnexionVendeur.ma","/InscriptionClient.ma","/contact.ma" })
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private VendeurAction vendeurAction;
@@ -39,8 +39,10 @@ public class Controller extends HttpServlet {
 			views = "DevenezHote";
 		}else if (action.equals("FormConnexionVendeur")) {
 			views = "ConnectionVendeur";
-		} else if(action.equals("InscriptionClient")){
+		}else if(action.equals("InscriptionClient")){
 			views = "DevenezClient"; 
+		}else if (action.equals("contact")){
+			views = "Contact"; 
 		}else
 			views = "/404";
 
