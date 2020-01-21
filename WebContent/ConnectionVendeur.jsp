@@ -41,7 +41,7 @@
 	          <li class="nav-item"><a href="about.html" class="nav-link">À propos</a></li>
 	          <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
 	          <li class="nav-item"><a href="DevenezHote.ma" class="nav-link">Devenez hôte</a></li>
-	          <li class="nav-item"><a href="blog.html" class="nav-link">Inscription</a></li>
+	          <li class="nav-item"><a href="InscriptionClient.ma" class="nav-link">Inscription</a></li>
 	          <li class="nav-item"><a href="ConnexionVendeur.ma" class="nav-link">Connexion</a></li>
 	          <li class="nav-item"><a href="contact.ma" class="nav-link">Contact</a></li>
 	        </ul>

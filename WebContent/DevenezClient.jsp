@@ -74,7 +74,7 @@
 		<div class="row block-9 justify-content-center mb-5"
 			style="background-color: #D8EBF7;">
 			<div class="col-md-8 mb-md-5">
-				<form method="post" action="InscriptionVendeur.ma">
+				<form method="post" action="InscriptionClient.ma">
 					<div class="form-row">
 						<div class="form-group col-md-6">
 							<label for="inputEmail4">Prénom <span style="color: red;">*</span></label>
@@ -132,12 +132,6 @@
 								class="form-control" id="password_confirm"
 								placeholder="********" required="" name="password_confirm">
 						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="inputAddress">adresse</label> <input type="text"
-							class="form-control" id="inputAddress" placeholder="1234 Main St"
-							name="adresse">
 					</div>
 					<div class="form-row">
 						<div class="form-group col-md-6">
