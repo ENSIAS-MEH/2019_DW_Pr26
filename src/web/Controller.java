@@ -13,7 +13,7 @@ import web.action.VendeurAction;
 
 @WebServlet(name = "Controller", urlPatterns = { "/Accueil.ma", "/Controller.ma", "/DevenezHote.ma",
 		"/InscriptionVendeur.ma", "/ConnexionVendeur.ma", "/FormConnexionVendeur.ma", "/InscriptionClient.ma",
-		"/contact.ma", "/Deconnexion.ma", "/FormConnexionClient.ma", "/ConnexionClient.ma" ,"/ProfilVendeur.ma","/AcceuilVendeur.ma"})
+		"/contact.ma", "/Deconnexion.ma", "/FormConnexionClient.ma", "/ConnexionClient.ma" ,"/ProfilVendeur.ma","/AcceuilVendeur.ma","/FormAjouterOffre.ma"})
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private VendeurAction vendeurAction;
@@ -71,7 +71,17 @@ public class Controller extends HttpServlet {
 			session.invalidate();
 			session = null;
 			views = "Accueil";
-		}else
+		}
+		
+		//traitement offre
+		else if (action.equals("FormAjouterOffre")) {
+			 if(session.getAttribute("account_type").equals("vendeur")){
+			    	request.setAttribute("type", "ajoutOffre");
+			    	views = "AcceuilAfterConnexion";
+			    }
+		}
+		
+		else
 			views = "/404";
 
 		request.getRequestDispatcher(views + ".jsp").forward(request, response);
