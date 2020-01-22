@@ -125,7 +125,8 @@
 					Si vous avez des questions <br>N'hésitez pas à nous envoyer un
 					message
 				</h2>
-				<form action="saveContact.ma" method="post" class="bg-light p-5 contact-form">
+				<form action="saveContact.ma" method="post"
+					class="bg-light p-5 contact-form">
 					<div class="form-group">
 						<input type="text" class="form-control" placeholder="Votre Nom"
 							name="nom">
@@ -199,19 +200,15 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
 	</footer>
 
-
-
 	<!-- loader -->
 	<div id="ftco-loader" class="show fullscreen">
-		<svg class="circular" width="48px" height="48px">
-		<circle class="path-bg" cx="24" cy="24" r="22" fill="none"
-			stroke-width="4" stroke="#eeeeee" />
-		<circle class="path" cx="24" cy="24" r="22" fill="none"
-			stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
+		<svg class="circular" width="48px" height="48px"> <circle
+			class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4"
+			stroke="#eeeeee" /> <circle class="path" cx="24" cy="24" r="22"
+			fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
 	</div>
 
 

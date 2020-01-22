@@ -9,14 +9,16 @@ public interface LocationRepositoryInter {
 
 	// Vendeur
 	public void inscriptionVendeur(Vendeur vendeur);
-	public ArrayList<Vendeur> getListVendeur(); 
+
+	public ArrayList<Vendeur> getListVendeur();
+
 	public Vendeur getVendeurbyEmail(String email);
-	
-	
-	
-	//Client 
+
+	// Client
 	public void inscriptionClient(Client client);
+
 	public ArrayList<Client> getListClient();
+
 	public Client getClientByEmail(String email);
-	
+
 }

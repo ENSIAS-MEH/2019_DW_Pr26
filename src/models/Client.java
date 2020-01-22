@@ -47,7 +47,7 @@ public class Client {
 		this.ville = ville;
 		this.num_telephone = num_telephone;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Client [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", date_naissane=" + date_naissane

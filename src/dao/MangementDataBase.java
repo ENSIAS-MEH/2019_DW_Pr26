@@ -16,12 +16,14 @@ public class MangementDataBase {
 		}
 		return null;
 	}
-	
+
 	public static void main(String[] args) {
 		MangementDataBase m = new MangementDataBase();
-		Connection c=m.connexionDataBase();
-		if(c==null)System.out.println("erreur connection");
-		else System.out.println("connection");
-		
+		Connection c = m.connexionDataBase();
+		if (c == null)
+			System.out.println("erreur connection");
+		else
+			System.out.println("connection");
+
 	}
 }

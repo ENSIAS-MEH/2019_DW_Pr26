@@ -12,7 +12,6 @@
 		href='https://fonts.googleapis.com/css?family=Anton|Passion+One|PT+Sans+Caption'
 		rel='stylesheet' type='text/css'>
 <body>
-
 	<!-- Error Page -->
 	<div class="error">
 		<div class="container-floud">
@@ -45,6 +44,5 @@
 </body>
 <!-- partial -->
 <script src="js/404_script.js"></script>
-
 </body>
 </html>

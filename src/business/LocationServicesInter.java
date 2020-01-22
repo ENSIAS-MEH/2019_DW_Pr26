@@ -13,6 +13,7 @@ public interface LocationServicesInter {
 	
 	//Client 
 	public boolean inscriptionClient(Client client);
-	public Client getClientByEmail(String email); 
+
+	public Client getClientByEmail(String email);
 	
 }

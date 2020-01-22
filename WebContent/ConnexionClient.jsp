@@ -29,9 +29,10 @@ body {
 </svg>
 		</i>
 		<div class="photo"></div>
-		<span>Connectez-vous sur votre compte</span>
-		<br> 
-		<center><p style="color:red ; ">${messageError }</p></center>
+		<span>Connectez-vous sur votre compte</span> <br>
+		<center>
+			<p style="color: red;">${messageError }</p>
+		</center>
 		<form method="post" action="ConnexionClient.ma" id="login-form">
 			<div id="u" class="form-group">
 				<input id="username" spellcheck=false class="form-control"
@@ -60,7 +61,7 @@ body {
 			<div class="form-group">
 				<input type="checkbox" id="rem"> <label for="rem">Restez
 					connecté</label>
-				<button type="submit" >Se connecter</button>
+				<button type="submit">Se connecter</button>
 			</div>
 		</form>
 		<footer>

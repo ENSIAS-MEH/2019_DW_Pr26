@@ -42,14 +42,14 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 			e.printStackTrace();
 		}
 	}
-	
-	public Vendeur getVendeurbyEmail(String email){
+
+	public Vendeur getVendeurbyEmail(String email) {
 		Connection connection = mangementDataBase.connexionDataBase();
 		Vendeur vendeur = new Vendeur();
 		try {
-			PreparedStatement ps = connection.prepareStatement("select * from vendeur where email ='"+email+"'");
+			PreparedStatement ps = connection.prepareStatement("select * from vendeur where email ='" + email + "'");
 			ResultSet rs = ps.executeQuery();
-			
+
 			while (rs.next()) {
 				vendeur.setId(rs.getInt("id"));
 				vendeur.setNom(rs.getString("nom"));
@@ -105,9 +105,8 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 		}
 		return listeVendeur;
 	}
-	
-	
-	public void inscriptionClient(Client client){
+
+	public void inscriptionClient(Client client) {
 		System.out.println(client.toString());
 		Connection connection = mangementDataBase.connexionDataBase();
 		try {
@@ -130,7 +129,8 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 			e.printStackTrace();
 		}
 	}
-	public ArrayList<Client> getListClient(){
+
+	public ArrayList<Client> getListClient() {
 		ArrayList<Client> listeClient = new ArrayList<>();
 		Connection connection = mangementDataBase.connexionDataBase();
 		try {
@@ -158,13 +158,14 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 		}
 		return listeClient;
 	}
-	public Client getClientByEmail(String email){
+
+	public Client getClientByEmail(String email) {
 		Client client = null;
 		Connection connection = mangementDataBase.connexionDataBase();
 		try {
-			PreparedStatement ps = connection.prepareStatement("select * from client where email = '"+email+"'");
+			PreparedStatement ps = connection.prepareStatement("select * from client where email = '" + email + "'");
 			ResultSet rs = ps.executeQuery();
-			if(rs.next()){ 
+			if (rs.next()) {
 				client = new Client();
 				client.setId(rs.getInt("id"));
 				client.setNom(rs.getString("nom"));
