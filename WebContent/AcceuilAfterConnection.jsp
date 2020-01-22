@@ -3,12 +3,17 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
+<c:if test="${sessionScope.account_type == 'vendeur'}">
+        <c:import url="navbar/NavbarVendeur.jsp" />
+      </c:if>
 
-<c:import url="navbar/NavbarVendeur.jsp" />
 
 
       <div class="content">
+      <c:if test="${sessionScope.account_type == 'vendeur'}">
         <c:import url="profil/ProfilVendeur.jsp" />
+      </c:if>
+      
       </div>
       
     </div>

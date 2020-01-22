@@ -28,10 +28,11 @@ public class LocationServicesImpl implements LocationServicesInter {
 		return true;
 	}
 
-	public boolean connexionVendeur(String email,String password){
+	public Vendeur connexionVendeur(String email,String password){
 		Vendeur vendeur = locationepositoryImpl.getVendeurbyEmail(email)  ;
-		if(vendeur.getMot_de_passe().equals(password))return true;
-		else return false;
+		   System.out.println(vendeur.getAdresse());
+		if(vendeur.getMot_de_passe().equals(password))return vendeur;
+		else return null;
 		
 	}
 

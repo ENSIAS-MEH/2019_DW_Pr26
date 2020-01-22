@@ -46,12 +46,10 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 		Connection connection = mangementDataBase.connexionDataBase();
 		Vendeur vendeur = new Vendeur();
 		try {
-			PreparedStatement ps = connection.prepareStatement("select * from vendeur where email ="+email);
+			PreparedStatement ps = connection.prepareStatement("select * from vendeur where email ='"+email+"'");
 			ResultSet rs = ps.executeQuery();
 			
 			while (rs.next()) {
-
-				
 				vendeur.setId(rs.getInt("id"));
 				vendeur.setNom(rs.getString("nom"));
 				vendeur.setPrenom(rs.getString("prenom"));

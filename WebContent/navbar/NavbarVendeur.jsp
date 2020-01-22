@@ -124,10 +124,10 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                  <a class="dropdown-item" href="#">Profil</a>
+                  <a class="dropdown-item" href="ProfilVendeur.ma">Profil</a>
                   
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Se Déconnecter</a>
+                  <a class="dropdown-item" href="Deconnexion.ma">Se Déconnecter</a>
                 </div>
               </li>
             </ul>

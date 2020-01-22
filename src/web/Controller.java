@@ -6,15 +6,16 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import web.action.VendeurAction;
 
 @WebServlet(name = "Controller", urlPatterns = { "/Accueil.ma", "/Controller.ma", "/DevenezHote.ma",
-		"/InscriptionVendeur.ma","/ConnexionVendeur.ma","/FormConnexionVendeur.ma" })
+		"/InscriptionVendeur.ma","/ConnexionVendeur.ma","/FormConnexionVendeur.ma","/Deconnexion.ma" })
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private VendeurAction vendeurAction;
-
+	private HttpSession session;
 	public Controller() {
 		// TODO Auto-generated constructor stub
 	}
@@ -24,6 +25,7 @@ public class Controller extends HttpServlet {
 		// TODO Auto-generated method stub
 		super.init();
 		vendeurAction = new VendeurAction();
+		session = null;
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -36,6 +38,13 @@ public class Controller extends HttpServlet {
 			views = "DevenezHote";
 		}else if (action.equals("FormConnexionVendeur")) {
 			views = "ConnectionVendeur";
+		}else if (action.equals("Deconnexion")) {
+			HttpSession session = request.getSession();
+			System.out.println(session.getAttribute("account_type"));
+			session.invalidate();
+			session=null;
+			views = "Accueil";
+			
 		} else
 			views = "/404";
 
@@ -57,8 +66,7 @@ public class Controller extends HttpServlet {
 			}
 			views = "ResultatCreationVendeur"; 
 		}else if (action.equals("ConnexionVendeur")) {
-			if(vendeurAction.ConnexionVendeur(request)==true){
-			//session
+			if(vendeurAction.ConnexionVendeur(request)){
 				views = "AcceuilAfterConnection"; 
 			}else {
 				request.setAttribute("reponseConnexion", "L'adresse email ou le mot de passe est incorrecte");
