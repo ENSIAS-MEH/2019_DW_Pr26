@@ -48,4 +48,8 @@ public class LocationServicesImpl implements LocationServicesInter {
 		else
 			return null;
 	}
+	
+	public Client getClientByEmail(String email){
+		return locationepositoryImpl.getClientByEmail(email); 
+	}
 }

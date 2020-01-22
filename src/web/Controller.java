@@ -13,7 +13,7 @@ import web.action.VendeurAction;
 
 @WebServlet(name = "Controller", urlPatterns = { "/Accueil.ma", "/Controller.ma", "/DevenezHote.ma",
 		"/InscriptionVendeur.ma", "/ConnexionVendeur.ma", "/FormConnexionVendeur.ma", "/InscriptionClient.ma",
-		"/contact.ma", "/Deconnexion.ma","/FormConnexionClient.ma"})
+		"/contact.ma", "/Deconnexion.ma","/FormConnexionClient.ma","/ConnexionClient.ma"})
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private VendeurAction vendeurAction;
@@ -66,6 +66,7 @@ public class Controller extends HttpServlet {
 		// TODO Auto-generated method stub
 		String views = "Accueil";
 		String action = getActionKey(request);
+		session = request.getSession(); 
 		if (action.equals("InscriptionVendeur")) {
 			if (vendeurAction.inscriptionVendeur(request) == true) {
 				request.setAttribute("reponseCreation", "Votre compte a bien été créer");
@@ -91,7 +92,15 @@ public class Controller extends HttpServlet {
 				request.setAttribute("resultBool", false);
 			}
 			views = "ResultatCreationClient";
-		} else
+		} else if(action.equals("ConnexionClient")){
+			if(clientAction.connexionClient(request, session) ){
+				views = "AccueilClient"; 
+			}
+			else{
+				request.setAttribute("messageError", "Mot de passe ou username est Incorrect");
+				views = "ConnexionClient"; 
+			}
+		}else
 			views = "/404";
 
 		request.getRequestDispatcher(views + ".jsp").forward(request, response);
