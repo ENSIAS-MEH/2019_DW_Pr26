@@ -7,7 +7,9 @@
         <c:import url="navbar/NavbarVendeur.jsp" />
       </c:if>
 
-
+<c:if test="${sessionScope.account_type == 'client'}">
+        <c:import url="navbar/NavbarClient.jsp" />
+      </c:if>
 
       <div class="content">
       <c:if test="${sessionScope.account_type == 'vendeur'}">
@@ -16,8 +18,6 @@
       </c:if>
       </c:if>
       </div>
-    </div>
-  </div>
   
   <!--   Core JS Files   -->
   <script src="js/core/jquery.min.js"></script>
