@@ -13,6 +13,9 @@ public interface LocationRepositoryInter {
 	public ArrayList<Vendeur> getListVendeur();
 
 	public Vendeur getVendeurbyEmail(String email);
+	
+	public Vendeur getVendeurbyId(int id);
+
 
 	// Client
 	public void inscriptionClient(Client client);
@@ -21,4 +24,5 @@ public interface LocationRepositoryInter {
 
 	public Client getClientByEmail(String email);
 
+	
 }

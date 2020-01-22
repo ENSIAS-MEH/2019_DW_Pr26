@@ -13,7 +13,7 @@ import web.action.VendeurAction;
 
 @WebServlet(name = "Controller", urlPatterns = { "/Accueil.ma", "/Controller.ma", "/DevenezHote.ma",
 		"/InscriptionVendeur.ma", "/ConnexionVendeur.ma", "/FormConnexionVendeur.ma", "/InscriptionClient.ma",
-		"/contact.ma", "/Deconnexion.ma", "/FormConnexionClient.ma", "/ConnexionClient.ma" })
+		"/contact.ma", "/Deconnexion.ma", "/FormConnexionClient.ma", "/ConnexionClient.ma" ,"/ProfilVendeur.ma","/AcceuilVendeur.ma"})
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private VendeurAction vendeurAction;
@@ -37,25 +37,43 @@ public class Controller extends HttpServlet {
 			throws ServletException, IOException {
 		String views = "Accueil";
 		String action = getActionKey(request);
+		session = request.getSession();
 		if (action.equals("Accueil"))
 			views = "Accueil";
+		//vendeur
 		else if (action.equals("DevenezHote")) {
 			views = "DevenezHote";
 		} else if (action.equals("FormConnexionVendeur")) {
-			views = "ConnectionVendeur";
-		} else if (action.equals("InscriptionClient")) {
+			views = "ConnexionVendeur";
+		}else if (action.equals("ProfilVendeur")) {
+		    if(session.getAttribute("account_type").equals("vendeur")){
+		    	request.setAttribute("vendeur", vendeurAction.getVendeurById((int)session.getAttribute("id")));
+		    	request.setAttribute("type", "profil");
+		    	views = "AcceuilAfterConnexion";
+		    }
+			
+		}else if (action.equals("AcceuilVendeur")) {
+		    if(session.getAttribute("account_type").equals("vendeur")){
+		    	request.setAttribute("type", "acceuil");
+		    	views = "AcceuilAfterConnexion";
+		    }
+			
+		}
+		//client
+		else if (action.equals("InscriptionClient")) {
 			views = "DevenezClient";
 		} else if (action.equals("contact")) {
 			views = "Contact";
+		} 
+		else if (action.equals("FormConnexionClient")) {
+			views = "ConnexionClient";
 		} else if (action.equals("Deconnexion")) {
 			HttpSession session = request.getSession();
 			System.out.println(session.getAttribute("account_type"));
 			session.invalidate();
 			session = null;
 			views = "Accueil";
-		} else if (action.equals("FormConnexionClient")) {
-			views = "ConnexionClient";
-		} else
+		}else
 			views = "/404";
 
 		request.getRequestDispatcher(views + ".jsp").forward(request, response);
@@ -77,10 +95,10 @@ public class Controller extends HttpServlet {
 			}
 			views = "ResultatCreationVendeur";
 		} else if (action.equals("ConnexionVendeur")) {
-			if (vendeurAction.ConnexionVendeur(request)) {
-				views = "AcceuilAfterConnection";
+			if (vendeurAction.ConnexionVendeur(request,session)) {
+				views = "AcceuilAfterConnexion";
 			} else {
-				request.setAttribute("reponseConnexion", "L'adresse email ou le mot de passe est incorrecte");
+				request.setAttribute("messageError", "Mot de passe ou Email est Incorrect");
 				views = "ConnexionVendeur";
 			}
 		} else if (action.equals("InscriptionClient")) {
@@ -96,7 +114,7 @@ public class Controller extends HttpServlet {
 			if (clientAction.connexionClient(request, session)) {
 				views = "AccueilClient";
 			} else {
-				request.setAttribute("messageError", "Mot de passe ou username est Incorrect");
+				request.setAttribute("messageError", "Mot de passe ou Username est Incorrect");
 				views = "ConnexionClient";
 			}
 		} else

@@ -11,11 +11,11 @@
 
       <div class="content">
       <c:if test="${sessionScope.account_type == 'vendeur'}">
+      <c:if test="${type == 'profil'}">
         <c:import url="profil/ProfilVendeur.jsp" />
       </c:if>
-      
+      </c:if>
       </div>
-      
     </div>
   </div>
   

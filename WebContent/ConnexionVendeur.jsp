@@ -79,6 +79,10 @@
 				<div class="col-lg-8 col-md-8 ftco-animate d-flex align-items-end">
 					<div class="text ">
 						<h1 class="mb-4 text-center ">Connectez-Vous</h1>
+							<center>
+			<p style="color: red;">${messageError }</p>
+		</center>
+						
 						<form method="post" action="ConnexionVendeur.ma"
 							class="search-location mt-md-5">
 

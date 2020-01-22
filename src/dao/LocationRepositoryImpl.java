@@ -44,13 +44,14 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 	}
 
 	public Vendeur getVendeurbyEmail(String email) {
+		Vendeur vendeur = null;
 		Connection connection = mangementDataBase.connexionDataBase();
-		Vendeur vendeur = new Vendeur();
 		try {
 			PreparedStatement ps = connection.prepareStatement("select * from vendeur where email ='" + email + "'");
 			ResultSet rs = ps.executeQuery();
 
-			while (rs.next()) {
+			if (rs.next()) {
+				vendeur = new Vendeur();
 				vendeur.setId(rs.getInt("id"));
 				vendeur.setNom(rs.getString("nom"));
 				vendeur.setPrenom(rs.getString("prenom"));
@@ -185,5 +186,39 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 			e.printStackTrace();
 		}
 		return client;
+	}
+
+	@Override
+	public Vendeur getVendeurbyId(int id) {
+		Vendeur vendeur = null;
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			PreparedStatement ps = connection.prepareStatement("select * from vendeur where id =" + id );
+			ResultSet rs = ps.executeQuery();
+
+			if (rs.next()) {
+				vendeur = new Vendeur();
+				vendeur.setId(rs.getInt("id"));
+				vendeur.setNom(rs.getString("nom"));
+				vendeur.setPrenom(rs.getString("prenom"));
+				vendeur.setDate_naissane(rs.getString("date_naissance"));
+				vendeur.setNum_cin(rs.getString("cin"));
+				vendeur.setSexe(rs.getString("sexe"));
+				vendeur.setEmail(rs.getString("email"));
+				vendeur.setMot_de_passe(rs.getString("mot_de_passe"));
+				vendeur.setAdresse(rs.getString("adresse"));
+				vendeur.setPays(rs.getString("pays"));
+				vendeur.setVille(rs.getString("ville"));
+				vendeur.setNum_telephone(rs.getString("num_telephone"));
+
+			}
+
+			ps.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return vendeur;
 	}
 }

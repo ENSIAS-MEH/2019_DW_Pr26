@@ -3,5 +3,6 @@
 <workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1579451410360_0" label="b" name="b">
 <item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/RemoteSystemsTempFiles" type="4"/>
 </workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1579694065359_1" label="Window Working Set" name="Aggregate for window 1579694065359"/>
 <mruList name="b"/>
 </workingSetManager>

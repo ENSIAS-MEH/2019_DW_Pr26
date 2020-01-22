@@ -40,16 +40,16 @@ public class LocationServicesImpl implements LocationServicesInter {
 		return true;
 	}
 
-	public Vendeur connexionVendeur(String email, String password) {
-		Vendeur vendeur = locationepositoryImpl.getVendeurbyEmail(email);
-		System.out.println(vendeur.getAdresse());
-		if (vendeur.getMot_de_passe().equals(password))
-			return vendeur;
-		else
-			return null;
+	public Vendeur getVendeurByEmail(String email) {
+		return  locationepositoryImpl.getVendeurbyEmail(email);	
 	}
 
 	public Client getClientByEmail(String email) {
 		return locationepositoryImpl.getClientByEmail(email);
+	}
+
+	@Override
+	public Vendeur getVendeurById(int id) {
+		return locationepositoryImpl.getVendeurbyId(id);
 	}
 }

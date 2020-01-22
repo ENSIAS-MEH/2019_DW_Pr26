@@ -8,12 +8,14 @@ public interface LocationServicesInter {
 	// Vendeur
 	public boolean inscriptionVendeur(Vendeur vendeur);
 
-	public Vendeur connexionVendeur(String email,String password);
+	public Vendeur getVendeurByEmail(String email);
 
 	
 	//Client 
 	public boolean inscriptionClient(Client client);
 
 	public Client getClientByEmail(String email);
+
+	public Vendeur getVendeurById(int id);
 	
 }

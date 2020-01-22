@@ -36,17 +36,12 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item active  ">
-            <a class="nav-link" href="./dashboard.html">
+            <a class="nav-link" href="AcceuilVendeur.ma">
               <i class="material-icons">dashboard</i>
               <p>Acceuil</p>
             </a>
           </li>
-          <li class="nav-item  ">
-            <a class="nav-link" href="./user.html">
-              <i class="material-icons">person</i>
-              <p>Profil</p>
-            </a>
-          </li>
+         
           <li class="nav-item ">
             <a class="nav-link" href="./tables.html">
               <i class="material-icons">content_paste</i>
@@ -73,7 +68,9 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Acceuil</a>
+    
+     
+           
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
