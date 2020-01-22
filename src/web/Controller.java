@@ -68,8 +68,6 @@ public class Controller extends HttpServlet {
 		else if (action.equals("FormConnexionClient")) {
 			views = "ConnexionClient";
 		} else if (action.equals("Deconnexion")) {
-			HttpSession session = request.getSession();
-			System.out.println(session.getAttribute("account_type"));
 			session.invalidate();
 			session = null;
 			views = "Accueil";
@@ -112,7 +110,7 @@ public class Controller extends HttpServlet {
 			views = "ResultatCreationClient";
 		} else if (action.equals("ConnexionClient")) {
 			if (clientAction.connexionClient(request, session)) {
-				views = "AccueilClient";
+				views = "AcceuilAfterConnexion";
 			} else {
 				request.setAttribute("messageError", "Mot de passe ou Username est Incorrect");
 				views = "ConnexionClient";

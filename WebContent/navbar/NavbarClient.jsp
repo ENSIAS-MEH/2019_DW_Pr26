@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -16,60 +17,79 @@
   <link href="css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="demo/demo.css" rel="stylesheet" />
-  
    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
 </head>
 
 <body class="">
   <div class="wrapper ">
     <div class="sidebar" data-color="purple" data-background-color="white" data-image="img/sidebar-1.jpg">
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-
-        Tip 2: you can also add an image using data-image tag
-    -->
       <div class="logo text-center">
-        <a class="navbar-brand" href="Accueil.ma"><i class="fas fa-hotel"></i> Hire && sale <i class="fas fa-building"></i> </a>
+        <a class="navbar-brand" href="AccueilClient.ma"><i class="fas fa-hotel"></i> Hire && sale <i class="fas fa-building"></i> </a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item active  ">
+          <li class="nav-item active">
             <a class="nav-link" href="AcceuilVendeur.ma">
-              <i class="material-icons">dashboard</i>
+              <i class="material-icons">home</i>
               <p>Acceuil</p>
             </a>
           </li>
-         
+          <li class="nav-item">
+            <a class="nav-link" href="AcceuilVendeur.ma">
+              <i class="material-icons">dashboard</i>
+              <p>Dashboard</p>
+            </a>
+          </li>
           <li class="nav-item ">
             <a class="nav-link" href="./tables.html">
-              <i class="material-icons">content_paste</i>
-              <p>Ajouter une offre</p>
+              <i class="material-icons">local_offer</i>
+              <p>Toutes les offres</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="./tables.html">
+              <i class="material-icons">location_city</i>
+              <p>Offres Par Ville</p>
             </a>
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="./typography.html">
-              <i class="material-icons">library_books</i>
-              <p>Liste des offres</p>
+              <i class="material-icons">format_indent_increase</i>
+              <p>Mes demandes de réservations </p>
             </a>
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="./icons.html">
-              <i class="material-icons">bubble_chart</i>
-              <p>Liste des demandes</p>
+              <i class="material-icons">format_indent_decrease</i>
+              <p>Mes réservations</p>
+            </a>
+          </li>
+             <li class="nav-item ">
+            <a class="nav-link" href="./icons.html">
+              <i class="material-icons">search</i>
+              <p>Chercher une offre </p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="./icons.html">
+              <i class="material-icons">near_me</i>
+              <p>Planifier un voyage </p>
+            </a>
+          </li>
+           <li class="nav-item ">
+            <a class="nav-link" href="./icons.html">
+              <i class="material-icons">textsms</i>
+              <p>Messages</p>
             </a>
           </li>
         </ul>
       </div>
     </div>
+    
     <div class="main-panel">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
-          <div class="navbar-wrapper">
-    
-     
-           
-          </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
             <span class="navbar-toggler-icon icon-bar"></span>
@@ -119,9 +139,9 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                  <a class="dropdown-item" href="ProfilVendeur.ma">Profil</a>
-                  
-                  <div class="dropdown-divider"></div>
+                   <a class="dropdown-item" href="#" style="background-color: gray;">${sessionScope.nom } ${sessionScope.prenom }</a>
+                   <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="ProfilClient.ma">Profil</a>
                   <a class="dropdown-item" href="Deconnexion.ma">Se Déconnecter</a>
                 </div>
               </li>
