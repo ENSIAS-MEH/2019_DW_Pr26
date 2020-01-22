@@ -28,15 +28,6 @@ public class LocationServicesImpl implements LocationServicesInter {
 		return true;
 	}
 
-	public boolean connexionVendeur(String email, String password) {
-		Vendeur vendeur = locationepositoryImpl.getVendeurbyEmail(email);
-		if (vendeur.getMot_de_passe().equals(password))
-			return true;
-		else
-			return false;
-
-	}
-
 	public boolean inscriptionClient(Client client) {
 		ArrayList<Client> listeClient = new ArrayList<>();
 		listeClient = locationepositoryImpl.getListClient();
@@ -49,4 +40,12 @@ public class LocationServicesImpl implements LocationServicesInter {
 		return true;
 	}
 
+	public Vendeur connexionVendeur(String email, String password) {
+		Vendeur vendeur = locationepositoryImpl.getVendeurbyEmail(email);
+		System.out.println(vendeur.getAdresse());
+		if (vendeur.getMot_de_passe().equals(password))
+			return vendeur;
+		else
+			return null;
+	}
 }

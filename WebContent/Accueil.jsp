@@ -55,6 +55,7 @@
         <div class="row no-gutters slider-text justify-content-center align-items-center">
           <div class="col-lg-8 col-md-6 ftco-animate d-flex align-items-end">
           	<div class="text text-center">
+          	
 	            <h1 class="mb-4">Large choix, Meilleur prix </h1>
 	            <p style="font-size: 18px;">Réservez maintenant et Trouvez votre hébergement idéal parmi notre large sélection. </p>
 	            <form action="#" class="search-location mt-md-5">
@@ -100,10 +101,7 @@
 				              </div>
 			              </div>
 		        			</div>
-		        		</div>
-              
-              
-           
+		        		</div>          
 		        	</form>
             </div>
           </div>

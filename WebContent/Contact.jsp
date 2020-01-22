@@ -125,7 +125,7 @@
 					Si vous avez des questions <br>N'hésitez pas à nous envoyer un
 					message
 				</h2>
-				<form action="#" class="bg-light p-5 contact-form">
+				<form action="saveContact.ma" method="post" class="bg-light p-5 contact-form">
 					<div class="form-group">
 						<input type="text" class="form-control" placeholder="Votre Nom"
 							name="nom">
