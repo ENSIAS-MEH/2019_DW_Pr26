@@ -62,7 +62,7 @@
       <div class="content">
       <div class="card" style="width: 60%; margin:0 auto; ">
   <div class="card-body">
-    <center class="font-weight-bold"> <strong>Bienvenu ${sessionScope.nom } ${sessionScope.prenom }.</strong></center>
+    <center class="font-weight-bold"> <strong>Bienvenue ${sessionScope.nom } ${sessionScope.prenom }.</strong></center>
   </div>
 </div>
        <section class="ftco-section goto-here">

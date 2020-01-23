@@ -10,15 +10,17 @@ import javax.servlet.http.HttpSession;
 
 import web.action.ClientAction;
 import web.action.VendeurAction;
+import web.action.AdminAction;
 
-@WebServlet(name = "Controller", urlPatterns = { "/Accueil.ma", "/Controller.ma", "/DevenezHote.ma",
-		"/InscriptionVendeur.ma", "/ConnexionVendeur.ma", "/FormConnexionVendeur.ma", "/InscriptionClient.ma",
+@WebServlet(name = "Controller", urlPatterns = { "/Accueil.ma", "/Controller.ma", "/DevenezHote.ma","/AccueilAdmin.ma",
+		"/InscriptionVendeur.ma", "/ConnexionVendeur.ma", "/FormConnexionVendeur.ma", "/InscriptionClient.ma","/ConnexionAdmin.ma",
 		"/contact.ma", "/Deconnexion.ma", "/FormConnexionClient.ma", "/ConnexionClient.ma" ,"/ProfilVendeur.ma","/AcceuilVendeur.ma","/FormAjouterOffre.ma","/AjouterOffre.ma"})
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private VendeurAction vendeurAction;
 	private HttpSession session;
 	private ClientAction clientAction;
+	private AdminAction adminAction;
 
 	public Controller() {
 		// TODO Auto-generated constructor stub
@@ -31,6 +33,7 @@ public class Controller extends HttpServlet {
 		vendeurAction = new VendeurAction();
 		clientAction = new ClientAction();
 		session = null;
+		adminAction = new AdminAction();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -73,7 +76,10 @@ public class Controller extends HttpServlet {
 			session = null;
 			views = "Accueil";
 		}
-		
+		//Administrateur
+		else if (action.equals("ConnexionAdmin")) {
+			views = "ConnexionAdmin";
+		}
 		//traitement offre
 		else if (action.equals("FormAjouterOffre")) {
 			 if(session.getAttribute("account_type").equals("vendeur")){
@@ -137,6 +143,16 @@ public class Controller extends HttpServlet {
 			request.setAttribute("type", "acceuil");
 	    	views = "AcceuilAfterConnexion";
 		}
+		
+		//Administrateur
+				else if (action.equals("ConnexionAdmin")) {
+					if (adminAction.ConnexionAdmin(request,session)) {
+						views = "AcceuilAdmin";
+					} else {
+						request.setAttribute("messageError", "Mot de passe ou Email Incorrect");
+						views = "ConnexionAdmin";
+					}
+				}
 		else
 			views = "/404";
 

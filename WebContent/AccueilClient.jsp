@@ -5,7 +5,7 @@
 <html lang="en">
 
  <body>
- <p> Vous etes connecter </p>
+ <p> Vous êtes connecté </p>
 
 </body>
 
