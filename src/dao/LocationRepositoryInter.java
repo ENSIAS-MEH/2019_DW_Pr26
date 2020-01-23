@@ -25,7 +25,10 @@ public interface LocationRepositoryInter {
 
 	public Client getClientByEmail(String email);
 
+	//offre
 	public void AjouterOffre(Offre offre);
+  
+	public ArrayList<Offre> getOffresByIdVendeur(int id);
 
 	
 }

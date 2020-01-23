@@ -56,8 +56,12 @@ public class LocationServicesImpl implements LocationServicesInter {
 
 	@Override
 	public boolean AjouterOffre(Offre offre) {
-		
 		locationepositoryImpl.AjouterOffre(offre);
 		return true;
+	}
+
+	@Override
+	public ArrayList<Offre> getOffresByIdVendeur(int id) {
+		return locationepositoryImpl.getOffresByIdVendeur(id);
 	}
 }

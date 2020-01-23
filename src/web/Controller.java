@@ -9,16 +9,18 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import web.action.ClientAction;
+import web.action.OffreAction;
 import web.action.VendeurAction;
 
 @WebServlet(name = "Controller", urlPatterns = { "/Accueil.ma", "/Controller.ma", "/DevenezHote.ma",
 		"/InscriptionVendeur.ma", "/ConnexionVendeur.ma", "/FormConnexionVendeur.ma", "/InscriptionClient.ma",
-		"/contact.ma", "/Deconnexion.ma", "/FormConnexionClient.ma", "/ConnexionClient.ma" ,"/ProfilVendeur.ma","/AcceuilVendeur.ma","/FormAjouterOffre.ma","/AjouterOffre.ma"})
+		"/contact.ma", "/Deconnexion.ma", "/FormConnexionClient.ma", "/ConnexionClient.ma" ,"/ProfilVendeur.ma","/AcceuilVendeur.ma","/FormAjouterOffre.ma","/AjouterOffre.ma","/ListOffre.ma"})
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private VendeurAction vendeurAction;
 	private HttpSession session;
 	private ClientAction clientAction;
+	private OffreAction offreAction;
 
 	public Controller() {
 		// TODO Auto-generated constructor stub
@@ -30,6 +32,7 @@ public class Controller extends HttpServlet {
 		super.init();
 		vendeurAction = new VendeurAction();
 		clientAction = new ClientAction();
+		offreAction = new OffreAction();
 		session = null;
 	}
 
@@ -80,7 +83,23 @@ public class Controller extends HttpServlet {
 			    	request.setAttribute("type", "ajoutOffre");
 			    	views = "AcceuilAfterConnexion";
 			    }
+		}else if (action.equals("ListOffre")) {
+			 if(session.getAttribute("account_type").equals("vendeur")){
+			    	request.setAttribute("type", "listOffre");
+			    	int id_hote = (int) session.getAttribute("id");
+			    	request.setAttribute("offres", offreAction.ListOffre(id_hote));
+			    	
+			    	views = "AcceuilAfterConnexion";
+			    	
+			    }
+			 else views =  "/404";
+		}else if (action.equals("DetailOffre")) {
+			    	request.setAttribute("type", "detailOffre");
+			    	int id = (int) request.getAttribute("id");
+			    	request.setAttribute("offres", offreAction.DetailOffre(id));
+			    	views = "AcceuilAfterConnexion";	 
 		}
+
 		
 		else
 			views = "/404";

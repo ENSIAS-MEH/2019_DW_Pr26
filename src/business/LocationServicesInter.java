@@ -1,5 +1,7 @@
 package business;
 
+import java.util.ArrayList;
+
 import models.Client;
 import models.Offre;
 import models.Vendeur;
@@ -19,7 +21,11 @@ public interface LocationServicesInter {
 
 	public Vendeur getVendeurById(int id);
 
+	
+	
+	//offre
 	public boolean AjouterOffre(Offre offre);
+	public ArrayList<Offre> getOffresByIdVendeur(int id);
 
 	
 }

@@ -18,6 +18,7 @@ public class Offre {
 	private int salle_bain;
 	private int nb_chambre;
 	private String description;
+	private String etat;
 	private InputStream photo;
 	private String base64Image;
 
@@ -42,6 +43,10 @@ public class Offre {
 		this.description = description;
 		this.photo = photo;
 
+	}
+
+	public Offre() {
+		super();
 	}
 
 	public int getId() {
@@ -172,6 +177,14 @@ public class Offre {
 		this.categorie = categorie;
 	}
 
+	public String getEtat() {
+		return etat;
+	}
+
+	public void setEtat(String etat) {
+		this.etat = etat;
+	}
+
 	public String getBase64Image() {
 		return base64Image;
 	}
@@ -179,5 +192,15 @@ public class Offre {
 	public void setBase64Image(String base64Image) {
 		this.base64Image = base64Image;
 	}
+
+	@Override
+	public String toString() {
+		return "Offre [id=" + id + ", id_hote=" + id_hote + ", date_offre=" + date_offre + ", categorie=" + categorie
+				+ ", nombre_personne=" + nombre_personne + ", adresse=" + adresse + ", pays=" + pays + ", ville="
+				+ ville + ", date_debut=" + date_debut + ", date_fin=" + date_fin + ", prix=" + prix + ", devise="
+				+ devise + ", salle_bain=" + salle_bain + ", nb_chambre=" + nb_chambre + ", description=" + description
+				+ ", etat=" + etat + "]";
+	}
+
 
 }
