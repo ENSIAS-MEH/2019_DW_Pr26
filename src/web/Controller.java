@@ -120,7 +120,7 @@ public class Controller extends HttpServlet {
 			views = "ResultatCreationClient";
 		} else if (action.equals("ConnexionClient")) {
 			if (clientAction.connexionClient(request, session)) {
-				views = "AcceuilAfterConnexion";
+				views = "AcceuilClientAfterConnexion";
 			} else {
 				request.setAttribute("messageError", "Mot de passe ou Username est Incorrect");
 				views = "ConnexionClient";
