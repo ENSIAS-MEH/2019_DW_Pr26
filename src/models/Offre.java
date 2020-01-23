@@ -44,6 +44,29 @@ public class Offre {
 		this.photo = photo;
 
 	}
+	public Offre(int id,int id_hote,  String categorie, int nombre_personne, String adresse, String pays,
+			String ville, String date_debut, String date_fin, float prix, String devise, int salle_bain, int nb_chambre,
+			String description, InputStream photo) {
+		super();
+
+		this.id_hote = id_hote;
+		this.id=id;
+		this.categorie = categorie;
+		this.nombre_personne = nombre_personne;
+		this.adresse = adresse;
+		this.pays = pays;
+		this.ville = ville;
+		this.date_debut = date_debut;
+		this.date_fin = date_fin;
+		this.prix = prix;
+		this.devise = devise;
+		this.salle_bain = salle_bain;
+		this.nb_chambre = nb_chambre;
+		this.description = description;
+		this.photo = photo;
+
+	}
+
 
 	public Offre() {
 		super();

@@ -64,4 +64,21 @@ public class LocationServicesImpl implements LocationServicesInter {
 	public ArrayList<Offre> getOffresByIdVendeur(int id) {
 		return locationepositoryImpl.getOffresByIdVendeur(id);
 	}
+
+	@Override
+	public void SupprimerOffre(int id) {
+		locationepositoryImpl.SupprimerOffre(id);
+		
+	}
+
+	@Override
+	public Offre getOffresById(int id) {
+		return locationepositoryImpl.getOffresById(id);
+	}
+
+	@Override
+	public boolean ModifierOffre(Offre offre) {
+		// TODO Auto-generated method stub
+		return locationepositoryImpl.ModifierOffre(offre);
+	}
 }

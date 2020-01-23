@@ -27,5 +27,11 @@ public interface LocationServicesInter {
 	public boolean AjouterOffre(Offre offre);
 	public ArrayList<Offre> getOffresByIdVendeur(int id);
 
+	public void SupprimerOffre(int id);
+
+	public Offre getOffresById(int id);
+
+	public boolean ModifierOffre(Offre offre);
+
 	
 }

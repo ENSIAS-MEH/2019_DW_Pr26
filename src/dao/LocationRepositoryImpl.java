@@ -294,4 +294,91 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 		
 		return listeOffre;
 	}
+
+	@Override
+	public void SupprimerOffre(int id) {
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			PreparedStatement ps = connection.prepareStatement("delete from offre where id ="+id);
+			ps.executeUpdate();
+			ps.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+	@Override
+	public Offre getOffresById(int id) {
+		Offre offre = null;
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			PreparedStatement ps = connection.prepareStatement("select * from offre where id = "+id);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				offre = new Offre();
+				offre.setId(rs.getInt("id"));
+				offre.setCategorie(rs.getString("categorie"));
+				offre.setNombre_personne(rs.getInt("nombre_personne"));
+				offre.setPays(rs.getString("pays"));
+				offre.setVille(rs.getString("ville"));
+				offre.setAdresse(rs.getString("adresse"));
+				offre.setDate_debut(rs.getString("date_debut"));
+				offre.setDate_fin(rs.getString("date_fin"));
+				offre.setPrix(rs.getFloat("prix"));
+				offre.setDevise(rs.getString("devise"));
+				offre.setSalle_bain(rs.getInt("salle_bain"));
+				offre.setNb_chambre(rs.getInt("nb_chambre"));
+				offre.setDescription(rs.getString("description"));
+				offre.setDate_offre(rs.getString("date_offre"));
+				offre.setEtat(rs.getString("etat"));
+				System.out.println(offre.toString());
+			}
+			ps.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return offre;
+	}
+
+	@Override
+	public boolean ModifierOffre(Offre offre) {
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			PreparedStatement ps = connection.prepareStatement("Update offre set id_hote = ? ,categorie= ?,nombre_personne=?,pays=?,ville=?,adresse=?,date_debut=?,date_fin=?,prix=?,devise=?,salle_bain=?,nb_chambre=?,description=?,photo=?  where id=?");
+			System.out.println(offre.getNombre_personne());
+			ps.setInt(1, offre.getId_hote());
+			ps.setString(2, offre.getCategorie());
+			ps.setInt(3, offre.getNombre_personne());
+			
+			ps.setString(4, offre.getPays());
+			ps.setString(5, offre.getVille());
+			ps.setString(6, offre.getAdresse());
+			
+			ps.setString(7, offre.getDate_debut());
+			ps.setString(8, offre.getDate_fin());
+			ps.setFloat(9, offre.getPrix());
+			ps.setString(10, offre.getDevise());
+			
+			ps.setInt(11, offre.getSalle_bain());
+			ps.setInt(12, offre.getNb_chambre());
+			ps.setString(13, offre.getDescription());
+			ps.setBinaryStream(14, null);
+			
+			//ps.setBlob(14, offre.getPhoto());
+			ps.setInt(15, offre.getId());
+			
+			ps.executeUpdate();
+			ps.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return true;
+	}
 }

@@ -49,11 +49,14 @@
       <c:if test="${type == 'listOffre'}">
         <c:import url="offres/ListOffre.jsp" />
       </c:if>
+      <c:if test="${type == 'modifierOffre'}">
+        <c:import url="offres/ModifierOffre.jsp" />
+      </c:if>
       </c:if>
       </div>
   
   <!--   Core JS Files   -->
-   <c:if test="${type != 'ajoutOffre'}">
+   <c:if test="${type != 'ajoutOffre' && type != 'modifierOffre'}">
         <script src="js/core/jquery.min.js"></script>
       </c:if>
   

@@ -14,7 +14,7 @@ import web.action.VendeurAction;
 
 @WebServlet(name = "Controller", urlPatterns = { "/Accueil.ma", "/Controller.ma", "/DevenezHote.ma",
 		"/InscriptionVendeur.ma", "/ConnexionVendeur.ma", "/FormConnexionVendeur.ma", "/InscriptionClient.ma",
-		"/contact.ma", "/Deconnexion.ma", "/FormConnexionClient.ma", "/ConnexionClient.ma" ,"/ProfilVendeur.ma","/AcceuilVendeur.ma","/FormAjouterOffre.ma","/AjouterOffre.ma","/ListOffre.ma"})
+		"/contact.ma", "/Deconnexion.ma", "/FormConnexionClient.ma", "/ConnexionClient.ma" ,"/ProfilVendeur.ma","/AcceuilVendeur.ma","/FormAjouterOffre.ma","/AjouterOffre.ma","/ListOffre.ma","/SupprimerOffre.ma","/ModifierOffre.ma"})
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private VendeurAction vendeurAction;
@@ -98,7 +98,20 @@ public class Controller extends HttpServlet {
 			    	int id = (int) request.getAttribute("id");
 			    	request.setAttribute("offres", offreAction.DetailOffre(id));
 			    	views = "AcceuilAfterConnexion";	 
-		}
+		}else if (action.equals("ModifierOffre")) {
+	    	request.setAttribute("type", "modifierOffre");
+	    	int id = Integer.parseInt(request.getParameter("id"));
+	    	request.setAttribute("offre", offreAction.getOffre(id));
+	    	views = "AcceuilAfterConnexion";	 
+        }else if (action.equals("SupprimerOffre")) {	
+	    	int id = Integer.parseInt(request.getParameter("id"));
+	    	offreAction.SupprimerOffre(id);
+	    	request.setAttribute("alert", "votre offre a été bien supprimer");
+	    	request.setAttribute("type", "listOffre");
+	    	int id_hote = (int) session.getAttribute("id");
+	    	request.setAttribute("offres", offreAction.ListOffre(id_hote));
+	    	views = "AcceuilAfterConnexion";	 
+        }
 
 		
 		else
@@ -154,6 +167,13 @@ public class Controller extends HttpServlet {
 			if(vendeurAction.AjouterOffre(request,id_hote)) request.setAttribute("alert", "Félicitations ! Votre nouveau offre a été créé avec succès !");
 			else request.setAttribute("alert", "offre n'a pas été ajoutée");
 			request.setAttribute("type", "acceuil");
+	    	views = "AcceuilAfterConnexion";
+		}else if (action.equals("ModifierOffre")) {
+			int id_hote = (int) session.getAttribute("id");
+			if(offreAction.ModifierOffre(request,id_hote)) request.setAttribute("alert", "Votre offre a été modifiée avec succès !");
+			else request.setAttribute("alert", "offre n'a pas été modifiée");
+			request.setAttribute("type", "listOffre");
+	    	request.setAttribute("offres", offreAction.ListOffre(id_hote));
 	    	views = "AcceuilAfterConnexion";
 		}
 		else

@@ -40,8 +40,8 @@
                           </td>
                           <td>
                           	 <a href="detailOffre.ma?id=${o.getId()}" class=" btn-circle btn-sm" title="Ouvrir"><i class="far fa-folder-open"></i></a>
-                   			 <a href="modifierOffre.ma?id=${o.getId()}" class="  btn-circle  btn-sm" title="Mettre à jour"> <i class="fas fa-sync"></i></a>
-                  			 <a href="supprimerOffre.ma?id=${o.getId()}" class="  btn-circle btn-sm" title="Supprimer" onclick="return confirm('Voulez vous vraiment supprimer cette demande');"><i class="fas fa-trash"></i></a>
+                   			 <a href="ModifierOffre.ma?id=${o.getId()}" class="  btn-circle  btn-sm" title="Mettre à jour"> <i class="fas fa-sync"></i></a>
+                  			 <a href="SupprimerOffre.ma?id=${o.getId()}" class="  btn-circle btn-sm" title="Supprimer" onclick="return confirm('Voulez vous vraiment supprimer cette demande');"><i class="fas fa-trash"></i></a>
                           </td>
                         </tr>
                       </c:forEach>
