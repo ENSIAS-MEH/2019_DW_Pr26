@@ -42,7 +42,10 @@
       </div>
   
   <!--   Core JS Files   -->
-  <script src="js/core/jquery.min.js"></script>
+   <c:if test="${type != 'ajoutOffre'}">
+        <script src="js/core/jquery.min.js"></script>
+      </c:if>
+  
   <script src="js/core/popper.min.js"></script>
   <script src="js/core/bootstrap-material-design.min.js"></script>
   <script src="js/plugins/perfect-scrollbar.jquery.min.js"></script>
