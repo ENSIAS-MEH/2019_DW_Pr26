@@ -52,6 +52,9 @@
       <c:if test="${type == 'modifierOffre'}">
         <c:import url="offres/ModifierOffre.jsp" />
       </c:if>
+      <c:if test="${type == 'detailOffre'}">
+        <c:import url="offres/DetailOffre.jsp" />
+      </c:if>
       </c:if>
       </div>
   

@@ -14,7 +14,7 @@ import web.action.VendeurAction;
 
 @WebServlet(name = "Controller", urlPatterns = { "/Accueil.ma", "/Controller.ma", "/DevenezHote.ma",
 		"/InscriptionVendeur.ma", "/ConnexionVendeur.ma", "/FormConnexionVendeur.ma", "/InscriptionClient.ma",
-		"/contact.ma", "/Deconnexion.ma", "/FormConnexionClient.ma", "/ConnexionClient.ma" ,"/ProfilVendeur.ma","/AcceuilVendeur.ma","/FormAjouterOffre.ma","/AjouterOffre.ma","/ListOffre.ma","/SupprimerOffre.ma","/ModifierOffre.ma"})
+		"/contact.ma", "/Deconnexion.ma", "/FormConnexionClient.ma", "/ConnexionClient.ma" ,"/ProfilVendeur.ma","/AcceuilVendeur.ma","/FormAjouterOffre.ma","/AjouterOffre.ma","/ListOffre.ma","/SupprimerOffre.ma","/ModifierOffre.ma","/DetailOffre.ma"})
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private VendeurAction vendeurAction;
@@ -84,21 +84,16 @@ public class Controller extends HttpServlet {
 			    	views = "AcceuilAfterConnexion";
 			    }
 		}else if (action.equals("ListOffre")) {
-			 if(session.getAttribute("account_type").equals("vendeur")){
 			    	request.setAttribute("type", "listOffre");
 			    	int id_hote = (int) session.getAttribute("id");
-			    	request.setAttribute("offres", offreAction.ListOffre(id_hote));
-			    	
+			    	request.setAttribute("offres", offreAction.ListOffre(id_hote));	
 			    	views = "AcceuilAfterConnexion";
-			    	
-			    }
-			 else views =  "/404";
 		}else if (action.equals("DetailOffre")) {
-			    	request.setAttribute("type", "detailOffre");
-			    	int id = (int) request.getAttribute("id");
-			    	request.setAttribute("offres", offreAction.DetailOffre(id));
-			    	views = "AcceuilAfterConnexion";	 
-		}else if (action.equals("ModifierOffre")) {
+	    	request.setAttribute("type", "detailOffre");
+	    	int id = Integer.parseInt(request.getParameter("id"));
+	    	request.setAttribute("offre", offreAction.getOffre(id));
+	    	views = "AcceuilAfterConnexion";	 
+        }else if (action.equals("ModifierOffre")) {
 	    	request.setAttribute("type", "modifierOffre");
 	    	int id = Integer.parseInt(request.getParameter("id"));
 	    	request.setAttribute("offre", offreAction.getOffre(id));
