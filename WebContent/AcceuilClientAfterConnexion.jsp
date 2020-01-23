@@ -60,13 +60,17 @@
       </c:if>
 
       <div class="content">
-      
+      <div class="card" style="width: 60%; margin:0 auto; ">
+  <div class="card-body">
+    <center class="font-weight-bold"> <strong>Bienvenu ${sessionScope.nom } ${sessionScope.prenom }.</strong></center>
+  </div>
+</div>
        <section class="ftco-section goto-here">
     	<div class="container">
     		<div class="row justify-content-center">
           <div class="col-md-12 heading-section text-center ftco-animate mb-5">
-          	<span class="subheading">What we offer</span>
-            <h2 class="mb-2">Exclusive Offer For You</h2>
+          	<span class="subheading">Ce que nous offrons</span>
+            <h2 class="mb-2">Offre exclusive pour vous</h2>
           </div>
         </div>
         <div class="row">
@@ -187,8 +191,8 @@
     	<div class="container">
     		<div class="row justify-content-start mb-5">
           <div class="col-md-6 text-center heading-section heading-section-white ftco-animate">
-          	<span class="subheading">Work flow</span>
-            <h2 class="mb-3">How it works</h2>
+          	<span class="subheading">Utilisation</span>
+            <h2 class="mb-3">Comment ça fonctionne</h2>
           </div>
         </div>
     		<div class="row">
@@ -198,8 +202,7 @@
 		            <div class="media block-6 services services-2">
 		              <div class="media-body py-md-4 text-center">
 		              	<div class="icon mb-3 d-flex align-items-center justify-content-center"><span>01</span></div>
-		                <h3>Evaluate Property</h3>
-		                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+		                <h3>Se connecter </h3>
 		              </div>
 		            </div>      
 		          </div>
@@ -207,17 +210,15 @@
 		            <div class="media block-6 services services-2">
 		              <div class="media-body py-md-4 text-center">
 		              	<div class="icon mb-3 d-flex align-items-center justify-content-center"><span>02</span></div>
-		                <h3>Meet Your Agent</h3>
-		                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-		              </div>
+		                <h3>Chercher une offre</h3>
+		                </div>
 		            </div>      
 		          </div>
 		          <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
 		            <div class="media block-6 services services-2">
 		              <div class="media-body py-md-4 text-center">
 		              	<div class="icon mb-3 d-flex align-items-center justify-content-center"><span>03</span></div>
-		                <h3>Close the Deal</h3>
-		                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+		                <h3>Faire une demande de réservation</h3>
 		              </div>
 		            </div>      
 		          </div>
@@ -225,8 +226,7 @@
 		            <div class="media block-6 services services-2">
 		              <div class="media-body py-md-4 text-center">
 		              	<div class="icon mb-3 d-flex align-items-center justify-content-center"><span>04</span></div>
-		                <h3>Have Your Property</h3>
-		                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+		                <h3>Confirmer votre réservation</h3>
 		              </div>
 		            </div>      
 		          </div>
@@ -251,7 +251,7 @@
               <div class="text">
                 <h3 class="heading"><a href="#">ALLEMAGNE</a></h3>
                 <div class="meta mb-3">
-                  <div><a href="#">July. 24, 2019</a></div>
+                  <div><a href="#">Décem. 15, 2019</a></div>
                   <div><a href="#"></a></div>
                 </div>
                 <a href="blog-single.html" class="block-20 img" style="background-image: url('images/chiens.png');">
@@ -265,7 +265,7 @@
               <div class="text">
                 <h3 class="heading"><a href="#">Maroc</a></h3>
                 <div class="meta mb-3">
-                  <div><a href="#">July. 24, 2019</a></div>
+                  <div><a href="#">Juin. 29, 2019</a></div>
                   <div><a href="#"></a></div>
                 </div>
                 <a href="blog-single.html" class="block-20 img" style="background-image: url('images/maroc.png');">
@@ -279,7 +279,7 @@
               <div class="text">
                 <h3 class="heading"><a href="#">Russian Federation</a></h3>
                 <div class="meta mb-3">
-                  <div><a href="#">July. 24, 2019</a></div>
+                  <div><a href="#">Mars. 9, 2019</a></div>
                   <div><a href="#"></a></div>
                 </div>
                 <a href="blog-single.html" class="block-20 img" style="background-image: url('images/russ.png');">
@@ -293,73 +293,68 @@
               <div class="text">
                 <h3 class="heading"><a href="#">Marrakech</a></h3>
                 <div class="meta mb-3">
-                  <div><a href="#">July. 24, 2019</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                  <div><a href="#">Août. 12, 2019</a></div>
+                  <div><a href="#"></a></div>
                 </div>
-                <a href="blog-single.html" class="block-20 img" style="background-image: url('images/image_4.jpg');">
+                <a href="blog-single.html" class="block-20 img" style="background-image: url('images/marrakech.png');">
 	              </a>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                <p>Excursion à cheval dans la montagne de l'Atlas 2 jours et 1 nuit.</p>
               </div>
             </div>
           </div>
           <div class="col-md-3 d-flex ftco-animate">
           	<div class="blog-entry justify-content-end">
               <div class="text">
-                <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
+                <h3 class="heading"><a href="#">Fès, Maroc</a></h3>
                 <div class="meta mb-3">
-                  <div><a href="#">July. 24, 2019</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                  <div><a href="#">Novembre. 17, 2019</a></div>
+                  <div><a href="#"></a></div>
                 </div>
-                <a href="blog-single.html" class="block-20 img" style="background-image: url('images/image_5.jpg');">
+                <a href="blog-single.html" class="block-20 img" style="background-image: url('images/fes2.png');">
 	              </a>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                <p>Excursion à travers le désert marocain.</p>
               </div>
             </div>
           </div>
           <div class="col-md-3 d-flex ftco-animate">
           	<div class="blog-entry justify-content-end">
               <div class="text">
-                <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
+                <h3 class="heading"><a href="#">Marrakech</a></h3>
                 <div class="meta mb-3">
-                  <div><a href="#">July. 24, 2019</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                  <div><a href="#">Octobre. 16, 2019</a></div>
+                  <div><a href="#"></a></div>
                 </div>
-                <a href="blog-single.html" class="block-20 img" style="background-image: url('images/image_6.jpg');">
+                <a href="blog-single.html" class="block-20 img" style="background-image: url('images/marra.png');">
 	              </a>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                <p>Ascension De Mont Toubkal en 2 jours et 1 Nuit.</p>
               </div>
             </div>
           </div>
           <div class="col-md-3 d-flex ftco-animate">
           	<div class="blog-entry justify-content-end">
               <div class="text">
-                <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
+                <h3 class="heading"><a href="#">Padang, Indonésie</a></h3>
                 <div class="meta mb-3">
-                  <div><a href="#">July. 24, 2019</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                  <div><a href="#">Juillet. 24, 2019</a></div>
+                  <div><a href="#"></a></div>
                 </div>
-                <a href="blog-single.html" class="block-20 img" style="background-image: url('images/image_7.jpg');">
+                <a href="blog-single.html" class="block-20 img" style="background-image: url('images/ind.png');">
 	              </a>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                <p>Randonnée et snorkeling en Indonésie.</p>
               </div>
             </div>
           </div>
           <div class="col-md-3 d-flex ftco-animate">
           	<div class="blog-entry justify-content-end">
               <div class="text">
-                <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
+                <h3 class="heading"><a href="#">Alora Espagne</a></h3>
                 <div class="meta mb-3">
-                  <div><a href="#">July. 24, 2019</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                  <div><a href="#">Août. 20, 2019</a></div>
+                  <div><a href="#"></a></div>
                 </div>
-                <a href="blog-single.html" class="block-20 img" style="background-image: url('images/image_8.jpg');">
+                <a href="blog-single.html" class="block-20 img" style="background-image: url('images/malaga.png');">
 	              </a>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                <p>Admirez le sud de l'Espagne à cheval.</p>
               </div>
             </div>
           </div>
