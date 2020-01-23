@@ -1,6 +1,7 @@
 package business;
 
 import models.Client;
+import models.Offre;
 import models.Vendeur;
 
 public interface LocationServicesInter {
@@ -17,5 +18,8 @@ public interface LocationServicesInter {
 	public Client getClientByEmail(String email);
 
 	public Vendeur getVendeurById(int id);
+
+	public boolean AjouterOffre(Offre offre);
+
 	
 }

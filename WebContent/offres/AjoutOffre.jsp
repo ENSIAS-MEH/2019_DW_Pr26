@@ -13,27 +13,27 @@
 <body>
 <!-- Modal -info -->
 
-<form class="steps" method="post" action="AjouterOffre.ma" enctype="multipart/form-data" novalidate="">
+
   <ul id="progressbar">
-    <li class="active">Catégorie</li>
+    <li class="active">Categorie</li>
     <li>Informations</li>
     <li>Date</li>
-    <li>Spécification</li>
+    <li>Specification</li>
     <li>Description</li>
   </ul>
 
-
+<form class="steps" method="post" action="AjouterOffre.ma" >
 
   <!-- USER INFORMATION FIELD SET --> 
   <fieldset>
-    <h2 class="fs-title">Catégorie de la location</h2>
+    <h2 class="fs-title">Categorie de la location</h2>
     <h3 class="fs-subtitle">Choisissez la catégorie de votre location</h3>
     <!-- Begin What's Your First Name Field -->
         <div class="categ field hs-form-field">
         
           <label for="hs_categ">Catégorie* :</label><br>
-			<select name="categorie" id="categ" data-rule-required="true" data-msg-required="Please choose an option" required="required">
-    <option value="">--choisir une catégorie--</option>
+			<select  style="width:100%; height: 50px" name="categorie" id="categ" data-rule-required="true" data-msg-required="Please choose an option" required="required">
+    <option class="text-center"value="">--------choisir une catégorie--------</option>
     <option value="chambreHotel">Chambre d'un hôtel</option>
     <option value="chambreHauberge">Chambre d'un hauberge</option>
     <option value="chambreHote">Chambre d'hôte</option>
@@ -53,7 +53,7 @@
         
           <label for="nmb">Nombre de personne* :</label>
 
-          <input id="nmb" name="nombre_personne" required="required" type="number" value="" maxlength="5" placeholder="" data-rule-required="true" data-msg-required="Please enter a number " >
+          <input id="nmb" name="nombre_personne" required="required" type="number"  maxlength="5" minlength="0" placeholder="" data-rule-required="true" data-msg-required="Please enter a number " >
           <span class="error1" style="display: none;">
               <i class="error-log fa fa-exclamation-triangle"></i>
           </span>
@@ -100,7 +100,7 @@
         
           <label for="adresse">Adresse *</label>
 
-          <input id="adresse" class="form-text hs-input" name="adresse"  type="text" value="" placeholder="0" required="required" data-rule-required="true" data-msg-required="Please enter a text">
+          <input id="adresse" class="form-text hs-input" name="adresse"  type="text" value=""  required="required" data-rule-required="true" data-msg-required="Please enter a text">
           <span class="error1" style="display: none;">
               <i class="error-log fa fa-exclamation-triangle"></i>
           </span>
@@ -153,7 +153,7 @@
         
           <label for="devise">Devise *</label>
 
-          <input id="devise" class="form-text hs-input" name="devise"  type="text" value="" placeholder="0" required="required" data-rule-required="true" data-msg-required="Please enter a text">
+          <input id="devise" class="form-text hs-input" name="devise"  type="text" value=""  required="required" data-rule-required="true" data-msg-required="Please enter a text">
           <span class="error1" style="display: none;">
               <i class="error-log fa fa-exclamation-triangle"></i>
           </span>
@@ -177,7 +177,7 @@
         
           <label for="bain">Nombre de salles de bain *</label>
 
-          <input id="bain" class="form-text hs-input" name="bain" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number">
+          <input id="bain" class="form-text hs-input" name="salle_bain" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number">
           <span class="error1" style="display: none;">
               <i class="error-log fa fa-exclamation-triangle"></i>
           </span>
@@ -200,7 +200,7 @@
      
     <input type="button" data-page="4" name="previous" class="previous action-button" value="Previous" />
     <input type="button" data-page="4" name="next" class="next action-button" value="Next" />
-    <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3">What Is This?</div>
+
   </fieldset>
 
 

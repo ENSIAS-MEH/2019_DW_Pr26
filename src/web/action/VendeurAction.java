@@ -1,11 +1,16 @@
 package web.action;
 
+import java.io.IOException;
+import java.io.InputStream;
+
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import business.LocationServicesImpl;
 import business.LocationServicesInter;
 import models.Client;
+import models.Offre;
 import models.Vendeur;
 
 public class VendeurAction {
@@ -65,6 +70,15 @@ public class VendeurAction {
 	public Vendeur getVendeurById(int id) {
 		
 		return locationServices.getVendeurById(id);
+	}
+
+	public boolean AjouterOffre(HttpServletRequest request,int id_hote) throws IllegalStateException, IOException, ServletException {
+		String date = java.time.LocalDate.now() + " ";
+		//InputStream photo = (request.getPart("photo")).getInputStream();
+		return locationServices.AjouterOffre(new Offre(id_hote,date, request.getParameter("categorie"), (Integer.parseInt(request.getParameter("nombre_personne"))),
+				request.getParameter("adresse"), request.getParameter("pays"), request.getParameter("ville"),
+				request.getParameter("date_debut"), request.getParameter("date_fin"), (Float.parseFloat(request.getParameter("prix"))),
+				request.getParameter("devise"), (Integer.parseInt(request.getParameter("salle_bain"))),(Integer.parseInt(request.getParameter("nb_chambre"))), request.getParameter("description"), null));
 	}
 	
 	

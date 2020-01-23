@@ -3,6 +3,7 @@ package dao;
 import java.util.ArrayList;
 
 import models.Client;
+import models.Offre;
 import models.Vendeur;
 
 public interface LocationRepositoryInter {
@@ -23,6 +24,8 @@ public interface LocationRepositoryInter {
 	public ArrayList<Client> getListClient();
 
 	public Client getClientByEmail(String email);
+
+	public void AjouterOffre(Offre offre);
 
 	
 }

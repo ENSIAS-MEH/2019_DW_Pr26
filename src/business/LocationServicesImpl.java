@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import dao.LocationRepositoryImpl;
 import dao.LocationRepositoryInter;
 import models.Client;
+import models.Offre;
 import models.Vendeur;
 
 public class LocationServicesImpl implements LocationServicesInter {
@@ -51,5 +52,12 @@ public class LocationServicesImpl implements LocationServicesInter {
 	@Override
 	public Vendeur getVendeurById(int id) {
 		return locationepositoryImpl.getVendeurbyId(id);
+	}
+
+	@Override
+	public boolean AjouterOffre(Offre offre) {
+		
+		locationepositoryImpl.AjouterOffre(offre);
+		return true;
 	}
 }

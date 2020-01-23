@@ -31,6 +31,14 @@
       </c:if>
 
       <div class="content">
+      
+      <c:if test="${alert != null}">
+      <div class="card" style="width: 60%; margin:0 auto; ">
+  <div class="card-body">
+    <center class="font-weight-bold"> <strong>${alert } </strong></center>
+  </div>
+</div>
+</c:if>
       <c:if test="${sessionScope.account_type == 'vendeur'}">
       <c:if test="${type == 'profil'}">
         <c:import url="profil/ProfilVendeur.jsp" />

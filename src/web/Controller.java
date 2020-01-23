@@ -13,7 +13,7 @@ import web.action.VendeurAction;
 
 @WebServlet(name = "Controller", urlPatterns = { "/Accueil.ma", "/Controller.ma", "/DevenezHote.ma",
 		"/InscriptionVendeur.ma", "/ConnexionVendeur.ma", "/FormConnexionVendeur.ma", "/InscriptionClient.ma",
-		"/contact.ma", "/Deconnexion.ma", "/FormConnexionClient.ma", "/ConnexionClient.ma" ,"/ProfilVendeur.ma","/AcceuilVendeur.ma","/FormAjouterOffre.ma"})
+		"/contact.ma", "/Deconnexion.ma", "/FormConnexionClient.ma", "/ConnexionClient.ma" ,"/ProfilVendeur.ma","/AcceuilVendeur.ma","/FormAjouterOffre.ma","/AjouterOffre.ma"})
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private VendeurAction vendeurAction;
@@ -57,6 +57,7 @@ public class Controller extends HttpServlet {
 		    	request.setAttribute("type", "acceuil");
 		    	views = "AcceuilAfterConnexion";
 		    }
+		    else views = "/404";
 			
 		}
 		//client
@@ -125,7 +126,18 @@ public class Controller extends HttpServlet {
 				request.setAttribute("messageError", "Mot de passe ou Username est Incorrect");
 				views = "ConnexionClient";
 			}
-		} else
+		}
+		
+		//traitement offre
+		else if (action.equals("AjouterOffre")) {
+			int id_hote = (int) session.getAttribute("id");
+			System.out.println("ddd : "+request.getParameter("categorie"));
+			if(vendeurAction.AjouterOffre(request,id_hote)) request.setAttribute("alert", "Félicitations ! Votre nouveau offre a été créé avec succès !");
+			else request.setAttribute("alert", "offre n'a pas été ajoutée");
+			request.setAttribute("type", "acceuil");
+	    	views = "AcceuilAfterConnexion";
+		}
+		else
 			views = "/404";
 
 		request.getRequestDispatcher(views + ".jsp").forward(request, response);

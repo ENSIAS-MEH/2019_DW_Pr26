@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import models.Client;
+import models.Offre;
 import models.Vendeur;
 
 public class LocationRepositoryImpl implements LocationRepositoryInter {
@@ -220,5 +221,41 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 			e.printStackTrace();
 		}
 		return vendeur;
+	}
+
+	@Override
+	public void AjouterOffre(Offre offre) {
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			PreparedStatement ps = connection.prepareStatement("INSERT INTO offre (id_hote,categorie,nombre_personne,pays,ville,adresse,date_debut,date_fin,prix,devise,salle_bain,nb_chambre,description,photo,date_offre) VALUES "
+					+ "(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+			System.out.println(offre.getNombre_personne());
+			ps.setInt(1, offre.getId_hote());
+			ps.setString(2, offre.getCategorie());
+			ps.setInt(3, offre.getNombre_personne());
+			
+			ps.setString(4, offre.getPays());
+			ps.setString(5, offre.getVille());
+			ps.setString(6, offre.getAdresse());
+			
+			ps.setString(7, offre.getDate_debut());
+			ps.setString(8, offre.getDate_fin());
+			ps.setFloat(9, offre.getPrix());
+			ps.setString(10, offre.getDevise());
+			
+			ps.setInt(11, offre.getSalle_bain());
+			ps.setInt(12, offre.getNb_chambre());
+			ps.setString(13, offre.getDescription());
+			ps.setBinaryStream(14, null);
+			
+			//ps.setBlob(14, offre.getPhoto());
+			ps.setString(15, offre.getDate_offre());
+			ps.executeUpdate();
+			ps.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
