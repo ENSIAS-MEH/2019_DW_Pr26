@@ -1,6 +1,7 @@
 package web.action;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -70,6 +71,8 @@ public class VendeurAction {
 		return locationServices.getVendeurById(id);
 	}
 
-	
+	public ArrayList<Vendeur> ListVendeur(){
+		return locationServices.getListVendeur();
+	}
 
 }

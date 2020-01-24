@@ -87,4 +87,17 @@ public class LocationServicesImpl implements LocationServicesInter {
 	public void ajouteContactMessage(Contact contact) {
 		locationepositoryImpl.ajouteContactMessage(contact);
 	}
+
+	@Override
+	public ArrayList<Offre> getOffres() {
+		
+		return locationepositoryImpl.getOffres();
+	}
+
+	@Override
+	public ArrayList<Vendeur> getListVendeur() {
+		
+		return locationepositoryImpl.getListVendeur();
+	}
+	
 }

@@ -1,16 +1,15 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-
-<!DOCTYPE html>
-<html lang="en">
-
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
 <meta charset="utf-8" />
 <link rel="apple-touch-icon" sizes="76x76"
 	href="assets/img/apple-icon.png">
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>HomeAdmin</title>
+<title>Liste Proprietaires</title>
 <meta
 	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
 	name='viewport' />
@@ -40,7 +39,7 @@
 			</div>
 			<div class="sidebar-wrapper">
 				<ul class="nav">
-					<li class="nav-item active"><a class="nav-link"
+					<li class="nav-item "><a class="nav-link"
 						href="AcceuilVendeur.ma"> <i class="material-icons">home</i>
 							<p>Acceuil</p>
 					</a></li>
@@ -48,7 +47,7 @@
 						href="AcceuilVendeur.ma"> <i class="material-icons">dashboard</i>
 							<p>Dashboard</p>
 					</a></li>
-					<li class="nav-item  "><a class="nav-link" href="ListVendeur.ma">
+					<li class="nav-item  active"><a class="nav-link" href="ListVendeur.ma">
 							<i class="material-icons">account_circle</i>
 							<p>Liste des propriétaires</p>
 					</a></li>
@@ -72,9 +71,10 @@
 				</ul>
 			</div>
 		</div>
-		<div class="main-panel">
-			<!-- Navbar -->
-			<nav
+		
+		
+	<div class="main-panel">
+		<nav
 				class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
 				<div class="container-fluid">
 					<div class="navbar-wrapper">
@@ -133,12 +133,58 @@
 				</div>
 			</nav>
 			<!-- End Navbar -->
-			<div class="content"></div>
-
-		</div>
-	</div>
-
-	<!--   Core JS Files   -->
+			<div class="content">
+		<div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">Liste des propriétaires</h4>
+                  <p class="card-category"> la liste de tous les propriétaires</p>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class=" text-primary">
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Date de naissance</th>
+                        <th>Sexe</th>
+                        <th>Adresse</th>
+                        <th>Pays</th>
+                        <th>Téléphone</th>
+                        <th>Action</th>
+                      </thead>
+                      <tbody>
+                      <c:forEach items="${vendeurs}" var="v">
+                       <tr>
+                          <td>${v.getNom()}</td>
+                          <td>${v.getPrenom()}</td>
+                          <td>${v.getDate_naissane()}</td>
+                          <td>${v.getSexe()}</td>
+                          <td>${v.getAdresse()}</td>
+                          <td>${v.getPays}</td>
+                          <td>${v.getNum_telephone()}</td>
+                          <td>
+                          	 <a href="DetailVendeur.ma?id=${v.getId()}" class=" btn-circle btn-sm" title="Ouvrir"><i class="far fa-folder-open"></i></a>
+                   			 <a href="ModifierVendeur.ma?id=${v.getId()}" class="  btn-circle  btn-sm" title="Mettre à jour"> <i class="fas fa-sync"></i></a>
+                  			 <a href="SupprimerVendeur.ma?id=${v.getId()}" class="  btn-circle btn-sm" title="Supprimer" onclick="return confirm('Voulez vous vraiment supprimer ce compte');"><i class="fas fa-trash"></i></a>
+                          </td>
+                        </tr>
+                      </c:forEach>
+                       
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        </div>
+       </div>
+<!--   Core JS Files   -->
 	<script src="assets/js/core/jquery.min.js"></script>
 	<script src="assets/js/core/popper.min.js"></script>
 	<script src="assets/js/core/bootstrap-material-design.min.js"></script>

@@ -19,7 +19,7 @@ import web.action.AdminAction;
 		"/InscriptionVendeur.ma", "/ConnexionVendeur.ma", "/FormConnexionVendeur.ma", "/InscriptionClient.ma",
 		"/contact.ma", "/Deconnexion.ma", "/FormConnexionClient.ma", "/ConnexionClient.ma", "/ProfilVendeur.ma",
 		"/AcceuilVendeur.ma", "/FormAjouterOffre.ma", "/AjouterOffre.ma", "/ListOffre.ma", "/SupprimerOffre.ma",
-		"/ModifierOffre.ma", "/AccueilAdmin.ma", "/DetailOffre.ma", "/ConnexionAdmin.ma", "/saveContact.ma" })
+		"/ModifierOffre.ma", "/AccueilAdmin.ma", "/DetailOffre.ma", "/ConnexionAdmin.ma", "/saveContact.ma", "/ListVendeur.ma" })
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 4)
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -101,7 +101,12 @@ public class Controller extends HttpServlet {
 			int id_hote = (int) session.getAttribute("id");
 			request.setAttribute("offres", offreAction.ListOffre(id_hote));
 			views = "AcceuilAfterConnexion";
-			}else views = "/404";
+			}
+			else if (session.getAttribute("account_type")!= null && session.getAttribute("account_type").equals("admin") ) {
+				request.setAttribute("type", "listOffre");
+				request.setAttribute("offres", offreAction.getOffres());
+				views = "AcceuilAdmin";
+			} else views = "/404";
 		} else if (action.equals("DetailOffre")) {
 			if (session.getAttribute("account_type")!= null && session.getAttribute("account_type").equals("vendeur") ) {
 			request.setAttribute("type", "detailOffre");
@@ -126,9 +131,14 @@ public class Controller extends HttpServlet {
 			request.setAttribute("offres", offreAction.ListOffre(id_hote));
 			views = "AcceuilAfterConnexion";
 			 }else views = "/404";
-		}
+		} else if (action.equals("ListVendeur")) {
+			if (session.getAttribute("account_type")!= null && session.getAttribute("account_type").equals("admin") ) {
+				request.setAttribute("type", "listVendeur");
+				request.setAttribute("vendeurs", vendeurAction.ListVendeur());
+				views = "AcceuilAdmin";
+			} else views = "/404";
 
-		else
+		}else
 			views = "/404";
 
 		request.getRequestDispatcher(views + ".jsp").forward(request, response);

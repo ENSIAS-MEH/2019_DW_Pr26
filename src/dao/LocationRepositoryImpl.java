@@ -266,7 +266,8 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 			e.printStackTrace();
 		}
 	}
-private String Transfer(Blob b) throws Exception{
+	
+	private String Transfer(Blob b) throws Exception{
 		
 		Blob blob = b;
 		 
@@ -468,4 +469,51 @@ private String Transfer(Blob b) throws Exception{
 		}
 	}
 
+	public ArrayList<Offre> getOffres() {
+		ArrayList<Offre> listeOffre = new ArrayList<>();
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			PreparedStatement ps = connection.prepareStatement("select * from offre " );
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				Offre offre = new Offre();
+				offre.setId(rs.getInt("id"));
+				offre.setType(rs.getString("type"));
+				offre.setCategorie(rs.getString("categorie"));
+				offre.setNb_chambre(rs.getInt("nombre_personne"));
+				offre.setPays(rs.getString("pays"));
+				offre.setVille(rs.getString("ville"));
+				offre.setAdresse(rs.getString("adresse"));
+				offre.setDate_debut(rs.getString("date_debut"));
+				offre.setDate_fin(rs.getString("date_fin"));
+				offre.setPrix(rs.getFloat("prix"));
+				offre.setDevise(rs.getString("devise"));
+				offre.setSalle_bain(rs.getInt("salle_bain"));
+				offre.setNb_chambre(rs.getInt("nb_chambre"));
+				offre.setDescription(rs.getString("description"));
+				offre.setDate_offre(rs.getString("date_offre"));
+				offre.setEtat(rs.getString("etat"));
+				offre.setPhoto(rs.getBinaryStream("photo"));
+				if(offre.getPhoto()!=null){
+					try {
+						offre.setBase64Image(Transfer( rs.getBlob("photo")));
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}else{
+					offre.setBase64Image(null);
+				}
+				listeOffre.add(offre);
+				System.out.println(offre.toString());
+			}
+			ps.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return listeOffre;
+	}
+
+	
 }

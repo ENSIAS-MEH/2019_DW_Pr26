@@ -76,6 +76,9 @@ public class OffreAction {
 		return locationServices.getOffresById(id);
 	}
 
+	public ArrayList<Offre> getOffres() {
+		return locationServices.getOffres();
+	}
 	
 	
 	
