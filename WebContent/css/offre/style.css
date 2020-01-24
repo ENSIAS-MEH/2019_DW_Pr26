@@ -14,8 +14,8 @@ body {
 }
 /*form styles*/
 .steps {
-    width: 675px;
-  margin: 50px auto;
+    width: 85%;
+  margin:0 auto;
   position: relative;
 }
 
@@ -27,8 +27,8 @@ body {
   padding: 20px 30px;
   border-top: 9px solid #7B1FA2;
   box-sizing: border-box;
-  width: 80%;
-  margin: 0 10%;
+  width: 85%;
+  margin: 0 auto;
   
   /*stacking fieldsets above each other*/
   position: absolute;
