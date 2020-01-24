@@ -17,18 +17,24 @@
     <li>Description</li>
   </ul>
 
-<form class="steps" method="post" action="AjouterOffre.ma" >
+<form class="steps" method="post" action="AjouterOffre.ma"  enctype="multipart/form-data">
 
   <!-- USER INFORMATION FIELD SET --> 
   <fieldset style="width: 100%; float: left; margin: 0; ">
-    <h2 class="fs-title">Categorie de la location</h2>
-    <h3 class="fs-subtitle">Choisissez la catégorie de votre location</h3>
+    <h2 class="fs-title">Categorie de l'immobilier</h2>
+    <h3 class="fs-subtitle">Choisissez la catégorie de votre immobilier</h3>
     <!-- Begin What's Your First Name Field -->
         <div class="categ field hs-form-field">
-        
+        <label for="hs_categ">A vendre ou à louer ?* :</label><br>
+			<select  style="width:100%; height: 50px" name="type" id="categ" data-rule-required="true" data-msg-required="Please choose an option" required="required">
+    <option class="text-center"value=""> choisir une option</option>
+    <option value="locatin">Location</option>
+    <option value="vente">Vente</option>
+   
+</select>
           <label for="hs_categ">Catégorie* :</label><br>
 			<select  style="width:100%; height: 50px" name="categorie" id="categ" data-rule-required="true" data-msg-required="Please choose an option" required="required">
-    <option class="text-center"value="">--------choisir une catégorie--------</option>
+    <option class="text-center"value=""> choisir une catégorie</option>
     <option value="chambreHotel">Chambre d'un hôtel</option>
     <option value="chambreHauberge">Chambre d'un hauberge</option>
     <option value="chambreHote">Chambre d'hôte</option>
@@ -64,7 +70,7 @@
   <!-- ACQUISITION FIELD SET -->  
   <fieldset style="width: 100%; float: left; margin: 0; ">
     <h2 class="fs-title">Informations</h2>
-    <h3 class="fs-subtitle">Des informations sur la location</h3>
+    <h3 class="fs-subtitle">Des informations sur l'immobilier</h3>
       <!-- Begin Total Number of Donors in Year 1 Field -->
         <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field" id="webform-component-acquisition--amount-1">
         
@@ -111,7 +117,7 @@
   <!-- Cultivation FIELD SET -->  
   <fieldset style="width: 100%; float: left; margin: 0; ">
     <h2 class="fs-title">Date & prix</h2>
-    <h3 class="fs-subtitle">Date début, date fin et prix de la location</h3>
+    <h3 class="fs-subtitle">Date début, date fin et prix de l'immobilier</h3>
       <!-- Begin Average Gift Size in Year 1 Field -->
         <div class="form-item webform-component webform-component-textfield hs_average_gift_size_in_year_1 field hs-form-field" id="edit-submitted-cultivation-amount-1 average_gift_size_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_3256">
         
@@ -166,7 +172,7 @@
   <!-- Cultivation2 FIELD SET --> 
   <fieldset style="width: 100%; float: left; margin: 0; ">
     <h2 class="fs-title">Spécification</h2>
-    <h3 class="fs-subtitle">Spécifications de la location</h3>
+    <h3 class="fs-subtitle">Spécifications de l'immobilier</h3>
               <!-- Begin Total Giving In Year 1 Field -->
         <div class="form-item webform-component webform-component-textfield" id="webform-component-cultivation--amount-3 hs_total_giving_in_year_1 field hs-form-field">
         
@@ -216,7 +222,7 @@
         
           <label for="photo">Photo </label>
 
-          <input id="photo"  type="file" class="form-text hs-input" name="photo"  accept="image/png, image/jpeg"/>
+          <input id="photo"  type="file" class="form-text hs-input" name="photo"  accept="image/*"  multiple />
           
           </div>
        

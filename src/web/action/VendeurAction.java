@@ -70,16 +70,6 @@ public class VendeurAction {
 		return locationServices.getVendeurById(id);
 	}
 
-	public boolean AjouterOffre(HttpServletRequest request, int id_hote)
-			throws IllegalStateException, IOException, ServletException {
-		String date = java.time.LocalDate.now() + " ";
-		// InputStream photo = (request.getPart("photo")).getInputStream();
-		return locationServices.AjouterOffre(new Offre(id_hote, date, request.getParameter("categorie"),
-				(Integer.parseInt(request.getParameter("nombre_personne"))), request.getParameter("adresse"),
-				request.getParameter("pays"), request.getParameter("ville"), request.getParameter("date_debut"),
-				request.getParameter("date_fin"), (Float.parseFloat(request.getParameter("prix"))),
-				request.getParameter("devise"), (Integer.parseInt(request.getParameter("salle_bain"))),
-				(Integer.parseInt(request.getParameter("nb_chambre"))), request.getParameter("description"), null));
-	}
+	
 
 }

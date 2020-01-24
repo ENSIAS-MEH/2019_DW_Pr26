@@ -1,6 +1,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 
@@ -27,11 +27,11 @@
   <!-- USER INFORMATION FIELD SET --> 
   <fieldset>
     <h2 class="fs-title">Categorie de la location</h2>
-    <h3 class="fs-subtitle">Choisissez la catégorie de votre location</h3>
+    <h3 class="fs-subtitle">Choisissez la catÃ©gorie de votre location</h3>
     <!-- Begin What's Your First Name Field -->
         <div class="categ field hs-form-field">
         
-          <label for="hs_categ">Catégorie* :</label><br>
+          <label for="hs_categ">CatÃ©gorie* :</label><br>
 			<input  type="text" name="categorie" value="${offre.getCategorie()}" id="categ" data-rule-required="true"  data-msg-required="Please choose an option" required="required" disabled="disabled">
  
           <span class="error1" style="display: none;">
@@ -108,11 +108,11 @@
   <!-- Cultivation FIELD SET -->  
   <fieldset>
     <h2 class="fs-title">Date & prix</h2>
-    <h3 class="fs-subtitle">Date début, date fin et prix de la location</h3>
+    <h3 class="fs-subtitle">Date dÃ©but, date fin et prix de la location</h3>
       <!-- Begin Average Gift Size in Year 1 Field -->
         <div class="form-item webform-component webform-component-textfield hs_average_gift_size_in_year_1 field hs-form-field" id="edit-submitted-cultivation-amount-1 average_gift_size_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_3256">
         
-          <label for="date_debut">Date début *</label>
+          <label for="date_debut">Date dÃ©but *</label>
 
           <input id="date_debut" class="form-text hs-input" name="date_debut" required="required" type="date"  value = "${offre.getDate_debut()}" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid date">
           <span class="error1" style="display: none;">
@@ -162,8 +162,8 @@
 
   <!-- Cultivation2 FIELD SET --> 
   <fieldset>
-    <h2 class="fs-title">Spécification</h2>
-    <h3 class="fs-subtitle">Spécifications de la location</h3>
+    <h2 class="fs-title">SpÃ©cification</h2>
+    <h3 class="fs-subtitle">SpÃ©cifications de la location</h3>
               <!-- Begin Total Giving In Year 1 Field -->
         <div class="form-item webform-component webform-component-textfield" id="webform-component-cultivation--amount-3 hs_total_giving_in_year_1 field hs-form-field">
         

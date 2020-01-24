@@ -1,10 +1,16 @@
 package dao;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Base64;
+import java.sql.Blob;
+
 
 import models.Client;
 import models.Contact;
@@ -228,8 +234,8 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 		Connection connection = mangementDataBase.connexionDataBase();
 		try {
 			PreparedStatement ps = connection.prepareStatement(
-					"INSERT INTO offre (id_hote,categorie,nombre_personne,pays,ville,adresse,date_debut,date_fin,prix,devise,salle_bain,nb_chambre,description,photo,date_offre) VALUES "
-							+ "(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+					"INSERT INTO offre (id_hote,categorie,nombre_personne,pays,ville,adresse,date_debut,date_fin,prix,devise,salle_bain,nb_chambre,description,photo,date_offre,type) VALUES "
+							+ "(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 			System.out.println(offre.getNombre_personne());
 			ps.setInt(1, offre.getId_hote());
 			ps.setString(2, offre.getCategorie());
@@ -247,10 +253,11 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 			ps.setInt(11, offre.getSalle_bain());
 			ps.setInt(12, offre.getNb_chambre());
 			ps.setString(13, offre.getDescription());
-			ps.setBinaryStream(14, null);
+			//ps.setBinaryStream(14, null);
 
-			// ps.setBlob(14, offre.getPhoto());
+			ps.setBlob(14, offre.getPhoto());
 			ps.setString(15, offre.getDate_offre());
+			ps.setString(16, offre.getType());
 			ps.executeUpdate();
 			ps.close();
 
@@ -258,6 +265,44 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+private String Transfer(Blob b) throws Exception{
+		
+		Blob blob = b;
+		 
+		InputStream inputStream = blob.getBinaryStream();
+		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+		byte[] buffer = new byte[4096];
+		int bytesRead = -1;
+		 
+		try {
+			while ((bytesRead = inputStream.read(buffer)) != -1) {
+			    outputStream.write(buffer, 0, bytesRead);
+			}
+		} catch (IOException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+		 
+		byte[] imageBytes = outputStream.toByteArray();
+		 
+		String base64Image = Base64.getEncoder().encodeToString(imageBytes);
+		 
+		try {
+			inputStream.close();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
+			outputStream.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return base64Image;
+
 	}
 
 	@Override
@@ -270,6 +315,7 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 			while (rs.next()) {
 				Offre offre = new Offre();
 				offre.setId(rs.getInt("id"));
+				offre.setType(rs.getString("type"));
 				offre.setCategorie(rs.getString("categorie"));
 				offre.setNb_chambre(rs.getInt("nombre_personne"));
 				offre.setPays(rs.getString("pays"));
@@ -284,12 +330,22 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 				offre.setDescription(rs.getString("description"));
 				offre.setDate_offre(rs.getString("date_offre"));
 				offre.setEtat(rs.getString("etat"));
+				offre.setPhoto(rs.getBinaryStream("photo"));
+				if(offre.getPhoto()!=null){
+					try {
+						offre.setBase64Image(Transfer( rs.getBlob("photo")));
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}else{
+					offre.setBase64Image(null);
+				}
 				listeOffre.add(offre);
 				System.out.println(offre.toString());
 			}
 			ps.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -305,7 +361,6 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 			ps.close();
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -321,6 +376,7 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 			if (rs.next()) {
 				offre = new Offre();
 				offre.setId(rs.getInt("id"));
+				offre.setType(rs.getString("type"));
 				offre.setCategorie(rs.getString("categorie"));
 				offre.setNombre_personne(rs.getInt("nombre_personne"));
 				offre.setPays(rs.getString("pays"));
@@ -335,6 +391,17 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 				offre.setDescription(rs.getString("description"));
 				offre.setDate_offre(rs.getString("date_offre"));
 				offre.setEtat(rs.getString("etat"));
+				offre.setPhoto(rs.getBinaryStream("photo"));
+				if(offre.getPhoto()!=null){
+					try {
+						offre.setBase64Image(Transfer( rs.getBlob("photo")));
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}else{
+					offre.setBase64Image(null);
+				}
 				System.out.println(offre.toString());
 			}
 			ps.close();
@@ -351,12 +418,12 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 		Connection connection = mangementDataBase.connexionDataBase();
 		try {
 			PreparedStatement ps = connection.prepareStatement(
-					"Update offre set id_hote = ? ,categorie= ?,nombre_personne=?,pays=?,ville=?,adresse=?,date_debut=?,date_fin=?,prix=?,devise=?,salle_bain=?,nb_chambre=?,description=?,photo=?  where id=?");
+					"Update offre set id_hote = ? ,categorie= ?,nombre_personne=?,pays=?,ville=?,adresse=?,date_debut=?,date_fin=?,prix=?,devise=?,salle_bain=?,nb_chambre=?,description=?,photo=?,type=?  where id=?");
 			System.out.println(offre.getNombre_personne());
 			ps.setInt(1, offre.getId_hote());
 			ps.setString(2, offre.getCategorie());
 			ps.setInt(3, offre.getNombre_personne());
-
+			
 			ps.setString(4, offre.getPays());
 			ps.setString(5, offre.getVille());
 			ps.setString(6, offre.getAdresse());
@@ -373,7 +440,7 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 
 			// ps.setBlob(14, offre.getPhoto());
 			ps.setInt(15, offre.getId());
-
+			ps.setString(16, offre.getType());
 			ps.executeUpdate();
 			ps.close();
 

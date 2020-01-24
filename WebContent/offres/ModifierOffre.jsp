@@ -21,8 +21,16 @@
     <li>Specification</li>
     <li>Description</li>
   </ul>
-
-<form class="steps" method="post" action="ModifierOffre.ma" >
+  <%-- pour l affichage photo 
+	<div class="card-header ">
+		<div class="card-avatar">
+			<a href="#pablo"> <img class="img"
+				src="data:image/jpg;base64,${offre.base64Image}">
+			</a>
+		</div>
+	</div>
+	 --%>
+	 <form class="steps" method="post" action="ModifierOffre.ma" >
 <input type="hidden"  name="id" value = "${offre.getId()}" >
   <!-- USER INFORMATION FIELD SET --> 
   <fieldset>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  jeu. 23 jan. 2020 à 22:09
+-- Généré le :  ven. 24 jan. 2020 à 21:03
 -- Version du serveur :  10.4.11-MariaDB
 -- Version de PHP :  7.4.1
 
@@ -30,33 +30,26 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `offre` (
   `id` int(11) NOT NULL,
-  `id_hote` int(11) NOT NULL,
-  `date_offre` varchar(30) NOT NULL,
-  `categorie` varchar(555) NOT NULL,
-  `nombre_personne` int(11) NOT NULL,
-  `pays` varchar(555) NOT NULL,
-  `ville` varchar(555) NOT NULL,
-  `adresse` varchar(555) NOT NULL,
-  `date_debut` varchar(555) NOT NULL,
-  `date_fin` varchar(555) NOT NULL,
-  `prix` float NOT NULL,
-  `devise` varchar(555) NOT NULL,
-  `salle_bain` int(11) NOT NULL DEFAULT 0,
-  `nb_chambre` int(11) NOT NULL DEFAULT 0,
+  `id_hote` int(11) DEFAULT NULL,
+  `date_offre` varchar(30) DEFAULT NULL,
+  `type` varchar(30) DEFAULT NULL,
+  `categorie` varchar(555) DEFAULT NULL,
+  `nombre_personne` int(11) DEFAULT NULL,
+  `pays` varchar(555) DEFAULT NULL,
+  `ville` varchar(555) DEFAULT NULL,
+  `adresse` varchar(555) DEFAULT NULL,
+  `date_debut` varchar(555) DEFAULT NULL,
+  `date_fin` varchar(555) DEFAULT NULL,
+  `prix` float DEFAULT NULL,
+  `devise` varchar(555) DEFAULT NULL,
+  `salle_bain` int(11) DEFAULT 0,
+  `nb_chambre` int(11) DEFAULT 0,
   `description` varchar(555) DEFAULT NULL,
   `photo` longblob DEFAULT NULL,
-  `etat` varchar(30) NOT NULL DEFAULT 'en attente'
+  `etat` varchar(30) DEFAULT 'en attente'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `offre`
---
-
-INSERT INTO `offre` (`id`, `id_hote`, `date_offre`, `categorie`, `nombre_personne`, `pays`, `ville`, `adresse`, `date_debut`, `date_fin`, `prix`, `devise`, `salle_bain`, `nb_chambre`, `description`, `photo`, `etat`) VALUES
-(3, 1, '', 'chambreHote', 4, 'maroc', 'fes', '98, av karaouinne narjis A', '2020-01-22', '2020-01-31', 6, 'dd', 3, 5, 'ddddddddddd', NULL, 'en attente'),
-(4, 1, '2020-01-23 ', 'appartement', 5, 'maroc', 'fes', '98, av karaouinne narjis A', '2020-01-22', '2020-01-31', 6, 'dd', 3, 5, '', NULL, 'en attente'),
-(5, 1, '2020-01-23 ', 'appartement', 5, 'maroc', 'fes', '98, av karaouinne narjis A', '2020-01-22', '2020-01-31', 6, 'dd', 3, 5, '', NULL, 'en attente');
-
 --
 -- Index pour les tables déchargées
 --
@@ -76,7 +69,7 @@ ALTER TABLE `offre`
 -- AUTO_INCREMENT pour la table `offre`
 --
 ALTER TABLE `offre`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Contraintes pour les tables déchargées

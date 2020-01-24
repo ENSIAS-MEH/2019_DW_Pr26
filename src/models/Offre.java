@@ -5,6 +5,7 @@ import java.io.InputStream;
 public class Offre {
 	private int id;
 	private int id_hote;
+	private String type;
 	private String date_offre;
 	private String categorie;
 	private int nombre_personne;
@@ -22,12 +23,13 @@ public class Offre {
 	private InputStream photo;
 	private String base64Image;
 
-	public Offre(int id_hote, String date_offre, String categorie, int nombre_personne, String adresse, String pays,
+	public Offre(int id_hote, String date_offre, String type,String categorie, int nombre_personne, String adresse, String pays,
 			String ville, String date_debut, String date_fin, float prix, String devise, int salle_bain, int nb_chambre,
 			String description, InputStream photo) {
 		super();
 
 		this.id_hote = id_hote;
+		this.type=type;
 		this.date_offre = date_offre;
 		this.categorie = categorie;
 		this.nombre_personne = nombre_personne;
@@ -44,13 +46,14 @@ public class Offre {
 		this.photo = photo;
 
 	}
-	public Offre(int id,int id_hote,  String categorie, int nombre_personne, String adresse, String pays,
+	public Offre(int id,int id_hote,String type,  String categorie, int nombre_personne, String adresse, String pays,
 			String ville, String date_debut, String date_fin, float prix, String devise, int salle_bain, int nb_chambre,
 			String description, InputStream photo) {
 		super();
 
 		this.id_hote = id_hote;
 		this.id=id;
+		this.type=type;
 		this.categorie = categorie;
 		this.nombre_personne = nombre_personne;
 		this.adresse = adresse;
@@ -71,7 +74,13 @@ public class Offre {
 	public Offre() {
 		super();
 	}
-
+	
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
 	public int getId() {
 		return id;
 	}
@@ -218,11 +227,12 @@ public class Offre {
 
 	@Override
 	public String toString() {
-		return "Offre [id=" + id + ", id_hote=" + id_hote + ", date_offre=" + date_offre + ", categorie=" + categorie
-				+ ", nombre_personne=" + nombre_personne + ", adresse=" + adresse + ", pays=" + pays + ", ville="
-				+ ville + ", date_debut=" + date_debut + ", date_fin=" + date_fin + ", prix=" + prix + ", devise="
-				+ devise + ", salle_bain=" + salle_bain + ", nb_chambre=" + nb_chambre + ", description=" + description
-				+ ", etat=" + etat + "]";
+		return "Offre [id=" + id + ", id_hote=" + id_hote + ", type=" + type + ", date_offre=" + date_offre
+				+ ", categorie=" + categorie + ", nombre_personne=" + nombre_personne + ", adresse=" + adresse
+				+ ", pays=" + pays + ", ville=" + ville + ", date_debut=" + date_debut + ", date_fin=" + date_fin
+				+ ", prix=" + prix + ", devise=" + devise + ", salle_bain=" + salle_bain + ", nb_chambre=" + nb_chambre
+				+ ", description=" + description + ", etat=" + etat + ", photo=" + photo + ", base64Image="
+				+ base64Image + "]";
 	}
 
 
