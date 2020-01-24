@@ -56,7 +56,7 @@
 							<i class="material-icons">supervised_user_circle</i>
 							<p>Liste des clients</p>
 					</a></li>
-					<li class="nav-item "><a class="nav-link" href="./tables.html">
+					<li class="nav-item "><a class="nav-link" href="listOffre.ma">
 							<i class="material-icons">local_offer</i>
 							<p>Liste des offres</p>
 					</a></li>
