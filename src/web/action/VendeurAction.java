@@ -17,11 +17,9 @@ public class VendeurAction {
 	private Vendeur vendeur;
 	private LocationServicesInter locationServices;
 
-
 	public VendeurAction() {
 		super();
 		locationServices = (LocationServicesInter) new LocationServicesImpl();
-		
 	}
 
 	public VendeurAction(Vendeur vendeur) {
@@ -38,49 +36,50 @@ public class VendeurAction {
 	}
 
 	public boolean inscriptionVendeur(HttpServletRequest request) {
-		return locationServices.inscriptionVendeur(new Vendeur(request.getParameter("nom"), request.getParameter("prenom"),
-				request.getParameter("date_naissance"), request.getParameter("cin"), request.getParameter("sexe"),
-				request.getParameter("email"), request.getParameter("password"), request.getParameter("adresse"),
-				request.getParameter("pays"), request.getParameter("ville"), request.getParameter("telephone")));
-			
-		
+		return locationServices.inscriptionVendeur(new Vendeur(request.getParameter("nom"),
+				request.getParameter("prenom"), request.getParameter("date_naissance"), request.getParameter("cin"),
+				request.getParameter("sexe"), request.getParameter("email"), request.getParameter("password"),
+				request.getParameter("adresse"), request.getParameter("pays"), request.getParameter("ville"),
+				request.getParameter("telephone")));
+
 	}
 
 	public boolean ConnexionVendeur(HttpServletRequest request, HttpSession session) {
 
-		vendeur= locationServices.getVendeurByEmail(request.getParameter("email"));
+		vendeur = locationServices.getVendeurByEmail(request.getParameter("email"));
 		if (vendeur == null) {
 			System.out.println("hello");
 			return false;
 		} else {
-			if (request.getParameter("email").equals(vendeur.getEmail()) && request.getParameter("password").equals(vendeur.getMot_de_passe())) {
+			if (request.getParameter("email").equals(vendeur.getEmail())
+					&& request.getParameter("password").equals(vendeur.getMot_de_passe())) {
 				session = request.getSession();
 				session.setAttribute("account_type", "vendeur");
-				session.setAttribute("id",vendeur.getId() );
-				session.setAttribute("nom",vendeur.getNom());
-				session.setAttribute("prenom",vendeur.getPrenom());
+				session.setAttribute("id", vendeur.getId());
+				session.setAttribute("nom", vendeur.getNom());
+				session.setAttribute("prenom", vendeur.getPrenom());
 				return true;
-			} 
-		 return false;
+			}
+			return false;
 		}
-		
+
 	}
 
 	public Vendeur getVendeurById(int id) {
-		
+
 		return locationServices.getVendeurById(id);
 	}
 
-	public boolean AjouterOffre(HttpServletRequest request,int id_hote) throws IllegalStateException, IOException, ServletException {
+	public boolean AjouterOffre(HttpServletRequest request, int id_hote)
+			throws IllegalStateException, IOException, ServletException {
 		String date = java.time.LocalDate.now() + " ";
-		//InputStream photo = (request.getPart("photo")).getInputStream();
-		return locationServices.AjouterOffre(new Offre(id_hote,date, request.getParameter("categorie"), (Integer.parseInt(request.getParameter("nombre_personne"))),
-				request.getParameter("adresse"), request.getParameter("pays"), request.getParameter("ville"),
-				request.getParameter("date_debut"), request.getParameter("date_fin"), (Float.parseFloat(request.getParameter("prix"))),
-				request.getParameter("devise"), (Integer.parseInt(request.getParameter("salle_bain"))),(Integer.parseInt(request.getParameter("nb_chambre"))), request.getParameter("description"), null));
+		// InputStream photo = (request.getPart("photo")).getInputStream();
+		return locationServices.AjouterOffre(new Offre(id_hote, date, request.getParameter("categorie"),
+				(Integer.parseInt(request.getParameter("nombre_personne"))), request.getParameter("adresse"),
+				request.getParameter("pays"), request.getParameter("ville"), request.getParameter("date_debut"),
+				request.getParameter("date_fin"), (Float.parseFloat(request.getParameter("prix"))),
+				request.getParameter("devise"), (Integer.parseInt(request.getParameter("salle_bain"))),
+				(Integer.parseInt(request.getParameter("nb_chambre"))), request.getParameter("description"), null));
 	}
-	
-	
-
 
 }

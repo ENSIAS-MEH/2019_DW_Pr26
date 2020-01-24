@@ -15,7 +15,7 @@ import web.action.VendeurAction;
 import web.action.AdminAction;
 
 @WebServlet(name = "Controller", urlPatterns = { "/Accueil.ma", "/Controller.ma", "/DevenezHote.ma",
-		"/InscriptionVendeur.ma", "/ConnexionVendeur.ma", "/FormConnexionVendeur.ma", "/InscriptionClient.ma","/contact.ma", "/Deconnexion.ma", "/FormConnexionClient.ma", "/ConnexionClient.ma" ,"/ProfilVendeur.ma","/AcceuilVendeur.ma","/FormAjouterOffre.ma","/AjouterOffre.ma","/ListOffre.ma","/SupprimerOffre.ma","/ModifierOffre.ma","/AccueilAdmin.ma","/DetailOffre.ma","/ConnexionAdmin.ma"})
+		"/InscriptionVendeur.ma", "/ConnexionVendeur.ma", "/FormConnexionVendeur.ma", "/InscriptionClient.ma","/contact.ma", "/Deconnexion.ma", "/FormConnexionClient.ma", "/ConnexionClient.ma" ,"/ProfilVendeur.ma","/AcceuilVendeur.ma","/FormAjouterOffre.ma","/AjouterOffre.ma","/ListOffre.ma","/SupprimerOffre.ma","/ModifierOffre.ma","/AccueilAdmin.ma","/DetailOffre.ma","/ConnexionAdmin.ma","/saveContact.ma"})
 
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -192,7 +192,7 @@ public class Controller extends HttpServlet {
 				}
 		
 		//Post 
-				else if(action.equals("newContactMessage")){
+				else if(action.equals("saveContact")){
 					contactMessage.ajouteContactMessage(request, session);
 				}
 		else
