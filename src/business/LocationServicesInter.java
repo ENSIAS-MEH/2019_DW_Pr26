@@ -3,6 +3,7 @@ package business;
 import java.util.ArrayList;
 
 import models.Client;
+import models.Contact;
 import models.Offre;
 import models.Vendeur;
 
@@ -13,18 +14,16 @@ public interface LocationServicesInter {
 
 	public Vendeur getVendeurByEmail(String email);
 
-	
-	//Client 
+	// Client
 	public boolean inscriptionClient(Client client);
 
 	public Client getClientByEmail(String email);
 
 	public Vendeur getVendeurById(int id);
 
-	
-	
-	//offre
+	// offre
 	public boolean AjouterOffre(Offre offre);
+
 	public ArrayList<Offre> getOffresByIdVendeur(int id);
 
 	public void SupprimerOffre(int id);
@@ -33,5 +32,7 @@ public interface LocationServicesInter {
 
 	public boolean ModifierOffre(Offre offre);
 
-	
+	// Contact
+	public void ajouteContactMessage(Contact contact);
+
 }

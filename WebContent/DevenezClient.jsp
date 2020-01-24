@@ -45,14 +45,18 @@
 		</button>
 		<div class="collapse navbar-collapse" id="ftco-nav">
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item"><a href="Accueil.ma" class="nav-link">Acceuil</a></li>
+				<li class="nav-item "><a href="Accueil.ma" class="nav-link">Acceuil</a></li>
 				<li class="nav-item"><a href="about.html" class="nav-link">À
 						propos</a></li>
 				<li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
-				<li class="nav-item"><a href="DevenezHote.ma"
-					class="nav-link">Devenez hôte</a></li>
-				<li class="nav-item active"><a href="InscriptionClient.ma" class="nav-link">Inscription</a></li>
-				<li class="nav-item"><a href="contact.html" class="nav-link">Connexion</a></li>
+				<li class="nav-item "><a href="DevenezHote.ma" class="nav-link">Devenez
+						hôte</a></li>
+				<li class="nav-item active"><a href="InscriptionClient.ma"
+					class="nav-link">Inscription</a></li>
+				<li class="nav-item"><a href="FormConnexionVendeur.ma"
+					class="nav-link"> Connexion</a></li>
+				<li class="nav-item"><a href="FormConnexionClient.ma"
+					class="nav-link"> Connexion Client</a></li>
 				<li class="nav-item"><a href="contact.ma" class="nav-link">Contact</a></li>
 			</ul>
 		</div>
@@ -68,7 +72,8 @@
 		<div class="row justify-content-center">
 			<div class="col-md-12 heading-section text-center ftco-animate mb-5">
 				<span class="subheading">Créer votre compte</span>
-				<h4 class="mb-2">Remplir le formulaire suivant pour créer votre compte</h4>
+				<h4 class="mb-2">Remplir le formulaire suivant pour créer votre
+					compte</h4>
 			</div>
 		</div>
 		<div class="row block-9 justify-content-center mb-5"
@@ -217,11 +222,10 @@
 
 	<!-- loader -->
 	<div id="ftco-loader" class="show fullscreen">
-		<svg class="circular" width="48px" height="48px">
-		<circle class="path-bg" cx="24" cy="24" r="22" fill="none"
-			stroke-width="4" stroke="#eeeeee" />
-		<circle class="path" cx="24" cy="24" r="22" fill="none"
-			stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
+		<svg class="circular" width="48px" height="48px"> <circle
+			class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4"
+			stroke="#eeeeee" /> <circle class="path" cx="24" cy="24" r="22"
+			fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
 	</div>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

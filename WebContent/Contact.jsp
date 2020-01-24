@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -56,20 +57,20 @@
 				<li class="nav-item"><a href="about.html" class="nav-link">À
 						propos</a></li>
 				<li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
-				<li class="nav-item"><a href="DevenezHote.ma" class="nav-link">Devenez
+				<li class="nav-item "><a href="DevenezHote.ma" class="nav-link">Devenez
 						hôte</a></li>
-				<li class="nav-item"><a href="InscriptionClient.ma"
+				<li class="nav-item "><a href="InscriptionClient.ma"
 					class="nav-link">Inscription</a></li>
-				<li class="nav-item"><a href="FormConnexionVendeur.ma"
-					class="nav-link"> Connexion</a></li>
+				<li class="nav-item "><a href="FormConnexionVendeur.ma"
+					class="nav-link "> Connexion</a></li>
+				<li class="nav-item"><a href="FormConnexionClient.ma"
+					class="nav-link"> Connexion Client</a></li>
 				<li class="nav-item active"><a href="contact.ma"
 					class="nav-link">Contact</a></li>
 			</ul>
 		</div>
 	</div>
 	</nav>
-
-
 
 	<section class="hero-wrap hero-wrap-2 ftco-degree-bg js-fullheight"
 		style="background-image: url('images/bg_1.jpg');"
@@ -80,6 +81,7 @@
 			class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
 			<div class="col-md-9 ftco-animate pb-5 text-center">
 				<h1 class="mb-3 bread">Cntactez-nous</h1>
+				<h5 style="color: red;">${message }</h5>
 			</div>
 		</div>
 	</div>

@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -38,7 +39,6 @@
 	rel="stylesheet">
 </head>
 <body>
-
 	<nav
 		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
 		id="ftco-navbar">
@@ -66,7 +66,6 @@
 				<li class="nav-item"><a href="FormConnexionClient.ma"
 					class="nav-link"> Connexion Client</a></li>
 				<li class="nav-item"><a href="contact.ma" class="nav-link">Contact</a></li>
-
 			</ul>
 		</div>
 	</div>
@@ -103,9 +102,7 @@
 										<div class="form-field">
 											<label style="text-align: left;">Départ</label> <input
 												type="date" class="form-control" placeholder="Départ">
-
 										</div>
-
 									</div>
 								</div>
 								<div class="col-lg-5 align-items-end">
@@ -126,7 +123,6 @@
 										<div class="form-field">
 											<input type="submit" class="form-control btn btn-primary"
 												value="Rechercher Maintenant">
-
 										</div>
 									</div>
 								</div>
@@ -223,15 +219,8 @@
 				</div>
 			</div>
 		</div>
-
-
 	</div>
 	</section>
-
-
-
-
-
 
 	<section class="ftco-section ftco-agent ftco-no-pt">
 	<div class="container">
@@ -294,11 +283,9 @@
 					</div>
 				</div>
 			</div>
-
 		</div>
 	</div>
 	</section>
-
 
 	<section class="ftco-section ftco-no-pt">
 	<div class="container">
@@ -306,7 +293,6 @@
 			<div class="col-md-7 heading-section text-center ftco-animate">
 				<span class="subheading">Hôtels</span>
 				<h2>Hôtels Très Bien Notées</h2>
-
 			</div>
 		</div>
 		<div class="row d-flex">
@@ -316,11 +302,9 @@
 						<h3 class="heading">
 							<a href="#">Hôtels Karakoy Port</a>
 						</h3>
-
 						<a href="blog-single.html" class="block-20 img"
 							style="background-image: url('images/image_1.jpg');"> </a>
 						<div class="meta mb-3">
-
 							<div>
 								<a href="#">Julien, Canada</a>
 							</div>
@@ -338,11 +322,9 @@
 						<h3 class="heading">
 							<a href="#">Han Hostel Airport North</a>
 						</h3>
-
 						<a href="blog-single.html" class="block-20 img"
 							style="background-image: url('images/image_2.jpg');"> </a>
 						<div class="meta mb-3">
-
 							<div>
 								<a href="#">David, France</a>
 							</div>
@@ -360,11 +342,9 @@
 						<h3 class="heading">
 							<a href="#">Hotel Don Paco</a>
 						</h3>
-
 						<a href="blog-single.html" class="block-20 img"
 							style="background-image: url('images/image_3.jpg');"> </a>
 						<div class="meta mb-3">
-
 							<div>
 								<a href="#">Amir,Maroc</a>
 							</div>
@@ -383,11 +363,9 @@
 						<h3 class="heading">
 							<a href="#">Hotel Marrakech Le Tichka</a>
 						</h3>
-
 						<a href="blog-single.html" class="block-20 img"
 							style="background-image: url('images/image_4.jpg');"> </a>
 						<div class="meta mb-3">
-
 							<div>
 								<a href="#">raymond, France</a>
 							</div>
@@ -403,8 +381,6 @@
 		</div>
 	</div>
 	</section>
-
-
 
 	<footer class="ftco-footer ftco-section">
 	<div class="container">
@@ -453,11 +429,8 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
 	</footer>
-
-
 
 	<!-- loader -->
 	<div id="ftco-loader" class="show fullscreen">
@@ -466,7 +439,6 @@
 			stroke="#eeeeee" /> <circle class="path" cx="24" cy="24" r="22"
 			fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
 	</div>
-
 
 	<script src="js/accueil_js/jquery.min.js"></script>
 	<script src="js/accueil_js/jquery-migrate-3.0.1.min.js"></script>

@@ -1,19 +1,14 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
-
 <html lang="en" >
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/offre/style.css">
-
 </head>
 <body>
 <!-- Modal -info -->
-
-
   <ul id="progressbar">
     <li class="active">Categorie</li>
     <li>Informations</li>
@@ -25,7 +20,7 @@
 <form class="steps" method="post" action="AjouterOffre.ma" >
 
   <!-- USER INFORMATION FIELD SET --> 
-  <fieldset>
+  <fieldset style="width: 100%; float: left; margin: 0; ">
     <h2 class="fs-title">Categorie de la location</h2>
     <h3 class="fs-subtitle">Choisissez la catégorie de votre location</h3>
     <!-- Begin What's Your First Name Field -->
@@ -67,7 +62,7 @@
 
 
   <!-- ACQUISITION FIELD SET -->  
-  <fieldset>
+  <fieldset style="width: 100%; float: left; margin: 0; ">
     <h2 class="fs-title">Informations</h2>
     <h3 class="fs-subtitle">Des informations sur la location</h3>
       <!-- Begin Total Number of Donors in Year 1 Field -->
@@ -114,7 +109,7 @@
 
 
   <!-- Cultivation FIELD SET -->  
-  <fieldset>
+  <fieldset style="width: 100%; float: left; margin: 0; ">
     <h2 class="fs-title">Date & prix</h2>
     <h3 class="fs-subtitle">Date début, date fin et prix de la location</h3>
       <!-- Begin Average Gift Size in Year 1 Field -->
@@ -169,7 +164,7 @@
 
 
   <!-- Cultivation2 FIELD SET --> 
-  <fieldset>
+  <fieldset style="width: 100%; float: left; margin: 0; ">
     <h2 class="fs-title">Spécification</h2>
     <h3 class="fs-subtitle">Spécifications de la location</h3>
               <!-- Begin Total Giving In Year 1 Field -->
@@ -206,7 +201,7 @@
 
 
   <!-- RETENTION FIELD SET -->  
-  <fieldset>
+  <fieldset style="width: 100%; float: left; margin: 0; ">
     <h2 class="fs-title">Descriptions & photos</h2>
     <h3 class="fs-subtitle">Descriptions & photos </h3>
         <!-- Begin Total Number of Donors Who Gave in Year 1 Field -->

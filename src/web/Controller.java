@@ -9,12 +9,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import web.action.ClientAction;
+import web.action.ContactMessage;
 import web.action.OffreAction;
 import web.action.VendeurAction;
 import web.action.AdminAction;
 
 @WebServlet(name = "Controller", urlPatterns = { "/Accueil.ma", "/Controller.ma", "/DevenezHote.ma",
-		"/InscriptionVendeur.ma", "/ConnexionVendeur.ma", "/FormConnexionVendeur.ma", "/InscriptionClient.ma","/contact.ma", "/Deconnexion.ma", "/FormConnexionClient.ma", "/ConnexionClient.ma" ,"/ProfilVendeur.ma","/AcceuilVendeur.ma","/FormAjouterOffre.ma","/AjouterOffre.ma","/ListOffre.ma","/SupprimerOffre.ma","/ModifierOffre.ma","/AccueilAdmin.ma","/DetailOffre.ma","/ConnexionAdmin.ma"})
+		"/InscriptionVendeur.ma", "/ConnexionVendeur.ma", "/FormConnexionVendeur.ma", "/InscriptionClient.ma",
+		"/contact.ma", "/Deconnexion.ma", "/FormConnexionClient.ma", "/ConnexionClient.ma", "/ProfilVendeur.ma",
+		"/AcceuilVendeur.ma", "/FormAjouterOffre.ma", "/AjouterOffre.ma", "/ListOffre.ma", "/SupprimerOffre.ma",
+		"/ModifierOffre.ma", "/AccueilAdmin.ma", "/DetailOffre.ma", "/ConnexionAdmin.ma", "/saveContact.ma" })
 
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -23,6 +27,7 @@ public class Controller extends HttpServlet {
 	private ClientAction clientAction;
 	private AdminAction adminAction;
 	private OffreAction offreAction;
+	private ContactMessage contactMessage;
 
 	public Controller() {
 		// TODO Auto-generated constructor stub
@@ -37,6 +42,7 @@ public class Controller extends HttpServlet {
 		offreAction = new OffreAction();
 		session = null;
 		adminAction = new AdminAction();
+		contactMessage = new ContactMessage();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -46,75 +52,73 @@ public class Controller extends HttpServlet {
 		session = request.getSession();
 		if (action.equals("Accueil"))
 			views = "Accueil";
-		//vendeur
+		// vendeur
 		else if (action.equals("DevenezHote")) {
 			views = "DevenezHote";
 		} else if (action.equals("FormConnexionVendeur")) {
 			views = "ConnexionVendeur";
-		}else if (action.equals("ProfilVendeur")) {
-		    if(session.getAttribute("account_type").equals("vendeur")){
-		    	request.setAttribute("vendeur", vendeurAction.getVendeurById((int)session.getAttribute("id")));
-		    	request.setAttribute("type", "profil");
-		    	views = "AcceuilAfterConnexion";
-		    }
-			
-		}else if (action.equals("AcceuilVendeur")) {
-		    if(session.getAttribute("account_type").equals("vendeur")){
-		    	request.setAttribute("type", "acceuil");
-		    	views = "AcceuilAfterConnexion";
-		    }
-		    else views = "/404";
-			
+		} else if (action.equals("ProfilVendeur")) {
+			if (session.getAttribute("account_type").equals("vendeur")) {
+				request.setAttribute("vendeur", vendeurAction.getVendeurById((int) session.getAttribute("id")));
+				request.setAttribute("type", "profil");
+				views = "AcceuilAfterConnexion";
+			}
+
+		} else if (action.equals("AcceuilVendeur")) {
+			if (session.getAttribute("account_type").equals("vendeur")) {
+				request.setAttribute("type", "acceuil");
+				views = "AcceuilAfterConnexion";
+			} else
+				views = "/404";
+
 		}
-		//client
+		// client
 		else if (action.equals("InscriptionClient")) {
 			views = "DevenezClient";
 		} else if (action.equals("contact")) {
 			views = "Contact";
-		} 
-		else if (action.equals("FormConnexionClient")) {
+		} else if (action.equals("FormConnexionClient")) {
 			views = "ConnexionClient";
 		} else if (action.equals("Deconnexion")) {
 			session.invalidate();
 			session = null;
 			views = "Accueil";
 		}
-		//Administrateur
+		// Administrateur
 		else if (action.equals("ConnexionAdmin")) {
 			views = "ConnexionAdmin";
 		}
-		//traitement offre
+		// traitement offre
 		else if (action.equals("FormAjouterOffre")) {
-			 if(session.getAttribute("account_type").equals("vendeur")){
-			    	request.setAttribute("type", "ajoutOffre");
-			    	views = "AcceuilAfterConnexion";
-			    }
-		}else if (action.equals("ListOffre")) {
-			    	request.setAttribute("type", "listOffre");
-			    	int id_hote = (int) session.getAttribute("id");
-			    	request.setAttribute("offres", offreAction.ListOffre(id_hote));	
-			    	views = "AcceuilAfterConnexion";
-		}else if (action.equals("DetailOffre")) {
-	    	request.setAttribute("type", "detailOffre");
-	    	int id = Integer.parseInt(request.getParameter("id"));
-	    	request.setAttribute("offre", offreAction.getOffre(id));
-	    	views = "AcceuilAfterConnexion";	 
-        }else if (action.equals("ModifierOffre")) {
-	    	request.setAttribute("type", "modifierOffre");
-	    	int id = Integer.parseInt(request.getParameter("id"));
-	    	request.setAttribute("offre", offreAction.getOffre(id));
-	    	views = "AcceuilAfterConnexion";	 
-        }else if (action.equals("SupprimerOffre")) {	
-	    	int id = Integer.parseInt(request.getParameter("id"));
-	    	offreAction.SupprimerOffre(id);
-	    	request.setAttribute("alert", "votre offre a ï¿½tï¿½ bien supprimer");
-	    	request.setAttribute("type", "listOffre");
-	    	int id_hote = (int) session.getAttribute("id");
-	    	request.setAttribute("offres", offreAction.ListOffre(id_hote));
-	    	views = "AcceuilAfterConnexion";	 
-        }
+			if (session.getAttribute("account_type").equals("vendeur")) {
+				request.setAttribute("type", "ajoutOffre");
+				views = "AcceuilAfterConnexion";
+			}
+		} else if (action.equals("ListOffre")) {
+			request.setAttribute("type", "listOffre");
+			int id_hote = (int) session.getAttribute("id");
+			request.setAttribute("offres", offreAction.ListOffre(id_hote));
+			views = "AcceuilAfterConnexion";
+		} else if (action.equals("DetailOffre")) {
+			request.setAttribute("type", "detailOffre");
+			int id = Integer.parseInt(request.getParameter("id"));
+			request.setAttribute("offre", offreAction.getOffre(id));
+			views = "AcceuilAfterConnexion";
+		} else if (action.equals("ModifierOffre")) {
+			request.setAttribute("type", "modifierOffre");
+			int id = Integer.parseInt(request.getParameter("id"));
+			request.setAttribute("offre", offreAction.getOffre(id));
+			views = "AcceuilAfterConnexion";
+		} else if (action.equals("SupprimerOffre")) {
+			int id = Integer.parseInt(request.getParameter("id"));
+			offreAction.SupprimerOffre(id);
+			request.setAttribute("alert", "votre offre a ï¿½tï¿½ bien supprimer");
+			request.setAttribute("type", "listOffre");
+			int id_hote = (int) session.getAttribute("id");
+			request.setAttribute("offres", offreAction.ListOffre(id_hote));
+			views = "AcceuilAfterConnexion";
+		}
 
-		
 		else
 			views = "/404";
 
@@ -137,7 +141,7 @@ public class Controller extends HttpServlet {
 			}
 			views = "ResultatCreationVendeur";
 		} else if (action.equals("ConnexionVendeur")) {
-			if (vendeurAction.ConnexionVendeur(request,session)) {
+			if (vendeurAction.ConnexionVendeur(request, session)) {
 				views = "AcceuilAfterConnexion";
 			} else {
 				request.setAttribute("messageError", "Mot de passe ou Email est Incorrect");
@@ -160,34 +164,45 @@ public class Controller extends HttpServlet {
 				views = "ConnexionClient";
 			}
 		}
-		
-		//traitement offre
+
+		// traitement offre
 		else if (action.equals("AjouterOffre")) {
 			int id_hote = (int) session.getAttribute("id");
-			System.out.println("ddd : "+request.getParameter("categorie"));
-			if(vendeurAction.AjouterOffre(request,id_hote)) request.setAttribute("alert", "Fï¿½licitations ! Votre nouveau offre a ï¿½tï¿½ crï¿½ï¿½ avec succï¿½s !");
-			else request.setAttribute("alert", "offre n'a pas ï¿½tï¿½ ajoutï¿½e");
+			System.out.println("ddd : " + request.getParameter("categorie"));
+			if (vendeurAction.AjouterOffre(request, id_hote))
+				request.setAttribute("alert",
+						"Fï¿½licitations ! Votre nouveau offre a ï¿½tï¿½ crï¿½ï¿½ avec succï¿½s !");
+			else
+				request.setAttribute("alert", "offre n'a pas ï¿½tï¿½ ajoutï¿½e");
 			request.setAttribute("type", "acceuil");
-	    	views = "AcceuilAfterConnexion";
-		}else if (action.equals("ModifierOffre")) {
+			views = "AcceuilAfterConnexion";
+		} else if (action.equals("ModifierOffre")) {
 			int id_hote = (int) session.getAttribute("id");
-			if(offreAction.ModifierOffre(request,id_hote)) request.setAttribute("alert", "Votre offre a ï¿½tï¿½ modifiï¿½e avec succï¿½s !");
-			else request.setAttribute("alert", "offre n'a pas ï¿½tï¿½ modifiï¿½e");
+			if (offreAction.ModifierOffre(request, id_hote))
+				request.setAttribute("alert", "Votre offre a ï¿½tï¿½ modifiï¿½e avec succï¿½s !");
+			else
+				request.setAttribute("alert", "offre n'a pas ï¿½tï¿½ modifiï¿½e");
 			request.setAttribute("type", "listOffre");
-	    	request.setAttribute("offres", offreAction.ListOffre(id_hote));
-	    	views = "AcceuilAfterConnexion";
+			request.setAttribute("offres", offreAction.ListOffre(id_hote));
+			views = "AcceuilAfterConnexion";
 		}
-		
-		//Administrateur
-				else if (action.equals("ConnexionAdmin")) {
-					if (adminAction.ConnexionAdmin(request,session)) {
-						views = "AcceuilAdmin";
-					} else {
-						request.setAttribute("messageError", "Mot de passe ou Email Incorrect");
-						views = "ConnexionAdmin";
-					}
-				}
-		else
+
+		// Administrateur
+		else if (action.equals("ConnexionAdmin")) {
+			if (adminAction.ConnexionAdmin(request, session)) {
+				views = "AcceuilAdmin";
+			} else {
+				request.setAttribute("messageError", "Mot de passe ou Email Incorrect");
+				views = "ConnexionAdmin";
+			}
+		}
+
+		// Post
+		else if (action.equals("saveContact")) {
+			contactMessage.ajouteContactMessage(request, session);
+			request.setAttribute("message", "votre message a bien été envoyé");
+			views = "Contact";
+		} else
 			views = "/404";
 
 		request.getRequestDispatcher(views + ".jsp").forward(request, response);
