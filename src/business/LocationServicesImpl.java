@@ -43,7 +43,7 @@ public class LocationServicesImpl implements LocationServicesInter {
 	}
 
 	public Vendeur getVendeurByEmail(String email) {
-		return  locationepositoryImpl.getVendeurbyEmail(email);	
+		return locationepositoryImpl.getVendeurbyEmail(email);
 	}
 
 	public Client getClientByEmail(String email) {
@@ -69,7 +69,7 @@ public class LocationServicesImpl implements LocationServicesInter {
 	@Override
 	public void SupprimerOffre(int id) {
 		locationepositoryImpl.SupprimerOffre(id);
-		
+
 	}
 
 	@Override
@@ -82,9 +82,9 @@ public class LocationServicesImpl implements LocationServicesInter {
 		// TODO Auto-generated method stub
 		return locationepositoryImpl.ModifierOffre(offre);
 	}
-	
+
 	@Override
-	public void ajouteContactMessage(Contact contact){
+	public void ajouteContactMessage(Contact contact) {
 		locationepositoryImpl.ajouteContactMessage(contact);
 	}
 }

@@ -38,7 +38,7 @@ public interface LocationRepositoryInter {
 	public boolean ModifierOffre(Offre offre);
 	
 	//Contact 
-	public void ajouteContactMessage(Contact contact); 
+	public void ajouteContactMessage(Contact contact);
 
 	
 }

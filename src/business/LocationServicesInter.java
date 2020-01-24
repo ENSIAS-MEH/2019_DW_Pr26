@@ -14,18 +14,16 @@ public interface LocationServicesInter {
 
 	public Vendeur getVendeurByEmail(String email);
 
-	
-	//Client 
+	// Client
 	public boolean inscriptionClient(Client client);
 
 	public Client getClientByEmail(String email);
 
 	public Vendeur getVendeurById(int id);
 
-	
-	
-	//offre
+	// offre
 	public boolean AjouterOffre(Offre offre);
+
 	public ArrayList<Offre> getOffresByIdVendeur(int id);
 
 	public void SupprimerOffre(int id);
@@ -33,9 +31,8 @@ public interface LocationServicesInter {
 	public Offre getOffresById(int id);
 
 	public boolean ModifierOffre(Offre offre);
-	
-	//Contact 
-	public void ajouteContactMessage(Contact contact); 
 
-	
+	// Contact
+	public void ajouteContactMessage(Contact contact);
+
 }

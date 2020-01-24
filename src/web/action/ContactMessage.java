@@ -32,15 +32,16 @@ public class ContactMessage {
 
 	public void ajouteContactMessage(HttpServletRequest request, HttpSession session) {
 		// empty if(session.getAttribute("account_type"))
-		String type_emetteur = "Other"; 
-		if(session.getAttribute("account_type") != null){
-		if(!((String)session.getAttribute("account_type")).isEmpty()){
-			if(session.getAttribute("account_type").equals("client"))
-				type_emetteur = "client"; 
-			else if(session.getAttribute("account_type").equals("vendeur"))
-				type_emetteur = "vendeur"; 
+		String type_emetteur = "Other";
+		if (session.getAttribute("account_type") != null) {
+			if (!((String) session.getAttribute("account_type")).isEmpty()) {
+				if (session.getAttribute("account_type").equals("client"))
+					type_emetteur = "client";
+				else if (session.getAttribute("account_type").equals("vendeur"))
+					type_emetteur = "vendeur";
+			}
 		}
-		}
-		locationServices.ajouteContactMessage(new Contact(request.getParameter("nom"), request.getParameter("email"), request.getParameter("sujet"), request.getParameter("message"), type_emetteur)); 
+		locationServices.ajouteContactMessage(new Contact(request.getParameter("nom"), request.getParameter("email"),
+				request.getParameter("sujet"), request.getParameter("message"), type_emetteur));
 	}
 }
