@@ -19,11 +19,7 @@
   <link href="css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="demo/demo.css" rel="stylesheet" />
-  
    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
-   
-   
-   
    <link
 	href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900&display=swap"
 	rel="stylesheet">
@@ -59,7 +55,7 @@
         <c:import url="navbar/NavbarClient.jsp" />
       </c:if>
 
-      <div class="content">
+      <div class="content card" style="width: 98%; margin:0 auto; ">
       <div class="card" style="width: 60%; margin:0 auto; ">
   <div class="card-body">
     <center class="font-weight-bold"> <strong>Bienvenue ${sessionScope.nom } ${sessionScope.prenom }.</strong></center>
@@ -361,6 +357,55 @@
         </div>
       </div>
     </section>	
+    	<footer class="ftco-footer ftco-section">
+	<div class="container">
+		<div class="row mb-5">
+			<div class="col-md">
+				<div class="ftco-footer-widget mb-4">
+					<h2 class="ftco-heading-2">Hire && Sale</h2>
+					<p>Réservez des hébergements uniques.</p>
+					<ul class="ftco-footer-social list-unstyled mt-5">
+						<li class="ftco-animate"><a href="#"><span
+								class="icon-twitter"></span></a></li>
+						<li class="ftco-animate"><a href="#"><span
+								class="icon-facebook"></span></a></li>
+						<li class="ftco-animate"><a href="#"><span
+								class="icon-instagram"></span></a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-md">
+				<div class="ftco-footer-widget mb-4 ml-md-4">
+					<h2 class="ftco-heading-2">À propos</h2>
+					<ul class="list-unstyled">
+						<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Notre
+								Histoire</a></li>
+						<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Nos
+								Carrières</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-md">
+				<div class="ftco-footer-widget mb-4">
+					<h2 class="ftco-heading-2">Avez-vous des questions?</h2>
+					<div class="block-23 mb-3">
+						<ul>
+							<li><span class="icon icon-map-marker"></span><span
+								class="text">203 Fake St. Mountain View, San Francisco,
+									California, USA</span></li>
+							<li><a href="#"><span class="icon icon-phone"></span><span
+									class="text">+2 392 3929 210</span></a></li>
+							<li><a href="#"><span class="icon icon-envelope pr-4"></span><span
+									class="text">info@yourdomain.com</span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</footer>
       </div>  
   <script src="js/core/popper.min.js"></script>
   <script src="js/core/bootstrap-material-design.min.js"></script>
