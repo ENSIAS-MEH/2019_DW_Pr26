@@ -52,17 +52,19 @@
 		</button>
 		<div class="collapse navbar-collapse" id="ftco-nav">
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item active"><a href="Accueil.ma"
+				<li class="nav-item "><a href="Accueil.ma"
 					class="nav-link">Acceuil</a></li>
 				<li class="nav-item"><a href="about.html" class="nav-link">À
 						propos</a></li>
 				<li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
-				<li class="nav-item"><a href="DevenezHote.ma" class="nav-link">Devenez
+				<li class="nav-item "><a href="DevenezHote.ma" class="nav-link">Devenez
 						hôte</a></li>
-				<li class="nav-item"><a href="InscriptionClient.ma"
+				<li class="nav-item "><a href="InscriptionClient.ma"
 					class="nav-link">Inscription</a></li>
-				<li class="nav-item"><a href="ConnexionVendeur.ma"
-					class="nav-link">Connexion</a></li>
+				<li class="nav-item active"><a href="FormConnexionVendeur.ma"
+					class="nav-link "> Connexion</a></li>
+				<li class="nav-item"><a href="FormConnexionClient.ma"
+					class="nav-link"> Connexion Client</a></li>
 				<li class="nav-item"><a href="contact.ma" class="nav-link">Contact</a></li>
 			</ul>
 		</div>

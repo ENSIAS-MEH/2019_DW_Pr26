@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import dao.LocationRepositoryImpl;
 import dao.LocationRepositoryInter;
 import models.Client;
+import models.Contact;
 import models.Offre;
 import models.Vendeur;
 
@@ -80,5 +81,10 @@ public class LocationServicesImpl implements LocationServicesInter {
 	public boolean ModifierOffre(Offre offre) {
 		// TODO Auto-generated method stub
 		return locationepositoryImpl.ModifierOffre(offre);
+	}
+	
+	@Override
+	public void ajouteContactMessage(Contact contact){
+		locationepositoryImpl.ajouteContactMessage(contact);
 	}
 }

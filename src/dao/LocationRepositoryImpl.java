@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import models.Client;
+import models.Contact;
 import models.Offre;
 import models.Vendeur;
 
@@ -109,7 +110,6 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 	}
 
 	public void inscriptionClient(Client client) {
-		System.out.println(client.toString());
 		Connection connection = mangementDataBase.connexionDataBase();
 		try {
 			PreparedStatement ps = connection.prepareStatement("insert into client("
@@ -194,7 +194,7 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 		Vendeur vendeur = null;
 		Connection connection = mangementDataBase.connexionDataBase();
 		try {
-			PreparedStatement ps = connection.prepareStatement("select * from vendeur where id =" + id );
+			PreparedStatement ps = connection.prepareStatement("select * from vendeur where id =" + id);
 			ResultSet rs = ps.executeQuery();
 
 			if (rs.next()) {
@@ -227,28 +227,29 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 	public void AjouterOffre(Offre offre) {
 		Connection connection = mangementDataBase.connexionDataBase();
 		try {
-			PreparedStatement ps = connection.prepareStatement("INSERT INTO offre (id_hote,categorie,nombre_personne,pays,ville,adresse,date_debut,date_fin,prix,devise,salle_bain,nb_chambre,description,photo,date_offre) VALUES "
-					+ "(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+			PreparedStatement ps = connection.prepareStatement(
+					"INSERT INTO offre (id_hote,categorie,nombre_personne,pays,ville,adresse,date_debut,date_fin,prix,devise,salle_bain,nb_chambre,description,photo,date_offre) VALUES "
+							+ "(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 			System.out.println(offre.getNombre_personne());
 			ps.setInt(1, offre.getId_hote());
 			ps.setString(2, offre.getCategorie());
 			ps.setInt(3, offre.getNombre_personne());
-			
+
 			ps.setString(4, offre.getPays());
 			ps.setString(5, offre.getVille());
 			ps.setString(6, offre.getAdresse());
-			
+
 			ps.setString(7, offre.getDate_debut());
 			ps.setString(8, offre.getDate_fin());
 			ps.setFloat(9, offre.getPrix());
 			ps.setString(10, offre.getDevise());
-			
+
 			ps.setInt(11, offre.getSalle_bain());
 			ps.setInt(12, offre.getNb_chambre());
 			ps.setString(13, offre.getDescription());
 			ps.setBinaryStream(14, null);
-			
-			//ps.setBlob(14, offre.getPhoto());
+
+			// ps.setBlob(14, offre.getPhoto());
 			ps.setString(15, offre.getDate_offre());
 			ps.executeUpdate();
 			ps.close();
@@ -264,7 +265,7 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 		ArrayList<Offre> listeOffre = new ArrayList<>();
 		Connection connection = mangementDataBase.connexionDataBase();
 		try {
-			PreparedStatement ps = connection.prepareStatement("select * from offre where id_hote = "+id);
+			PreparedStatement ps = connection.prepareStatement("select * from offre where id_hote = " + id);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				Offre offre = new Offre();
@@ -283,7 +284,7 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 				offre.setDescription(rs.getString("description"));
 				offre.setDate_offre(rs.getString("date_offre"));
 				offre.setEtat(rs.getString("etat"));
-				listeOffre.add(offre);	
+				listeOffre.add(offre);
 				System.out.println(offre.toString());
 			}
 			ps.close();
@@ -291,7 +292,7 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return listeOffre;
 	}
 
@@ -299,7 +300,7 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 	public void SupprimerOffre(int id) {
 		Connection connection = mangementDataBase.connexionDataBase();
 		try {
-			PreparedStatement ps = connection.prepareStatement("delete from offre where id ="+id);
+			PreparedStatement ps = connection.prepareStatement("delete from offre where id =" + id);
 			ps.executeUpdate();
 			ps.close();
 
@@ -307,7 +308,7 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	@Override
@@ -315,7 +316,7 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 		Offre offre = null;
 		Connection connection = mangementDataBase.connexionDataBase();
 		try {
-			PreparedStatement ps = connection.prepareStatement("select * from offre where id = "+id);
+			PreparedStatement ps = connection.prepareStatement("select * from offre where id = " + id);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
 				offre = new Offre();
@@ -341,7 +342,7 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return offre;
 	}
 
@@ -349,29 +350,30 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 	public boolean ModifierOffre(Offre offre) {
 		Connection connection = mangementDataBase.connexionDataBase();
 		try {
-			PreparedStatement ps = connection.prepareStatement("Update offre set id_hote = ? ,categorie= ?,nombre_personne=?,pays=?,ville=?,adresse=?,date_debut=?,date_fin=?,prix=?,devise=?,salle_bain=?,nb_chambre=?,description=?,photo=?  where id=?");
+			PreparedStatement ps = connection.prepareStatement(
+					"Update offre set id_hote = ? ,categorie= ?,nombre_personne=?,pays=?,ville=?,adresse=?,date_debut=?,date_fin=?,prix=?,devise=?,salle_bain=?,nb_chambre=?,description=?,photo=?  where id=?");
 			System.out.println(offre.getNombre_personne());
 			ps.setInt(1, offre.getId_hote());
 			ps.setString(2, offre.getCategorie());
 			ps.setInt(3, offre.getNombre_personne());
-			
+
 			ps.setString(4, offre.getPays());
 			ps.setString(5, offre.getVille());
 			ps.setString(6, offre.getAdresse());
-			
+
 			ps.setString(7, offre.getDate_debut());
 			ps.setString(8, offre.getDate_fin());
 			ps.setFloat(9, offre.getPrix());
 			ps.setString(10, offre.getDevise());
-			
+
 			ps.setInt(11, offre.getSalle_bain());
 			ps.setInt(12, offre.getNb_chambre());
 			ps.setString(13, offre.getDescription());
 			ps.setBinaryStream(14, null);
-			
-			//ps.setBlob(14, offre.getPhoto());
+
+			// ps.setBlob(14, offre.getPhoto());
 			ps.setInt(15, offre.getId());
-			
+
 			ps.executeUpdate();
 			ps.close();
 
@@ -381,4 +383,22 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 		}
 		return true;
 	}
+	
+	public void ajouteContactMessage(Contact contact){
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			PreparedStatement ps = connection.prepareStatement("insert into contact(nom,email,sujet,message,type_emetteur) values (?,?,?,?,?)");
+			ps.setString(1, contact.getNom());
+			ps.setString(2, contact.getEmail());
+			ps.setString(3, contact.getSujet());
+			ps.setString(4, contact.getMessage());
+			ps.setString(5, contact.getType_emetteur());
+			ps.executeUpdate();
+			ps.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 }

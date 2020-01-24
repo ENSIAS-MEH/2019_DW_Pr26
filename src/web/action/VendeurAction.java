@@ -1,7 +1,6 @@
 package web.action;
 
 import java.io.IOException;
-import java.io.InputStream;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -9,7 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import business.LocationServicesImpl;
 import business.LocationServicesInter;
-import models.Client;
+
 import models.Offre;
 import models.Vendeur;
 
@@ -17,12 +16,12 @@ public class VendeurAction {
 
 	private Vendeur vendeur;
 	private LocationServicesInter locationServices;
-	private HttpSession session;
+
 
 	public VendeurAction() {
 		super();
 		locationServices = (LocationServicesInter) new LocationServicesImpl();
-		session= null;
+		
 	}
 
 	public VendeurAction(Vendeur vendeur) {

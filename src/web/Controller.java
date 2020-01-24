@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import web.action.ClientAction;
+import web.action.ContactMessage;
 import web.action.OffreAction;
 import web.action.VendeurAction;
 import web.action.AdminAction;
@@ -23,6 +24,8 @@ public class Controller extends HttpServlet {
 	private ClientAction clientAction;
 	private AdminAction adminAction;
 	private OffreAction offreAction;
+	private ContactMessage contactMessage ; 
+	
 
 	public Controller() {
 		// TODO Auto-generated constructor stub
@@ -37,6 +40,7 @@ public class Controller extends HttpServlet {
 		offreAction = new OffreAction();
 		session = null;
 		adminAction = new AdminAction();
+		contactMessage = new ContactMessage(); 
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -114,7 +118,6 @@ public class Controller extends HttpServlet {
 	    	views = "AcceuilAfterConnexion";	 
         }
 
-		
 		else
 			views = "/404";
 
@@ -186,6 +189,11 @@ public class Controller extends HttpServlet {
 						request.setAttribute("messageError", "Mot de passe ou Email Incorrect");
 						views = "ConnexionAdmin";
 					}
+				}
+		
+		//Post 
+				else if(action.equals("newContactMessage")){
+					contactMessage.ajouteContactMessage(request, session);
 				}
 		else
 			views = "/404";
