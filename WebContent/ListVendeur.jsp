@@ -51,7 +51,7 @@
 							<i class="material-icons">account_circle</i>
 							<p>Liste des propriétaires</p>
 					</a></li>
-					<li class="nav-item "><a class="nav-link" href="./tables.html">
+					<li class="nav-item "><a class="nav-link" href="ListClient.ma">
 							<i class="material-icons">supervised_user_circle</i>
 							<p>Liste des clients</p>
 					</a></li>
@@ -139,7 +139,7 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title ">Liste des propriétaires</h4>
+                  <h4 class="card-title ">Propriétaires</h4>
                   <p class="card-category"> la liste de tous les propriétaires</p>
                 </div>
                 <div class="card-body">

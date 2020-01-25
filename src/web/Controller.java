@@ -19,7 +19,7 @@ import web.action.AdminAction;
 		"/InscriptionVendeur.ma", "/ConnexionVendeur.ma", "/FormConnexionVendeur.ma", "/InscriptionClient.ma",
 		"/contact.ma", "/Deconnexion.ma", "/FormConnexionClient.ma", "/ConnexionClient.ma", "/ProfilVendeur.ma",
 		"/AcceuilVendeur.ma", "/FormAjouterOffre.ma", "/AjouterOffre.ma", "/ListOffre.ma", "/SupprimerOffre.ma",
-		"/ModifierOffre.ma", "/AccueilAdmin.ma", "/DetailOffre.ma", "/ConnexionAdmin.ma", "/saveContact.ma", "/ListVendeur.ma" })
+		"/ModifierOffre.ma", "/AccueilAdmin.ma", "/DetailOffre.ma", "/ConnexionAdmin.ma", "/saveContact.ma", "/ListVendeur.ma","/ListClient.ma" })
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 4)
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -140,12 +140,18 @@ public class Controller extends HttpServlet {
 			} else views = "/404";
 
 		}
-		 else if (action.equals("AcceuilAdmin")) {
-				//if (session.getAttribute("account_type").equals("admin")) {
-					request.setAttribute("type", "acceuil");
-					views = "AcceuilAdmin";
-				/*} else
-					views = "/404";*/
+		 else if (action.equals("AccueilAdmin")) {
+				if (session.getAttribute("account_type").equals("admin")) {
+					request.setAttribute("type", "acceuilAdmin");
+					views = "AccueilAdmin";
+				}else
+					views = "/404";
+			}
+		 else if (action.equals("ListClient")) {
+				if (session.getAttribute("account_type")!= null && session.getAttribute("account_type").equals("admin") ) {
+					request.setAttribute("clients", clientAction.ListClient());
+					views = "ListClient";
+				} else views = "/404";
 
 			}
 		else

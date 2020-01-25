@@ -1,16 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
-<html lang="en">
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
 <meta charset="utf-8" />
 <link rel="apple-touch-icon" sizes="76x76"
 	href="assets/img/apple-icon.png">
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>HomeAdmin</title>
+<title>Liste Clients</title>
 <meta
 	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
 	name='viewport' />
@@ -29,26 +28,30 @@
 	<div class="wrapper ">
 		<div class="sidebar" data-color="purple" data-background-color="white"
 			data-image="assets/img/sidebar-1.jpg">
-	
+			<!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
 			<div class="logo ">
 				<a href="#" class="simple-text logo-normal active"> Hire && Sale
 				</a>
 			</div>
 			<div class="sidebar-wrapper">
 				<ul class="nav">
-					<li class="nav-item active"><a class="nav-link"
-						href="AccueilAdmin.ma"> <i class="material-icons">home</i>
+					<li class="nav-item "><a class="nav-link"
+						href="AcceuilAdmin.ma"> <i class="material-icons">home</i>
 							<p>Acceuil</p>
 					</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="#"> <i class="material-icons">dashboard</i>
 							<p>Dashboard</p>
 					</a></li>
-					<li class="nav-item  "><a class="nav-link" href="ListVendeur.ma">
+					<li class="nav-item "><a class="nav-link" href="ListVendeur.ma">
 							<i class="material-icons">account_circle</i>
-							<p>Liste des propriÃ©taires</p>
+							<p>Liste des propriétaires</p>
 					</a></li>
-					<li class="nav-item "><a class="nav-link" href="ListClient.ma">
+					<li class="nav-item active"><a class="nav-link" href="ListClient.ma">
 							<i class="material-icons">supervised_user_circle</i>
 							<p>Liste des clients</p>
 					</a></li>
@@ -62,19 +65,20 @@
 					</a></li>
 					<li class="nav-item "><a class="nav-link" href="./icons.html">
 							<i class="material-icons">format_indent_decrease</i>
-							<p>Demandes confirmÃ©es</p>
+							<p>Demandes confirmées</p>
 					</a></li>
 
 				</ul>
 			</div>
 		</div>
-		<div class="main-panel">
-			<!-- Navbar -->
-			<nav
+		
+		
+	<div class="main-panel">
+		<nav
 				class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
 				<div class="container-fluid">
 					<div class="navbar-wrapper">
-						<a class="navbar-brand" href="AccueilAdmin.ma">Accueil</a>
+						<a class="navbar-brand" href="#pablo">Accueil</a>
 					</div>
 					<button class="navbar-toggler" type="button" data-toggle="collapse"
 						aria-controls="navigation-index" aria-expanded="false"
@@ -122,19 +126,65 @@
 									<a class="dropdown-item" href="#">Profil</a>
 									<div class="dropdown-divider"></div>
 									<a class="dropdown-item" href="Deconnexion.ma">Se
-										dÃ©connecter</a>
+										déconnecter</a>
 								</div></li>
 						</ul>
 					</div>
 				</div>
 			</nav>
 			<!-- End Navbar -->
-			<div class="content"></div>
-
-		</div>
-	</div>
-
-	<!--   Core JS Files   -->
+			<div class="content">
+		<div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">Clients</h4>
+                  <p class="card-category"> la liste de tous les clients</p>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class=" text-primary">
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Date de naissance</th>
+                        <th>Sexe</th>
+                        <th>Adresse</th>
+                        <th>Pays</th>
+                        <th>Téléphone</th>
+                        <th>Action</th>
+                      </thead>
+                      <tbody>
+                      <c:forEach items="${clients}" var="c">
+                       <tr>
+                          <td>${c.getNom()}</td>
+                          <td>${c.getPrenom()}</td>
+                          <td>${c.getDate_naissane()}</td>
+                          <td>${c.getSexe()}</td>
+                          <td>${c.getAdresse()}</td>
+                          <td>${c.getPays}</td>
+                          <td>${c.getNum_telephone()}</td>
+                          <td>
+                          	 <a href="DetailClient.ma?id=${c.getId()}" class=" btn-circle btn-sm" title="Ouvrir"><i class="far fa-folder-open"></i></a>
+                   			 <a href="ModifierClient.ma?id=${c.getId()}" class="  btn-circle  btn-sm" title="Mettre à jour"> <i class="fas fa-sync"></i></a>
+                  			 <a href="SupprimerClient.ma?id=${c.getId()}" class="  btn-circle btn-sm" title="Supprimer" onclick="return confirm('Voulez vous vraiment supprimer ce compte');"><i class="fas fa-trash"></i></a>
+                          </td>
+                        </tr>
+                      </c:forEach>
+                       
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        </div>
+       </div>
+<!--   Core JS Files   -->
 	<script src="assets/js/core/jquery.min.js"></script>
 	<script src="assets/js/core/popper.min.js"></script>
 	<script src="assets/js/core/bootstrap-material-design.min.js"></script>

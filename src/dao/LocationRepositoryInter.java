@@ -34,7 +34,9 @@ public interface LocationRepositoryInter {
 	public void SupprimerOffre(int id);
 
 	public Offre getOffresById(int id);
+	
 	public ArrayList<Offre> getOffres();
+	
 	public boolean ModifierOffre(Offre offre);
 	
 	//Contact 

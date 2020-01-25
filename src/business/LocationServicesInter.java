@@ -22,6 +22,8 @@ public interface LocationServicesInter {
 	public boolean inscriptionClient(Client client);
 
 	public Client getClientByEmail(String email);
+	
+	public ArrayList<Client> getListClient();
 
 
 	// offre
