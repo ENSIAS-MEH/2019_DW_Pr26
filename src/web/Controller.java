@@ -8,18 +8,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import web.action.ClientAction;
 import web.action.ContactMessage;
 import web.action.OffreAction;
 import web.action.VendeurAction;
 import web.action.AdminAction;
 
+
 @WebServlet(name = "Controller", urlPatterns = { "/Accueil.ma", "/Controller.ma", "/DevenezHote.ma",
 		"/InscriptionVendeur.ma", "/ConnexionVendeur.ma", "/FormConnexionVendeur.ma", "/InscriptionClient.ma",
 		"/contact.ma", "/Deconnexion.ma", "/FormConnexionClient.ma", "/ConnexionClient.ma", "/ProfilVendeur.ma",
 		"/AcceuilVendeur.ma", "/FormAjouterOffre.ma", "/AjouterOffre.ma", "/ListOffre.ma", "/SupprimerOffre.ma",
-		"/ModifierOffre.ma", "/AccueilAdmin.ma", "/DetailOffre.ma", "/ConnexionAdmin.ma", "/saveContact.ma", "/ListVendeur.ma" })
+		"/ModifierOffre.ma", "/AccueilAdmin.ma", "/DetailOffre.ma", "/ConnexionAdmin.ma", "/saveContact.ma", "/ListVendeur.ma","/getAllOffres.ma" })
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 4)
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -133,6 +133,9 @@ public class Controller extends HttpServlet {
 				views = "AcceuilAdmin";
 			} else views = "/404";
 
+		}else if(action.equals("geAllOffres")){
+			request.setAttribute("listeOffres", clientAction.getOffres());
+			views = "AllOffresClients"; 
 		}else
 			views = "/404";
 

@@ -505,7 +505,6 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 					offre.setBase64Image(null);
 				}
 				listeOffre.add(offre);
-				System.out.println(offre.toString());
 			}
 			ps.close();
 		} catch (SQLException e) {
@@ -514,6 +513,8 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 
 		return listeOffre;
 	}
+	
+	
 
 	
 }
