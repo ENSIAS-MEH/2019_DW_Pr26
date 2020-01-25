@@ -1,6 +1,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="UTF-8"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
@@ -19,45 +19,130 @@
   <link href="css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="demo/demo.css" rel="stylesheet" />
-  
    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+   <link
+	href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900&display=swap"
+	rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="css/accueil_css/open-iconic-bootstrap.min.css">
+<link rel="stylesheet" href="css/accueil_css/animate.css">
+<link rel="stylesheet" href="css/accueil_css/owl.carousel.min.css">
+<link rel="stylesheet" href="css/accueil_css/owl.theme.default.min.css">
+<link rel="stylesheet" href="css/accueil_css/magnific-popup.css">
+<link rel="stylesheet" href="css/accueil_css/aos.css">
+<link rel="stylesheet" href="css/ionicons.min.css">
+<link rel="stylesheet" href="css/accueil_css/bootstrap-datepicker.css">
+<link rel="stylesheet" href="css/accueil_css/jquery.timepicker.css">
+<link rel="stylesheet" href="css/flaticon.css">
+<link rel="stylesheet" href="css/icomoon.css">
+<link rel="stylesheet" href="css/accueil_css/style.css">
+<!-- Icon fontawensom  -->
+
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+	rel="stylesheet">
+
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+	rel="stylesheet">
 </head>
-<c:if test="${sessionScope.account_type == 'vendeur'}">
-        <c:import url="navbar/NavbarVendeur.jsp" />
+
+<body>
+<c:if test="${sessionScope.account_type == 'client'}">
+        <c:import url="navbar/NavbarClient.jsp" />
       </c:if>
-      <div class="content">
-      
-      <c:if test="${alert != null}">
+
+      <div class="content card" style="width: 98%; margin:0 auto; ">
       <div class="card" style="width: 60%; margin:0 auto; ">
-  <div class="card-body">
-    <center class="font-weight-bold"> <strong>${alert } </strong></center>
-  </div>
+  
 </div>
-</c:if>
-      <c:if test="${sessionScope.account_type == 'vendeur'}">
-      <c:if test="${type == 'profil'}">
-        <c:import url="profil/ProfilVendeur.jsp" />
-      </c:if>
-      <c:if test="${type == 'ajoutOffre'}">
-        <c:import url="offres/AjoutOffre.jsp" />
-      </c:if>
-      <c:if test="${type == 'listOffre'}">
-        <c:import url="offres/ListOffre.jsp" />
-      </c:if>
-      <c:if test="${type == 'modifierOffre'}">
-        <c:import url="offres/ModifierOffre.jsp" />
-      </c:if>
-      <c:if test="${type == 'detailOffre'}">
-        <c:import url="offres/DetailOffre.jsp" />
-      </c:if>
-      </c:if>
-      </div>
-  
-  <!--   Core JS Files   -->
-   <c:if test="${type != 'ajoutOffre' && type != 'modifierOffre'}">
-        <script src="js/core/jquery.min.js"></script>
-      </c:if>
-  
+       <section class="ftco-section goto-here">
+    	<div class="container">
+    		<div class="row justify-content-center">
+          <div class="col-md-12 heading-section text-center ftco-animate mb-5">
+          	<span class="subheading">Ce que nous offrons</span>
+            <h2 class="mb-2">Offre exclusive pour vous</h2>
+          </div>
+        </div>
+        <div class="row">
+        <c:forEach items="${ listeOffres }" var="offre">
+        	<div class="col-md-4">
+        		<div class="property-wrap ftco-animate">
+        			<a href="#" class="img" style="background-image: url(images/work-1.jpg);"></a>
+        			<div class="text">
+        				<p class="price"><span class="old-price">800,000</span><span class="orig-price">$3,050<small>/mo</small></span></p>
+        				<ul class="property_list">
+        					<li><span class="flaticon-bed"></span>3</li>
+        					<li><span class="flaticon-bathtub"></span>2</li>
+        					<li><span class="flaticon-floor-plan"></span>1,878 sqft</li>
+        				</ul>
+        				<h3><a href="#">The Blue Sky Home</a></h3>
+        				<span class="location">Oakland</span>
+        				<a href="#" class="d-flex align-items-center justify-content-center btn-custom">
+        					<span class="ion-ios-link"></span>
+        				</a>
+        			</div>
+        		</div>
+        	</div>
+        	</c:forEach>
+        </div>
+    	</div>
+    </section>
+    
+    
+    	<footer class="ftco-footer ftco-section">
+	<div class="container">
+		<div class="row mb-5">
+			<div class="col-md">
+				<div class="ftco-footer-widget mb-4">
+					<h2 class="ftco-heading-2">Hire && Sale</h2>
+					<p>Réservez des hébergements uniques.</p>
+					<ul class="ftco-footer-social list-unstyled mt-5">
+						<li class="ftco-animate"><a href="#"><span
+								class="icon-twitter"></span></a></li>
+						<li class="ftco-animate"><a href="#"><span
+								class="icon-facebook"></span></a></li>
+						<li class="ftco-animate"><a href="#"><span
+								class="icon-instagram"></span></a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-md">
+				<div class="ftco-footer-widget mb-4 ml-md-4">
+					<h2 class="ftco-heading-2">À propos</h2>
+					<ul class="list-unstyled">
+						<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Notre
+								Histoire</a></li>
+						<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Nos
+								Carrières</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-md">
+				<div class="ftco-footer-widget mb-4">
+					<h2 class="ftco-heading-2">Avez-vous des questions?</h2>
+					<div class="block-23 mb-3">
+						<ul>
+							<li><span class="icon icon-map-marker"></span><span
+								class="text">203 Fake St. Mountain View, San Francisco,
+									California, USA</span></li>
+							<li><a href="#"><span class="icon icon-phone"></span><span
+									class="text">+2 392 3929 210</span></a></li>
+							<li><a href="#"><span class="icon icon-envelope pr-4"></span><span
+									class="text">info@yourdomain.com</span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</footer>
+      </div>  
   <script src="js/core/popper.min.js"></script>
   <script src="js/core/bootstrap-material-design.min.js"></script>
   <script src="js/plugins/perfect-scrollbar.jquery.min.js"></script>
@@ -277,6 +362,25 @@
 
     });
   </script>
+  
+	<script src="js/accueil_js/jquery.min.js"></script>
+	<script src="js/accueil_js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="js/accueil_js/popper.min.js"></script>
+	<script src="js/accueil_js/bootstrap.min.js"></script>
+	<script src="js/accueil_js/jquery.easing.1.3.js"></script>
+	<script src="js/accueil_js/jquery.waypoints.min.js"></script>
+	<script src="js/accueil_js/jquery.stellar.min.js"></script>
+	<script src="js/accueil_js/owl.carousel.min.js"></script>
+	<script src="js/accueil_js/jquery.magnific-popup.min.js"></script>
+	<script src="js/accueil_js/aos.js"></script>
+	<script src="js/accueil_js/jquery.animateNumber.min.js"></script>
+	<script src="js/accueil_js/bootstrap-datepicker.js"></script>
+	<script src="js/accueil_js/jquery.timepicker.min.js"></script>
+	<script src="js/accueil_js/scrollax.min.js"></script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+	<script src="js/accueil_js/google-map.js"></script>
+	<script src="js/accueil_js/main.js"></script>
 </body>
 
 </html>

@@ -133,7 +133,7 @@ public class Controller extends HttpServlet {
 				views = "AcceuilAdmin";
 			} else views = "/404";
 
-		}else if(action.equals("geAllOffres")){
+		}else if(action.equals("getAllOffres")){
 			request.setAttribute("listeOffres", clientAction.getOffres());
 			views = "AllOffresClients"; 
 		}else
