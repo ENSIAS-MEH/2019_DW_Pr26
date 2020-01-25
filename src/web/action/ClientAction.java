@@ -10,6 +10,7 @@ import com.sun.org.apache.xpath.internal.functions.Function;
 import business.LocationServicesImpl;
 import business.LocationServicesInter;
 import models.Client;
+
 import models.Offre;
 import models.Vendeur;
 
@@ -73,7 +74,8 @@ public class ClientAction {
 		}
 	}
 	
-	public ArrayList<Offre> getOffres() {
-		return locationServices.getOffres();
+
+	public ArrayList<Client> ListClient(){
+		return locationServices.getListClient();
 	}
 }

@@ -69,6 +69,7 @@
 					<option class="text-center" value="">choisir une option</option>
 					<option value="locatin">Location</option>
 					<option value="vente">Vente</option>
+				</select>
 
 				</select> <label for="hs_categ">Catégorie* :</label><br> <select
 					style="width: 100%; height: 50px" name="categorie" id="categ"

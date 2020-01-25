@@ -32,7 +32,7 @@
 
 </head>
 <c:if test="${sessionScope.account_type == 'vendeur'}">
-	<c:import url="navbar/NavbarVendeur.jsp" />
+	<c:import url="../navbar/NavbarVendeur.jsp" />
 </c:if>
 <div class="content">
 
@@ -55,7 +55,7 @@
 		<li>Description</li>
 	</ul>
 
-	<form class="steps" method="post" action="ModifierOffre.ma">
+<form class="steps" method="post" action="ListerOffre.ma"> 
 		<input type="hidden" name="id" value="${offre.getId()}">
 		<!-- USER INFORMATION FIELD SET -->
 		<fieldset>
@@ -108,7 +108,7 @@
 				<label for="pays">Pays *</label> <input id="pays"
 					class="form-text hs-input" name="pays" required="required"
 					type="text" value="${offre.getPays()}" placeholder=""
-					data-rule-required="true" data-msg-required="Please enter a text">
+					data-rule-required="true" data-msg-required="Please enter a text" disabled="disabled">
 				<span class="error1" style="display: none;"> <i
 					class="error-log fa fa-exclamation-triangle"></i>
 				</span>
@@ -123,7 +123,7 @@
 				<label for="ville">Ville *</label> <input id="ville"
 					class="form-text hs-input" name="ville" required="required"
 					type="text" value="${offre.getVille()}" placeholder=""
-					data-rule-required="true" data-msg-required="Please enter a text">
+					data-rule-required="true" data-msg-required="Please enter a text" disabled="disabled">
 				<span class="error1" style="display: none;"> <i
 					class="error-log fa fa-exclamation-triangle"></i>
 				</span>
@@ -138,7 +138,7 @@
 				<label for="adresse">Adresse *</label> <input id="adresse"
 					class="form-text hs-input" name="adresse" type="text"
 					value="${offre.getAdresse()}" required="required"
-					data-rule-required="true" data-msg-required="Please enter a text">
+					data-rule-required="true" data-msg-required="Please enter a text" disabled="disabled">
 				<span class="error1" style="display: none;"> <i
 					class="error-log fa fa-exclamation-triangle"></i>
 				</span>
@@ -167,7 +167,7 @@
 					class="form-text hs-input" name="date_debut" required="required"
 					type="date" value="${offre.getDate_debut()}" placeholder=""
 					data-rule-required="true"
-					data-msg-required="Please enter a valid date"> <span
+					data-msg-required="Please enter a valid date" disabled="disabled"> <span
 					class="error1" style="display: none;"> <i
 					class="error-log fa fa-exclamation-triangle"></i>
 				</span>
@@ -183,7 +183,7 @@
 					class="form-text hs-input" name="date_fin" required="required"
 					type="date" value="${offre.getDate_fin()}" placeholder=""
 					data-rule-required="true"
-					data-msg-required="Please enter a valid date"> <span
+					data-msg-required="Please enter a valid date" disabled="disabled"> <span
 					class="error1" style="display: none;"> <i
 					class="error-log fa fa-exclamation-triangle"></i>
 				</span>
@@ -195,7 +195,7 @@
 				<label for="^prix">Prix/Nuit *</label> <input id="prix"
 					class="form-text hs-input" name="prix" type="number"
 					value="${offre.getPrix()}" placeholder="0" required="required"
-					data-rule-required="true" data-msg-required="Please enter a number">
+					data-rule-required="true" data-msg-required="Please enter a number" disabled="disabled">
 				<span class="error1" style="display: none;"> <i
 					class="error-log fa fa-exclamation-triangle"></i>
 				</span>
@@ -206,7 +206,7 @@
 				<label for="devise">Devise *</label> <input id="devise"
 					class="form-text hs-input" name="devise" type="text"
 					value="${offre.getDevise()}" required="required"
-					data-rule-required="true" data-msg-required="Please enter a text">
+					data-rule-required="true" data-msg-required="Please enter a text" disabled="disabled">
 				<span class="error1" style="display: none;"> <i
 					class="error-log fa fa-exclamation-triangle"></i>
 				</span>
@@ -236,7 +236,7 @@
 					required="required" size="60" maxlength="128" type="number"
 					value="${offre.getSalle_bain()}" placeholder=""
 					data-rule-required="true"
-					data-msg-required="Please enter a valid number"> <span
+					data-msg-required="Please enter a valid number" disabled="disabled"> <span
 					class="error1" style="display: none;"> <i
 					class="error-log fa fa-exclamation-triangle"></i>
 				</span>
@@ -253,7 +253,7 @@
 					required="required" size="60" maxlength="128" type="number"
 					value="${offre.getNb_chambre()}" placeholder=""
 					data-rule-required="true"
-					data-msg-required="Please enter a valid number"> <span
+					data-msg-required="Please enter a valid number" disabled="disabled"> <span
 					class="error1" style="display: none;"> <i
 					class="error-log fa fa-exclamation-triangle"></i>
 				</span>
@@ -284,7 +284,7 @@
 
 				<textarea id="desciption" class="form-text hs-input"
 					name="description" rows="5" cols="33"
-					value="${offre.getDescription()}"></textarea>
+					value="${offre.getDescription()}" disabled="disabled"></textarea>
 
 			</div>
 			<div
@@ -299,12 +299,12 @@
 
 
 			<input type="button" data-page="5" name="previous"
-				class="previous action-button" value="Previous" /> <input
+				class="previous action-button" value="Previous" /> <a href="ListOffre.ma"><input
 				id="submit" class="hs-button primary large action-button next"
-				type="submit" value="Submit">
+				type="button" value="Retour"></a>
 		</fieldset>
 
-	</form>
+	</form> 
 </div>
 <!-- partial -->
 <script

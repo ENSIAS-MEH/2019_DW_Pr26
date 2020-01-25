@@ -46,9 +46,10 @@
 			<div class="col-md-12">
 				<div class="card">
 					<div class="card-header card-header-primary">
-						<h4 class="card-title ">Liste de vos offres</h4>
-						<p class="card-category">la liste de tous vos offres
-							effectuées</p>
+						<h4 class="card-title ">Liste des offres</h4>
+						<c:if test="${sessionScope.account_type == 'vendeur'}">
+							<p class="card-category">la liste de tous vos offres effectuées</p>
+						</c:if>
 					</div>
 					<div class="card-body">
 						<div class="table-responsive">
