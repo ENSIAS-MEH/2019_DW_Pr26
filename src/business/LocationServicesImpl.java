@@ -90,14 +90,20 @@ public class LocationServicesImpl implements LocationServicesInter {
 
 	@Override
 	public ArrayList<Offre> getOffres() {
-		
+
 		return locationepositoryImpl.getOffres();
 	}
 
 	@Override
 	public ArrayList<Vendeur> getListVendeur() {
-		
 		return locationepositoryImpl.getListVendeur();
 	}
+
+	@Override
+	public ArrayList<Client> getListClient() {
+
+		return locationepositoryImpl.getListClient();
+	}
 	
+
 }

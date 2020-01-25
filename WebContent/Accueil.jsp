@@ -292,7 +292,7 @@
 		<div class="row justify-content-center mb-5">
 			<div class="col-md-7 heading-section text-center ftco-animate">
 				<span class="subheading">Hôtels</span>
-				<h2>Hôtels Très Bien Notées</h2>
+				<h2>Hôtels Très Bien Notés</h2>
 			</div>
 		</div>
 		<div class="row d-flex">

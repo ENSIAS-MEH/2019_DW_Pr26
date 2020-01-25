@@ -7,8 +7,8 @@ public class MangementDataBase {
 
 	public Connection connexionDataBase() {
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			return DriverManager.getConnection("jdbc:mysql://localhost:3306/VENTELOCATION", "root", "");
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			return DriverManager.getConnection("jdbc:mysql://localhost:3306/VENTELOCATION?serverTimezone=UTC", "root", "");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			System.out.println("erreur connection");

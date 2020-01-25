@@ -81,10 +81,4 @@ public class OffreAction {
 		return locationServices.getOffres();
 	}
 	
-	
-	
-	
-	
-
-
 }
