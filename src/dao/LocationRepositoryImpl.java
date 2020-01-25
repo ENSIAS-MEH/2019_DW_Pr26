@@ -440,8 +440,8 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 			ps.setBinaryStream(14, null);
 
 			// ps.setBlob(14, offre.getPhoto());
-			ps.setInt(15, offre.getId());
-			ps.setString(16, offre.getType());
+			ps.setString(15, offre.getType());
+			ps.setInt(16, offre.getId());
 			ps.executeUpdate();
 			ps.close();
 
