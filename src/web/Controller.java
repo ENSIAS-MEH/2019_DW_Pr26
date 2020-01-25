@@ -51,8 +51,10 @@ public class Controller extends HttpServlet {
 		String views = "Accueil";
 		String action = getActionKey(request);
 		session = request.getSession();
-		if (action.equals("Accueil"))
+		if (action.equals("Accueil")) {
+			//request.setAttribute("offre", offreAction.getOffre(1));
 			views = "Accueil";
+		}
 		// vendeur
 		else if (action.equals("DevenezHote")) {
 			views = "DevenezHote";

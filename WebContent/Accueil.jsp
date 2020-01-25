@@ -148,6 +148,7 @@
 				<h2 class="mb-2">Offres Exclusives Pour Vous</h2>
 			</div>
 		</div>
+		
 		<div class="row">
 			<div class="col-md-4">
 				<div class="property-wrap ftco-animate">
@@ -155,7 +156,7 @@
 						style="background-image: url(images/work-1.jpg);"></a>
 					<div class="text">
 						<p class="price">
-							<span class="old-price">800,000</span><span class="orig-price">$3,050<small>/mo</small></span>
+							<span class="old-price">800,000</span><span class="orig-price">${offre.getPrix()}<small>/mo</small></span>
 						</p>
 						<ul class="property_list">
 							<li><span class="flaticon-bed"></span>3</li>
@@ -165,7 +166,7 @@
 						<h3>
 							<a href="#">The Blue Sky Home</a>
 						</h3>
-						<span class="location">Oakland</span> <a href="#"
+						<span class="location">${offre.getPays()}</span> <a href="#"
 							class="d-flex align-items-center justify-content-center btn-custom">
 							<span class="ion-ios-link"></span>
 						</a>
