@@ -81,9 +81,17 @@ public class Controller extends HttpServlet {
 		} else if (action.equals("FormConnexionClient")) {
 			views = "ConnexionClient";
 		} else if (action.equals("Deconnexion")) {
+			
+			if (session.getAttribute("account_type")!= null && session.getAttribute("account_type").equals("admin") ) {
+				session.invalidate();
+				session = null;
+				views="ConnexionAdmin";
+		}else {
 			session.invalidate();
 			session = null;
 			views = "Accueil";
+		}
+				
 		}
 		// Administrateur
 		else if (action.equals("ConnexionAdmin")) {
@@ -101,9 +109,8 @@ public class Controller extends HttpServlet {
 			views = "offres/ListOffre";
 			}
 			else if (session.getAttribute("account_type")!= null && session.getAttribute("account_type").equals("admin") ) {
-				request.setAttribute("type", "listOffre");
 				request.setAttribute("offres", offreAction.getOffres());
-				views = "AcceuilAdmin";
+				views = "offres/ListOffre";
 			} else views = "/404";
 		} else if (action.equals("DetailOffre")) {
 			if (session.getAttribute("account_type")!= null && session.getAttribute("account_type").equals("vendeur") ) {
@@ -128,12 +135,20 @@ public class Controller extends HttpServlet {
 			 }else views = "/404";
 		} else if (action.equals("ListVendeur")) {
 			if (session.getAttribute("account_type")!= null && session.getAttribute("account_type").equals("admin") ) {
-				request.setAttribute("type", "listVendeur");
 				request.setAttribute("vendeurs", vendeurAction.ListVendeur());
-				views = "AcceuilAdmin";
+				views = "ListVendeur";
 			} else views = "/404";
 
-		}else
+		}
+		 else if (action.equals("AcceuilAdmin")) {
+				//if (session.getAttribute("account_type").equals("admin")) {
+					request.setAttribute("type", "acceuil");
+					views = "AcceuilAdmin";
+				/*} else
+					views = "/404";*/
+
+			}
+		else
 			views = "/404";
 
 		request.getRequestDispatcher(views + ".jsp").forward(request, response);

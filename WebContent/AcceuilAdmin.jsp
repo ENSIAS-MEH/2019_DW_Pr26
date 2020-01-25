@@ -41,11 +41,11 @@
 			<div class="sidebar-wrapper">
 				<ul class="nav">
 					<li class="nav-item active"><a class="nav-link"
-						href="AcceuilVendeur.ma"> <i class="material-icons">home</i>
+						href="AcceuilAdmin.ma"> <i class="material-icons">home</i>
 							<p>Acceuil</p>
 					</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="AcceuilVendeur.ma"> <i class="material-icons">dashboard</i>
+						href="AcceuilAdmin.ma"> <i class="material-icons">dashboard</i>
 							<p>Dashboard</p>
 					</a></li>
 					<li class="nav-item  "><a class="nav-link" href="ListVendeur.ma">
