@@ -60,12 +60,13 @@ public class OffreAction {
 		return null;
 	}
 
-	public boolean ModifierOffre(HttpServletRequest request, int id_hote) {
+	public boolean ModifierOffre(HttpServletRequest request, int id_hote) throws IllegalStateException, IOException, ServletException {
 		// TODO Auto-generated method stub
+//		InputStream photo = (request.getPart("photo")).getInputStream();
 		return locationServices.ModifierOffre(new Offre((Integer.parseInt(request.getParameter("id"))),id_hote,request.getParameter("type"), request.getParameter("categorie"),(Integer.parseInt(request.getParameter("nombre_personne"))),
 				request.getParameter("adresse"), request.getParameter("pays"), request.getParameter("ville"),
 				request.getParameter("date_debut"), request.getParameter("date_fin"), (Float.parseFloat(request.getParameter("prix"))),
-				request.getParameter("devise"), (Integer.parseInt(request.getParameter("salle_bain"))),(Integer.parseInt(request.getParameter("nb_chambre"))), request.getParameter("description"), null));
+				request.getParameter("devise"), (Integer.parseInt(request.getParameter("salle_bain"))),(Integer.parseInt(request.getParameter("nb_chambre"))), request.getParameter("description"),null));
 
 	}
 	public void SupprimerOffre(int id) {
@@ -80,10 +81,4 @@ public class OffreAction {
 		return locationServices.getOffres();
 	}
 	
-	
-	
-	
-	
-
-
 }

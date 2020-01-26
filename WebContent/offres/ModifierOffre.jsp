@@ -64,7 +64,8 @@
 		</div>
 	</div>
 	 --%>
-	<form class="steps" method="post" action="ModifierOffre.ma">
+	<form class="steps" method="post" action="ModifierOffre.ma"
+		enctype="multipart/form-data">
 		<input type="hidden" name="id" value="${offre.getId()}">
 		<!-- USER INFORMATION FIELD SET -->
 		<fieldset>
@@ -73,14 +74,7 @@
 				location</h3>
 			<!-- Begin What's Your First Name Field -->
 			<div class="categ field hs-form-field">
-				<label for="hs_categ">A vendre ou à louer ?* :</label><br> <select
-					style="width: 100%; height: 50px" name="type" id="categ"
-					data-rule-required="true"
-					data-msg-required="Please choose an option" required="required">
-					<option class="text-center" value="">choisir une option</option>
-					<option value="locatin">Location</option>
-					<option value="vente">Vente</option>
-				</select> <label for="hs_categ">Catégorie* :</label><br> <select
+				<label for="hs_categ">Catégorie* :</label><br> <select
 					style="width: 100%; height: 50px" name="categorie"
 					value="${offre.getCategorie()}" id="categ"
 					data-rule-required="true"
@@ -355,19 +349,37 @@
 				<label for="description">Description </label>
 
 				<textarea id="desciption" class="form-text hs-input"
-					name="description" rows="5" cols="33"
-					value="${offre.getDescription()}"></textarea>
+					name="description" rows="5" cols="33">${offre.getDescription()}</textarea>
 
 			</div>
+			<%-- <c:if test="${offre.base64Image != null} "> --%>
 			<div
 				class="form-item webform-component webform-component-textfield hs_number_of_donors_in_year_1 field hs-form-field"
 				id="webform-component-retention--amount-1">
 
-				<label for="photo">Photo </label> <input id="photo" type="file"
-					class="form-text hs-input" name="photo"
-					accept="image/png, image/jpeg" />
+				<label for="oldphoto">Photo </label>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="thumbnail text-center">
+							<img id="oldphoto"
+								src="data:image/jpg;base64,${offre.base64Image}" alt=""
+								style="width: 50%">
+						</div>
+					</div>
+				</div>
+
 
 			</div>
+			<%-- </c:if> --%>
+			<!-- 	<div class="form-item webform-component webform-component-textfield hs_number_of_donors_in_year_1 field hs-form-field"
+				id="webform-component-retention--amount-1">
+
+				<label for="photo">Modifier la Photo </label> <input id="photo" type="file"
+					class="form-text hs-input" name="photo"
+					accept="image/*" />
+					
+
+			</div> -->
 
 
 			<input type="button" data-page="5" name="previous"
@@ -386,9 +398,6 @@
 <script
 	src='https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js'></script>
 <script src="js/offre/script.js"></script>
-
-
-
 
 <script src="js/core/popper.min.js"></script>
 <script src="js/core/bootstrap-material-design.min.js"></script>

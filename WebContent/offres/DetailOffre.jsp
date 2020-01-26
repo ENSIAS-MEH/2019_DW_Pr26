@@ -284,19 +284,28 @@
 
 				<textarea id="desciption" class="form-text hs-input"
 					name="description" rows="5" cols="33"
-					value="${offre.getDescription()}" disabled="disabled"></textarea>
+					 disabled="disabled">${offre.getDescription()}</textarea>
 
 			</div>
+			<%-- <c:if test="${offre.getPhoto() != null} "> --%>
 			<div
 				class="form-item webform-component webform-component-textfield hs_number_of_donors_in_year_1 field hs-form-field"
 				id="webform-component-retention--amount-1">
 
-				<label for="photo">Photo </label> <input id="photo" type="file"
-					class="form-text hs-input" name="photo"
-					accept="image/png, image/jpeg" />
+				<label for="oldphoto">Photo </label>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="thumbnail text-center">
+							<img id="oldphoto"
+								src="data:image/jpg;base64,${offre.base64Image}" alt=""
+								style="width: 50%">
+						</div>
+					</div>
+				</div>
+
 
 			</div>
-
+		<%-- 	</c:if>--%>
 
 			<input type="button" data-page="5" name="previous"
 				class="previous action-button" value="Previous" /> <a href="ListOffre.ma"><input

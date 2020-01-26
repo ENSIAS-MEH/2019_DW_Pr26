@@ -45,7 +45,7 @@
 						href="AcceuilVendeur.ma"> <i class="material-icons">dashboard</i>
 							<p>Dashboard</p>
 					</a></li>
-					<li class="nav-item "><a class="nav-link" href="./tables.html">
+					<li class="nav-item "><a class="nav-link" href="getAllOffres.ma">
 							<i class="material-icons">local_offer</i>
 							<p>Toutes les offres</p>
 					</a></li>

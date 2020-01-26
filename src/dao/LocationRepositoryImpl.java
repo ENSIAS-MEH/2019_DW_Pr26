@@ -418,8 +418,10 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 	public boolean ModifierOffre(Offre offre) {
 		Connection connection = mangementDataBase.connexionDataBase();
 		try {
+//			PreparedStatement ps = connection.prepareStatement(
+//					"Update offre set id_hote = ? ,categorie= ?,nombre_personne=?,pays=?,ville=?,adresse=?,date_debut=?,date_fin=?,prix=?,devise=?,salle_bain=?,nb_chambre=?,description=?,type=? ,photo=? where id=?");
 			PreparedStatement ps = connection.prepareStatement(
-					"Update offre set id_hote = ? ,categorie= ?,nombre_personne=?,pays=?,ville=?,adresse=?,date_debut=?,date_fin=?,prix=?,devise=?,salle_bain=?,nb_chambre=?,description=?,photo=?,type=?  where id=?");
+					"Update offre set id_hote = ? ,categorie= ?,nombre_personne=?,pays=?,ville=?,adresse=?,date_debut=?,date_fin=?,prix=?,devise=?,salle_bain=?,nb_chambre=?,description=?,type=?  where id=?");
 			System.out.println(offre.getNombre_personne());
 			ps.setInt(1, offre.getId_hote());
 			ps.setString(2, offre.getCategorie());
@@ -437,11 +439,11 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 			ps.setInt(11, offre.getSalle_bain());
 			ps.setInt(12, offre.getNb_chambre());
 			ps.setString(13, offre.getDescription());
-			ps.setBinaryStream(14, null);
+			//ps.setBinaryStream(14, null);
 
-			// ps.setBlob(14, offre.getPhoto());
-			ps.setString(15, offre.getType());
-			ps.setInt(16, offre.getId());
+			//ps.setBlob(15, offre.getPhoto());
+			ps.setString(14, offre.getType());
+			ps.setInt(15, offre.getId());
 			ps.executeUpdate();
 			ps.close();
 
@@ -505,7 +507,6 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 					offre.setBase64Image(null);
 				}
 				listeOffre.add(offre);
-				System.out.println(offre.toString());
 			}
 			ps.close();
 		} catch (SQLException e) {
@@ -514,6 +515,8 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 
 		return listeOffre;
 	}
+	
+	
 
 	
 }

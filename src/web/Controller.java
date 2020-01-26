@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import web.action.ClientAction;
 import web.action.ContactMessage;
 import web.action.OffreAction;
@@ -19,7 +18,9 @@ import web.action.AdminAction;
 		"/InscriptionVendeur.ma", "/ConnexionVendeur.ma", "/FormConnexionVendeur.ma", "/InscriptionClient.ma",
 		"/contact.ma", "/Deconnexion.ma", "/FormConnexionClient.ma", "/ConnexionClient.ma", "/ProfilVendeur.ma",
 		"/AcceuilVendeur.ma", "/FormAjouterOffre.ma", "/AjouterOffre.ma", "/ListOffre.ma", "/SupprimerOffre.ma",
-		"/ModifierOffre.ma", "/AccueilAdmin.ma", "/DetailOffre.ma", "/ConnexionAdmin.ma", "/saveContact.ma", "/ListVendeur.ma","/ListClient.ma" })
+		"/ModifierOffre.ma", "/AccueilAdmin.ma", "/DetailOffre.ma", "/ConnexionAdmin.ma", "/saveContact.ma",
+		"/ListVendeur.ma", "/getAllOffres.ma", "/ListClient.ma" })
+
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 4)
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -83,17 +84,17 @@ public class Controller extends HttpServlet {
 		} else if (action.equals("FormConnexionClient")) {
 			views = "ConnexionClient";
 		} else if (action.equals("Deconnexion")) {
-			
-			if (session.getAttribute("account_type")!= null && session.getAttribute("account_type").equals("admin") ) {
+
+			if (session.getAttribute("account_type") != null && session.getAttribute("account_type").equals("admin")) {
 				session.invalidate();
 				session = null;
-				views="ConnexionAdmin";
-		}else {
-			session.invalidate();
-			session = null;
-			views = "Accueil";
-		}
-				
+				views = "ConnexionAdmin";
+			} else {
+				session.invalidate();
+				session = null;
+				views = "Accueil";
+			}
+
 		}
 		// Administrateur
 		else if (action.equals("ConnexionAdmin")) {
@@ -101,62 +102,74 @@ public class Controller extends HttpServlet {
 		}
 		// traitement offre
 		else if (action.equals("FormAjouterOffre")) {
-			if (session.getAttribute("account_type")!= null && session.getAttribute("account_type").equals("vendeur") ) {
+			if (session.getAttribute("account_type") != null
+					&& session.getAttribute("account_type").equals("vendeur")) {
 				views = "offres/AjoutOffre";
-			}else views = "/404"; 
+			} else
+				views = "/404";
 		} else if (action.equals("ListOffre")) {
-			if (session.getAttribute("account_type")!= null && session.getAttribute("account_type").equals("vendeur") ) {
-			int id_hote = (int) session.getAttribute("id");
-			request.setAttribute("offres", offreAction.ListOffre(id_hote));
-			views = "offres/ListOffre";
-			}
-			else if (session.getAttribute("account_type")!= null && session.getAttribute("account_type").equals("admin") ) {
+			if (session.getAttribute("account_type") != null
+					&& session.getAttribute("account_type").equals("vendeur")) {
+				int id_hote = (int) session.getAttribute("id");
+				request.setAttribute("offres", offreAction.ListOffre(id_hote));
+				views = "offres/ListOffre";
+			} else if (session.getAttribute("account_type") != null
+					&& session.getAttribute("account_type").equals("admin")) {
 				request.setAttribute("offres", offreAction.getOffres());
 				views = "offres/ListOffre";
-			} else views = "/404";
+			} else
+				views = "/404";
 		} else if (action.equals("DetailOffre")) {
-			if (session.getAttribute("account_type")!= null && session.getAttribute("account_type").equals("vendeur") ) {
-			int id = Integer.parseInt(request.getParameter("id"));
-			request.setAttribute("offre", offreAction.getOffre(id));
-			views = "offres/DetailOffre";
-			}else views = "/404";
+			if (session.getAttribute("account_type") != null
+					&& session.getAttribute("account_type").equals("vendeur")) {
+				int id = Integer.parseInt(request.getParameter("id"));
+				request.setAttribute("offre", offreAction.getOffre(id));
+				views = "offres/DetailOffre";
+			} else
+				views = "/404";
 		} else if (action.equals("ModifierOffre")) {
-			if (session.getAttribute("account_type")!= null && session.getAttribute("account_type").equals("vendeur") ) {
-			int id = Integer.parseInt(request.getParameter("id"));
-			request.setAttribute("offre", offreAction.getOffre(id));
-			views = "offres/ModifierOffre";
-		    }else views = "/404";
+			if (session.getAttribute("account_type") != null
+					&& session.getAttribute("account_type").equals("vendeur")) {
+				int id = Integer.parseInt(request.getParameter("id"));
+				request.setAttribute("offre", offreAction.getOffre(id));
+				views = "offres/ModifierOffre";
+			} else
+				views = "/404";
 		} else if (action.equals("SupprimerOffre")) {
-			if (session.getAttribute("account_type")!= null && session.getAttribute("account_type").equals("vendeur") ) {
-			int id = Integer.parseInt(request.getParameter("id"));
-			offreAction.SupprimerOffre(id);
-			request.setAttribute("alert", "votre offre a été bien supprimée");
-			int id_hote = (int) session.getAttribute("id");
-			request.setAttribute("offres", offreAction.ListOffre(id_hote));
-			views = "offres/ListOffre";
-			 }else views = "/404";
+			if (session.getAttribute("account_type") != null
+					&& session.getAttribute("account_type").equals("vendeur")) {
+				int id = Integer.parseInt(request.getParameter("id"));
+				offreAction.SupprimerOffre(id);
+				request.setAttribute("alert", "votre offre a été bien supprimée");
+				int id_hote = (int) session.getAttribute("id");
+				request.setAttribute("offres", offreAction.ListOffre(id_hote));
+				views = "offres/ListOffre";
+			} else
+				views = "/404";
 		} else if (action.equals("ListVendeur")) {
-			if (session.getAttribute("account_type")!= null && session.getAttribute("account_type").equals("admin") ) {
+			if (session.getAttribute("account_type") != null && session.getAttribute("account_type").equals("admin")) {
 				request.setAttribute("vendeurs", vendeurAction.ListVendeur());
 				views = "ListVendeur";
-			} else views = "/404";
+			} else
+				views = "/404";
 
-		}
-		 else if (action.equals("AccueilAdmin")) {
-				if (session.getAttribute("account_type").equals("admin")) {
-					request.setAttribute("type", "acceuilAdmin");
-					views = "AccueilAdmin";
-				}else
-					views = "/404";
-			}
-		 else if (action.equals("ListClient")) {
-				if (session.getAttribute("account_type")!= null && session.getAttribute("account_type").equals("admin") ) {
-					request.setAttribute("clients", clientAction.ListClient());
-					views = "ListClient";
-				} else views = "/404";
+		} else if (action.equals("getAllOffres")) {
+			request.setAttribute("listeOffres", offreAction.getOffres());
+			views = "AllOffresClients";
+		} else if (action.equals("AccueilAdmin")) {
+			if (session.getAttribute("account_type").equals("admin")) {
+				request.setAttribute("type", "acceuilAdmin");
+				views = "AccueilAdmin";
+			} else
+				views = "/404";
+		} else if (action.equals("ListClient")) {
+			if (session.getAttribute("account_type") != null && session.getAttribute("account_type").equals("admin")) {
+				request.setAttribute("clients", clientAction.ListClient());
+				views = "ListClient";
+			} else
+				views = "/404";
 
-			}
-		else
+		} else
 			views = "/404";
 
 		request.getRequestDispatcher(views + ".jsp").forward(request, response);
@@ -207,8 +220,7 @@ public class Controller extends HttpServlet {
 			int id_hote = (int) session.getAttribute("id");
 			System.out.println("ddd : " + request.getParameter("categorie"));
 			if (offreAction.AjouterOffre(request, id_hote))
-				request.setAttribute("alert",
-						"Félicitations ! Votre nouveau offre a été créé avec succés !");
+				request.setAttribute("alert", "Félicitations ! Votre nouveau offre a été créé avec succés !");
 			else
 				request.setAttribute("alert", "offre n'a pas été ajoutée");
 			request.setAttribute("type", "acceuil");
