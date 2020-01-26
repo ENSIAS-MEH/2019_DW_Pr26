@@ -71,17 +71,16 @@
         <c:forEach items="${ listeOffres }" var="offre">
         	<div class="col-md-4">
         		<div class="property-wrap ftco-animate">
-        			<a href="#" class="img" style="background-image: url(images/work-1.jpg);"></a>
+        			<a href="getDetailsOffre.ma?id=${offre.getId() }" class="img" style="background-image: url(data:image/jpg;base64,${offre.base64Image})"></a>
         			<div class="text">
-        				<p class="price"><span class="old-price">800,000</span><span class="orig-price">$3,050<small>/mo</small></span></p>
+        				<p class="price"><span class="old-price">${offre.getPrix() + 30}</span><span class="orig-price">${offre.getPrix() } ${offre.getDevise() }<small>/nuit</small></span></p>
         				<ul class="property_list">
-        					<li><span class="flaticon-bed"></span>3</li>
-        					<li><span class="flaticon-bathtub"></span>2</li>
-        					<li><span class="flaticon-floor-plan"></span>1,878 sqft</li>
+        					<li><span class="flaticon-bed"></span>${offre.getNombre_personne() }</li>
+        					<li><span class="flaticon-bathtub"></span>${offre.getSalle_bain() }</li>
         				</ul>
-        				<h3><a href="#">The Blue Sky Home</a></h3>
-        				<span class="location">Oakland</span>
-        				<a href="#" class="d-flex align-items-center justify-content-center btn-custom">
+        				<h3><a href="getDetailsOffre.ma?id=${offre.getId() }">${offre.getVille() }, ${offre.getPays() }</a></h3>
+        				<span class="location">${offre.getType() }</span>
+        				<a href="getDetailsOffre.ma?id=${offre.getId() }" class="d-flex align-items-center justify-content-center btn-custom">
         					<span class="ion-ios-link"></span>
         				</a>
         			</div>
