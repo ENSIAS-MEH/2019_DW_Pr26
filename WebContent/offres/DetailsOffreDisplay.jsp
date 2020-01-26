@@ -5,6 +5,9 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
+	<link rel='stylesheet' href='https://www.jqueryscript.net/demo/Fully-Functional-jQuery-Image-Video-Gallery-Plugin-Unite-Gallery/unitegallery/css/unite-gallery.css'>
+	
+	
 <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon.png">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -52,66 +55,108 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet">
+	
+
 </head>
 
 <body>
+<p> </p>
 	<c:if test="${sessionScope.account_type == 'client'}">
-		<c:import url="navbar/NavbarClient.jsp" />
+		<c:import url="../navbar/NavbarClient.jsp" />
 	</c:if>
 
 	<div class="content card" style="width: 98%; margin: 0 auto;">
-	
+		<div class="comtainer">
+		<center>
+  <div class="col-sm-7 col-sm-offset-3 ">
+    <h3 align='center'>  e commerce detail page slider hover and zoom </h3>
+    <br />
+    
+<div id="gallery">	
+		<img alt="Preview Image 1"	 src="data:image/jpg;base64,${offre.base64Image}"
+			 data-image="data:image/jpg;base64,${offre.base64Image}"
+			 data-description="Preview Image 1 Description">
+			 
+			 <img alt="Preview Image 1"	 src="data:image/jpg;base64,${offre.base64Image}"
+			 data-image="data:image/jpg;base64,${offre.base64Image}"
+			 data-description="Preview Image 1 Description">
+		<!-- 
+		<img alt="Preview Image 2"
+			 src="http://actresshot-photos.com/wp-content/uploads/2016/05/Mrudula-Murali-Latest-Hot-Photoshot-Images-5.jpg"
+			 data-image="http://actresshot-photos.com/wp-content/uploads/2016/05/Mrudula-Murali-Latest-Hot-Photoshot-Images-5.jpg"
+			 data-description="Preview Image 2 Description">
+			 
+		<img alt="Preview Image 3"
+			 src="http://actresshot-photos.com/wp-content/uploads/2016/05/Mrudula-Murali-Latest-Hot-Photoshot-Images-5.jpg"
+			 data-image="http://actresshot-photos.com/wp-content/uploads/2016/05/Mrudula-Murali-Latest-Hot-Photoshot-Images-5.jpg"
+			 data-description="Preview Image 3 Description">
+			 
+		<img alt="Preview Image 4"
+			 src="http://actresshot-photos.com/wp-content/uploads/2016/05/Mrudula-Murali-Latest-Hot-Photoshot-Images-5.jpg"
+			 data-image="http://actresshot-photos.com/wp-content/uploads/2016/05/Mrudula-Murali-Latest-Hot-Photoshot-Images-5.jpg"
+			 data-description="Preview Image 4 Description">
+		
+		<img alt="Preview Image 5"
+			 src="http://actresshot-photos.com/wp-content/uploads/2016/05/Mrudula-Murali-Latest-Hot-Photoshot-Images-5.jpg"
+			 data-image="http://actresshot-photos.com/wp-content/uploads/2016/05/Mrudula-Murali-Latest-Hot-Photoshot-Images-5.jpg"
+			 data-description="Preview Image 5 Description">
+		-->
+	</div>
+</div>
+</center>
+</div>
 	</div>
 
-	<footer class="ftco-footer ftco-section">
-	<div class="container">
-		<div class="row mb-5">
-			<div class="col-md">
-				<div class="ftco-footer-widget mb-4">
-					<h2 class="ftco-heading-2">Hire && Sale</h2>
-					<p>Réservez des hébergements uniques.</p>
-					<ul class="ftco-footer-social list-unstyled mt-5">
-						<li class="ftco-animate"><a href="#"><span
-								class="icon-twitter"></span></a></li>
-						<li class="ftco-animate"><a href="#"><span
-								class="icon-facebook"></span></a></li>
-						<li class="ftco-animate"><a href="#"><span
-								class="icon-instagram"></span></a></li>
-					</ul>
-				</div>
-			</div>
 
-			<div class="col-md">
-				<div class="ftco-footer-widget mb-4 ml-md-4">
-					<h2 class="ftco-heading-2">À propos</h2>
-					<ul class="list-unstyled">
-						<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Notre
-								Histoire</a></li>
-						<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Nos
-								Carrières</a></li>
-					</ul>
-				</div>
-			</div>
-
-			<div class="col-md">
-				<div class="ftco-footer-widget mb-4">
-					<h2 class="ftco-heading-2">Avez-vous des questions?</h2>
-					<div class="block-23 mb-3">
-						<ul>
-							<li><span class="icon icon-map-marker"></span><span
-								class="text">203 Fake St. Mountain View, San Francisco,
-									California, USA</span></li>
-							<li><a href="#"><span class="icon icon-phone"></span><span
-									class="text">+2 392 3929 210</span></a></li>
-							<li><a href="#"><span class="icon icon-envelope pr-4"></span><span
-									class="text">info@yourdomain.com</span></a></li>
+		<footer class="ftco-footer ftco-section">
+		<div class="container">
+			<div class="row mb-5">
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">Hire && Sale</h2>
+						<p>Réservez des hébergements uniques.</p>
+						<ul class="ftco-footer-social list-unstyled mt-5">
+							<li class="ftco-animate"><a href="#"><span
+									class="icon-twitter"></span></a></li>
+							<li class="ftco-animate"><a href="#"><span
+									class="icon-facebook"></span></a></li>
+							<li class="ftco-animate"><a href="#"><span
+									class="icon-instagram"></span></a></li>
 						</ul>
+					</div>
+				</div>
+
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4 ml-md-4">
+						<h2 class="ftco-heading-2">À propos</h2>
+						<ul class="list-unstyled">
+							<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Notre
+									Histoire</a></li>
+							<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Nos
+									Carrières</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">Avez-vous des questions?</h2>
+						<div class="block-23 mb-3">
+							<ul>
+								<li><span class="icon icon-map-marker"></span><span
+									class="text">203 Fake St. Mountain View, San Francisco,
+										California, USA</span></li>
+								<li><a href="#"><span class="icon icon-phone"></span><span
+										class="text">+2 392 3929 210</span></a></li>
+								<li><a href="#"><span class="icon icon-envelope pr-4"></span><span
+										class="text">info@yourdomain.com</span></a></li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	</footer>
+		</footer>
 	</div>
 	<script src="js/core/popper.min.js"></script>
 	<script src="js/core/bootstrap-material-design.min.js"></script>
@@ -509,6 +554,17 @@
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 	<script src="js/accueil_js/google-map.js"></script>
 	<script src="js/accueil_js/main.js"></script>
+	
+	  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<script src='https://www.jqueryscript.net/demo/Fully-Functional-jQuery-Image-Video-Gallery-Plugin-Unite-Gallery/unitegallery/js/unitegallery.min.js'></script>
+<script src='https://www.jqueryscript.net/demo/Fully-Functional-jQuery-Image-Video-Gallery-Plugin-Unite-Gallery/unitegallery/themes/slider/ug-theme-slider.js'></script>
+<script>
+jQuery(document).ready(function(){
+
+			jQuery("#gallery").unitegallery();
+
+		});
+</script>
 </body>
 
 </html>
