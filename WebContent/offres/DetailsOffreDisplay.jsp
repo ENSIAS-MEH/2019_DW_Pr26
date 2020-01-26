@@ -90,8 +90,53 @@
 				</div>
 			</center>
 		</div>
-		
-		
+		<br><br>
+		<center>
+  <div class="col-md-6">
+    <div class="card" style="margin: 0 auto;">
+      <div class="card-header">
+        <h4 class="card-title"><strong> Type offre : </strong> ${offre.getType() }</h4>
+        <h4 class="card-title"><strong> Catégorie : </strong> ${offre.getCategorie() }</h4>
+      </div> 
+    </div>
+  </div>
+  </center>
+	<br>
+<div class="row">
+  <div class="col-md-6">
+      <div class="card">
+          <div class="card-header card-header-icon card-header-rose">
+            <div class="card-icon">
+              <h4><i class="material-icons">date_range</i> Date disponibilité</h4>
+            </div>
+          </div>
+          
+          <div class="card-body" style="margin: 0 auto; ">	
+            	<div class="input-group input-daterange">
+            		
+    				<input type="date"  value="${offre.getDate_debut()}" readonly="readonly">
+    						<div class="input-group-addon" style="font-size: 25px; color: red; "> <strong><i class="material-icons">arrow_right_alt</i> </strong> </div>
+					<input type="date" value="${offre.getDate_fin() }" readonly="readonly">
+				</div>
+          </div>
+      </div>
+  </div>
+
+  <div class="col-md-6">
+      <div class="card">
+          <div class="card-header card-header-text card-header-primary">
+            <div class="card-text">
+              <h4 class="card-title"><i class="material-icons">wb_iridescent</i>Info offre</h4>
+            </div>
+          </div>
+          <div class="card-body" style="margin: 0 auto;">
+        <h4 class="card-title"><strong> Nombre Personne : </strong> ${offre.getNombre_personne() }</h4>
+        <h4 class="card-title"><strong> Nombre Chambre : </strong> ${offre.getNb_chambre() }</h4>
+        <h4 class="card-title"><strong> Nombre salle de bain : </strong> ${offre.getSalle_bain() }</h4>
+       </div>
+      </div>
+  </div>
+</div>
 		
 		
 		
