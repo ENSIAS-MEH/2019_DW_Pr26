@@ -90,6 +90,139 @@
 				</div>
 			</center>
 		</div>
+    <div style="background:#FFFFFF;background-color:#FFFFFF;Margin:0px auto;max-width:600px;">
+      <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#FFFFFF;background-color:#FFFFFF;width:100%;">
+        <tbody>
+          <tr>
+            <td style="direction:ltr;font-size:0px;padding:20px 0;text-align:center;vertical-align:middle;background:#FFFFFF;background-color:#FFFFFF;">
+              <div class="mj-column-per-25 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:middle;width:100%;background:#FFFFFF;background-color:#FFFFFF;">
+                <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:middle;" width="100%"> </table>
+              </div>
+              <div class="mj-column-per-50 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:middle;width:100%;">
+                <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+                  <tbody>
+                    <tr>
+                      <td style="vertical-align:middle;padding-bottom:0px;">
+                        <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="" width="100%">
+                          <tr>
+                            <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                           
+                            <c:if test="${offre.getType() == 'Location' }">
+                              <div style="font-family:Arial, Helvetical, sans-serif;font-size:13px;font-weight:bold;line-height:110%;text-align:center;color:#000000;">Prix Total / Nuit </div>
+                            </c:if>
+                            <c:if test="${offre.getType() == 'Vente' }">
+                              <div style="font-family:Arial, Helvetical, sans-serif;font-size:13px;font-weight:bold;line-height:110%;text-align:center;color:#000000;">Prix Total de Vente </div>
+                            </c:if>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td align="center" vertical-align="middle" style="font-size:0px;padding:10px 25px;padding-top:0px;padding-bottom:10px;word-break:break-word;">
+                              <table cellpadding="0" cellspacing="0" width="100%" border="0" style="cellspacing:0;color:#fabb04;font-family:Arial, Helvetical, sans-serif;font-size:13px;line-height:110%;table-layout:auto;width:100%;">
+                                <tr>
+                                  <td align="center" width="60%">
+                                    <p style="font-size:65px;font-weight:bold;color:#fabb04;letter-spacing:-2px;line-height:110%;">${offre.getPrix() } <sup style="font-size:30px;color:#fabb04;line-height:110%;" padding-top="0px">${offre.getDevise() }</sup></p>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td align="center" vertical-align="middle" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                              <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;width:200px;line-height:100%;">
+                                <tr>
+                                  <td align="center" bgcolor="#fabb04" role="presentation" style="border:2px solid #fabb04;border-radius:5px;cursor:auto;padding:10px 25px;background:#fabb04;"
+                                    valign="middle"> <a href="https://www.mcdonaldchryslerofclare.com/all-inventory/index.htm?make=Jeep&model=Compass&utm_source=client-command&utm_medium=email&utm_campaign=5363&utm_content=dms" style="background:#fabb04;color:#000;font-family:Arial, Helvetical, sans-serif;font-size:14px;font-weight:normal;line-height:120%;Margin:0;text-decoration:none;text-transform:uppercase;"
+                                      target="_blank">
+              Obtenez cette offre
+            </a> </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!--[if mso | IE]>
+            </td>
+          
+            <td
+               class="" style="vertical-align:middle;width:150px;"
+            >
+          <![endif]-->
+              <div class="mj-column-per-25 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:middle;width:100%;">
+                <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:middle;" width="100%"> </table>
+              </div>
+              <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+      <table
+         align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
+      >
+        <tr>
+          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
+      <![endif]-->
+    <div style="background:#FFFFFF;background-color:#FFFFFF;Margin:0px auto;max-width:600px;">
+      <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#FFFFFF;background-color:#FFFFFF;width:100%;">
+        <tbody>
+          <tr>
+            <td style="direction:ltr;font-size:0px;padding:20px 0;padding-bottom:10px;padding-top:0px;text-align:center;vertical-align:middle;">
+              <!--[if mso | IE]>
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                
+        <tr>
+      
+            <td
+               class="" style="vertical-align:middle;width:600px;"
+            >
+          <![endif]-->
+              <div class="mj-column-per-100 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:middle;width:100%;">
+                <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+                  <tbody>
+                    <tr>
+                      <td style="vertical-align:middle;padding:0;">
+                        <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="" width="100%">
+                          <tr>
+                            <td align="justify" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                              <div style="font-family:Arial, Helvetical, sans-serif;font-size:10px;line-height:1;text-align:justify;color:#000000;"> MSRP $31,190. 10k mi./yr. Zero security deposit. For well qualified current lessees of a competitive (Non-FCA) vehicle. Due at signing excludes tax, title, license and dealer fees. See dealer for complete details. Offer ends 9/30/19.
+
+ </div>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 	</div>
 	<footer class="ftco-footer ftco-section">
 	<div class="container">
