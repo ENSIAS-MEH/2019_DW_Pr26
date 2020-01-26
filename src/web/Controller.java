@@ -19,7 +19,7 @@ import web.action.AdminAction;
 		"/contact.ma", "/Deconnexion.ma", "/FormConnexionClient.ma", "/ConnexionClient.ma", "/ProfilVendeur.ma",
 		"/AcceuilVendeur.ma", "/FormAjouterOffre.ma", "/AjouterOffre.ma", "/ListOffre.ma", "/SupprimerOffre.ma",
 		"/ModifierOffre.ma", "/AccueilAdmin.ma", "/DetailOffre.ma", "/ConnexionAdmin.ma", "/saveContact.ma",
-		"/ListVendeur.ma", "/getAllOffres.ma", "/ListClient.ma" })
+		"/ListVendeur.ma", "/getAllOffres.ma", "/ListClient.ma","/getDetailsOffre.ma" })
 
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 4)
 public class Controller extends HttpServlet {
@@ -167,6 +167,9 @@ public class Controller extends HttpServlet {
 			} else
 				views = "/404";
 
+		}else if(action.equals("getDetailsOffre")){
+			request.setAttribute("offre", offreAction.getOffre(Integer.parseInt(request.getParameter("id"))));
+			views = "offres/DetailsOffreDisplay"; 
 		} else
 			views = "/404";
 
