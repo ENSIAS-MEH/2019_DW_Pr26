@@ -5,11 +5,10 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<link rel="apple-touch-icon" sizes="76x76"
-	href="assets/img/apple-icon.png">
-<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon.png">
+<link rel="icon" type="image/png" href="img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>Liste Clients</title>
+<title>Liste des clientst</title>
 <meta
 	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
 	name='viewport' />
@@ -19,9 +18,13 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 <!-- CSS Files -->
-<link href="assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
+<link href="css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
 <!-- CSS Just for demo purpose, don't include it in your project -->
-<link href="assets/demo/demo.css" rel="stylesheet" />
+<link href="demo/demo.css" rel="stylesheet" />
+
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+	rel="stylesheet">
 </head>
 
 <body class="">
@@ -123,10 +126,11 @@
 							</a>
 								<div class="dropdown-menu dropdown-menu-right"
 									aria-labelledby="navbarDropdownProfile">
+									<a class="dropdown-item" href="#"
+									style="background-color: gray;">${sessionScope.nom }${sessionScope.prenom }</a>
+								<div class="dropdown-divider"></div>
 									<a class="dropdown-item" href="#">Profil</a>
-									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="Deconnexion.ma">Se
-										déconnecter</a>
+									<a class="dropdown-item" href="Deconnexion.ma">Se déconnecter</a>
 								</div></li>
 						</ul>
 					</div>

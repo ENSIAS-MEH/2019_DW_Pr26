@@ -477,7 +477,8 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 		ArrayList<Offre> listeOffre = new ArrayList<>();
 		Connection connection = mangementDataBase.connexionDataBase();
 		try {
-			PreparedStatement ps = connection.prepareStatement("SELECT * FROM offre WHERE date_debut >= CURDATE()");
+			PreparedStatement ps = connection.prepareStatement("SELECT * FROM offre");
+		//	PreparedStatement ps = connection.prepareStatement("SELECT * FROM offre WHERE date_debut >= CURDATE()");
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				Offre offre = new Offre();
@@ -516,6 +517,35 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 		}
 
 		return listeOffre;
+	}
+
+	@Override
+	public void supprimerVendeur(int id) {
+		
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			PreparedStatement ps = connection.prepareStatement("delete from vendeur where id =" + id);
+			ps.executeUpdate();
+			ps.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+	}
+
+	@Override
+	public void supprimerClient(int id) {
+
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			PreparedStatement ps = connection.prepareStatement("delete from client where id =" + id);
+			ps.executeUpdate();
+			ps.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+		
 	}
 
 }

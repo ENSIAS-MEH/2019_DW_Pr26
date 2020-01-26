@@ -75,4 +75,7 @@ public class VendeurAction {
 		return locationServices.getListVendeur();
 	}
 
+	public void SupprimerVendeur(int id) {
+	    locationServices.SupprimerVendeur(id);
+	}
 }

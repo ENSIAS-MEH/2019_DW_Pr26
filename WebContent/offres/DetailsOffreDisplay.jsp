@@ -72,7 +72,7 @@
 				<div class="col-sm-7 col-sm-offset-3 ">
 					<div class="card">
 						<div class="card-body" style="font-size: 20px;">
-							<strong style="color : #B22222">Détaille offre</strong>
+							<strong style="color : #B22222">Détail offre</strong>
 						</div>
 					</div>
 					<br />

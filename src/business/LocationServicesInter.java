@@ -42,4 +42,8 @@ public interface LocationServicesInter {
 	// Contact
 	public void ajouteContactMessage(Contact contact);
 
+	public void SupprimerVendeur(int id);
+
+	public void SupprimerClient(int id);
+
 }

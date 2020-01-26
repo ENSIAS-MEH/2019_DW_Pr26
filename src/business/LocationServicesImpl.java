@@ -104,6 +104,18 @@ public class LocationServicesImpl implements LocationServicesInter {
 
 		return locationepositoryImpl.getListClient();
 	}
+
+	@Override
+	public void SupprimerVendeur(int id) {
+	
+		locationepositoryImpl.supprimerVendeur(id);
+	}
+
+	@Override
+	public void SupprimerClient(int id) {
+		
+		locationepositoryImpl.supprimerClient(id);
+	}
 	
 
 }

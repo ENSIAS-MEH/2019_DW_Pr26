@@ -78,4 +78,9 @@ public class ClientAction {
 	public ArrayList<Client> ListClient(){
 		return locationServices.getListClient();
 	}
+
+	public void SupprimerClient(int id) {
+		locationServices.SupprimerClient(id);
+		
+	}
 }

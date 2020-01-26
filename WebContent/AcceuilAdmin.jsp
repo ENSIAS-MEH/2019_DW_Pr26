@@ -115,14 +115,15 @@
 								href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown"
 								aria-haspopup="true" aria-expanded="false"> <i
 									class="material-icons">person</i>
-									<p class="d-lg-none d-md-block">Compte</p>
+									<p class="d-lg-none d-md-block">Compte</p>${sessionScope.nom } ${sessionScope.prenom }
 							</a>
 								<div class="dropdown-menu dropdown-menu-right"
 									aria-labelledby="navbarDropdownProfile">
+									<a class="dropdown-item" href="#"
+									style="background-color: gray;">${sessionScope.nom }${sessionScope.prenom }</a>
+								<div class="dropdown-divider"></div>
 									<a class="dropdown-item" href="#">Profil</a>
-									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="Deconnexion.ma">Se
-										déconnecter</a>
+									<a class="dropdown-item" href="Deconnexion.ma">Se déconnecter</a>
 								</div></li>
 						</ul>
 					</div>

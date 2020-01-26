@@ -19,7 +19,7 @@ import web.action.AdminAction;
 		"/contact.ma", "/Deconnexion.ma", "/FormConnexionClient.ma", "/ConnexionClient.ma", "/ProfilVendeur.ma",
 		"/AcceuilVendeur.ma", "/FormAjouterOffre.ma", "/AjouterOffre.ma", "/ListOffre.ma", "/SupprimerOffre.ma",
 		"/ModifierOffre.ma", "/AccueilAdmin.ma", "/DetailOffre.ma", "/ConnexionAdmin.ma", "/saveContact.ma",
-		"/ListVendeur.ma", "/getAllOffres.ma", "/ListClient.ma","/getDetailsOffre.ma" })
+		"/ListVendeur.ma", "/getAllOffres.ma", "/ListClient.ma","/getDetailsOffre.ma","/SupprimerVendeur.ma","/SupprimerClient.ma" })
 
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 4)
 public class Controller extends HttpServlet {
@@ -121,7 +121,7 @@ public class Controller extends HttpServlet {
 				views = "/404";
 		} else if (action.equals("DetailOffre")) {
 			if (session.getAttribute("account_type") != null
-					&& session.getAttribute("account_type").equals("vendeur")) {
+					&& (session.getAttribute("account_type").equals("vendeur") || session.getAttribute("account_type").equals("admin"))) {
 				int id = Integer.parseInt(request.getParameter("id"));
 				request.setAttribute("offre", offreAction.getOffre(id));
 				views = "offres/DetailOffre";
@@ -140,7 +140,7 @@ public class Controller extends HttpServlet {
 					&& session.getAttribute("account_type").equals("vendeur")) {
 				int id = Integer.parseInt(request.getParameter("id"));
 				offreAction.SupprimerOffre(id);
-				request.setAttribute("alert", "votre offre a été bien supprimée");
+				request.setAttribute("alert", "votre offre a bien été supprimée");
 				int id_hote = (int) session.getAttribute("id");
 				request.setAttribute("offres", offreAction.ListOffre(id_hote));
 				views = "offres/ListOffre";
@@ -172,6 +172,35 @@ public class Controller extends HttpServlet {
 		}else if(action.equals("getDetailsOffre")){
 			request.setAttribute("offre", offreAction.getOffre(Integer.parseInt(request.getParameter("id"))));
 			views = "offres/DetailsOffreDisplay"; 
+		} 
+		else if (action.equals("SupprimerVendeur")) {
+			if (session.getAttribute("account_type") != null
+					&& session.getAttribute("account_type").equals("admin")) {
+				int id = Integer.parseInt(request.getParameter("id"));
+				vendeurAction.SupprimerVendeur(id);
+				request.setAttribute("alert", "le compte a bien été supprimée");
+				request.setAttribute("vendeurs", vendeurAction.ListVendeur());
+				views = "ListVendeur";
+			} else
+				views = "/404";
+		} else if (action.equals("SupprimerClient")) {
+			if (session.getAttribute("account_type") != null
+					&& session.getAttribute("account_type").equals("admin")) {
+				int id = Integer.parseInt(request.getParameter("id"));
+				clientAction.SupprimerClient(id);
+				request.setAttribute("alert", "votre offre a bien été supprimée");
+				request.setAttribute("clients", clientAction.ListClient());
+				views = "ListClient";
+			} else
+				views = "/404";
+		} else if (action.equals("DetailVendeur")) {
+			if (session.getAttribute("account_type") != null
+					&& session.getAttribute("account_type").equals("admin")) {
+				int id = Integer.parseInt(request.getParameter("id"));
+				request.setAttribute("vendeur", vendeurAction.getVendeurById(id));
+				views = "DetailVendeur";
+			} else
+				views = "/404";
 		} else
 			views = "/404";
 

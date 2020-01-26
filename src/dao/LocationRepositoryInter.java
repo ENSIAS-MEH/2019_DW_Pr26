@@ -42,6 +42,10 @@ public interface LocationRepositoryInter {
 	//Contact 
 	public void ajouteContactMessage(Contact contact);
 
+	public void supprimerVendeur(int id);
+
+	public void supprimerClient(int id);
+
 	
 	
 }

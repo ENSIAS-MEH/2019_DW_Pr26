@@ -75,7 +75,7 @@
 					data-msg-required="Please choose an option" required="required">
 					<option class="text-center" value="">choisir une catégorie</option>
 					<option value="chambreHotel">Chambre d'un hôtel</option>
-					<option value="chambreHauberge">Chambre d'un hauberge</option>
+					<option value="chambreHauberge">Chambre d'une auberge</option>
 					<option value="chambreHote">Chambre d'hôte</option>
 					<option value="maison">Maison</option>
 					<option value="appartement">Appartement</option>
