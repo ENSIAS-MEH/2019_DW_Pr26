@@ -47,6 +47,8 @@
 <link rel="stylesheet" href="css/flaticon.css">
 <link rel="stylesheet" href="css/icomoon.css">
 <link rel="stylesheet" href="css/accueil_css/style.css">
+
+<link rel="stylesheet" href="css/material-dashboard.css">
 <!-- Icon fontawensom  -->
 
 <link
@@ -56,7 +58,6 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet">
-
 
 </head>
 
@@ -223,7 +224,6 @@
 					<a href="#">${offre.getDescription() }</a>
 				</h4>
 			</div>
-
 		</div>
 		<div
 			style="background: #FFFFFF; background-color: #FFFFFF; Margin: 0px auto; max-width: 600px;">
@@ -319,8 +319,70 @@
 				</tbody>
 			</table>
 		</div>
-
 	</div>
+	
+	<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form" method="" action="">
+                        <p class="description text-center">Or Be Classical</p>
+                        <div class="card-body">
+
+                            <div class="form-group bmd-form-group">
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="material-icons">date_range</i> &nbsp Date début réservation : </div>
+                                  </div>
+                                  <input type="date" class="form-control" placeholder="First Name...">
+                                </div>
+                            </div>
+
+                            <div class="form-group bmd-form-group">
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="material-icons">nights_stay</i> &nbsp Nombre nuit : </div>
+                                  </div>
+                                   <select class="form-control selectpicker" data-style="btn btn-link" id="exampleFormControlSelect1">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+                                </div>
+                            </div>
+                            <div class="form-group bmd-form-group">
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="material-icons">update</i>&nbsp Date fin réservation : </div>
+                                  </div>
+                                  <input type="date" placeholder="Password..." class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 	<footer class="ftco-footer ftco-section">
 	<div class="container">
 		<div class="row mb-5">
