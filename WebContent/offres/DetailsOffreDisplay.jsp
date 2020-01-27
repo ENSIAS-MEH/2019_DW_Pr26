@@ -130,17 +130,59 @@
             </div>
           </div>
           <div class="card-body" style="margin: 0 auto;">
-        <h4 class="card-title"><strong> Nombre Personne : </strong> ${offre.getNombre_personne() }</h4>
-        <h4 class="card-title"><strong> Nombre Chambre : </strong> ${offre.getNb_chambre() }</h4>
-        <h4 class="card-title"><strong> Nombre salle de bain : </strong> ${offre.getSalle_bain() }</h4>
+        <h4 class="card-title"><strong> Nombre Personne : </strong> ${offre.getNombre_personne() } <span class="flaticon-bed"></span></h4>
+        <h4 class="card-title"><strong> Nombre Chambre : </strong> ${offre.getNb_chambre() } <span class="flaticon-floor-plan"></span> </h4>
+        <h4 class="card-title"><strong> Nombre salle de bain : </strong> ${offre.getSalle_bain() } <span class="flaticon-bathtub"></span></h4>
        </div>
       </div>
   </div>
 </div>
-		
-		
-		
-		
+
+<div class="row">
+
+  <div class="col-md-6">
+      <div class="card">
+          <div class="card-header card-header-text card-header-primary">
+            <div class="card-text">
+              <h4 class="card-title"><i class="material-icons">near_me</i>Localisation</h4>
+            </div>
+          </div>
+          <div class="card-body">
+          <h4>Pays : <strong>${offre.getPays() }</strong></h4>
+          <h4>Ville : <strong>${offre.getVille() }</strong></h4>
+           <h4>Adresse : <strong>${offre.getAdresse() }</strong></h4>
+         </div>
+      </div>
+  </div>
+  
+   <div class="col-md-6">
+      <div class="card">
+          <div class="card-header card-header-icon card-header-rose">
+            <div class="card-icon">
+              <i class="material-icons"><i class="material-icons">account_circle</i> Info Propriétaire</i>
+            </div>
+          </div>
+          <div class="card-body">
+              <h4>Nom : <strong>${proprietaire.getNom() }</strong></h4>
+          <h4>Prenom : <strong>${proprietaire.getPrenom() }</strong></h4>
+           <h4>Numéro téléphone : <strong>${proprietaire.getNum_telephone() }</strong></h4>
+            <h4>Email : <strong>${proprietaire.getEmail() }</strong></h4>
+              </div>
+      </div>
+  </div>
+</div>
+
+<div class="card" style="width: 80%;margin : 0 auto ;  ">
+  <div class="card-body">
+        <h6 class="card-category text-success"><strong>
+            <i class="material-icons">wb_incandescent</i>  Description</strong>
+        </h6>
+        <h4 class="card-title">
+            <a href="#">${offre.getDescription() }</a>
+        </h4>
+    </div>
+    
+      </div>	
 		<div
 			style="background: #FFFFFF; background-color: #FFFFFF; Margin: 0px auto; max-width: 600px;">
 			<table align="center" border="0" cellpadding="0" cellspacing="0"

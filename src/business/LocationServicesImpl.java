@@ -76,6 +76,11 @@ public class LocationServicesImpl implements LocationServicesInter {
 	public Offre getOffresById(int id) {
 		return locationepositoryImpl.getOffresById(id);
 	}
+	
+	@Override
+	public ArrayList<Offre> getOffresActifs(){
+		return locationepositoryImpl.getOffresActifs();
+	}
 
 	@Override
 	public boolean ModifierOffre(Offre offre) {

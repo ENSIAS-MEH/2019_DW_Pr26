@@ -38,6 +38,7 @@ public interface LocationRepositoryInter {
 	public ArrayList<Offre> getOffres();
 	
 	public boolean ModifierOffre(Offre offre);
+	public ArrayList<Offre> getOffresActifs(); 
 	
 	//Contact 
 	public void ajouteContactMessage(Contact contact);

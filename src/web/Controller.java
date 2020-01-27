@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import models.Offre;
 import web.action.ClientAction;
 import web.action.ContactMessage;
 import web.action.OffreAction;
@@ -154,7 +156,7 @@ public class Controller extends HttpServlet {
 				views = "/404";
 
 		} else if (action.equals("getAllOffres")) {
-			request.setAttribute("listeOffres", offreAction.getOffres());
+			request.setAttribute("listeOffres", offreAction.getOffresActifs());
 			views = "AllOffresClients";
 		} else if (action.equals("AccueilAdmin")) {
 			if (session.getAttribute("account_type").equals("admin")) {
@@ -168,9 +170,11 @@ public class Controller extends HttpServlet {
 				views = "ListClient";
 			} else
 				views = "/404";
-
 		}else if(action.equals("getDetailsOffre")){
-			request.setAttribute("offre", offreAction.getOffre(Integer.parseInt(request.getParameter("id"))));
+			Offre offre = offreAction.getOffre(Integer.parseInt(request.getParameter("id"))); 
+			request.setAttribute("offre",offre);
+			System.out.println(offre.getId_hote());
+			request.setAttribute("proprietaire", vendeurAction.getVendeurById(offre.getId_hote()));
 			views = "offres/DetailsOffreDisplay"; 
 		} 
 		else if (action.equals("SupprimerVendeur")) {
