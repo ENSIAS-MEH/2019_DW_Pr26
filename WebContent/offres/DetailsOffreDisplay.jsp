@@ -58,7 +58,8 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet">
-
+<!--  Jquery  -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -189,12 +190,16 @@
 
 			<div class="col-md-6">
 				<div class="card">
-					<div class="card-header card-header-icon card-header-rose">
-						<div class="card-icon">
-							<i class="material-icons"><i class="material-icons">account_circle</i>
-								Info Propriétaire</i>
+					<div class="card-header card-header-text card-header-rose">
+						<div class="card-text">
+							<h4 class="card-title">
+								<i class="material-icons">account_circle</i>
+								Info Propriétaire
+							</h4>
 						</div>
 					</div>
+					
+						
 					<div class="card-body">
 						<h4>
 							Nom : <strong>${proprietaire.getNom() }</strong>
@@ -331,14 +336,14 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel"><strong>Demande de Réservation </strong></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <form class="form" method="" action="">
-                        <p class="description text-center">Or Be Classical</p>
+                        <p class="description text-center">veuillez renseigner une date disponible</p>
                         <div class="card-body">
 
                             <div class="form-group bmd-form-group">
@@ -349,7 +354,7 @@
                                   <input type="date" class="form-control" placeholder="First Name...">
                                 </div>
                             </div>
-
+<div id="nombre_nuit">
                             <div class="form-group bmd-form-group">
                                 <div class="input-group">
                                   <div class="input-group-prepend">
@@ -364,12 +369,13 @@
     </select>
                                 </div>
                             </div>
+                            </div>
                             <div class="form-group bmd-form-group">
                                 <div class="input-group">
                                   <div class="input-group-prepend">
                                     <div class="input-group-text"><i class="material-icons">update</i>&nbsp Date fin réservation : </div>
                                   </div>
-                                  <input type="date" placeholder="Password..." class="form-control">
+                                  <input type="date" placeholder="date fin " class="form-control" id="date_fin_reservation" readonly="readonly">
                                 </div>
                             </div>
                         </div>
@@ -432,7 +438,14 @@
 		</div>
 	</div>
 	</footer>
-
+	<script>
+		// script modal 
+		//$('#nombre_nuit').hide();
+		//$('#date_fin_reservation').val('2010-05-10');
+		/*$('#nombre_nuit').click(function() {
+			this.hide();
+		});*/
+	</script>
 	<script src="js/core/popper.min.js"></script>
 	<script src="js/core/bootstrap-material-design.min.js"></script>
 	<script src="js/plugins/perfect-scrollbar.jquery.min.js"></script>
@@ -843,6 +856,8 @@
 
 		});
 	</script>
+	
+
 </body>
 
 </html>
