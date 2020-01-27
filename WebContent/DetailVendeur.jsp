@@ -8,7 +8,7 @@
 <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon.png">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>Location et vente de logement</title>
+<title>Données Propriétaire</title>
 <meta
 	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
 	name='viewport' />
@@ -31,12 +31,118 @@
 <link rel="stylesheet" href="css/offre/style.css">
 
 </head>
-<c:if test="${sessionScope.account_type == 'vendeur'}">
-	<c:import url="../navbar/NavbarVendeur.jsp" />
-</c:if>
-<c:if test="${sessionScope.account_type == 'admin'}">
-	<c:import url="../navbar/NavbarAdmin.jsp" />
-</c:if>
+
+<body class="">
+	<div class="wrapper ">
+		<div class="sidebar" data-color="purple" data-background-color="white"
+			data-image="assets/img/sidebar-1.jpg">
+			<!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+			<div class="logo ">
+				<a href="#" class="simple-text logo-normal active"> Hire && Sale
+				</a>
+			</div>
+			<div class="sidebar-wrapper">
+				<ul class="nav">
+					<li class="nav-item "><a class="nav-link"
+						href="AcceuilAdmin.ma"> <i class="material-icons">home</i>
+							<p>Acceuil</p>
+					</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="#"> <i class="material-icons">dashboard</i>
+							<p>Dashboard</p>
+					</a></li>
+					<li class="nav-item  active"><a class="nav-link" href="ListVendeur.ma">
+							<i class="material-icons">account_circle</i>
+							<p>Liste des propriétaires</p>
+					</a></li>
+					<li class="nav-item "><a class="nav-link" href="ListClient.ma">
+							<i class="material-icons">supervised_user_circle</i>
+							<p>Liste des clients</p>
+					</a></li>
+					<li class="nav-item "><a class="nav-link" href="ListOffre.ma">
+							<i class="material-icons">local_offer</i>
+							<p>Liste des offres</p>
+					</a></li>
+					<li class="nav-item "><a class="nav-link"
+						href="./typography.html"> <i class="material-icons">format_indent_increase</i>
+							<p>Liste des demandes</p>
+					</a></li>
+					<li class="nav-item "><a class="nav-link" href="./icons.html">
+							<i class="material-icons">format_indent_decrease</i>
+							<p>Demandes confirmées</p>
+					</a></li>
+
+				</ul>
+			</div>
+		</div>
+		
+		
+	<div class="main-panel">
+		<nav
+				class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+				<div class="container-fluid">
+					<div class="navbar-wrapper">
+						<a class="navbar-brand" href="#pablo">Accueil</a>
+					</div>
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						aria-controls="navigation-index" aria-expanded="false"
+						aria-label="Toggle navigation">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="navbar-toggler-icon icon-bar"></span> <span
+							class="navbar-toggler-icon icon-bar"></span> <span
+							class="navbar-toggler-icon icon-bar"></span>
+					</button>
+					<div class="collapse navbar-collapse justify-content-end">
+						<form class="navbar-form">
+							<div class="input-group no-border">
+								<input type="text" value="" class="form-control"
+									placeholder="Search...">
+								<button type="submit"
+									class="btn btn-white btn-round btn-just-icon">
+									<i class="material-icons">search</i>
+									<div class="ripple-container"></div>
+								</button>
+							</div>
+						</form>
+						<ul class="navbar-nav">
+
+							<li class="nav-item dropdown"><a class="nav-link"
+								href="http://example.com" id="navbarDropdownMenuLink"
+								data-toggle="dropdown" aria-haspopup="true"
+								aria-expanded="false"> <i class="material-icons">notifications</i>
+									<span class="notification">2</span>
+									<p class="d-lg-none d-md-block">Some Actions</p>
+							</a>
+								<div class="dropdown-menu dropdown-menu-right"
+									aria-labelledby="navbarDropdownMenuLink">
+									<a class="dropdown-item" href="#">Mike John responded to
+										your email</a> <a class="dropdown-item" href="#">You have 5
+										new tasks</a>
+								</div></li>
+							<li class="nav-item dropdown"><a class="nav-link"
+								href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false"> <i
+									class="material-icons">person</i>
+									<p class="d-lg-none d-md-block">Compte</p>
+							</a>
+								<div class="dropdown-menu dropdown-menu-right"
+									aria-labelledby="navbarDropdownProfile">
+									<a class="dropdown-item" href="#"
+									style="background-color: gray;">${sessionScope.nom }${sessionScope.prenom }</a>
+								<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="#">Profil</a>
+									<a class="dropdown-item" href="Deconnexion.ma">Se déconnecter</a>
+								</div></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<!-- End Navbar -->
+	
 <div class="content">
 
 	<c:if test="${alert != null}">
@@ -48,274 +154,64 @@
 			</div>
 		</div>
 	</c:if>
-
-
-	<ul id="progressbar">
-		<li class="active">Categorie</li>
-		<li>Informations</li>
-		<li>Date</li>
-		<li>Specification</li>
-		<li>Description</li>
-	</ul>
-
-<form class="steps" method="post" action="ListerOffre.ma"> 
-		<input type="hidden" name="id" value="${offre.getId()}">
-		<!-- USER INFORMATION FIELD SET -->
+<div class="steps" method="post">
 		<fieldset>
-			<h2 class="fs-title">Categorie de la location</h2>
-			
-			<!-- Begin What's Your First Name Field -->
+			<h2 class="fs-title">Données du propriétaire N° ${vendeur.getId()} </h2>
 			<div class="categ field hs-form-field">
-
-				<label for="hs_categ">Catégorie* :</label><br> <input
-					type="text" name="categorie" value="${offre.getCategorie()}"
-					id="categ" data-rule-required="true"
-					data-msg-required="Please choose an option" required="required"
-					disabled="disabled"> <span class="error1"
-					style="display: none;"> <i
-					class="error-log fa fa-exclamation-triangle"></i>
-				</span>
+			
+				<label for="hs_categ">Nom :</label><br>
+				<div class="input-group ">${vendeur.getNom()}</div>
+				<div class="dropdown-divider"></div>
 			</div>
 			<!-- End What's Your First Name Field -->
+			
 
 			<!-- Begin What's Your Email Field -->
-			<div class="hs_nombre field hs-form-field">
-
-				<label for="nmb">Nombre de personne* :</label> <input id="nmb"
-					name="nombre_personne" required="required" type="number"
-					value="${offre.getNombre_personne()}" data-rule-required="true"
-					data-msg-required="Please enter a number " disabled="disabled">
-				<span class="error1" style="display: none;"> <i
-					class="error-log fa fa-exclamation-triangle"></i>
-				</span>
+			<div class="categ field hs-form-field">
+			
+				<label for="hs_categ">Prenom :</label><br>
+				<div class="input-group no-border">${vendeur.getPrenom()}</div>
+				<div class="dropdown-divider"></div>
 			</div>
 
-
-			<!-- End Total Number of Constituents in Your Database Field -->
-			<input type="button" data-page="1" name="next"
-				class="next action-button" value="Next" />
+			
+			<div class="categ field hs-form-field">
+			
+				<label for="hs_categ">Cin :</label><br>
+				<div class="input-group no-border">${vendeur.getNum_cin()}</div>
+				<div class="dropdown-divider"></div>
+			</div>
+			
+			<div class="categ field hs-form-field">
+			
+				<label for="hs_categ">Date de naissance :</label><br>
+				<div class="input-group no-border">${vendeur.getDate_naissane()}</div>
+				<div class="dropdown-divider"></div>
+			</div>
+			
+			<div class="categ field hs-form-field">
+			
+				<label for="hs_categ">Email :</label><br>
+				<div class="input-group no-border">${vendeur.getEmail()}</div>
+				<div class="dropdown-divider"></div>
+			</div>
+			
+			<div class="categ field hs-form-field">
+			
+				<label for="hs_categ">Pays :</label><br>
+				<div class="input-group no-border">${vendeur.getPays()}</div>
+				<div class="dropdown-divider"></div>
+			</div>
+			
+			<div class="categ field hs-form-field">
+			
+				<label for="hs_categ">Ville :</label><br>
+				<div class="input-group no-border">${vendeur.getVille()}</div>
+				<div class="dropdown-divider"></div>
+			</div>
+			
 		</fieldset>
-
-
-
-		<!-- ACQUISITION FIELD SET -->
-		<fieldset>
-			<h2 class="fs-title">Informations</h2>
-			<h3 class="fs-subtitle">Des informations sur la location</h3>
-			<!-- Begin Total Number of Donors in Year 1 Field -->
-			<div
-				class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field"
-				id="webform-component-acquisition--amount-1">
-
-				<label for="pays">Pays *</label> <input id="pays"
-					class="form-text hs-input" name="pays" required="required"
-					type="text" value="${offre.getPays()}" placeholder=""
-					data-rule-required="true" data-msg-required="Please enter a text" disabled="disabled">
-				<span class="error1" style="display: none;"> <i
-					class="error-log fa fa-exclamation-triangle"></i>
-				</span>
-			</div>
-			<!-- End Total Number of Donors in Year 1 Field -->
-
-			<!-- Begin Total Number of Donors in Year 2 Field -->
-			<div
-				class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_2 field hs-form-field"
-				id="webform-component-acquisition--amount-2">
-
-				<label for="ville">Ville *</label> <input id="ville"
-					class="form-text hs-input" name="ville" required="required"
-					type="text" value="${offre.getVille()}" placeholder=""
-					data-rule-required="true" data-msg-required="Please enter a text" disabled="disabled">
-				<span class="error1" style="display: none;"> <i
-					class="error-log fa fa-exclamation-triangle"></i>
-				</span>
-			</div>
-			<!-- End Total Number of Donors in Year 2 Field -->
-
-			<!-- Begin Calc of Total Number of Donors Fields -->
-			<!-- THIS FIELD IS NOT EDITABLE | GRAYED OUT -->
-			<div
-				class="form-item webform-component webform-component-textfield webform-container-inline hs_total_donor_percent_change field hs-form-field">
-
-				<label for="adresse">Adresse *</label> <input id="adresse"
-					class="form-text hs-input" name="adresse" type="text"
-					value="${offre.getAdresse()}" required="required"
-					data-rule-required="true" data-msg-required="Please enter a text" disabled="disabled">
-				<span class="error1" style="display: none;"> <i
-					class="error-log fa fa-exclamation-triangle"></i>
-				</span>
-			</div>
-			<!-- End Calc of Total Number of Donors Fields -->
-			<input type="button" data-page="2" name="previous"
-				class="previous action-button" value="Previous" /> <input
-				type="button" data-page="2" name="next" class="next action-button"
-				value="Next" />
-
-		</fieldset>
-
-
-
-		<!-- Cultivation FIELD SET -->
-		<fieldset>
-			<h2 class="fs-title">Date & prix</h2>
-			<h3 class="fs-subtitle">Date début, date fin et prix de la
-				location</h3>
-			<!-- Begin Average Gift Size in Year 1 Field -->
-			<div
-				class="form-item webform-component webform-component-textfield hs_average_gift_size_in_year_1 field hs-form-field"
-				id="edit-submitted-cultivation-amount-1 average_gift_size_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_3256">
-
-				<label for="date_debut">Date début *</label> <input id="date_debut"
-					class="form-text hs-input" name="date_debut" required="required"
-					type="date" value="${offre.getDate_debut()}" placeholder=""
-					data-rule-required="true"
-					data-msg-required="Please enter a valid date" disabled="disabled"> <span
-					class="error1" style="display: none;"> <i
-					class="error-log fa fa-exclamation-triangle"></i>
-				</span>
-			</div>
-			<!-- End Average Gift Size in Year 1 Field -->
-
-			<!-- Begin Average Gift Size in Year 2 Field -->
-			<div
-				class="form-item webform-component webform-component-textfield hs_average_gift_size_in_year_2 field hs-form-field"
-				id="webform-component-cultivation--amount-2">
-
-				<label for="date_fin">Date fin *</label> <input id="date_fin"
-					class="form-text hs-input" name="date_fin" required="required"
-					type="date" value="${offre.getDate_fin()}" placeholder=""
-					data-rule-required="true"
-					data-msg-required="Please enter a valid date" disabled="disabled"> <span
-					class="error1" style="display: none;"> <i
-					class="error-log fa fa-exclamation-triangle"></i>
-				</span>
-			</div>
-
-			<div
-				class="form-item webform-component webform-component-textfield webform-container-inline hs_total_donor_percent_change field hs-form-field">
-
-				<label for="^prix">Prix/Nuit *</label> <input id="prix"
-					class="form-text hs-input" name="prix" type="number"
-					value="${offre.getPrix()}" placeholder="0" required="required"
-					data-rule-required="true" data-msg-required="Please enter a number" disabled="disabled">
-				<span class="error1" style="display: none;"> <i
-					class="error-log fa fa-exclamation-triangle"></i>
-				</span>
-			</div>
-			<div
-				class="form-item webform-component webform-component-textfield webform-container-inline hs_total_donor_percent_change field hs-form-field">
-
-				<label for="devise">Devise *</label> <input id="devise"
-					class="form-text hs-input" name="devise" type="text"
-					value="${offre.getDevise()}" required="required"
-					data-rule-required="true" data-msg-required="Please enter a text" disabled="disabled">
-				<span class="error1" style="display: none;"> <i
-					class="error-log fa fa-exclamation-triangle"></i>
-				</span>
-			</div>
-			<!-- End Average Gift Size in Year 2 Field -->
-
-
-			<!-- End Average Gift Size Perchent Change Field -->
-			<input type="button" data-page="3" name="previous"
-				class="previous action-button" value="Previous" /> <input
-				type="button" data-page="3" name="next" class="next action-button"
-				value="Next" />
-		</fieldset>
-
-
-
-		<!-- Cultivation2 FIELD SET -->
-		<fieldset>
-			<h2 class="fs-title">Spécification</h2>
-			<h3 class="fs-subtitle">Spécifications de la location</h3>
-			<!-- Begin Total Giving In Year 1 Field -->
-			<div class="form-item webform-component webform-component-textfield"
-				id="webform-component-cultivation--amount-3 hs_total_giving_in_year_1 field hs-form-field">
-
-				<label for="bain">Nombre de salles de bain *</label> <input
-					id="bain" class="form-text hs-input" name="salle_bain"
-					required="required" size="60" maxlength="128" type="number"
-					value="${offre.getSalle_bain()}" placeholder=""
-					data-rule-required="true"
-					data-msg-required="Please enter a valid number" disabled="disabled"> <span
-					class="error1" style="display: none;"> <i
-					class="error-log fa fa-exclamation-triangle"></i>
-				</span>
-			</div>
-			<!-- End Total Giving In Year 1 Field -->
-
-			<!-- Begin Total Giving In Year 2 Field -->
-			<div
-				class="form-item webform-component webform-component-textfield hs_total_giving_in_year_2 field hs-form-field"
-				id="webform-component-cultivation--amount-4">
-
-				<label for="nb_chambre">Nombre de chambres </label> <input
-					id="nb_chambre" class="form-text hs-input" name="nb_chambre"
-					required="required" size="60" maxlength="128" type="number"
-					value="${offre.getNb_chambre()}" placeholder=""
-					data-rule-required="true"
-					data-msg-required="Please enter a valid number" disabled="disabled"> <span
-					class="error1" style="display: none;"> <i
-					class="error-log fa fa-exclamation-triangle"></i>
-				</span>
-			</div>
-
-			<!-- End Total Giving In Year 2 Field -->
-
-
-			<input type="button" data-page="4" name="previous"
-				class="previous action-button" value="Previous" /> <input
-				type="button" data-page="4" name="next" class="next action-button"
-				value="Next" />
-
-		</fieldset>
-
-
-
-		<!-- RETENTION FIELD SET -->
-		<fieldset>
-			<h2 class="fs-title">Descriptions & photos</h2>
-			<h3 class="fs-subtitle">Descriptions & photos</h3>
-			<!-- Begin Total Number of Donors Who Gave in Year 1 Field -->
-			<div
-				class="form-item webform-component webform-component-textfield hs_number_of_donors_in_year_1 field hs-form-field"
-				id="webform-component-retention--amount-1">
-
-				<label for="description">Description </label>
-
-				<textarea id="desciption" class="form-text hs-input"
-					name="description" rows="5" cols="33"
-					 disabled="disabled">${offre.getDescription()}</textarea>
-
-			</div>
-			<%-- <c:if test="${offre.getPhoto() != null} "> --%>
-			<div
-				class="form-item webform-component webform-component-textfield hs_number_of_donors_in_year_1 field hs-form-field"
-				id="webform-component-retention--amount-1">
-
-				<label for="oldphoto">Photo </label>
-				<div class="row">
-					<div class="col-md-4">
-						<div class="thumbnail text-center">
-							<img id="oldphoto"
-								src="data:image/jpg;base64,${offre.base64Image}" alt=""
-								style="width: 50%">
-						</div>
-					</div>
-				</div>
-
-
-			</div>
-		<%-- 	</c:if>--%>
-
-			<input type="button" data-page="5" name="previous"
-				class="previous action-button" value="Previous" /> <a href="ListOffre.ma"><input
-				id="submit" class="hs-button primary large action-button next"
-				type="button" value="Retour"></a>
-		</fieldset>
-
-	</form> 
+	</div>
 </div>
 <!-- partial -->
 <script
