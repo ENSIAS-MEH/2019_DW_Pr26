@@ -153,7 +153,7 @@ function Location() {
 
 				<label for="pays">Pays *</label> <input id="pays"
 					class="form-text hs-input" name="pays" required="required"
-					type="text" value="jijjij" placeholder="" data-rule-required="true"
+					type="text" value="" placeholder="" data-rule-required="true"
 					data-msg-required="Please enter a text"> <span
 					class="error1" style="display: none;"> <i
 					class="error-log fa fa-exclamation-triangle"></i>
@@ -168,7 +168,7 @@ function Location() {
 
 				<label for="ville">Ville *</label> <input id="ville"
 					class="form-text hs-input" name="ville" required="required"
-					type="text" value="iiiii" placeholder="" data-rule-required="true"
+					type="text" value="" placeholder="" data-rule-required="true"
 					data-msg-required="Please enter a text"> <span
 					class="error1" style="display: none;"> <i
 					class="error-log fa fa-exclamation-triangle"></i>
@@ -182,7 +182,7 @@ function Location() {
 				class="form-item webform-component webform-component-textfield webform-container-inline hs_total_donor_percent_change field hs-form-field">
 
 				<label for="adresse">Adresse *</label> <input id="adresse"
-					class="form-text hs-input" name="adresse" type="text" value="iiiiii"
+					class="form-text hs-input" name="adresse" type="text" value=""
 					required="required" data-rule-required="true"
 					data-msg-required="Please enter a text"> <span
 					class="error1" style="display: none;"> <i
