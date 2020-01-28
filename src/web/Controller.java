@@ -21,7 +21,7 @@ import web.action.AdminAction;
 		"/contact.ma", "/Deconnexion.ma", "/FormConnexionClient.ma", "/ConnexionClient.ma", "/ProfilVendeur.ma",
 		"/AcceuilVendeur.ma", "/FormAjouterOffre.ma", "/AjouterOffre.ma", "/ListOffre.ma", "/SupprimerOffre.ma",
 		"/ModifierOffre.ma", "/AccueilAdmin.ma", "/DetailOffre.ma", "/ConnexionAdmin.ma", "/saveContact.ma",
-		"/ListVendeur.ma", "/getAllOffres.ma", "/ListClient.ma","/getDetailsOffre.ma","/SupprimerVendeur.ma","/SupprimerClient.ma","/DetailVendeur.ma","/ReservezOffreClient.ma" })
+		"/ListVendeur.ma", "/getAllOffres.ma", "/ListClient.ma","/getDetailsOffre.ma","/SupprimerVendeur.ma","/SupprimerClient.ma","/DetailVendeur.ma","/ReservezOffreClient.ma","/saveDemandeReservation.ma" })
 
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 4)
 public class Controller extends HttpServlet {

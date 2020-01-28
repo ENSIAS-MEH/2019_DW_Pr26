@@ -1,6 +1,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -63,11 +63,9 @@
 				<strong> Nombre salle de bain : </strong> ${offre.getSalle_bain() }
 				<span class="flaticon-bathtub"></span>
 			</h4>
-
 			<h4 class="card-title">
 				<strong> Date de la disponibilité : </strong>
 				<div class="input-group input-daterange">
-
 					<input type="date" value="${offre.getDate_debut()}"
 						readonly="readonly" id="date_debut_offre">
 					<div class="input-group-addon" style="font-size: 25px; color: red;">
@@ -86,9 +84,8 @@
 		<div class="card-header card-header-success">Demande de
 			réservation</div>
 		<div class="card-body">
-			<h4 class="card-title">veuillez renseigner une date
-					valide</h4>
-			<form class="form" method="" action=""
+			<h4 class="card-title">veuillez renseigner une date valide</h4>
+			<form class="form" method="post" action="saveDemandeReservation.ma"
 				style="width: 70%; margin: 0 auto;">
 				<div class="form-group bmd-form-group">
 					<div class="input-group">
@@ -98,7 +95,9 @@
 								réservation :
 							</div>
 						</div>
-						<input type="date" class="form-control" placeholder="First Name..." id="date_debut_reservation">
+						<input type="date" class="form-control"
+							placeholder="First Name..." id="date_debut_reservation"
+							name="date_debut_reservation" required="true">
 					</div>
 				</div>
 				<div class="form-group bmd-form-group" id="nb_nuit">
@@ -108,7 +107,7 @@
 								<i class="material-icons">nights_stay</i> &nbsp Nombre nuit :
 							</div>
 						</div>
-						<select class="form-control" id="number_night">
+						<select class="form-control" id="number_night" name="nb_nuit" >
 							<option>1</option>
 						</select>
 					</div>
@@ -121,21 +120,27 @@
 								:
 							</div>
 						</div>
-						<input type="date" class="form-control" placeholder="First Name..." id="date_fin_reservatio">
+						<input type="date" class="form-control"
+							placeholder="First Name..." id="date_fin_reservatio"
+							readonly="readonly" name="date_debut_reservation" required="true">
 					</div>
 				</div>
-			</form>
-			<br>
-			<br>
-			<center>
-				<a href="#0" class="btn btn-success">Valider Réservation</a>
+				<input type="text" name="id_vendeur"
+					value="${proprietaire.getId() }" hidden="hidden"> <input
+					type="text" name="id_offre" value="${offre.getId() }"
+					hidden="hidden">
+					<center>
+					
+			<br> <br>
+				<input href="#0" type="submit" class="btn btn-success" onclick="return validationFormFromSubmit();" value="Valider Réservation"/>
 			</center>
+			</form>
+			
 		</div>
 	</div>
 	<br>
 	<br>
 	<br>
-
 	<!--   Core JS Files   -->
 	<script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
 	<script src="assets/js/core/popper.min.js" type="text/javascript"></script>
@@ -200,44 +205,41 @@
 	<!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
 	<script src="assets/js/material-dashboard.min.js?v=2.1.1"
 		type="text/javascript"></script>
-		
-		<script>
+
+	<script>
 		// script modal 
 		$('#nb_nuit').hide();	
 		$('#date_debut_reservation').focusout(function() {
-			//verification validite date 
 			var startDate = $('#date_debut_offre').val().replace(/-/g,'/');
 			var endDate = $('#date_fin_offre').val().replace(/-/g,'/');
 			var dateDebutSaisie = $('#date_debut_reservation').val().replace(/-/g,'/');
-			
 			if(dateDebutSaisie < endDate && dateDebutSaisie >= startDate){
 				$('#nb_nuit').show();
+				$('#nb_nuit').find('option').remove().end(); 
+				$('#number_night').append('<option value="1" selected="selected">1 nuit </option>');
 				var dateDebutRes = $('#date_debut_reservation').val(); 
 				var dateFinRese = $('#date_fin_offre').val(); 
 				var start = new Date(dateDebutRes); 
-			    end   = new Date(dateFinRese); 
-			    diff  = new Date(end - start); 
-			    days  = diff/1000/60/60/24;
-				alert(Math.floor( days )); 	
+			    end   = new Date(dateFinRese);  
+			    days  = (new Date(end - start))/1000/60/60/24;	
 				for (i=2; i<=days; i++){
-					var option = '<option value="'+i+'" selected="selected">'+i+'</option>';
+					var option = '<option value="'+i+'" selected="selected">'+i+' nuit</option>';
 					$('#number_night').append(option);
-				}
-				//alert(dateDebutRes); 
-				
+				}				
 				var maDate = $('#date_debut_reservation').val();
 				var tabDate = maDate.split('-');
-				var next14 = new Date(tabDate[0], tabDate[1]-1, +tabDate[2]+days);
-				//var year = next14.getYear() + 1900; 
+				var next14 = new Date(tabDate[0], tabDate[1]-1, +tabDate[2]+days); 
 				var day = ("0" + next14.getDate()).slice(-2);
 				var month = ("0" + (next14.getMonth() + 1)).slice(-2);
-				var today = next14.getFullYear()+"-"+(month)+"-"+(day) ; 
-				alert(today);  				
+				var today = next14.getFullYear()+"-"+(month)+"-"+(day) ; 			
 				$('#date_fin_reservatio').val(today); 
-							}else{
-				alert('La date que vous avez saisie est incorrecte') ; 
-				$('#date_debut_reservation').val(''); 
-				$('#nb_nuit').hide();
+				}else{
+					$('#nb_nuit').find('option').remove().end(); 
+					$('#number_night').append('<option value="1" selected="selected">1 nuit </option>');
+					$('#date_debut_reservation').val(''); 
+					$('#nb_nuit').hide();
+					$('#date_fin_reservatio').val(''); 
+				alert('La date que vous avez saisie est incorrecte'); 
 			}
 		});
 
@@ -247,17 +249,18 @@
 			var next14 = new Date(tabDate[0], tabDate[1]-1, +(parseInt(tabDate[2])+parseInt($('#number_night').val())));
 			var day = ("0" + next14.getDate()).slice(-2);
 			var month = ("0" + (next14.getMonth() + 1)).slice(-2);
-			var today = next14.getFullYear()+"-"+(month)+"-"+(day) ; 
-			alert(today);  				
+			var today = next14.getFullYear()+"-"+(month)+"-"+(day) ;   				
 			$('#date_fin_reservatio').val(today); 
 		}); 
 
-		
-		//$('#date_fin_reservation').val('2010-05-10');
-		/*$('#nombre_nuit').click(function() {
-			this.hide();
-		});*/
-	</script>
+		function validationFormFromSubmit(){
+			if($('#date_debut_reservation').val() ==''){
+				alert('Vous avez laisser un champ vide'); 
+				return false ;
+				}
+			return confirm('Voulez-vous vraiment envoyer la demande'); 
+			}
 
+	</script>
 </body>
 </html>
