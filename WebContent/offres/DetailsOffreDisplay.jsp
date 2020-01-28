@@ -296,12 +296,25 @@
 																role="presentation"
 																style="border-collapse: separate; width: 200px; line-height: 100%;">
 																<tr>
-																	<td align="center" bgcolor="#32CD32"
+																<c:if test="${offre.getType() == 'Location' }">
+																<td align="center" bgcolor="#32CD32"
 																		role="presentation"
 																		style="border: 2px solid #32CD32; border-radius: 5px; cursor: auto; padding: 10px 25px; background: #32CD32;"
-																		valign="middle"><a href=""
+																		valign="middle"><a href="ReservezOffreClient.ma?id=${offre.getId() }"
 																		style="background: #32CD32; color: #000; font-family: Arial, Helvetical, sans-serif; font-size: 14px; font-weight: normal; line-height: 120%; Margin: 0; text-decoration: none; text-transform: uppercase;"
-																		target="_blank"> <strong>Réservez </strong></a></td>
+																		target="_blank" onclick="return confirm('Voulez vous vraiment envoyez une demande de réservation')">															
+																		<strong>Réservez</strong>
+																		</a></td>
+															</c:if> <c:if test="${offre.getType() == 'Vente' }">
+																<td align="center" bgcolor="#32CD32"
+																		role="presentation"
+																		style="border: 2px solid #32CD32; border-radius: 5px; cursor: auto; padding: 10px 25px; background: #32CD32;"
+																		valign="middle"><a href="DemandeAchatClient.ma?id=${offre.getId() }"
+																		style="background: #32CD32; color: #000; font-family: Arial, Helvetical, sans-serif; font-size: 14px; font-weight: normal; line-height: 120%; Margin: 0; text-decoration: none; text-transform: uppercase;"
+																		target="_blank" onclick="return confirm('Voulez vous vraiment envoyez une demande d'achat')">															
+																		<strong>Demande d'achat</strong>
+																		</a></td>
+															</c:if>		
 																</tr>
 															</table>
 														</td>
@@ -326,69 +339,6 @@
 		</div>
 	</div>
 	
-	<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><strong>Demande de Réservation </strong></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form class="form" method="" action="">
-                        <p class="description text-center">veuillez renseigner une date disponible</p>
-                        <div class="card-body">
-
-                            <div class="form-group bmd-form-group">
-                                <div class="input-group">
-                                  <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="material-icons">date_range</i> &nbsp Date début réservation : </div>
-                                  </div>
-                                  <input type="date" class="form-control" placeholder="First Name...">
-                                </div>
-                            </div>
-<div id="nombre_nuit">
-                            <div class="form-group bmd-form-group">
-                                <div class="input-group">
-                                  <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="material-icons">nights_stay</i> &nbsp Nombre nuit : </div>
-                                  </div>
-                                   <select class="form-control selectpicker" data-style="btn btn-link" id="exampleFormControlSelect1">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-                                </div>
-                            </div>
-                            </div>
-                            <div class="form-group bmd-form-group">
-                                <div class="input-group">
-                                  <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="material-icons">update</i>&nbsp Date fin réservation : </div>
-                                  </div>
-                                  <input type="date" placeholder="date fin " class="form-control" id="date_fin_reservation" readonly="readonly">
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 	<footer class="ftco-footer ftco-section">
 	<div class="container">
 		<div class="row mb-5">
@@ -438,14 +388,7 @@
 		</div>
 	</div>
 	</footer>
-	<script>
-		// script modal 
-		//$('#nombre_nuit').hide();
-		//$('#date_fin_reservation').val('2010-05-10');
-		/*$('#nombre_nuit').click(function() {
-			this.hide();
-		});*/
-	</script>
+
 	<script src="js/core/popper.min.js"></script>
 	<script src="js/core/bootstrap-material-design.min.js"></script>
 	<script src="js/plugins/perfect-scrollbar.jquery.min.js"></script>

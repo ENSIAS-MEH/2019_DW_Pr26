@@ -21,7 +21,7 @@ import web.action.AdminAction;
 		"/contact.ma", "/Deconnexion.ma", "/FormConnexionClient.ma", "/ConnexionClient.ma", "/ProfilVendeur.ma",
 		"/AcceuilVendeur.ma", "/FormAjouterOffre.ma", "/AjouterOffre.ma", "/ListOffre.ma", "/SupprimerOffre.ma",
 		"/ModifierOffre.ma", "/AccueilAdmin.ma", "/DetailOffre.ma", "/ConnexionAdmin.ma", "/saveContact.ma",
-		"/ListVendeur.ma", "/getAllOffres.ma", "/ListClient.ma","/getDetailsOffre.ma","/SupprimerVendeur.ma","/SupprimerClient.ma","/DetailVendeur.ma" })
+		"/ListVendeur.ma", "/getAllOffres.ma", "/ListClient.ma","/getDetailsOffre.ma","/SupprimerVendeur.ma","/SupprimerClient.ma","/DetailVendeur.ma","/ReservezOffreClient.ma" })
 
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 4)
 public class Controller extends HttpServlet {
@@ -173,7 +173,6 @@ public class Controller extends HttpServlet {
 		}else if(action.equals("getDetailsOffre")){
 			Offre offre = offreAction.getOffre(Integer.parseInt(request.getParameter("id"))); 
 			request.setAttribute("offre",offre);
-			System.out.println(offre.getId_hote());
 			request.setAttribute("proprietaire", vendeurAction.getVendeurById(offre.getId_hote()));
 			views = "offres/DetailsOffreDisplay"; 
 		} 
@@ -205,6 +204,11 @@ public class Controller extends HttpServlet {
 				views = "DetailVendeur";
 			} else
 				views = "/404";
+		} else if(action.equals("ReservezOffreClient")){
+			Offre offre = offreAction.getOffre(Integer.parseInt(request.getParameter("id"))); 
+			request.setAttribute("offre",offre);
+			views = "ReservationOffreClient"; 
+			request.setAttribute("proprietaire", vendeurAction.getVendeurById(offre.getId_hote()));
 		} else
 			views = "/404";
 
