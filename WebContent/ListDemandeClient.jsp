@@ -56,9 +56,7 @@
       </c:if>
 <br><br><br>
       <div class="content card" style="width: 98%; margin:0 auto; ">
-		<div class="content">
-        <div class="container-fluid">
-          <div class="row">
+
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
@@ -69,131 +67,41 @@
                   <div class="table-responsive">
                     <table class="table">
                       <thead class=" text-primary">
-                        <th>
-                          ID
-                        </th>
-                        <th>
-                          Name
-                        </th>
-                        <th>
-                          Country
-                        </th>
-                        <th>
-                          City
-                        </th>
-                        <th>
-                          Salary
-                        </th>
+                        <th>N° Demande</th>
+                        <th>Date de la demande</th>
+                        <th>Date Début</th>
+                        <th>Date fin</th>
+                        <th>Statut</th>
+                        <th>Offre</th>
+                        <th>Action</th>
                       </thead>
                       <tbody>
+                      <c:forEach items="${ listeDemande }" var="demande">
                         <tr>
-                          <td>
-                            1
-                          </td>
-                          <td>
-                            Dakota Rice
-                          </td>
-                          <td>
-                            Niger
-                          </td>
-                          <td>
-                            Oud-Turnhout
-                          </td>
-                          <td class="text-primary">
-                            $36,738
-                          </td>
+                         	<td>${demande.getId() }</td>
+                        	<td>${demande.getDateDemande() }</td>
+                        	<td>${demande.getDate_debut() }</td>
+                        	<td>${demande.getDate_fin() } </td>
+                        	<td>${demande.getStatut() }</td>
+                        	<td><a href="getDetailsOffre.ma?id=${demande.getId_offre() }"
+												class="btn-circle btn-sm" title="Ouvrir offre" style="color : green; "> <i class="far fa-folder-open"></i></a>    </td>
+                        	<td><a href="ModifierDemande.ma?id=${demande.getId()}"
+												class="  btn-circle  btn-sm" title="Mettre à jour" style="color : blue; "> <i
+													class="fas fa-sync"></i></a> <a
+												href="SupprimerDemande.ma?id=${demande.getId()}"
+												class="  btn-circle btn-sm" title="Supprimer"
+												onclick="return confirm('Voulez vous vraiment supprimer cette demande');" style="color:red; "><i
+													class="fas fa-trash"></i></a></td>
                         </tr>
-                        <tr>
-                          <td>
-                            2
-                          </td>
-                          <td>
-                            Minerva Hooper
-                          </td>
-                          <td>
-                            Curaçao
-                          </td>
-                          <td>
-                            Sinaai-Waas
-                          </td>
-                          <td class="text-primary">
-                            $23,789
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            3
-                          </td>
-                          <td>
-                            Sage Rodriguez
-                          </td>
-                          <td>
-                            Netherlands
-                          </td>
-                          <td>
-                            Baileux
-                          </td>
-                          <td class="text-primary">
-                            $56,142
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            4
-                          </td>
-                          <td>
-                            Philip Chaney
-                          </td>
-                          <td>
-                            Korea, South
-                          </td>
-                          <td>
-                            Overland Park
-                          </td>
-                          <td class="text-primary">
-                            $38,735
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            5
-                          </td>
-                          <td>
-                            Doris Greene
-                          </td>
-                          <td>
-                            Malawi
-                          </td>
-                          <td>
-                            Feldkirchen in Kärnten
-                          </td>
-                          <td class="text-primary">
-                            $63,542
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            6
-                          </td>
-                          <td>
-                            Mason Porter
-                          </td>
-                          <td>
-                            Chile
-                          </td>
-                          <td>
-                            Gloucester
-                          </td>
-                          <td class="text-primary">
-                            $78,615
-                          </td>
-                        </tr>
+                        </c:forEach>
+                       
                       </tbody>
                     </table>
                   </div>
                 </div>
               </div>
             </div>
+            <br><br><br>
             <div class="col-md-12">
               <div class="card card-plain">
                 <div class="card-header card-header-primary">
@@ -330,10 +238,7 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-		
-</div>
+       
       
     	<footer class="ftco-footer ftco-section">
 	<div class="container">

@@ -51,6 +51,9 @@ public interface LocationRepositoryInter {
 	//DemandeLocation 
 	
 	public void ajouterDeamandeLocation(DemandeLocation demandeLocation); 
+	public ArrayList<DemandeLocation> getListDemandeLocationByIdClient(int id); 
+	public ArrayList<DemandeLocation> getListDemandeLocationByIdVendeur(int id);
+	public ArrayList<DemandeLocation> getAllDemandeLocation();
 
 	
 	

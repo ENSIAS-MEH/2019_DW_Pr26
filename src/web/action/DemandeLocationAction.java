@@ -1,5 +1,7 @@
 package web.action;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -47,5 +49,15 @@ public class DemandeLocationAction {
 				Integer.parseInt(request.getParameter("id_offre")), java.time.LocalDate.now() + " ",
 				Integer.parseInt(request.getParameter("nb_nuit")), "En attente");
 		locationServices.ajouterDeamandeLocation(demandeLocation);
+	}
+	 
+	public ArrayList<DemandeLocation> getListDemandeLocationByIdClient(int id){
+		return locationServices.getListDemandeLocationByIdClient(id); 
+	}
+	public ArrayList<DemandeLocation> getListDemandeLocationByIdVendeur(int id){
+		return locationServices.getListDemandeLocationByIdVendeur(id); 
+	}
+	public ArrayList<DemandeLocation> getAllDemandeLocation(){
+		return locationServices.getAllDemandeLocation(); 
 	}
 }

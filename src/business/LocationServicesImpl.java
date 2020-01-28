@@ -125,5 +125,18 @@ public class LocationServicesImpl implements LocationServicesInter {
 		locationepositoryImpl.ajouterDeamandeLocation(demandeLocation);
 	}
 	
+	@Override
+	public ArrayList<DemandeLocation> getListDemandeLocationByIdClient(int id){
+		return locationepositoryImpl.getListDemandeLocationByIdClient(id); 
+	}
+	@Override
+	public ArrayList<DemandeLocation> getListDemandeLocationByIdVendeur(int id){
+		return locationepositoryImpl.getListDemandeLocationByIdVendeur(id); 
+	}
+	@Override
+	public ArrayList<DemandeLocation> getAllDemandeLocation(){
+		return locationepositoryImpl.getAllDemandeLocation(); 
+	}
+	
 
 }

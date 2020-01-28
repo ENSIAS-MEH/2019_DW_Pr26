@@ -214,6 +214,7 @@ public class Controller extends HttpServlet {
 			views = "ReservationOffreClient"; 
 			request.setAttribute("proprietaire", vendeurAction.getVendeurById(offre.getId_hote()));
 		}else if(action.equals("ListDemandeClient")){
+			request.setAttribute("listeDemande",demandeLocationAction.getListDemandeLocationByIdClient((int)session.getAttribute("id")));
 			views ="ListDemandeClient"; 
 		} else
 			views = "/404";

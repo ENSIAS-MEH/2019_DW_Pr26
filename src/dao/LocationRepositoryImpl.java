@@ -602,6 +602,92 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 			e.printStackTrace();
 		}
 	}
+	
+
+	@Override
+	public ArrayList<DemandeLocation> getListDemandeLocationByIdClient(int id){
+		ArrayList<DemandeLocation> listeDemandeLocation = new ArrayList<>(); 
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			PreparedStatement ps = connection.prepareStatement("SELECT * FROM demandelocation where id_demandeur = "+id);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				DemandeLocation demandeLocation = new DemandeLocation();
+				demandeLocation.setId(rs.getInt("id"));
+				demandeLocation.setDate_debut(rs.getString("date_debut"));
+				demandeLocation.setDate_fin(rs.getString("date_fin"));
+				demandeLocation.setId_vendeur(rs.getInt("id_vendeur"));
+				demandeLocation.setId_demandeur(rs.getInt("id_demandeur"));
+				demandeLocation.setId_offre(rs.getInt("id_offre"));
+				demandeLocation.setDateDemande(rs.getString("date_demande"));
+				demandeLocation.setNb_nuit(rs.getInt("nb_nuit"));
+				demandeLocation.setStatut(rs.getString("statut"));
+				listeDemandeLocation.add(demandeLocation);
+			}
+			ps.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return listeDemandeLocation;
+		
+	}
+	
+	@Override
+	public ArrayList<DemandeLocation> getListDemandeLocationByIdVendeur(int id){
+		ArrayList<DemandeLocation> listeDemandeLocation = new ArrayList<>(); 
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			PreparedStatement ps = connection.prepareStatement("SELECT * FROM demandelocation where id_vendeur = "+id);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				DemandeLocation demandeLocation = new DemandeLocation();
+				demandeLocation.setId(rs.getInt("id"));
+				demandeLocation.setDate_debut(rs.getString("date_debut"));
+				demandeLocation.setDate_fin(rs.getString("date_fin"));
+				demandeLocation.setId_vendeur(rs.getInt("id_vendeur"));
+				demandeLocation.setId_demandeur(rs.getInt("id_demandeur"));
+				demandeLocation.setId_offre(rs.getInt("id_offre"));
+				demandeLocation.setDateDemande(rs.getString("date_demande"));
+				demandeLocation.setNb_nuit(rs.getInt("nb_nuit"));
+				demandeLocation.setStatut(rs.getString("statut"));
+				listeDemandeLocation.add(demandeLocation);
+			}
+			ps.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return listeDemandeLocation;
+	}
+
+	@Override
+	public ArrayList<DemandeLocation> getAllDemandeLocation(){
+		ArrayList<DemandeLocation> listeDemandeLocation = new ArrayList<>(); 
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			PreparedStatement ps = connection.prepareStatement("SELECT * FROM demandelocation");
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				DemandeLocation demandeLocation = new DemandeLocation();
+				demandeLocation.setId(rs.getInt("id"));
+				demandeLocation.setDate_debut(rs.getString("date_debut"));
+				demandeLocation.setDate_fin(rs.getString("date_fin"));
+				demandeLocation.setId_vendeur(rs.getInt("id_vendeur"));
+				demandeLocation.setId_demandeur(rs.getInt("id_demandeur"));
+				demandeLocation.setId_offre(rs.getInt("id_offre"));
+				demandeLocation.setDateDemande(rs.getString("date_demande"));
+				demandeLocation.setNb_nuit(rs.getInt("nb_nuit"));
+				demandeLocation.setStatut(rs.getString("statut"));
+				listeDemandeLocation.add(demandeLocation);
+			}
+			ps.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return listeDemandeLocation;
+	}
 
 	@Override
 	public void supprimerClient(int id) {
