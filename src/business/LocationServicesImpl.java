@@ -6,6 +6,7 @@ import dao.LocationRepositoryImpl;
 import dao.LocationRepositoryInter;
 import models.Client;
 import models.Contact;
+import models.DemandeLocation;
 import models.Offre;
 import models.Vendeur;
 
@@ -106,20 +107,22 @@ public class LocationServicesImpl implements LocationServicesInter {
 
 	@Override
 	public ArrayList<Client> getListClient() {
-
 		return locationepositoryImpl.getListClient();
 	}
 
 	@Override
 	public void SupprimerVendeur(int id) {
-	
 		locationepositoryImpl.supprimerVendeur(id);
 	}
 
 	@Override
 	public void SupprimerClient(int id) {
-		
 		locationepositoryImpl.supprimerClient(id);
+	}
+	
+	@Override
+	public void ajouterDeamandeLocation(DemandeLocation demandeLocation){
+		locationepositoryImpl.ajouterDeamandeLocation(demandeLocation);
 	}
 	
 

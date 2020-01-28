@@ -9,9 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import models.DemandeLocation;
 import models.Offre;
 import web.action.ClientAction;
 import web.action.ContactMessage;
+import web.action.DemandeLocationAction;
 import web.action.OffreAction;
 import web.action.VendeurAction;
 import web.action.AdminAction;
@@ -32,6 +34,7 @@ public class Controller extends HttpServlet {
 	private AdminAction adminAction;
 	private OffreAction offreAction;
 	private ContactMessage contactMessage;
+	private DemandeLocationAction demandeLocationAction; 
 
 	public Controller() {
 		// TODO Auto-generated constructor stub
@@ -47,6 +50,7 @@ public class Controller extends HttpServlet {
 		session = null;
 		adminAction = new AdminAction();
 		contactMessage = new ContactMessage();
+		demandeLocationAction =new DemandeLocationAction(); 
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -290,7 +294,10 @@ public class Controller extends HttpServlet {
 			contactMessage.ajouteContactMessage(request, session);
 			request.setAttribute("message", "votre message a bien été envoyé");
 			views = "Contact";
-		} else
+		} else if(action.equals("saveDemandeReservation")){
+			demandeLocationAction.ajouterDeamandeLocation(request, session);
+			views = "DemandeBienEnregistrer"; 
+		}else
 			views = "/404";
 
 		request.getRequestDispatcher(views + ".jsp").forward(request, response);

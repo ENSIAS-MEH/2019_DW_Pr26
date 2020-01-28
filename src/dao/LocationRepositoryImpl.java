@@ -13,6 +13,7 @@ import java.sql.Blob;
 
 import models.Client;
 import models.Contact;
+import models.DemandeLocation;
 import models.Offre;
 import models.Vendeur;
 
@@ -579,6 +580,27 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}	
+	}
+	
+	public void ajouterDeamandeLocation(DemandeLocation demandeLocation){
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			PreparedStatement ps = connection
+					.prepareStatement("insert into demandelocation(date_debut,date_fin,id_vendeur,id_demandeur,id_offre,date_demande,nb_nuit,statut) values (?,?,?,?,?,?,?,?)");
+			ps.setString(1, demandeLocation.getDate_debut());
+			ps.setString(2, demandeLocation.getDate_fin());
+			ps.setInt(3, demandeLocation.getId_vendeur());
+			ps.setInt(4, demandeLocation.getId_demandeur());
+			ps.setInt(5, demandeLocation.getId_offre());
+			ps.setString(6, demandeLocation.getDateDemande());
+			ps.setInt(7, demandeLocation.getNb_nuit());
+			ps.setString(8, demandeLocation.getStatut());
+			ps.executeUpdate();
+			ps.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override

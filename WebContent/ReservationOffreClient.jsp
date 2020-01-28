@@ -122,7 +122,7 @@
 						</div>
 						<input type="date" class="form-control"
 							placeholder="First Name..." id="date_fin_reservatio"
-							readonly="readonly" name="date_debut_reservation" required="true">
+							readonly="readonly" name="date_fin_reservation" required="true">
 					</div>
 				</div>
 				<input type="text" name="id_vendeur"

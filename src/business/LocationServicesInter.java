@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import models.Client;
 import models.Contact;
+import models.DemandeLocation;
 import models.Offre;
 import models.Vendeur;
 
@@ -47,5 +48,8 @@ public interface LocationServicesInter {
 	public void SupprimerVendeur(int id);
 
 	public void SupprimerClient(int id);
+	
+	//dmande location 
+	public void ajouterDeamandeLocation(DemandeLocation demandeLocation); 
 
 }
