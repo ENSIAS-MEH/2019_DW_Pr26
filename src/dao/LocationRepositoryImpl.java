@@ -13,6 +13,7 @@ import java.sql.Blob;
 
 import models.Client;
 import models.Contact;
+import models.DemandeAchat;
 import models.DemandeLocation;
 import models.Offre;
 import models.Vendeur;
@@ -691,7 +692,6 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 
 	@Override
 	public void supprimerClient(int id) {
-
 		Connection connection = mangementDataBase.connexionDataBase();
 		try {
 			PreparedStatement ps = connection.prepareStatement("delete from client where id =" + id);
@@ -701,6 +701,117 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}	
+		
+	}
+	
+	public void deleteDemande(int id){
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			PreparedStatement ps = connection.prepareStatement("delete from demandelocation where id =" + id);
+			ps.executeUpdate();
+			ps.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+	}
+	
+	public void deleteDemandeAchat(int id){
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			PreparedStatement ps = connection.prepareStatement("delete from demandeachat where id =" + id);
+			ps.executeUpdate();
+			ps.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+	}
+	
+	public void ajouterDeamandeAchat(DemandeAchat demandeAchat){
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			PreparedStatement ps = connection
+					.prepareStatement("insert into demandeachat(id_vendeur,id_demandeur,id_offre,date_demande,statut) values (?,?,?,?,?)");
+			ps.setInt(1, demandeAchat.getId_vendeur());
+			ps.setInt(2, demandeAchat.getId_demandeur());
+			ps.setInt(3, demandeAchat.getId_offre());
+			ps.setString(4, demandeAchat.getDateDemande());
+			ps.setString(5, demandeAchat.getStatut());
+			ps.executeUpdate();
+			ps.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public ArrayList<DemandeAchat> getListDemandeAchatByIdClient(int id){
+		ArrayList<DemandeAchat> listeDemandeAchat = new ArrayList<>(); 
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			PreparedStatement ps = connection.prepareStatement("SELECT * FROM demandeachat where id_demandeur = "+id);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				DemandeAchat demandeAchat = new DemandeAchat();
+				demandeAchat.setId(rs.getInt("id"));
+				demandeAchat.setId_vendeur(rs.getInt("id_vendeur"));
+				demandeAchat.setId_demandeur(rs.getInt("id_demandeur"));
+				demandeAchat.setId_offre(rs.getInt("id_offre"));
+				demandeAchat.setDateDemande(rs.getString("date_demande"));
+				demandeAchat.setStatut(rs.getString("statut"));
+				listeDemandeAchat.add(demandeAchat);
+			}
+			ps.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return listeDemandeAchat;
+	}
+	public ArrayList<DemandeAchat> getListDemandeAchatByIdVendeur(int id){
+		ArrayList<DemandeAchat> listeDemandeAchat = new ArrayList<>(); 
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			PreparedStatement ps = connection.prepareStatement("SELECT * FROM demandeachat where id_vendeur = "+id);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				DemandeAchat demandeAchat = new DemandeAchat();
+				demandeAchat.setId(rs.getInt("id"));
+				demandeAchat.setId_vendeur(rs.getInt("id_vendeur"));
+				demandeAchat.setId_demandeur(rs.getInt("id_demandeur"));
+				demandeAchat.setId_offre(rs.getInt("id_offre"));
+				demandeAchat.setDateDemande(rs.getString("date_demande"));
+				demandeAchat.setStatut(rs.getString("statut"));
+				listeDemandeAchat.add(demandeAchat);
+			}
+			ps.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return listeDemandeAchat;
+	}
+	
+	public ArrayList<DemandeAchat> getAllDemandeAchat(){
+		ArrayList<DemandeAchat> listeDemandeAchat = new ArrayList<>(); 
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			PreparedStatement ps = connection.prepareStatement("SELECT * FROM demandeachat");
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				DemandeAchat demandeAchat = new DemandeAchat();
+				demandeAchat.setId(rs.getInt("id"));
+				demandeAchat.setId_vendeur(rs.getInt("id_vendeur"));
+				demandeAchat.setId_demandeur(rs.getInt("id_demandeur"));
+				demandeAchat.setId_offre(rs.getInt("id_offre"));
+				demandeAchat.setDateDemande(rs.getString("date_demande"));
+				demandeAchat.setStatut(rs.getString("statut"));
+				listeDemandeAchat.add(demandeAchat);
+			}
+			ps.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return listeDemandeAchat;
 		
 	}
 

@@ -60,4 +60,8 @@ public class DemandeLocationAction {
 	public ArrayList<DemandeLocation> getAllDemandeLocation(){
 		return locationServices.getAllDemandeLocation(); 
 	}
+	
+	public void deleteDemande(int id){
+		locationServices.deleteDemande(id); 
+	}
 }
