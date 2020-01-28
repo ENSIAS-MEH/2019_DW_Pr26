@@ -46,9 +46,9 @@
 	<!-- Modal -info -->
 	<ul id="progressbar">
 		<li class="active">Categorie</li>
+		<li>Emplacement</li>
 		<li>Informations</li>
-		<li>Date</li>
-		<li>Specification</li>
+	
 		<li>Description</li>
 	</ul>
 
@@ -60,45 +60,79 @@
 			<h2 class="fs-title">Categorie de l'immobilier</h2>
 			<h3 class="fs-subtitle">Choisissez la catégorie de votre
 				immobilier</h3>
+			
 			<!-- Begin What's Your First Name Field -->
 			<div class="categ field hs-form-field">
-				<label for="hs_categ">A vendre ou à louer ?* :</label><br> <select
-					style="width: 100%; height: 50px" name="type" id="categ"
-					data-rule-required="true"
-					data-msg-required="Please choose an option" required="required">
-					<option class="text-center" value="">choisir une option</option>
-					<option value="Location">Location</option>
-					<option value="Vente">Vente</option>
-				</select> </select> <label for="hs_categ">Catégorie* :</label><br> <select
-					style="width: 100%; height: 50px" name="categorie" id="categ"
-					data-rule-required="true"
-					data-msg-required="Please choose an option" required="required">
-					<option class="text-center" value="">choisir une catégorie</option>
-					<option value="chambreHotel">Chambre d'un hôtel</option>
-					<option value="chambreHauberge">Chambre d'une auberge</option>
-					<option value="chambreHote">Chambre d'hôte</option>
-					<option value="maison">Maison</option>
-					<option value="appartement">Appartement</option>
-					<option value="logementUnique">Logement Unique</option>
-				</select> <span class="error1" style="display: none;"> <i
+				<label for="hs_categ">Transaction* :</label><br>
+				<div class="control row col-md-12">
+					<label class="radio col-md-4"> <input type="radio" name="type" value="Vente" id="vente" checked="checked" onclick="Vente()">
+						Vente
+					</label> <label class="radio col-md-4"> <input type="radio" name="type" value="Location" id="location" onClick="Location()">
+						Location
+					</label> <label class="radio col-md-4"> <input type="radio" name="type" value="Location vacances" id="vacances" onClick="Location()">
+						Location vacances
+					</label>
+				</div>
+				<label for="hs_categ">Catégorie* :</label><br>
+				<div class="control row col-md-12">
+					<label class="radio col-md-4" style="display: block;" id="Appartement"> <input type="radio" name="categorie" value="Appartement"  checked="checked">
+						Appartement
+					</label> <label class="radio col-md-4" style="display: block;" id="Maison"> <input type="radio" name="categorie" value="Maison" >
+						Maison
+					</label> <label class="radio col-md-4" style="display: block;" id="Villas"> <input type="radio" name="categorie" value="Villas & maisons de luxe" >
+						 Villas & maisons de luxe
+					</label> <label class="radio col-md-4" style="display: block;" id = "Riad"> <input type="radio" name="categorie" value="Riad" >
+						  Riad
+					</label><label class="radio col-md-4" style="display: none;" id = "Chambres"> <input type="radio" name="categorie" value="Chambres" >
+						  Chambres
+					</label><label class="radio col-md-4" id="Hotel" style="display: none;"> <input type="radio" name="categorie" value="Chambre d'un Hôtel" >
+						  Chambre d'un Hôtel
+					</label><label  id="Hauberge" style="display: none;" class="radio col-md-4"> <input type="radio" name="categorie" value="Chambre d'une auberge" >
+						  Chambre d'une auberge
+					</label >
+				</div>
+				  <span class="error1" style="display: none;"> <i
 					class="error-log fa fa-exclamation-triangle"></i>
 				</span>
 			</div>
 			<!-- End What's Your First Name Field -->
 
 			<!-- Begin What's Your Email Field -->
-			<div class="hs_nombre field hs-form-field">
+<script >
 
-				<label for="nmb">Nombre de personne* :</label> <input id="nmb"
-					name="nombre_personne" required="required" type="number"
-					maxlength="5" minlength="0" placeholder=""
-					data-rule-required="true"
-					data-msg-required="Please enter a number "> <span
-					class="error1" style="display: none;"> <i
-					class="error-log fa fa-exclamation-triangle"></i>
-				</span>
-			</div>
 
+function Vente() {
+ 
+ 
+    document.getElementById("Appartement").style.display = "block";
+    document.getElementById("Maison").style.display = "block";
+    document.getElementById("Villas").style.display = "block";
+    document.getElementById("Riad").style.display = "block";
+    document.getElementById("Chambres").style.display = "none";
+    document.getElementById("Hotel").style.display = "none";
+    document.getElementById("Hauberge").style.display = "none";
+    document.getElementById("inf1").style.display = "none";
+    document.getElementById("inf4").style.display = "none";
+    document.getElementById("inf5").style.display = "none";
+  
+}
+function Location() {
+	
+	    document.getElementById("Appartement").style.display = "block";
+	    document.getElementById("Maison").style.display = "block";
+	    document.getElementById("Villas").style.display = "block";
+	    document.getElementById("Riad").style.display = "block";
+	    document.getElementById("Chambres").style.display = "block";
+	    document.getElementById("Hotel").style.display = "block";
+	    document.getElementById("Hauberge").style.display = "block";
+	    document.getElementById("inf1").style.display = "block";
+	    document.getElementById("inf4").style.display = "block";
+	    document.getElementById("inf5").style.display = "block";
+	  
+	}
+
+
+</script>
 
 			<!-- End Total Number of Constituents in Your Database Field -->
 			<input type="button" data-page="1" name="next"
@@ -109,8 +143,8 @@
 
 		<!-- ACQUISITION FIELD SET -->
 		<fieldset style="width: 100%; float: left; margin: 0;">
-			<h2 class="fs-title">Informations</h2>
-			<h3 class="fs-subtitle">Des informations sur l'immobilier</h3>
+			<h2 class="fs-title">Emplacement</h2>
+			<h3 class="fs-subtitle">Des informations sur l'Emplacement de l'immobilier</h3>
 			<!-- Begin Total Number of Donors in Year 1 Field -->
 			<div
 				class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field"
@@ -118,7 +152,7 @@
 
 				<label for="pays">Pays *</label> <input id="pays"
 					class="form-text hs-input" name="pays" required="required"
-					type="text" value="" placeholder="" data-rule-required="true"
+					type="text" value="jijjij" placeholder="" data-rule-required="true"
 					data-msg-required="Please enter a text"> <span
 					class="error1" style="display: none;"> <i
 					class="error-log fa fa-exclamation-triangle"></i>
@@ -133,7 +167,7 @@
 
 				<label for="ville">Ville *</label> <input id="ville"
 					class="form-text hs-input" name="ville" required="required"
-					type="text" value="" placeholder="" data-rule-required="true"
+					type="text" value="iiiii" placeholder="" data-rule-required="true"
 					data-msg-required="Please enter a text"> <span
 					class="error1" style="display: none;"> <i
 					class="error-log fa fa-exclamation-triangle"></i>
@@ -147,7 +181,7 @@
 				class="form-item webform-component webform-component-textfield webform-container-inline hs_total_donor_percent_change field hs-form-field">
 
 				<label for="adresse">Adresse *</label> <input id="adresse"
-					class="form-text hs-input" name="adresse" type="text" value=""
+					class="form-text hs-input" name="adresse" type="text" value="iiiiii"
 					required="required" data-rule-required="true"
 					data-msg-required="Please enter a text"> <span
 					class="error1" style="display: none;"> <i
@@ -166,54 +200,97 @@
 
 		<!-- Cultivation FIELD SET -->
 		<fieldset style="width: 100%; float: left; margin: 0;">
-			<h2 class="fs-title">Date & prix</h2>
+			<h2 class="fs-title">Informations</h2>
 			<h3 class="fs-subtitle">Date début, date fin et prix de
 				l'immobilier</h3>
 			<!-- Begin Average Gift Size in Year 1 Field -->
+			
+			<div class="hs_nombre field hs-form-field " style="display: none;" id="inf1">
+				<label for="nmb">Nombre de personne* :</label> <input id="nmb"
+					name="nombre_personne" required="required" type="number"
+					maxlength="5" minlength="0" placeholder=""
+					data-rule-required="true"
+					data-msg-required="Please enter a number " min="1" max="100"  > <span
+					class="error1" style="display: none;"> <i
+					class="error-log fa fa-exclamation-triangle"></i>
+				</span>
+			</div>
+			<div
+				class="form-item webform-component webform-component-textfield hs_total_giving_in_year_2 field hs-form-field "
+				id="webform-component-cultivation--amount-4" id="inf2">
+
+				<label for="nb_chambre">Nombre de chambres </label> <input
+					id="nb_chambre" class="form-text hs-input" name="nb_chambre"
+					required="required" size="60" maxlength="128" min="1" max="100" type="number"
+					 placeholder="" data-rule-required="true"
+					data-msg-required="Please enter a valid number"> <span
+					class="error1" style="display: none;"> <i
+					class="error-log fa fa-exclamation-triangle"></i>
+				</span>
+			
+			</div>
+			<div class="form-item webform-component webform-component-textfield "
+				id="webform-component-cultivation--amount-3 hs_total_giving_in_year_1 field hs-form-field inf3">
+
+				<label for="bain">Nombre de salles de bain *</label> <input
+					id="bain" class="form-text hs-input" name="salle_bain"
+					required="required" size="60" maxlength="128" type="number"
+					 placeholder="" data-rule-required="true"
+					data-msg-required="Please enter a valid number" min="1" max="100"> <span
+					class="error1" style="display: none;"> <i
+					class="error-log fa fa-exclamation-triangle"></i>
+				</span>
+			</div>
+			<!-- End Total Giving In Year 1 Field -->
+
+			<!-- Begin Total Giving In Year 2 Field -->
+			<div id="inf4" style="display: none;">
 			<div
 				class="form-item webform-component webform-component-textfield hs_average_gift_size_in_year_1 field hs-form-field"
-				id="edit-submitted-cultivation-amount-1 average_gift_size_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_3256">
+				id="edit-submitted-cultivation-amount-1 average_gift_size_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_3256 " >
 
 				<label for="date_debut">Date début *</label> <input id="date_debut"
 					class="form-text hs-input" name="date_debut" required="required"
-					type="date" value="" placeholder="" data-rule-required="true"
+					type="date"  placeholder="" data-rule-required="true"
 					data-msg-required="Please enter a valid date"> <span
 					class="error1" style="display: none;"> <i
 					class="error-log fa fa-exclamation-triangle"></i>
 				</span>
+			</div>
 			</div>
 			<!-- End Average Gift Size in Year 1 Field -->
 
 			<!-- Begin Average Gift Size in Year 2 Field -->
+			<div id="inf5" style="display: none;">
 			<div
-				class="form-item webform-component webform-component-textfield hs_average_gift_size_in_year_2 field hs-form-field"
-				id="webform-component-cultivation--amount-2">
+				class="form-item webform-component webform-component-textfield hs_average_gift_size_in_year_2 field hs-form-field "
+				id="webform-component-cultivation--amount-2" >
 
 				<label for="date_fin">Date fin *</label> <input id="date_fin"
 					class="form-text hs-input" name="date_fin" required="required"
-					type="date" value="" placeholder="" data-rule-required="true"
+					type="date"  placeholder="" data-rule-required="true"
 					data-msg-required="Please enter a valid date"> <span
 					class="error1" style="display: none;"> <i
 					class="error-log fa fa-exclamation-triangle"></i>
 				</span>
 			</div>
-
+</div>
 			<div
-				class="form-item webform-component webform-component-textfield webform-container-inline hs_total_donor_percent_change field hs-form-field">
+				class="form-item webform-component webform-component-textfield webform-container-inline hs_total_donor_percent_change field hs-form-field inf6">
 
 				<label for="^prix">Prix/Nuit *</label> <input id="prix"
-					class="form-text hs-input" name="prix" type="number" value=""
+					class="form-text hs-input" name="prix" type="number" 
 					placeholder="0" required="required" data-rule-required="true"
-					data-msg-required="Please enter a number"> <span
+					data-msg-required="Please enter a number" > <span
 					class="error1" style="display: none;"> <i
 					class="error-log fa fa-exclamation-triangle"></i>
 				</span>
 			</div>
 			<div
-				class="form-item webform-component webform-component-textfield webform-container-inline hs_total_donor_percent_change field hs-form-field">
+				class="form-item webform-component webform-component-textfield webform-container-inline hs_total_donor_percent_change field hs-form-field ">
 
 				<label for="devise">Devise *</label> <input id="devise"
-					class="form-text hs-input" name="devise" type="text" value=""
+					class="form-text hs-input" name="devise" type="text" 
 					required="required" data-rule-required="true"
 					data-msg-required="Please enter a text"> <span
 					class="error1" style="display: none;"> <i
@@ -232,50 +309,7 @@
 
 
 
-		<!-- Cultivation2 FIELD SET -->
-		<fieldset style="width: 100%; float: left; margin: 0;">
-			<h2 class="fs-title">Spécification</h2>
-			<h3 class="fs-subtitle">Spécifications de l'immobilier</h3>
-			<!-- Begin Total Giving In Year 1 Field -->
-			<div class="form-item webform-component webform-component-textfield"
-				id="webform-component-cultivation--amount-3 hs_total_giving_in_year_1 field hs-form-field">
-
-				<label for="bain">Nombre de salles de bain *</label> <input
-					id="bain" class="form-text hs-input" name="salle_bain"
-					required="required" size="60" maxlength="128" type="number"
-					value="" placeholder="" data-rule-required="true"
-					data-msg-required="Please enter a valid number"> <span
-					class="error1" style="display: none;"> <i
-					class="error-log fa fa-exclamation-triangle"></i>
-				</span>
-			</div>
-			<!-- End Total Giving In Year 1 Field -->
-
-			<!-- Begin Total Giving In Year 2 Field -->
-			<div
-				class="form-item webform-component webform-component-textfield hs_total_giving_in_year_2 field hs-form-field"
-				id="webform-component-cultivation--amount-4">
-
-				<label for="nb_chambre">Nombre de chambres </label> <input
-					id="nb_chambre" class="form-text hs-input" name="nb_chambre"
-					required="required" size="60" maxlength="128" type="number"
-					value="" placeholder="" data-rule-required="true"
-					data-msg-required="Please enter a valid number"> <span
-					class="error1" style="display: none;"> <i
-					class="error-log fa fa-exclamation-triangle"></i>
-				</span>
-			</div>
-
-			<!-- End Total Giving In Year 2 Field -->
-
-
-			<input type="button" data-page="4" name="previous"
-				class="previous action-button" value="Previous" /> <input
-				type="button" data-page="4" name="next" class="next action-button"
-				value="Next" />
-
-		</fieldset>
-
+		
 
 
 		<!-- RETENTION FIELD SET -->
@@ -290,7 +324,7 @@
 				<label for="description">Description </label>
 
 				<textarea id="desciption" class="form-text hs-input"
-					name="description" rows="5" cols="33" value=""></textarea>
+					name="description" rows="5" cols="33" ></textarea>
 
 			</div>
 			<div
@@ -303,7 +337,7 @@
 			</div>
 
 
-			<input type="button" data-page="5" name="previous"
+			<input type="button" data-page="4" name="previous"
 				class="previous action-button" value="Previous" /> <input
 				id="submit" class="hs-button primary large action-button next"
 				type="submit" value="Submit">
@@ -690,6 +724,8 @@
 
 	});
 </script>
+
+
 </body>
 
 </html>

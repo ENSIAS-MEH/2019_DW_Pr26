@@ -43,11 +43,22 @@ public class OffreAction {
 	public boolean AjouterOffre(HttpServletRequest request,int id_hote) throws IllegalStateException, IOException, ServletException {
 		String date = java.time.LocalDate.now() + " ";
 		InputStream photo = (request.getPart("photo")).getInputStream();
-		System.out.println(photo);
-		return locationServices.AjouterOffre(new Offre(id_hote,date,request.getParameter("type"), request.getParameter("categorie"), (Integer.parseInt(request.getParameter("nombre_personne"))),
-				request.getParameter("adresse"), request.getParameter("pays"), request.getParameter("ville"),
-				request.getParameter("date_debut"), request.getParameter("date_fin"), (Float.parseFloat(request.getParameter("prix"))),
+		if(request.getParameter("type").equals("Vente"))
+		return locationServices.AjouterOffre(new Offre(id_hote,date,
+				request.getParameter("type"),
+				request.getParameter("categorie"), 
+				0,request.getParameter("adresse"), request.getParameter("pays"), request.getParameter("ville"),
+				"-----", "-----", (Float.parseFloat(request.getParameter("prix"))),
 				request.getParameter("devise"), (Integer.parseInt(request.getParameter("salle_bain"))),(Integer.parseInt(request.getParameter("nb_chambre"))), request.getParameter("description"), photo));
+		else
+			return locationServices.AjouterOffre(new Offre(id_hote,date,
+					request.getParameter("type"),
+					request.getParameter("categorie"), 
+					(Integer.parseInt(request.getParameter("nombre_personne"))),
+					request.getParameter("adresse"), request.getParameter("pays"), request.getParameter("ville"),
+					request.getParameter("date_debut"), request.getParameter("date_fin"), (Float.parseFloat(request.getParameter("prix"))),
+					request.getParameter("devise"), (Integer.parseInt(request.getParameter("salle_bain"))),(Integer.parseInt(request.getParameter("nb_chambre"))), request.getParameter("description"), photo));
+			
 	}
 
 	public ArrayList<Offre> ListOffre(int id) {

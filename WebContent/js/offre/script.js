@@ -1,3 +1,6 @@
+
+
+
 /* Fundraising Grader
 *
 * Generic Copyright, yadda yadd yadda
@@ -5,6 +8,42 @@
 * Plug-ins: jQuery Validate, jQuery 
 * Easing
 */
+
+
+
+function Vente() {
+ 
+ 
+    document.getElementById("Appartement").style.display = "block";
+    document.getElementById("Maison").style.display = "block";
+    document.getElementById("Villas").style.display = "block";
+    document.getElementById("Riad").style.display = "block";
+    document.getElementById("Chambres").style.display = "none";
+    document.getElementById("Hotel").style.display = "none";
+    document.getElementById("Hauberge").style.display = "none";
+    document.getElementById("inf1").style.display = "none";
+    document.getElementById("inf4").style.display = "none";
+    document.getElementById("inf5").style.display = "none";
+  
+}
+function Location() {
+	
+	    document.getElementById("Appartement").style.display = "block";
+	    document.getElementById("Maison").style.display = "block";
+	    document.getElementById("Villas").style.display = "block";
+	    document.getElementById("Riad").style.display = "block";
+	    document.getElementById("Chambres").style.display = "block";
+	    document.getElementById("Hotel").style.display = "block";
+	    document.getElementById("Hauberge").style.display = "block";
+	    document.getElementById("inf1").style.display = "block";
+	    document.getElementById("inf4").style.display = "block";
+	    document.getElementById("inf5").style.display = "block";
+	  
+	}
+
+
+	
+	
 
 $(document).ready(function() {
     var current_fs, next_fs, previous_fs;
