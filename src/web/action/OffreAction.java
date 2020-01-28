@@ -87,6 +87,10 @@ public class OffreAction {
 	public Offre getOffre(int id) {
 		return locationServices.getOffresById(id);
 	}
+	
+	public ArrayList<Offre> getOffresActifs(){
+		return locationServices.getOffresActifs();
+	}
 
 	public ArrayList<Offre> getOffres() {
 		return locationServices.getOffres();

@@ -58,463 +58,156 @@
 	<c:if test="${sessionScope.account_type == 'client'}">
 		<c:import url="navbar/NavbarClient.jsp" />
 	</c:if>
-
+	<br>
+	<br>
+	<br>
 	<div class="content card" style="width: 98%; margin: 0 auto;">
-		<div class="card" style="width: 60%; margin: 0 auto;">
-			<div class="card-body">
-				<center class="font-weight-bold">
-					<strong>Bienvenue ${sessionScope.nom }
-						${sessionScope.prenom }.</strong>
-				</center>
-			</div>
-		</div>
-		<section class="ftco-section goto-here">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-md-12 heading-section text-center ftco-animate mb-5">
-					<span class="subheading">Ce que nous offrons</span>
-					<h2 class="mb-2">Offre exclusive pour vous</h2>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4">
-					<div class="property-wrap ftco-animate">
-						<a href="#" class="img"
-							style="background-image: url(images/work-1.jpg);"></a>
-						<div class="text">
-							<p class="price">
-								<span class="old-price">800,000</span><span class="orig-price">$3,050<small>/mo</small></span>
-							</p>
-							<ul class="property_list">
-								<li><span class="flaticon-bed"></span>3</li>
-								<li><span class="flaticon-bathtub"></span>2</li>
-								<li><span class="flaticon-floor-plan"></span>1,878 sqft</li>
-							</ul>
-							<h3>
-								<a href="#">The Blue Sky Home</a>
-							</h3>
-							<span class="location">Oakland</span> <a href="#"
-								class="d-flex align-items-center justify-content-center btn-custom">
-								<span class="ion-ios-link"></span>
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="property-wrap ftco-animate">
-						<a href="#" class="img"
-							style="background-image: url(images/work-2.jpg);"></a>
-						<div class="text">
-							<p class="price">
-								<span class="old-price">800,000</span><span class="orig-price">$3,050<small>/mo</small></span>
-							</p>
-							<ul class="property_list">
-								<li><span class="flaticon-bed"></span>3</li>
-								<li><span class="flaticon-bathtub"></span>2</li>
-								<li><span class="flaticon-floor-plan"></span>1,878 sqft</li>
-							</ul>
-							<h3>
-								<a href="#">The Blue Sky Home</a>
-							</h3>
-							<span class="location">Oakland</span> <a href="#"
-								class="d-flex align-items-center justify-content-center btn-custom">
-								<span class="ion-ios-link"></span>
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="property-wrap ftco-animate">
-						<a href="#" class="img"
-							style="background-image: url(images/work-3.jpg);"></a>
-						<div class="text">
-							<p class="price">
-								<span class="old-price">800,000</span><span class="orig-price">$3,050<small>/mo</small></span>
-							</p>
-							<ul class="property_list">
-								<li><span class="flaticon-bed"></span>3</li>
-								<li><span class="flaticon-bathtub"></span>2</li>
-								<li><span class="flaticon-floor-plan"></span>1,878 sqft</li>
-							</ul>
-							<h3>
-								<a href="#">The Blue Sky Home</a>
-							</h3>
-							<span class="location">Oakland</span> <a href="#"
-								class="d-flex align-items-center justify-content-center btn-custom">
-								<span class="ion-ios-link"></span>
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="property-wrap ftco-animate">
-						<a href="properties-single.html" class="img"
-							style="background-image: url(images/work-4.jpg);"></a>
-						<div class="text">
-							<p class="price">
-								<span class="old-price">800,000</span><span class="orig-price">$3,050<small>/mo</small></span>
-							</p>
-							<ul class="property_list">
-								<li><span class="flaticon-bed"></span>3</li>
-								<li><span class="flaticon-bathtub"></span>2</li>
-								<li><span class="flaticon-floor-plan"></span>1,878 sqft</li>
-							</ul>
-							<h3>
-								<a href="properties-single.html">The Blue Sky Home</a>
-							</h3>
-							<span class="location">Oakland</span> <a
-								href="properties-single.html"
-								class="d-flex align-items-center justify-content-center btn-custom">
-								<span class="ion-ios-link"></span>
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="property-wrap ftco-animate">
-						<a href="properties-single.html" class="img"
-							style="background-image: url(images/work-5.jpg);"></a>
-						<div class="text">
-							<p class="price">
-								<span class="old-price">800,000</span><span class="orig-price">$3,050<small>/mo</small></span>
-							</p>
-							<ul class="property_list">
-								<li><span class="flaticon-bed"></span>3</li>
-								<li><span class="flaticon-bathtub"></span>2</li>
-								<li><span class="flaticon-floor-plan"></span>1,878 sqft</li>
-							</ul>
-							<h3>
-								<a href="properties-single.html">The Blue Sky Home</a>
-							</h3>
-							<span class="location">Oakland</span> <a
-								href="properties-single.html"
-								class="d-flex align-items-center justify-content-center btn-custom">
-								<span class="ion-ios-link"></span>
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="property-wrap ftco-animate">
-						<a href="properties-single.html" class="img"
-							style="background-image: url(images/work-6.jpg);"></a>
-						<div class="text">
-							<p class="price">
-								<span class="old-price">800,000</span><span class="orig-price">$3,050<small>/mo</small></span>
-							</p>
-							<ul class="property_list">
-								<li><span class="flaticon-bed"></span>3</li>
-								<li><span class="flaticon-bathtub"></span>2</li>
-								<li><span class="flaticon-floor-plan"></span>1,878 sqft</li>
-							</ul>
-							<h3>
-								<a href="properties-single.html">The Blue Sky Home</a>
-							</h3>
-							<span class="location">Oakland</span> <a
-								href="properties-single.html"
-								class="d-flex align-items-center justify-content-center btn-custom">
-								<span class="ion-ios-link"></span>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		</section>
 
-		<section
-			class="ftco-section ftco-degree-bg services-section img mx-md-5"
-			style="background-image: url(images/bg_2.jpg);">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row justify-content-start mb-5">
-				<div
-					class="col-md-6 text-center heading-section heading-section-white ftco-animate">
-					<span class="subheading">Utilisation</span>
-					<h2 class="mb-3">Comment ça fonctionne</h2>
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header card-header-primary">
+					<h4 class="card-title ">Demande réservation</h4>
+					<p class="card-category">Liste des demandes de location que
+						vous avez effectuées</p>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6">
-					<div class="row">
-						<div
-							class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
-							<div class="media block-6 services services-2">
-								<div class="media-body py-md-4 text-center">
-									<div
-										class="icon mb-3 d-flex align-items-center justify-content-center">
-										<span>01</span>
-									</div>
-									<h3>Se connecter</h3>
-								</div>
-							</div>
-						</div>
-						<div
-							class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
-							<div class="media block-6 services services-2">
-								<div class="media-body py-md-4 text-center">
-									<div
-										class="icon mb-3 d-flex align-items-center justify-content-center">
-										<span>02</span>
-									</div>
-									<h3>Chercher une offre</h3>
-								</div>
-							</div>
-						</div>
-						<div
-							class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
-							<div class="media block-6 services services-2">
-								<div class="media-body py-md-4 text-center">
-									<div
-										class="icon mb-3 d-flex align-items-center justify-content-center">
-										<span>03</span>
-									</div>
-									<h3>Faire une demande de réservation</h3>
-								</div>
-							</div>
-						</div>
-						<div
-							class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
-							<div class="media block-6 services services-2">
-								<div class="media-body py-md-4 text-center">
-									<div
-										class="icon mb-3 d-flex align-items-center justify-content-center">
-										<span>04</span>
-									</div>
-									<h3>Confirmer votre réservation</h3>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		</section>
-		<br> <br> <br> <br>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table">
+							<thead class=" text-primary">
+								<th>N° Demande</th>
+								<th>Date de la demande</th>
+								<th>Date Début</th>
+								<th>Date fin</th>
+								<th>Statut</th>
+								<th>Offre</th>
+								<th>Action</th>
+							</thead>
+							<tbody>
+								<c:forEach items="${ listeDemande }" var="demande">
+									<tr>
+										<td>${demande.getId() }</td>
+										<td>${demande.getDateDemande() }</td>
+										<td>${demande.getDate_debut() }</td>
+										<td>${demande.getDate_fin() }</td>
+										<td>${demande.getStatut() }</td>
+										<td><a
+											href="getDetailsOffre.ma?id=${demande.getId_offre() }"
+											class="btn-circle btn-sm" title="Ouvrir offre"
+											style="color: green;"> <i class="far fa-folder-open"></i></a>
+										</td>
 
-		<section class="ftco-section ftco-no-pt">
-		<div class="container">
-			<div class="row justify-content-center mb-5">
-				<div class="col-md-7 heading-section text-center ftco-animate">
-					<span class="subheading">Voyages</span>
-					<h2>Expériences très bien notées</h2>
-				</div>
-			</div>
-			<div class="row d-flex">
-				<div class="col-md-3 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<div class="text">
-							<h3 class="heading">
-								<a href="#">ALLEMAGNE</a>
-							</h3>
-							<div class="meta mb-3">
-								<div>
-									<a href="#">Décem. 15, 2019</a>
-								</div>
-								<div>
-									<a href="#"></a>
-								</div>
-							</div>
-							<a href="blog-single.html" class="block-20 img"
-								style="background-image: url('images/chiens.png');"> </a>
-							<p>Promenez-vous avec une meute de chiens.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<div class="text">
-							<h3 class="heading">
-								<a href="#">Maroc</a>
-							</h3>
-							<div class="meta mb-3">
-								<div>
-									<a href="#">Juin. 29, 2019</a>
-								</div>
-								<div>
-									<a href="#"></a>
-								</div>
-							</div>
-							<a href="blog-single.html" class="block-20 img"
-								style="background-image: url('images/maroc.png');"> </a>
-							<p>Excursion d'une journée dans le désert d'Agafay et ses
-								montagnes.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<div class="text">
-							<h3 class="heading">
-								<a href="#">Russian Federation</a>
-							</h3>
-							<div class="meta mb-3">
-								<div>
-									<a href="#">Mars. 9, 2019</a>
-								</div>
-								<div>
-									<a href="#"></a>
-								</div>
-							</div>
-							<a href="blog-single.html" class="block-20 img"
-								style="background-image: url('images/russ.png');"> </a>
-							<p>Peinture de poupées russes.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<div class="text">
-							<h3 class="heading">
-								<a href="#">Marrakech</a>
-							</h3>
-							<div class="meta mb-3">
-								<div>
-									<a href="#">Août. 12, 2019</a>
-								</div>
-								<div>
-									<a href="#"></a>
-								</div>
-							</div>
-							<a href="blog-single.html" class="block-20 img"
-								style="background-image: url('images/marrakech.png');"> </a>
-							<p>Excursion à cheval dans la montagne de l'Atlas 2 jours et
-								1 nuit.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<div class="text">
-							<h3 class="heading">
-								<a href="#">Fès, Maroc</a>
-							</h3>
-							<div class="meta mb-3">
-								<div>
-									<a href="#">Novembre. 17, 2019</a>
-								</div>
-								<div>
-									<a href="#"></a>
-								</div>
-							</div>
-							<a href="blog-single.html" class="block-20 img"
-								style="background-image: url('images/fes2.png');"> </a>
-							<p>Excursion à travers le désert marocain.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<div class="text">
-							<h3 class="heading">
-								<a href="#">Marrakech</a>
-							</h3>
-							<div class="meta mb-3">
-								<div>
-									<a href="#">Octobre. 16, 2019</a>
-								</div>
-								<div>
-									<a href="#"></a>
-								</div>
-							</div>
-							<a href="blog-single.html" class="block-20 img"
-								style="background-image: url('images/marra.png');"> </a>
-							<p>Ascension De Mont Toubkal en 2 jours et 1 Nuit.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<div class="text">
-							<h3 class="heading">
-								<a href="#">Padang, Indonésie</a>
-							</h3>
-							<div class="meta mb-3">
-								<div>
-									<a href="#">Juillet. 24, 2019</a>
-								</div>
-								<div>
-									<a href="#"></a>
-								</div>
-							</div>
-							<a href="blog-single.html" class="block-20 img"
-								style="background-image: url('images/ind.png');"> </a>
-							<p>Randonnée et snorkeling en Indonésie.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<div class="text">
-							<h3 class="heading">
-								<a href="#">Alora Espagne</a>
-							</h3>
-							<div class="meta mb-3">
-								<div>
-									<a href="#">Août. 20, 2019</a>
-								</div>
-								<div>
-									<a href="#"></a>
-								</div>
-							</div>
-							<a href="blog-single.html" class="block-20 img"
-								style="background-image: url('images/malaga.png');"> </a>
-							<p>Admirez le sud de l'Espagne à cheval.</p>
-						</div>
+										<td>
+											<!-- <a href="ModifierDemande.ma?id=${demande.getId()}"	class="  btn-circle  btn-sm" title="Mettre à jour" style="color : blue; "> <i
+													class="fas fa-sync"></i></a> --> <a
+											href="SupprimerDemande.ma?id=${demande.getId()}"
+											class="  btn-circle btn-sm" title="Supprimer"
+											onclick="return confirm('Voulez vous vraiment supprimer cette demande');"
+											style="color: red;"><i class="fas fa-trash"></i></a>
+										</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</div>
 		</div>
-		</section>
-		<footer class="ftco-footer ftco-section">
-		<div class="container">
-			<div class="row mb-5">
-				<div class="col-md">
-					<div class="ftco-footer-widget mb-4">
-						<h2 class="ftco-heading-2">Hire && Sale</h2>
-						<p>Réservez des hébergements uniques.</p>
-						<ul class="ftco-footer-social list-unstyled mt-5">
-							<li class="ftco-animate"><a href="#"><span
-									class="icon-twitter"></span></a></li>
-							<li class="ftco-animate"><a href="#"><span
-									class="icon-facebook"></span></a></li>
-							<li class="ftco-animate"><a href="#"><span
-									class="icon-instagram"></span></a></li>
+		<br> <br> <br>
+		<div class="col-md-12">
+			<div class="card card-plain">
+				<div class="card-header card-header-primary">
+					<h4 class="card-title mt-0">Table on Plain Background</h4>
+					<p class="card-category">Here is a subtitle for this table</p>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-hover">
+							<thead class="">
+								<th>N° Demande</th>
+								<th>Date de la demande</th>
+								<th>Statut</th>
+								<th>Offre</th>
+								<th>Action</th>
+							</thead>
+							<tbody>
+								<c:forEach items="${ listeDemandeAchat }" var="demande">
+									<tr>
+										<td>${demande.getId() }</td>
+										<td>${demande.getDateDemande() }</td>
+										<td>${demande.getStatut() }</td>
+										<td><a
+											href="getDetailsOffre.ma?id=${demande.getId_offre() }"
+											class="btn-circle btn-sm" title="Ouvrir offre"
+											style="color: green;"> <i class="far fa-folder-open"></i></a>
+										</td>
+										<td>
+											<!-- <a href="ModifierDemande.ma?id=${demande.getId()}"	class="  btn-circle  btn-sm" title="Mettre à jour" style="color : blue; "> <i
+													class="fas fa-sync"></i></a> --> <a
+											href="SupprimerDemandeAchat.ma?id=${demande.getId()}"
+											class="  btn-circle btn-sm" title="Supprimer"
+											onclick="return confirm('Voulez vous vraiment supprimer cette demande');"
+											style="color: red;"><i class="fas fa-trash"></i></a>
+										</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<footer class="ftco-footer ftco-section">
+	<div class="container">
+		<div class="row mb-5">
+			<div class="col-md">
+				<div class="ftco-footer-widget mb-4">
+					<h2 class="ftco-heading-2">Hire && Sale</h2>
+					<p>Réservez des hébergements uniques.</p>
+					<ul class="ftco-footer-social list-unstyled mt-5">
+						<li class="ftco-animate"><a href="#"><span
+								class="icon-twitter"></span></a></li>
+						<li class="ftco-animate"><a href="#"><span
+								class="icon-facebook"></span></a></li>
+						<li class="ftco-animate"><a href="#"><span
+								class="icon-instagram"></span></a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-md">
+				<div class="ftco-footer-widget mb-4 ml-md-4">
+					<h2 class="ftco-heading-2">À propos</h2>
+					<ul class="list-unstyled">
+						<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Notre
+								Histoire</a></li>
+						<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Nos
+								Carrières</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-md">
+				<div class="ftco-footer-widget mb-4">
+					<h2 class="ftco-heading-2">Avez-vous des questions?</h2>
+					<div class="block-23 mb-3">
+						<ul>
+							<li><span class="icon icon-map-marker"></span><span
+								class="text">203 Fake St. Mountain View, San Francisco,
+									California, USA</span></li>
+							<li><a href="#"><span class="icon icon-phone"></span><span
+									class="text">+2 392 3929 210</span></a></li>
+							<li><a href="#"><span class="icon icon-envelope pr-4"></span><span
+									class="text">info@yourdomain.com</span></a></li>
 						</ul>
 					</div>
 				</div>
-
-				<div class="col-md">
-					<div class="ftco-footer-widget mb-4 ml-md-4">
-						<h2 class="ftco-heading-2">À propos</h2>
-						<ul class="list-unstyled">
-							<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Notre
-									Histoire</a></li>
-							<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Nos
-									Carrières</a></li>
-						</ul>
-					</div>
-				</div>
-
-				<div class="col-md">
-					<div class="ftco-footer-widget mb-4">
-						<h2 class="ftco-heading-2">Avez-vous des questions?</h2>
-						<div class="block-23 mb-3">
-							<ul>
-								<li><span class="icon icon-map-marker"></span><span
-									class="text">203 Fake St. Mountain View, San Francisco,
-										California, USA</span></li>
-								<li><a href="#"><span class="icon icon-phone"></span><span
-										class="text">+2 392 3929 210</span></a></li>
-								<li><a href="#"><span class="icon icon-envelope pr-4"></span><span
-										class="text">info@yourdomain.com</span></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
 			</div>
 		</div>
-		</footer>
+	</div>
+	</footer>
 	</div>
 	<script src="js/core/popper.min.js"></script>
 	<script src="js/core/bootstrap-material-design.min.js"></script>

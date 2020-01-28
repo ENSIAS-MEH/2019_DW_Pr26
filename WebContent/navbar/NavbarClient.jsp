@@ -54,7 +54,7 @@
 							<p>Offres Par Ville</p>
 					</a></li>
 					<li class="nav-item "><a class="nav-link"
-						href="./typography.html"> <i class="material-icons">format_indent_increase</i>
+						href="ListDemandeClient.ma"> <i class="material-icons">format_indent_increase</i>
 							<p>Mes demandes de réservations</p>
 					</a></li>
 					<li class="nav-item "><a class="nav-link" href="./icons.html">

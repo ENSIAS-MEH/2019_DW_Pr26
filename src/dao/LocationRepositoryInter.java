@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import models.Client;
 import models.Contact;
+import models.DemandeAchat;
+import models.DemandeLocation;
 import models.Offre;
 import models.Vendeur;
 
@@ -38,6 +40,7 @@ public interface LocationRepositoryInter {
 	public ArrayList<Offre> getOffres();
 	
 	public boolean ModifierOffre(Offre offre);
+	public ArrayList<Offre> getOffresActifs(); 
 	
 	//Contact 
 	public void ajouteContactMessage(Contact contact);
@@ -45,6 +48,21 @@ public interface LocationRepositoryInter {
 	public void supprimerVendeur(int id);
 
 	public void supprimerClient(int id);
+	
+	//DemandeLocation 
+	
+	public void ajouterDeamandeLocation(DemandeLocation demandeLocation); 
+	public ArrayList<DemandeLocation> getListDemandeLocationByIdClient(int id); 
+	public ArrayList<DemandeLocation> getListDemandeLocationByIdVendeur(int id);
+	public ArrayList<DemandeLocation> getAllDemandeLocation();
+	
+	public void deleteDemande(int id); 
+	
+	public void ajouterDeamandeAchat(DemandeAchat demandeAchat);
+	public ArrayList<DemandeAchat> getListDemandeAchatByIdClient(int id); 
+	public ArrayList<DemandeAchat> getListDemandeAchatByIdVendeur(int id);
+	public ArrayList<DemandeAchat> getAllDemandeAchat();
+	public void deleteDemandeAchat(int id); 
 
 	
 	

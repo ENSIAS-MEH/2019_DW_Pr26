@@ -5,14 +5,9 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import com.sun.org.apache.xpath.internal.functions.Function;
-
 import business.LocationServicesImpl;
 import business.LocationServicesInter;
 import models.Client;
-
-import models.Offre;
-import models.Vendeur;
 
 public class ClientAction {
 

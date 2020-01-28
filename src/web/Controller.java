@@ -8,8 +8,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import models.DemandeAchat;
+import models.DemandeLocation;
+import models.Offre;
 import web.action.ClientAction;
 import web.action.ContactMessage;
+import web.action.DemandeAchatAction;
+import web.action.DemandeLocationAction;
 import web.action.OffreAction;
 import web.action.VendeurAction;
 import web.action.AdminAction;
@@ -19,8 +25,7 @@ import web.action.AdminAction;
 		"/contact.ma", "/Deconnexion.ma", "/FormConnexionClient.ma", "/ConnexionClient.ma", "/ProfilVendeur.ma",
 		"/AcceuilVendeur.ma", "/FormAjouterOffre.ma", "/AjouterOffre.ma", "/ListOffre.ma", "/SupprimerOffre.ma",
 		"/ModifierOffre.ma", "/AccueilAdmin.ma", "/DetailOffre.ma", "/ConnexionAdmin.ma", "/saveContact.ma",
-		"/ListVendeur.ma", "/getAllOffres.ma", "/ListClient.ma","/getDetailsOffre.ma","/SupprimerVendeur.ma","/SupprimerClient.ma","/DetailVendeur.ma" })
-
+		"/ListVendeur.ma", "/getAllOffres.ma","/ListDemandeClient.ma",  "/ListClient.ma","/getDetailsOffre.ma","/SupprimerVendeur.ma","/SupprimerClient.ma","/DetailVendeur.ma","/ReservezOffreClient.ma","/saveDemandeReservation.ma","/SupprimerDemande.ma","/DemandeAchatClient.ma","/SupprimerDemandeAchat.ma" })
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 4)
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -30,6 +35,8 @@ public class Controller extends HttpServlet {
 	private AdminAction adminAction;
 	private OffreAction offreAction;
 	private ContactMessage contactMessage;
+	private DemandeLocationAction demandeLocationAction; 
+	private DemandeAchatAction demandeAchatAction; 
 
 	public Controller() {
 		// TODO Auto-generated constructor stub
@@ -45,6 +52,8 @@ public class Controller extends HttpServlet {
 		session = null;
 		adminAction = new AdminAction();
 		contactMessage = new ContactMessage();
+		demandeLocationAction =new DemandeLocationAction(); 
+		demandeAchatAction = new DemandeAchatAction(); 
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -154,7 +163,7 @@ public class Controller extends HttpServlet {
 				views = "/404";
 
 		} else if (action.equals("getAllOffres")) {
-			request.setAttribute("listeOffres", offreAction.getOffres());
+			request.setAttribute("listeOffres", offreAction.getOffresActifs());
 			views = "AllOffresClients";
 		} else if (action.equals("AccueilAdmin")) {
 			if (session.getAttribute("account_type").equals("admin")) {
@@ -168,9 +177,10 @@ public class Controller extends HttpServlet {
 				views = "ListClient";
 			} else
 				views = "/404";
-
 		}else if(action.equals("getDetailsOffre")){
-			request.setAttribute("offre", offreAction.getOffre(Integer.parseInt(request.getParameter("id"))));
+			Offre offre = offreAction.getOffre(Integer.parseInt(request.getParameter("id"))); 
+			request.setAttribute("offre",offre);
+			request.setAttribute("proprietaire", vendeurAction.getVendeurById(offre.getId_hote()));
 			views = "offres/DetailsOffreDisplay"; 
 		} 
 		else if (action.equals("SupprimerVendeur")) {
@@ -201,7 +211,29 @@ public class Controller extends HttpServlet {
 				views = "DetailVendeur";
 			} else
 				views = "/404";
-		} else
+		} else if(action.equals("ReservezOffreClient")){
+			Offre offre = offreAction.getOffre(Integer.parseInt(request.getParameter("id"))); 
+			request.setAttribute("offre",offre);
+			views = "ReservationOffreClient"; 
+			request.setAttribute("proprietaire", vendeurAction.getVendeurById(offre.getId_hote()));
+		}else if(action.equals("ListDemandeClient")){
+			request.setAttribute("listeDemande",demandeLocationAction.getListDemandeLocationByIdClient((int)session.getAttribute("id")));
+			request.setAttribute("listeDemandeAchat",demandeAchatAction.getListDemandeAchatByIdClient((int)session.getAttribute("id")));
+			views ="ListDemandeClient"; 
+		} else if (action.equals("SupprimerDemande")) {
+			demandeLocationAction.deleteDemande(Integer.parseInt(request.getParameter("id"))); 
+			request.setAttribute("listeDemande",demandeLocationAction.getListDemandeLocationByIdClient((int)session.getAttribute("id")));
+			request.setAttribute("listeDemandeAchat",demandeAchatAction.getListDemandeAchatByIdClient((int)session.getAttribute("id")));
+			views ="ListDemandeClient"; 
+		} else if(action.equals("DemandeAchatClient")){
+			demandeAchatAction.ajouterDeamandeAchat(request, session);
+			views = "ListDemandeClient"; 
+		}else if(action.equals("SupprimerDemandeAchat")){
+			demandeAchatAction.deleteDemandeAchat(Integer.parseInt(request.getParameter("id"))); 
+			request.setAttribute("listeDemande",demandeLocationAction.getListDemandeLocationByIdClient((int)session.getAttribute("id")));
+			request.setAttribute("listeDemandeAchat",demandeAchatAction.getListDemandeAchatByIdClient((int)session.getAttribute("id")));
+			views ="ListDemandeClient"; 
+		}else
 			views = "/404";
 
 		request.getRequestDispatcher(views + ".jsp").forward(request, response);
@@ -282,7 +314,10 @@ public class Controller extends HttpServlet {
 			contactMessage.ajouteContactMessage(request, session);
 			request.setAttribute("message", "votre message a bien été envoyé");
 			views = "Contact";
-		} else
+		} else if(action.equals("saveDemandeReservation")){
+			demandeLocationAction.ajouterDeamandeLocation(request, session);
+			views = "ListDemandeClient"; 
+		}else
 			views = "/404";
 
 		request.getRequestDispatcher(views + ".jsp").forward(request, response);
