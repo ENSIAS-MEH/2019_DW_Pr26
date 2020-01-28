@@ -97,6 +97,7 @@
 			</div>
 			<!-- End What's Your First Name Field -->
 
+
 			<!-- Begin What's Your Email Field -->
 <script >
 
@@ -204,47 +205,48 @@ function Location() {
 			<h3 class="fs-subtitle">Date début, date fin et prix de
 				l'immobilier</h3>
 			<!-- Begin Average Gift Size in Year 1 Field -->
-			
-			<div class="hs_nombre field hs-form-field " style="display: none;" id="inf1">
-				<label for="nmb">Nombre de personne* :</label> <input id="nmb"
+			<div class="row col-md-12">
+			<div class="hs_nombre field hs-form-field col-md-4" style="display: none;" id="inf1">
+				<label for="nmb">Nombre de personne* <br> <input id="nmb"
 					name="nombre_personne" required="required" type="number"
 					maxlength="5" minlength="0" placeholder=""
 					data-rule-required="true"
 					data-msg-required="Please enter a number " min="1" max="100"  > <span
 					class="error1" style="display: none;"> <i
 					class="error-log fa fa-exclamation-triangle"></i>
-				</span>
+				</span></label>
 			</div>
 			<div
-				class="form-item webform-component webform-component-textfield hs_total_giving_in_year_2 field hs-form-field "
+				class="hs_nombre field hs-form-field  col-md-4"
 				id="webform-component-cultivation--amount-4" id="inf2">
 
-				<label for="nb_chambre">Nombre de chambres </label> <input
+				<label for="nb_chambre">Nombre de chambres*   <input
 					id="nb_chambre" class="form-text hs-input" name="nb_chambre"
-					required="required" size="60" maxlength="128" min="1" max="100" type="number"
-					 placeholder="" data-rule-required="true"
+					required="required"  min="1" max="100" type="number"
+					 placeholder="" data-rule-required="true" maxlength="5" minlength="0"
 					data-msg-required="Please enter a valid number"> <span
 					class="error1" style="display: none;"> <i
 					class="error-log fa fa-exclamation-triangle"></i>
-				</span>
+				</span></label>
 			
 			</div>
-			<div class="form-item webform-component webform-component-textfield "
+			<div class="hs_nombre field hs-form-field  col-md-4"
 				id="webform-component-cultivation--amount-3 hs_total_giving_in_year_1 field hs-form-field inf3">
 
-				<label for="bain">Nombre de salles de bain *</label> <input
+				<label for="bain">Nombre de salles de bain *<input
 					id="bain" class="form-text hs-input" name="salle_bain"
 					required="required" size="60" maxlength="128" type="number"
 					 placeholder="" data-rule-required="true"
 					data-msg-required="Please enter a valid number" min="1" max="100"> <span
 					class="error1" style="display: none;"> <i
 					class="error-log fa fa-exclamation-triangle"></i>
-				</span>
+				</span></label> 
 			</div>
 			<!-- End Total Giving In Year 1 Field -->
-
+</div>
 			<!-- Begin Total Giving In Year 2 Field -->
-			<div id="inf4" style="display: none;">
+			<div class="row col-md-12">
+			<div id="inf4" class="col-md-6" style="display: none;">
 			<div
 				class="form-item webform-component webform-component-textfield hs_average_gift_size_in_year_1 field hs-form-field"
 				id="edit-submitted-cultivation-amount-1 average_gift_size_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_3256 " >
@@ -261,7 +263,7 @@ function Location() {
 			<!-- End Average Gift Size in Year 1 Field -->
 
 			<!-- Begin Average Gift Size in Year 2 Field -->
-			<div id="inf5" style="display: none;">
+			<div id="inf5" class="col-md-6" style="display: none;">
 			<div
 				class="form-item webform-component webform-component-textfield hs_average_gift_size_in_year_2 field hs-form-field "
 				id="webform-component-cultivation--amount-2" >
@@ -275,8 +277,10 @@ function Location() {
 				</span>
 			</div>
 </div>
+</div>
+<div class="row col-md-12">
 			<div
-				class="form-item webform-component webform-component-textfield webform-container-inline hs_total_donor_percent_change field hs-form-field inf6">
+				class="col-md-6 form-item webform-component webform-component-textfield webform-container-inline hs_total_donor_percent_change field hs-form-field inf6">
 
 				<label for="^prix">Prix/Nuit *</label> <input id="prix"
 					class="form-text hs-input" name="prix" type="number" 
@@ -287,7 +291,7 @@ function Location() {
 				</span>
 			</div>
 			<div
-				class="form-item webform-component webform-component-textfield webform-container-inline hs_total_donor_percent_change field hs-form-field ">
+				class="col-md-6 form-item webform-component webform-component-textfield webform-container-inline hs_total_donor_percent_change field hs-form-field ">
 
 				<label for="devise">Devise *</label> <input id="devise"
 					class="form-text hs-input" name="devise" type="text" 
@@ -296,6 +300,7 @@ function Location() {
 					class="error1" style="display: none;"> <i
 					class="error-log fa fa-exclamation-triangle"></i>
 				</span>
+			</div>
 			</div>
 			<!-- End Average Gift Size in Year 2 Field -->
 
