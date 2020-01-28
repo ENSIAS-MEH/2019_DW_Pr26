@@ -48,11 +48,35 @@ body {
   display: inline-block;
 }
 
+.steps input[type=radio]{
+ 
+ 
+  margin: 20 100 20px;
+  padding: 100px 15px;
+  border: 1px solid #d9d9d9;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  color: #837E7E;
+  font-family: "Roboto";
+  -webkti-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-wieght: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transition: all 0.3s linear 0s;
+  -moz-transition: all 0.3s linear 0s;
+  -ms-transition: all 0.3s linear 0s;
+  -o-transition: all 0.3s linear 0s;
+  transition: all 0.3s linear 0s;
+}
 
-.steps input, .steps textarea {
+.steps input[type=text],.steps input[type=number],.steps input[type=date], .steps textarea {
   outline: none;
   display: block;
-  width: 100%;
+  width: 100%; 
   margin: 0 0 20px;
   padding: 10px 15px;
   border: 1px solid #d9d9d9;
@@ -210,7 +234,7 @@ display: block;
     color: rgb(51, 51, 51);
   text-transform: uppercase;
   font-size: 9px;
-  width: 20%;
+  width: 25%;
   float: left;
   position: relative;
 }
