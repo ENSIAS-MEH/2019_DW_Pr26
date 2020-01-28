@@ -14,7 +14,7 @@ public class DemandeLocationAction {
 
 	public DemandeLocationAction() {
 		super();
-		locationServices = new LocationServicesImpl(); 
+		locationServices = new LocationServicesImpl();
 	}
 
 	public DemandeLocationAction(DemandeLocation demandeLocation, LocationServicesInter locationServices) {
@@ -40,7 +40,7 @@ public class DemandeLocationAction {
 	}
 
 	public void ajouterDeamandeLocation(HttpServletRequest request, HttpSession session) {
-		
+
 		demandeLocation = new DemandeLocation(request.getParameter("date_debut_reservation"),
 				request.getParameter("date_fin_reservation"), (int) session.getAttribute("id"),
 				Integer.parseInt(request.getParameter("id_vendeur")),

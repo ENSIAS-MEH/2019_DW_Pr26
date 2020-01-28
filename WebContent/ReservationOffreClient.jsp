@@ -107,7 +107,7 @@
 								<i class="material-icons">nights_stay</i> &nbsp Nombre nuit :
 							</div>
 						</div>
-						<select class="form-control" id="number_night" name="nb_nuit" >
+						<select class="form-control" id="number_night" name="nb_nuit">
 							<option>1</option>
 						</select>
 					</div>
