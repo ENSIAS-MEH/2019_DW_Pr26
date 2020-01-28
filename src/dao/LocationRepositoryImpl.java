@@ -419,7 +419,7 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 		ArrayList<Offre> listeOffre = new ArrayList<>();
 		Connection connection = mangementDataBase.connexionDataBase();
 		try {
-			PreparedStatement ps = connection.prepareStatement("SELECT * FROM offre WHERE date_debut >= CURDATE()");
+			PreparedStatement ps = connection.prepareStatement("SELECT * FROM offre WHERE date_fin >= CURDATE()");
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				Offre offre = new Offre();

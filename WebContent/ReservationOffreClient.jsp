@@ -108,12 +108,8 @@
 								<i class="material-icons">nights_stay</i> &nbsp Nombre nuit :
 							</div>
 						</div>
-						<select class="form-control" id="exampleFormControlSelect1">
+						<select class="form-control" id="number_night">
 							<option>1</option>
-							<option>2</option>
-							<option>3</option>
-							<option>4</option>
-							<option>5</option>
 						</select>
 					</div>
 				</div>
@@ -209,6 +205,15 @@
 		<script>
 		// script modal 
 		$('#nb_nuit').hide();
+
+		/*
+
+		function diffdate(d1,d2){
+			var WNbJours = d2.getTime() - d1.getTime();
+			return Math.ceil(WNbJours/(1000*60*60*24));
+			}
+*/
+		
 		$('#date_debut_reservation').focusout(function() {
 			//verification validite date 
 			var startDate = $('#date_debut_offre').val().replace(/-/g,'/');
@@ -216,9 +221,42 @@
 			var dateDebutSaisie = $('#date_debut_reservation').val().replace(/-/g,'/');
 			if(dateDebutSaisie < endDate && dateDebutSaisie >= startDate){
 				$('#nb_nuit').show();
+				/*
+				var Date1 = new Date(2020,3,1);
+				var Date2 = new Date(2020,3,31);
+				alert(diffdate(Date1,Date2) + ' jours');
+				*/
+				/*
+				var start = $('#date_debut_reservation').val();
+				var end = $('#date_fin_offre').val();
+
+				// end - start returns difference in milliseconds 
+				var diff = new Date(endDate - startDate);
+
+				// get days
+				var days = diff/1000/60/60/24;
+				alert(days); 
+				*/
+				var dateDebutRes = $('#date_debut_reservation').val(); 
+				var dateFinRese = $('#date_fin_offre').val(); 
+				var start = new Date(dateDebutRes); 
+			    end   = new Date(dateFinRese); 
+			    diff  = new Date(end - start); 
+			    days  = diff/1000/60/60/24;
+				alert(Math.floor( days )); 		    
+
+			days; //=> 8.525845775462964
+				/*
+				var start= $("#date_debut_offre").datepicker("getDate");
+			    var end= $("#date_fin_offre").datepicker("getDate");
+			    days = (end- start) / (1000 * 60 * 60 * 24);
+			    alert(days);
+			    */
 				
 			}else{
 				alert('La date que vous avez saisie est incorrecte') ; 
+				$('#date_debut_reservation').val(''); 
+				$('#nb_nuit').hide();
 			}
 		}); 
 
