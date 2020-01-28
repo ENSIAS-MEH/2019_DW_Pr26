@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Réservation</title>
+<title>RÃ©servation</title>
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta
@@ -65,7 +65,7 @@
 			</h4>
 
 			<h4 class="card-title">
-				<strong> Date de la disponibilité : </strong>
+				<strong> Date de la disponibilitÃ© : </strong>
 				<div class="input-group input-daterange">
 
 					<input type="date" value="${offre.getDate_debut()}"
@@ -84,7 +84,7 @@
 	<br>
 	<div class="card card-nav-tabs" style="width: 85%; margin: 0 auto;">
 		<div class="card-header card-header-success">Demande de
-			réservation</div>
+			rÃ©servation</div>
 		<div class="card-body">
 			<h4 class="card-title">veuillez renseigner une date
 					valide</h4>
@@ -94,8 +94,8 @@
 					<div class="input-group">
 						<div class="input-group-prepend">
 							<div class="input-group-text">
-								<i class="material-icons">date_range</i> &nbsp Date début
-								réservation :
+								<i class="material-icons">date_range</i> &nbsp Date dÃ©but
+								rÃ©servation :
 							</div>
 						</div>
 						<input type="date" class="form-control" placeholder="First Name..." id="date_debut_reservation">
@@ -117,19 +117,18 @@
 					<div class="input-group">
 						<div class="input-group-prepend">
 							<div class="input-group-text">
-								<i class="material-icons">update</i> &nbsp Date fin réservation
+								<i class="material-icons">update</i> &nbsp Date fin rÃ©servation
 								:
 							</div>
 						</div>
-						<input type="date" class="form-control"
-							placeholder="First Name...">
+						<input type="date" class="form-control" placeholder="First Name..." id="date_fin_reservatio">
 					</div>
 				</div>
 			</form>
 			<br>
 			<br>
 			<center>
-				<a href="#0" class="btn btn-success">Valider Réservation</a>
+				<a href="#0" class="btn btn-success">Valider RÃ©servation</a>
 			</center>
 		</div>
 	</div>
@@ -204,60 +203,53 @@
 		
 		<script>
 		// script modal 
-		$('#nb_nuit').hide();
-
-		/*
-
-		function diffdate(d1,d2){
-			var WNbJours = d2.getTime() - d1.getTime();
-			return Math.ceil(WNbJours/(1000*60*60*24));
-			}
-*/
-		
+		$('#nb_nuit').hide();	
 		$('#date_debut_reservation').focusout(function() {
 			//verification validite date 
 			var startDate = $('#date_debut_offre').val().replace(/-/g,'/');
 			var endDate = $('#date_fin_offre').val().replace(/-/g,'/');
 			var dateDebutSaisie = $('#date_debut_reservation').val().replace(/-/g,'/');
+			
 			if(dateDebutSaisie < endDate && dateDebutSaisie >= startDate){
 				$('#nb_nuit').show();
-				/*
-				var Date1 = new Date(2020,3,1);
-				var Date2 = new Date(2020,3,31);
-				alert(diffdate(Date1,Date2) + ' jours');
-				*/
-				/*
-				var start = $('#date_debut_reservation').val();
-				var end = $('#date_fin_offre').val();
-
-				// end - start returns difference in milliseconds 
-				var diff = new Date(endDate - startDate);
-
-				// get days
-				var days = diff/1000/60/60/24;
-				alert(days); 
-				*/
 				var dateDebutRes = $('#date_debut_reservation').val(); 
 				var dateFinRese = $('#date_fin_offre').val(); 
 				var start = new Date(dateDebutRes); 
 			    end   = new Date(dateFinRese); 
 			    diff  = new Date(end - start); 
 			    days  = diff/1000/60/60/24;
-				alert(Math.floor( days )); 		    
-
-			days; //=> 8.525845775462964
-				/*
-				var start= $("#date_debut_offre").datepicker("getDate");
-			    var end= $("#date_fin_offre").datepicker("getDate");
-			    days = (end- start) / (1000 * 60 * 60 * 24);
-			    alert(days);
-			    */
+				alert(Math.floor( days )); 	
+				for (i=2; i<=days; i++){
+					var option = '<option value="'+i+'" selected="selected">'+i+'</option>';
+					$('#number_night').append(option);
+				}
+				//alert(dateDebutRes); 
 				
-			}else{
+				var maDate = $('#date_debut_reservation').val();
+				var tabDate = maDate.split('-');
+				var next14 = new Date(tabDate[0], tabDate[1]-1, +tabDate[2]+days);
+				//var year = next14.getYear() + 1900; 
+				var day = ("0" + next14.getDate()).slice(-2);
+				var month = ("0" + (next14.getMonth() + 1)).slice(-2);
+				var today = next14.getFullYear()+"-"+(month)+"-"+(day) ; 
+				alert(today);  				
+				$('#date_fin_reservatio').val(today); 
+							}else{
 				alert('La date que vous avez saisie est incorrecte') ; 
 				$('#date_debut_reservation').val(''); 
 				$('#nb_nuit').hide();
 			}
+		});
+
+		$('#number_night').change(function () {
+			var maDate = $('#date_debut_reservation').val();
+			var tabDate = maDate.split('-');
+			var next14 = new Date(tabDate[0], tabDate[1]-1, +(parseInt(tabDate[2])+parseInt($('#number_night').val())));
+			var day = ("0" + next14.getDate()).slice(-2);
+			var month = ("0" + (next14.getMonth() + 1)).slice(-2);
+			var today = next14.getFullYear()+"-"+(month)+"-"+(day) ; 
+			alert(today);  				
+			$('#date_fin_reservatio').val(today); 
 		}); 
 
 		
