@@ -69,12 +69,12 @@
 				<div class="input-group input-daterange">
 
 					<input type="date" value="${offre.getDate_debut()}"
-						readonly="readonly">
+						readonly="readonly" id="date_debut_offre">
 					<div class="input-group-addon" style="font-size: 25px; color: red;">
 						<strong><i class="material-icons">arrow_right_alt</i> </strong>
 					</div>
 					<input type="date" value="${offre.getDate_fin() }"
-						readonly="readonly">
+						readonly="readonly" id="date_fin_offre">
 				</div>
 			</h4>
 		</div>
@@ -86,11 +86,10 @@
 		<div class="card-header card-header-success">Demande de
 			réservation</div>
 		<div class="card-body">
-			<h4 class="card-title">Special title treatment</h4>
+			<h4 class="card-title">veuillez renseigner une date
+					valide</h4>
 			<form class="form" method="" action=""
 				style="width: 70%; margin: 0 auto;">
-				<p class="description text-center">veuillez renseigner une date
-					valide</p>
 				<div class="form-group bmd-form-group">
 					<div class="input-group">
 						<div class="input-group-prepend">
@@ -99,11 +98,10 @@
 								réservation :
 							</div>
 						</div>
-						<input type="date" class="form-control"
-							placeholder="First Name...">
+						<input type="date" class="form-control" placeholder="First Name..." id="date_debut_reservation">
 					</div>
 				</div>
-				<div class="form-group bmd-form-group">
+				<div class="form-group bmd-form-group" id="nb_nuit">
 					<div class="input-group">
 						<div class="input-group-prepend">
 							<div class="input-group-text">
@@ -207,6 +205,29 @@
 	<!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
 	<script src="assets/js/material-dashboard.min.js?v=2.1.1"
 		type="text/javascript"></script>
+		
+		<script>
+		// script modal 
+		$('#nb_nuit').hide();
+		$('#date_debut_reservation').focusout(function() {
+			//verification validite date 
+			var startDate = $('#date_debut_offre').val().replace(/-/g,'/');
+			var endDate = $('#date_fin_offre').val().replace(/-/g,'/');
+			var dateDebutSaisie = $('#date_debut_reservation').val().replace(/-/g,'/');
+			if(dateDebutSaisie < endDate && dateDebutSaisie >= startDate){
+				$('#nb_nuit').show();
+				
+			}else{
+				alert('La date que vous avez saisie est incorrecte') ; 
+			}
+		}); 
+
+		
+		//$('#date_fin_reservation').val('2010-05-10');
+		/*$('#nombre_nuit').click(function() {
+			this.hide();
+		});*/
+	</script>
 
 </body>
 </html>
