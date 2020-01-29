@@ -8,7 +8,7 @@
 <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon.png">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>Données Propriétaire</title>
+<title>Données Client</title>
 <meta
 	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
 	name='viewport' />
@@ -63,7 +63,7 @@
 						href="#"> <i class="material-icons">dashboard</i>
 							<p>Dashboard</p>
 					</a></li>
-					<li class="nav-item  active"><a class="nav-link" href="ListVendeur.ma">
+					<li class="nav-item  active"><a class="nav-link" href="Listclient.ma">
 							<i class="material-icons">account_circle</i>
 							<p>Liste des propriétaires</p>
 					</a></li>
@@ -166,18 +166,18 @@
 	<div class="steps" method="post">
 	
 		<fieldset>
-			<h2 class="fs-title">Données du propriétaire N° ${vendeur.getId()} </h2><br/><br/>
+			<h2 class="fs-title">Données du propriétaire N° ${client.getId()} </h2><br/><br/>
 		<div class="row">
 		<div class="col-md-6">
 			<div class="categ field hs-form-field">
-				<span class="label">Nom :</span> ${vendeur.getNom()} <br>
+				<span class="label">Nom :</span> ${client.getNom()} <br>
 				<div class="dropdown-divider"></div>
 			</div>
 		</div>
 			
 		<div class="col-md-6">
 			<div class="categ field hs-form-field">
-				<span class="label">Prenom :</span> ${vendeur.getPrenom()}<br>
+				<span class="label">Prenom :</span> ${client.getPrenom()}<br>
 				<div class="dropdown-divider"></div>
 			</div>
 		</div>
@@ -186,35 +186,35 @@
 	<div class="row">
 		<div class="col-md-4">
 			<div class="categ field hs-form-field">			
-				<span class="label">Cin :</span> ${vendeur.getNum_cin()}<br>
+				<span class="label">Cin :</span> ${client.getNum_cin()}<br>
 				<div class="dropdown-divider"></div>
 			</div>
 		</div>
 
 			<div class="col-md-8">
 			<div class="categ field hs-form-field">			
-				<span class="label">Date de naissance :</span> ${vendeur.getDate_naissane()}<br>
+				<span class="label">Date de naissance :</span> ${client.getDate_naissane()}<br>
 				<div class="dropdown-divider"></div>
 			</div>
 			</div>
 		</div><br/>
 			
 			<div class="categ field hs-form-field">			
-				<span class="label">Email :</span> ${vendeur.getEmail()}<br>
+				<span class="label">Email :</span> ${client.getEmail()}<br>
 				<div class="dropdown-divider"></div>
 			</div><br/>
 			
 	<div class="row">
 		<div class="col-md-6">
 			<div class="categ field hs-form-field">
-				<span class="label">Pays :</span> ${vendeur.getPays()}<br>
+				<span class="label">Pays :</span> ${client.getPays()}<br>
 				<div class="dropdown-divider"></div>
 			</div>
 		</div>
 			
 			<div class="col-md-6">
 			<div class="categ field hs-form-field">
-				<span class="label">Ville :</span> ${vendeur.getVille()}<br>
+				<span class="label">Ville :</span> ${client.getVille()}<br>
 				<div class="dropdown-divider"></div>
 			</div>
 			</div>
