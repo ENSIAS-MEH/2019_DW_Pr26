@@ -26,6 +26,8 @@ public interface LocationServicesInter {
 	public Client getClientByEmail(String email);
 	
 	public ArrayList<Client> getListClient();
+	
+	public Client getClientById(int id);
 
 
 	// offre
@@ -63,6 +65,8 @@ public interface LocationServicesInter {
 	public ArrayList<DemandeAchat> getListDemandeAchatByIdVendeur(int id);
 	public ArrayList<DemandeAchat> getAllDemandeAchat();
 	public void deleteDemandeAchat(int id) ;
+
+	
 	
 
 }

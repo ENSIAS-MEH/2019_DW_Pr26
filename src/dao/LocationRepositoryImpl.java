@@ -815,4 +815,37 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 		
 	}
 
+	@Override
+	public Client getClientbyId(int id) {
+		Client client = null;
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			PreparedStatement ps = connection.prepareStatement("select * from client where id =" + id);
+			ResultSet rs = ps.executeQuery();
+
+			if (rs.next()) {
+				client = new Client();
+				client.setId(rs.getInt("id"));
+				client.setNom(rs.getString("nom"));
+				client.setPrenom(rs.getString("prenom"));
+				client.setDate_naissane(rs.getString("date_naissance"));
+				client.setNum_cin(rs.getString("cin"));
+				client.setSexe(rs.getString("sexe"));
+				client.setEmail(rs.getString("email"));
+				client.setMot_de_passe(rs.getString("mot_de_passe"));
+				client.setPays(rs.getString("pays"));
+				client.setVille(rs.getString("ville"));
+				client.setNum_telephone(rs.getString("num_telephone"));
+
+			}
+
+			ps.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return client;
+	}
+
 }

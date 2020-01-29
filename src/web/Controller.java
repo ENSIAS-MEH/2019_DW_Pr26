@@ -25,7 +25,7 @@ import web.action.AdminAction;
 		"/contact.ma", "/Deconnexion.ma", "/FormConnexionClient.ma", "/ConnexionClient.ma", "/ProfilVendeur.ma",
 		"/AcceuilVendeur.ma", "/FormAjouterOffre.ma", "/AjouterOffre.ma", "/ListOffre.ma", "/SupprimerOffre.ma",
 		"/ModifierOffre.ma", "/AccueilAdmin.ma", "/DetailOffre.ma", "/ConnexionAdmin.ma", "/saveContact.ma",
-		"/ListVendeur.ma", "/getAllOffres.ma","/ListDemandeClient.ma",  "/ListClient.ma","/getDetailsOffre.ma","/SupprimerVendeur.ma","/SupprimerClient.ma","/DetailVendeur.ma","/ReservezOffreClient.ma","/saveDemandeReservation.ma","/SupprimerDemande.ma","/DemandeAchatClient.ma","/SupprimerDemandeAchat.ma" })
+		"/ListVendeur.ma", "/getAllOffres.ma","/ListDemandeClient.ma",  "/ListClient.ma","/getDetailsOffre.ma","/SupprimerVendeur.ma","/SupprimerClient.ma","/DetailVendeur.ma","/ReservezOffreClient.ma","/saveDemandeReservation.ma","/SupprimerDemande.ma","/DemandeAchatClient.ma","/SupprimerDemandeAchat.ma","/DetailClient.ma" })
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 4)
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -233,7 +233,16 @@ public class Controller extends HttpServlet {
 			request.setAttribute("listeDemande",demandeLocationAction.getListDemandeLocationByIdClient((int)session.getAttribute("id")));
 			request.setAttribute("listeDemandeAchat",demandeAchatAction.getListDemandeAchatByIdClient((int)session.getAttribute("id")));
 			views ="ListDemandeClient"; 
-		}else
+		}
+		 else if (action.equals("DetailClient")) {
+				if (session.getAttribute("account_type") != null
+						&& session.getAttribute("account_type").equals("admin")) {
+					int id = Integer.parseInt(request.getParameter("id"));
+					request.setAttribute("client", clientAction.getClientById(id));
+					views = "DetailClient";
+				} else
+					views = "/404";
+		} else
 			views = "/404";
 
 		request.getRequestDispatcher(views + ".jsp").forward(request, response);

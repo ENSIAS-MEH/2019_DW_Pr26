@@ -163,6 +163,11 @@ public class LocationServicesImpl implements LocationServicesInter {
 	public void deleteDemandeAchat(int id){
 		locationepositoryImpl.deleteDemandeAchat(id); 
 	}
+
+	@Override
+	public Client getClientById(int id) {
+		return locationepositoryImpl.getClientbyId(id);
+	}
 	
 
 }
