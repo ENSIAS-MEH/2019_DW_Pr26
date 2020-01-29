@@ -159,7 +159,7 @@
 			<h2 class="fs-title">Données du propriétaire N° ${vendeur.getId()} </h2>
 			<div class="categ field hs-form-field">
 			
-				<label for="hs_categ">Nom :</label><br>
+				<span class="label ">Nom :</label><br>
 				<div class="input-group ">${vendeur.getNom()}</div>
 				<div class="dropdown-divider"></div>
 			</div>
@@ -169,7 +169,7 @@
 			<!-- Begin What's Your Email Field -->
 			<div class="categ field hs-form-field">
 			
-				<label for="hs_categ">Prenom :</label><br>
+				<span class="label ">Prenom :</label><br>
 				<div class="input-group no-border">${vendeur.getPrenom()}</div>
 				<div class="dropdown-divider"></div>
 			</div>
@@ -177,35 +177,35 @@
 			
 			<div class="categ field hs-form-field">
 			
-				<label for="hs_categ">Cin :</label><br>
+				<span class="label ">Cin :</label><br>
 				<div class="input-group no-border">${vendeur.getNum_cin()}</div>
 				<div class="dropdown-divider"></div>
 			</div>
 			
 			<div class="categ field hs-form-field">
 			
-				<label for="hs_categ">Date de naissance :</label><br>
+				<span class="label ">Date de naissance :</label><br>
 				<div class="input-group no-border">${vendeur.getDate_naissane()}</div>
 				<div class="dropdown-divider"></div>
 			</div>
 			
 			<div class="categ field hs-form-field">
 			
-				<label for="hs_categ">Email :</label><br>
+				<span class="label ">Email :</label><br>
 				<div class="input-group no-border">${vendeur.getEmail()}</div>
 				<div class="dropdown-divider"></div>
 			</div>
 			
 			<div class="categ field hs-form-field">
 			
-				<label for="hs_categ">Pays :</label><br>
+				<span class="label ">Pays :</label><br>
 				<div class="input-group no-border">${vendeur.getPays()}</div>
 				<div class="dropdown-divider"></div>
 			</div>
 			
 			<div class="categ field hs-form-field">
 			
-				<label for="hs_categ">Ville :</label><br>
+				<span class="label ">Ville :</label><br>
 				<div class="input-group no-border">${vendeur.getVille()}</div>
 				<div class="dropdown-divider"></div>
 			</div>
