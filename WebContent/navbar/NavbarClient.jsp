@@ -61,7 +61,7 @@
 							<i class="material-icons">format_indent_decrease</i>
 							<p>Mes réservations</p>
 					</a></li>
-					<li class="nav-item "><a class="nav-link" href="./icons.html">
+					<li class="nav-item "><a class="nav-link" href="ChercherOffreClient.ma">
 							<i class="material-icons">search</i>
 							<p>Chercher une offre</p>
 					</a></li>
