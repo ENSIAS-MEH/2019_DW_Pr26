@@ -52,6 +52,8 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet">
+	
+	
 </head>
 
 <body>
@@ -60,14 +62,7 @@
 	</c:if>
 
 	<div class="content card" style="width: 98%; margin: 0 auto;">
-		<div class="card" style="width: 60%; margin: 0 auto;">
-			<div class="card-body">
-				<center class="font-weight-bold">
-					<strong>Bienvenue ${sessionScope.nom }
-						${sessionScope.prenom }.</strong>
-				</center>
-			</div>
-		</div>
+		<br><br><br><br><br>
 		
 		<div class="card card-nav-tabs" style="width: 85%; margin: 0 auto;">
 		<div class="card-header card-header-success">Demande de
@@ -89,7 +84,23 @@
 							name="date_debut_reservation" required="true">
 					</div>
 				</div>
-				
+				  <div class="form-check form-check-inline">
+  <label class="form-check-label">
+    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> 1
+    <span class="form-check-sign">
+        <span class="check"></span>
+    </span>
+  </label>
+</div>
+
+<div class="form-check form-check-inline">
+  <label class="form-check-label">
+    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> 2
+    <span class="form-check-sign">
+        <span class="check"></span>
+    </span>
+  </label>
+</div>
 					<center>
 					
 			<br> <br>
