@@ -311,7 +311,7 @@
 																		style="border: 2px solid #32CD32; border-radius: 5px; cursor: auto; padding: 10px 25px; background: #32CD32;"
 																		valign="middle"><a href="DemandeAchatClient.ma?id_offre=${offre.getId() }&id_vendeur=${proprietaire.getId() }"
 																		style="background: #32CD32; color: #000; font-family: Arial, Helvetical, sans-serif; font-size: 14px; font-weight: normal; line-height: 120%; Margin: 0; text-decoration: none; text-transform: uppercase;"
-																		target="_blank" onclick="return confirm('Voulez vous vraiment envoyez une demande d'achat')">															
+																		onclick="return confirm('Voulez vous vraiment envoyez une demande d'achat')">															
 																		<strong>Demande d'achat</strong>
 																		</a></td>
 															</c:if>		

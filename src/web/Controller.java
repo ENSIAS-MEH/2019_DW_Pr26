@@ -25,7 +25,7 @@ import web.action.AdminAction;
 		"/contact.ma", "/Deconnexion.ma", "/FormConnexionClient.ma", "/ConnexionClient.ma", "/ProfilVendeur.ma",
 		"/AcceuilVendeur.ma", "/FormAjouterOffre.ma", "/AjouterOffre.ma", "/ListOffre.ma", "/SupprimerOffre.ma",
 		"/ModifierOffre.ma", "/AccueilAdmin.ma", "/DetailOffre.ma", "/ConnexionAdmin.ma", "/saveContact.ma",
-		"/ListVendeur.ma", "/getAllOffres.ma","/ListDemandeClient.ma",  "/ListClient.ma","/getDetailsOffre.ma","/SupprimerVendeur.ma","/SupprimerClient.ma","/DetailVendeur.ma","/ReservezOffreClient.ma","/saveDemandeReservation.ma","/SupprimerDemande.ma","/DemandeAchatClient.ma","/SupprimerDemandeAchat.ma","/DetailClient.ma" })
+		"/ListVendeur.ma", "/getAllOffres.ma","/ListDemandeClient.ma",  "/ListClient.ma","/getDetailsOffre.ma","/SupprimerVendeur.ma","/SupprimerClient.ma","/DetailVendeur.ma","/ReservezOffreClient.ma","/saveDemandeReservation.ma","/SupprimerDemande.ma","/DemandeAchatClient.ma","/SupprimerDemandeAchat.ma","/DetailClient.ma","/ListReservationClient.ma" })
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 4)
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -227,6 +227,8 @@ public class Controller extends HttpServlet {
 			views ="ListDemandeClient"; 
 		} else if(action.equals("DemandeAchatClient")){
 			demandeAchatAction.ajouterDeamandeAchat(request, session);
+			request.setAttribute("listeDemande",demandeLocationAction.getListDemandeLocationByIdClient((int)session.getAttribute("id")));
+			request.setAttribute("listeDemandeAchat",demandeAchatAction.getListDemandeAchatByIdClient((int)session.getAttribute("id")));
 			views = "ListDemandeClient"; 
 		}else if(action.equals("SupprimerDemandeAchat")){
 			demandeAchatAction.deleteDemandeAchat(Integer.parseInt(request.getParameter("id"))); 
@@ -242,7 +244,11 @@ public class Controller extends HttpServlet {
 					views = "DetailClient";
 				} else
 					views = "/404";
-		} else
+		} else if(action.equals("ListReservationClient")){
+			request.setAttribute("listeDemande",demandeLocationAction.getListReservationLocationByIdClient((int)session.getAttribute("id")));
+			request.setAttribute("listeDemandeAchat",demandeAchatAction.getListReservationAchatByIdClient((int)session.getAttribute("id")));
+			views ="ListReservationClient"; 
+		}else
 			views = "/404";
 
 		request.getRequestDispatcher(views + ".jsp").forward(request, response);

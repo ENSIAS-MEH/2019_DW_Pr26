@@ -57,6 +57,14 @@ public class DemandeAchatAction {
 	public void deleteDemandeAchat(int id){
 		locationServices.deleteDemandeAchat(id);
 	}
+	
+	public ArrayList<DemandeAchat> getListReservationAchatByIdClient(int id){
+		return locationServices.getListReservationAchatByIdClient(id); 
+	}
+	
+public ArrayList<DemandeAchat> getListReservationAchatByIdVendeur(int id ){
+	return locationServices.getListReservationAchatByIdVendeur(id); 
+	}
 
 	
 }

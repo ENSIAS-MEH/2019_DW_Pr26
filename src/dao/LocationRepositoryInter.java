@@ -66,6 +66,11 @@ public interface LocationRepositoryInter {
 	public ArrayList<DemandeAchat> getListDemandeAchatByIdVendeur(int id);
 	public ArrayList<DemandeAchat> getAllDemandeAchat();
 	public void deleteDemandeAchat(int id);
+	
+	public ArrayList<DemandeAchat> getListReservationAchatByIdClient(int id); 
+	public ArrayList<DemandeAchat> getListReservationAchatByIdVendeur(int id ); 
+	public ArrayList<DemandeLocation> getListReservationLocationByIdClient(int id);
+public ArrayList<DemandeLocation> getListReservationLocationByIdVendeur(int id );
 
 
 	

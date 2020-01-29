@@ -168,6 +168,23 @@ public class LocationServicesImpl implements LocationServicesInter {
 	public Client getClientById(int id) {
 		return locationepositoryImpl.getClientbyId(id);
 	}
+	@Override
+	public ArrayList<DemandeAchat> getListReservationAchatByIdClient(int id){
+		return locationepositoryImpl.getListReservationAchatByIdClient(id); 
+	}
+	@Override
+public ArrayList<DemandeAchat> getListReservationAchatByIdVendeur(int id ){
+	return locationepositoryImpl.getListReservationAchatByIdVendeur(id); 
+	}
+
+	@Override
+	public ArrayList<DemandeLocation> getListReservationLocationByIdClient(int id){
+		return locationepositoryImpl.getListReservationLocationByIdClient(id); 
+	}
+	@Override
+public ArrayList<DemandeLocation> getListReservationLocationByIdVendeur(int id ){
+	return locationepositoryImpl.getListReservationLocationByIdVendeur(id); 
+	}
 	
 
 }

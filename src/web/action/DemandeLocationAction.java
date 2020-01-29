@@ -54,6 +54,16 @@ public class DemandeLocationAction {
 	public ArrayList<DemandeLocation> getListDemandeLocationByIdClient(int id){
 		return locationServices.getListDemandeLocationByIdClient(id); 
 	}
+	
+	public ArrayList<DemandeLocation> getListReservationLocationByIdClient(int id){
+		return locationServices.getListReservationLocationByIdClient(id); 
+	}
+	
+public ArrayList<DemandeLocation> getListReservationLocationByIdVendeur(int id ){
+	return locationServices.getListReservationLocationByIdVendeur(id); 
+	}
+
+
 	public ArrayList<DemandeLocation> getListDemandeLocationByIdVendeur(int id){
 		return locationServices.getListDemandeLocationByIdVendeur(id); 
 	}

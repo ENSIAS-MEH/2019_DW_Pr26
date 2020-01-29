@@ -57,7 +57,7 @@
 						href="ListDemandeClient.ma"> <i class="material-icons">format_indent_increase</i>
 							<p>Mes demandes de réservations</p>
 					</a></li>
-					<li class="nav-item "><a class="nav-link" href="./icons.html">
+					<li class="nav-item "><a class="nav-link" href="ListReservationClient.ma">
 							<i class="material-icons">format_indent_decrease</i>
 							<p>Mes réservations</p>
 					</a></li>
