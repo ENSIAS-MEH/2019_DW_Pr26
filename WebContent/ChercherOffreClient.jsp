@@ -52,7 +52,17 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet">
-	
+	<style>
+		table
+{ 
+margin: 0 auto;
+}
+td
+{
+width : 200px; 
+text-align :center;
+}
+	</style>
 	
 </head>
 
@@ -79,8 +89,8 @@
 				<tr>
 				<td>
 				  <div class="form-check form-check-inline" style="">
-  <label class="form-check-label">
-    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> Ville
+  <label class="form-check-label" style="color : black; font-size: 15px;">
+    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" > Ville
     <span class="form-check-sign">
         <span class="check"></span>
     </span>
@@ -89,7 +99,7 @@
 </td>
 <td>
 <div class="form-check form-check-inline" >
-  <label class="form-check-label">
+  <label class="form-check-label" style="color : black; font-size: 15px;">
     <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> Pays
     <span class="form-check-sign">
         <span class="check"></span>
@@ -99,7 +109,7 @@
 </td>
 <td>
 <div class="form-check form-check-inline" style="">
-  <label class="form-check-label">
+  <label class="form-check-label" style="color : black; font-size: 15px;">
     <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> Nombre chambre  
     <span class="form-check-sign">
         <span class="check"></span>
@@ -114,23 +124,32 @@
 </center>
 <br><br>
 <center>
-<div class="form-check form-check-radio form-check-inline">
-  <label class="form-check-label">
-    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Vente
+<div style="width: 30%;">
+<div class="form-check form-check-radio form-check-inline" style="float: right;">
+  <label class="form-check-label" style="color : black; font-size: 15px;">
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" > Vente
     <span class="circle">
         <span class="check"></span>
     </span>
   </label>
 </div>
-<div class="form-check form-check-radio form-check-inline">
-  <label class="form-check-label">
+<div class="form-check form-check-radio form-check-inline" style="float: left;">
+  <label class="form-check-label" style="color : black; font-size: 15px;">
     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Location
     <span class="circle">
         <span class="check"></span>
     </span>
   </label>
 </div>
+</div>
 </center>
+<div class="input-group">
+      <input type="text" class="form-control" name="inputSearch" placeholder="Search for..." id = "searchTerm">
+      <span class="input-group-btn">
+        <button class="btn btn-primary" type="button" id = "searchButton">Go!</button>
+      </span>
+    </div>
+    
 
 
 					<center>
