@@ -52,18 +52,17 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet">
-	<style>
-		table
-{ 
-margin: 0 auto;
+<style>
+table {
+	margin: 0 auto;
 }
-td
-{
-width : 200px; 
-text-align :center;
+
+td {
+	text-align: center;
+	width: 200px;
 }
-	</style>
-	
+</style>
+
 </head>
 
 <body>
@@ -72,138 +71,156 @@ text-align :center;
 	</c:if>
 
 	<div class="content card" style="width: 98%; margin: 0 auto;">
-		<br><br><br><br><br>
-		
-		<div class="card card-nav-tabs" style="width: 85%; margin: 0 auto;">
-		<div class="card-header card-header-success">Demande de
-			réservation</div>
-			<br>
-		<div class="card-body">
-			<center><h4 class="card-title" style="color : #760B39; "><strong>Recherche multicritères et critères spécifiques</strong></h4></center>
-			<br>
-			
-			<form class="form" method="post" action="ChercherOffreByOption.ma"
-				style="width: 70%; margin: 0 auto;">
-				<center>
-				<table style="width: 100%; margin: 0 auto; ">
-				<tr>
-				<td>
-				  <div class="form-check form-check-inline" style="">
-  <label class="form-check-label" style="color : black; font-size: 15px;">
-    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" > Ville
-    <span class="form-check-sign">
-        <span class="check"></span>
-    </span>
-  </label>
-</div>
-</td>
-<td>
-<div class="form-check form-check-inline" >
-  <label class="form-check-label" style="color : black; font-size: 15px;">
-    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> Pays
-    <span class="form-check-sign">
-        <span class="check"></span>
-    </span>
-  </label>
-</div>
-</td>
-<td>
-<div class="form-check form-check-inline" style="">
-  <label class="form-check-label" style="color : black; font-size: 15px;">
-    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> Nombre chambre  
-    <span class="form-check-sign">
-        <span class="check"></span>
-    </span>
-  </label>
-  
-</div>
-</td>
-</tr>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
 
-</table>
-</center>
-<br>
-<center>
-<div style="width: 30%;">
-<div class="form-check form-check-radio form-check-inline" style="float: right;">
-  <label class="form-check-label" style="color : black; font-size: 15px;">
-    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" > Vente
-    <span class="circle">
-        <span class="check"></span>
-    </span>
-  </label>
-</div>
-<div class="form-check form-check-radio form-check-inline" style="float: left;">
-  <label class="form-check-label" style="color : black; font-size: 15px;">
-    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Location
-    <span class="circle">
-        <span class="check"></span>
-    </span>
-  </label>
-</div>
-</div>
-</center>
-<br>
-<br>
-      <div class="input-group" style="width: 70%; margin : 0 auto; ">
-       
+		<div class="card card-nav-tabs" style="width: 85%; margin: 0 auto;">
+			<div class="card-header card-header-success">Demande de
+				réservation</div>
+			<br>
+			<div class="card-body">
+				<center>
+					<h4 class="card-title" style="color: #760B39;">
+						<strong>Recherche multicritères et critères spécifiques</strong>
+					</h4>
+				</center>
+				<br>
+
+				<form class="form" method="post" action="ChercherOffreByOption.ma"
+					style="width: 70%; margin: 0 auto;">
+					<center>
+						<table style="width: 100%; margin: 0 auto;">
+							<tr>
+								<td>
+									<div class="form-check form-check-inline" style="">
+										<label class="form-check-label"
+											style="color: black; font-size: 15px;"> <input
+											class="form-check-input" type="checkbox" id="inlineCheckbox1"
+											value="option1"> Ville <span class="form-check-sign">
+												<span class="check"></span>
+										</span>
+										</label>
+									</div>
+								</td>
+								<td>
+									<div class="form-check form-check-inline">
+										<label class="form-check-label"
+											style="color: black; font-size: 15px;"> <input
+											class="form-check-input" type="checkbox" id="inlineCheckbox1"
+											value="option1"> Pays <span class="form-check-sign">
+												<span class="check"></span>
+										</span>
+										</label>
+									</div>
+								</td>
+								<td>
+									<div class="form-check form-check-inline" style="">
+										<label class="form-check-label"
+											style="color: black; font-size: 15px;"> <input
+											class="form-check-input" type="checkbox" id="inlineCheckbox1"
+											value="option1"> Nombre chambre <span
+											class="form-check-sign"> <span class="check"></span>
+										</span>
+										</label>
+
+									</div>
+								</td>
+							</tr>
+						</table>
+					</center>
+					<br>
+					<center>
+						<div style="width: 30%;">
+							<div class="form-check form-check-radio form-check-inline"
+								style="float: right;">
+								<label class="form-check-label"
+									style="color: black; font-size: 15px;"> <input
+									class="form-check-input" type="radio" name="inlineRadioOptions"
+									id="inlineRadio1" value="option1"> Vente <span
+									class="circle"> <span class="check"></span>
+								</span>
+								</label>
+							</div>
+							<div class="form-check form-check-radio form-check-inline"
+								style="float: left;">
+								<label class="form-check-label"
+									style="color: black; font-size: 15px;"> <input
+									class="form-check-input" type="radio" name="inlineRadioOptions"
+									id="inlineRadio2" value="option2"> Location <span
+									class="circle"> <span class="check"></span>
+								</span>
+								</label>
+							</div>
+						</div>
+					</center>
+					<br> <br>
+					<div class="input-group" style="width: 70%; margin: 0 auto;">
+
 						<div class="input-group-prepend">
-							<div class="input-group-text" style="backbackground: red ;">
+							<div class="input-group-text" style="backbackground: red;">
 								<i class="material-icons">search</i>
 							</div>
 						</div>
-						<input type="text" class="form-control"
-							placeholder="Search ..." id=""
-							name="date_debut_reservation" required="true" >
-					</div>	
+						<input type="text" class="form-control" placeholder="Search ..."
+							id="" name="date_debut_reservation" required="true">
+					</div>
 					<center>
-					
-			<br> 
-				<button type="submit" class="btn btn-success"><i class="material-icons">search</i> &nbsp Chercher</button>
-			</center>
-			</form>
-			
-			<form method="post" action="ChercherOffreByDate.ma">
-			<hr>
-			<br>
-			<center><h4 class="card-title" style="color : #760B39; "><strong>Recherche par date de disponibilité</strong></h4></center>
-			<br>
-			<center>
-  <div class="row" style="width: 80%;">
-    <div class="col">
-      <div class="input-group">
-						<div class="input-group-prepend">
-							<div class="input-group-text">
-								<i class="material-icons">date_range</i> &nbsp Date début :
+						<br>
+						<button type="submit" class="btn btn-success">
+							<i class="material-icons">search</i> &nbsp Chercher
+						</button>
+					</center>
+				</form>
+				<form method="post" action="ChercherOffreByDate.ma">
+					<hr>
+					<br>
+					<center>
+						<h4 class="card-title" style="color: #760B39;">
+							<strong>Recherche par date de disponibilité</strong>
+						</h4>
+					</center>
+					<br>
+					<center>
+						<div class="row" style="width: 80%;">
+							<div class="col">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<div class="input-group-text">
+											<i class="material-icons">date_range</i> &nbsp Date début :
+										</div>
+									</div>
+									<input type="date" class="form-control"
+										placeholder="First Name..." id="date_debut_reservation"
+										name="date_debut_reservation" required="true">
+								</div>
+							</div>
+							<div class="col">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<div class="input-group-text">
+											<i class="material-icons">date_range</i> &nbsp Date fin :
+										</div>
+									</div>
+									<input type="date" class="form-control"
+										placeholder="First Name..." id="date_debut_reservation"
+										name="date_debut_reservation" required="true">
+								</div>
 							</div>
 						</div>
-						<input type="date" class="form-control"
-							placeholder="First Name..." id="date_debut_reservation"
-							name="date_debut_reservation" required="true">
-					</div>
-    </div>
-    <div class="col">
-     <div class="input-group">
-						<div class="input-group-prepend">
-							<div class="input-group-text">
-								<i class="material-icons">date_range</i> &nbsp Date fin :
-							</div>
-						</div>
-						<input type="date" class="form-control"
-							placeholder="First Name..." id="date_debut_reservation"
-							name="date_debut_reservation" required="true">
-					</div>
-    </div>
-  </div><br> 
-				<button type="submit" class="btn btn-success"><i class="material-icons">search</i> &nbsp Chercher</button>
-			
-  </center>
-  
-</form>
-			
+						<br>
+						<button type="submit" class="btn btn-success">
+							<i class="material-icons">search</i> &nbsp Chercher
+						</button>
+					</center>
+				</form>
+			</div>
 		</div>
-	</div>
-	<br><br><br>
+		<br>
+		<br>
+		<br>
 		<footer class="ftco-footer ftco-section">
 		<div class="container">
 			<div class="row mb-5">
