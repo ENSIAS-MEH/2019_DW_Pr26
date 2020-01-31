@@ -71,10 +71,14 @@
 		<div class="card-body">
 			<center><h4 class="card-title" style="color : #760B39; "><strong>Recherche multicritères et critères spécifiques</strong></h4></center>
 			<br>
-			<div style="display:table ; width:100%;">
+			
 			<form class="form" method="post" action="saveDemandeReservation.ma"
 				style="width: 70%; margin: 0 auto;">
-				  <div class="form-check form-check-inline">
+				<center>
+				<table style="width: 100%; margin: 0 auto; ">
+				<tr>
+				<td>
+				  <div class="form-check form-check-inline" style="">
   <label class="form-check-label">
     <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> Ville
     <span class="form-check-sign">
@@ -82,8 +86,9 @@
     </span>
   </label>
 </div>
-
-<div class="form-check form-check-inline">
+</td>
+<td>
+<div class="form-check form-check-inline" >
   <label class="form-check-label">
     <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> Pays
     <span class="form-check-sign">
@@ -91,16 +96,22 @@
     </span>
   </label>
 </div>
-
-<div class="form-check form-check-inline">
+</td>
+<td>
+<div class="form-check form-check-inline" style="">
   <label class="form-check-label">
     <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> Nombre chambre  
     <span class="form-check-sign">
         <span class="check"></span>
     </span>
   </label>
+  
 </div>
-</div>
+</td>
+</tr>
+
+</table>
+</center>
 <br><br>
 <center>
 <div class="form-check form-check-radio form-check-inline">
