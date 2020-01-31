@@ -67,12 +67,75 @@
 		<div class="card card-nav-tabs" style="width: 85%; margin: 0 auto;">
 		<div class="card-header card-header-success">Demande de
 			réservation</div>
+			<br>
 		<div class="card-body">
-			<h4 class="card-title">veuillez renseigner une date valide</h4>
+			<center><h4 class="card-title" style="color : #760B39; "><strong>Recherche multicritères et critères spécifiques</strong></h4></center>
+			<br>
+			<div style="display:table ; width:100%;">
 			<form class="form" method="post" action="saveDemandeReservation.ma"
 				style="width: 70%; margin: 0 auto;">
-				<div class="form-group bmd-form-group">
-					<div class="input-group">
+				  <div class="form-check form-check-inline">
+  <label class="form-check-label">
+    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> Ville
+    <span class="form-check-sign">
+        <span class="check"></span>
+    </span>
+  </label>
+</div>
+
+<div class="form-check form-check-inline">
+  <label class="form-check-label">
+    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> Pays
+    <span class="form-check-sign">
+        <span class="check"></span>
+    </span>
+  </label>
+</div>
+
+<div class="form-check form-check-inline">
+  <label class="form-check-label">
+    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> Nombre chambre  
+    <span class="form-check-sign">
+        <span class="check"></span>
+    </span>
+  </label>
+</div>
+</div>
+<br><br>
+<center>
+<div class="form-check form-check-radio form-check-inline">
+  <label class="form-check-label">
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Vente
+    <span class="circle">
+        <span class="check"></span>
+    </span>
+  </label>
+</div>
+<div class="form-check form-check-radio form-check-inline">
+  <label class="form-check-label">
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Location
+    <span class="circle">
+        <span class="check"></span>
+    </span>
+  </label>
+</div>
+</center>
+
+
+					<center>
+					
+			<br> <br>
+				<input href="#0" type="submit" class="btn btn-success" onclick="return validationFormFromSubmit();" value="Valider Réservation"/>
+			</center>
+			</form>
+			
+			<form>
+			<hr>
+			<center><h4 class="card-title" style="color : #760B39; "><strong>Recherche par date de disponibilité</strong></h4></center>
+			<br>
+  <div class="row">
+    <div class="col">
+      <div class="input-group">
 						<div class="input-group-prepend">
 							<div class="input-group-text">
 								<i class="material-icons">date_range</i> &nbsp Date début
@@ -83,30 +146,22 @@
 							placeholder="First Name..." id="date_debut_reservation"
 							name="date_debut_reservation" required="true">
 					</div>
-				</div>
-				  <div class="form-check form-check-inline">
-  <label class="form-check-label">
-    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> 1
-    <span class="form-check-sign">
-        <span class="check"></span>
-    </span>
-  </label>
-</div>
-
-<div class="form-check form-check-inline">
-  <label class="form-check-label">
-    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> 2
-    <span class="form-check-sign">
-        <span class="check"></span>
-    </span>
-  </label>
-</div>
-					<center>
-					
-			<br> <br>
-				<input href="#0" type="submit" class="btn btn-success" onclick="return validationFormFromSubmit();" value="Valider Réservation"/>
-			</center>
-			</form>
+    </div>
+    <div class="col">
+     <div class="input-group">
+						<div class="input-group-prepend">
+							<div class="input-group-text">
+								<i class="material-icons">date_range</i> &nbsp Date début
+								réservation :
+							</div>
+						</div>
+						<input type="date" class="form-control"
+							placeholder="First Name..." id="date_debut_reservation"
+							name="date_debut_reservation" required="true">
+					</div>
+    </div>
+  </div>
+</form>
 			
 		</div>
 	</div>
