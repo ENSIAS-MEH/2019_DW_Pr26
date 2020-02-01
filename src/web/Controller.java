@@ -272,10 +272,12 @@ public class Controller extends HttpServlet {
 				views = "ListVendeur";
 			} else
 				views = "/404";
-
 		} else if (action.equals("getAllOffres")) {
+			if (session.getAttribute("account_type") != null && session.getAttribute("account_type").equals("client")) {
 			request.setAttribute("listeOffres", offreAction.getOffresActifs());
+			request.setAttribute("active2", "active");
 			views = "AllOffresClients";
+			}else views = "/404";
 		} else if (action.equals("AccueilAdmin")) {
 			if (session.getAttribute("account_type").equals("admin")) {
 				request.setAttribute("type", "acceuilAdmin");
@@ -324,11 +326,13 @@ public class Controller extends HttpServlet {
 			views = "ReservationOffreClient";
 			request.setAttribute("proprietaire", vendeurAction.getVendeurById(offre.getId_hote()));
 		} else if (action.equals("ListDemandeClient")) {
+			if (session.getAttribute("account_type") != null && session.getAttribute("account_type").equals("client")) {
 			request.setAttribute("listeDemande",
 					demandeLocationAction.getListDemandeLocationByIdClient((int) session.getAttribute("id")));
 			request.setAttribute("listeDemandeAchat",
 					demandeAchatAction.getListDemandeAchatByIdClient((int) session.getAttribute("id")));
-			views = "ListDemandeClient";
+			request.setAttribute("active3", "active");
+			views = "ListDemandeClient";}else views = "/404"; 
 		} else if (action.equals("SupprimerDemande")) {
 			demandeLocationAction.deleteDemande(Integer.parseInt(request.getParameter("id")));
 			request.setAttribute("listeDemande",
@@ -368,10 +372,12 @@ public class Controller extends HttpServlet {
 		} else if(action.equals("contactByClient")){
 			views ="ContactClient"; 
 		}else if(action.equals("accueilClient")){
-			views = "AcceuilClientAfterConnexion";
+			if(session.getAttribute("account_type") != null && session.getAttribute("account_type").equals("client")){
+			request.setAttribute("listeOffres", offreAction.getOffresActifs());
+			request.setAttribute("active1", "active");
+			views = "AcceuilClientAfterConnexion";}else views = "/404"; 
 		}else
 			views = "/404";
-
 		request.getRequestDispatcher(views + ".jsp").forward(request, response);
 	}
 
@@ -408,6 +414,8 @@ public class Controller extends HttpServlet {
 			views = "ResultatCreationClient";
 		} else if (action.equals("ConnexionClient")) {
 			if (clientAction.connexionClient(request, session)) {
+				request.setAttribute("listeOffres", offreAction.getOffresActifs());
+				request.setAttribute("active1", "active");
 				views = "AcceuilClientAfterConnexion";
 			} else {
 				request.setAttribute("messageError", "Mot de passe ou Username est Incorrect");

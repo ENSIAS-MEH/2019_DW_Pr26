@@ -37,25 +37,17 @@
 			</div>
 			<div class="sidebar-wrapper">
 				<ul class="nav">
-					<li class="nav-item active"><a class="nav-link"
+					<li class="nav-item ${active1 }"><a class="nav-link"
 						href="accueilClient.ma"> <i class="material-icons">home</i>
 							<p>Acceuil</p>
 					</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="AcceuilVendeur.ma"> <i class="material-icons">dashboard</i>
-							<p>Dashboard</p>
-					</a></li>
-					<li class="nav-item "><a class="nav-link" href="getAllOffres.ma">
+					<li class="nav-item ${active2 }"><a class="nav-link" href="getAllOffres.ma">
 							<i class="material-icons">local_offer</i>
 							<p>Toutes les offres</p>
 					</a></li>
-					<li class="nav-item "><a class="nav-link" href="./tables.html">
-							<i class="material-icons">location_city</i>
-							<p>Offres Par Ville</p>
-					</a></li>
-					<li class="nav-item "><a class="nav-link"
+					<li class="nav-item ${active3 }"><a class="nav-link"
 						href="ListDemandeClient.ma"> <i class="material-icons">format_indent_increase</i>
-							<p>Mes demandes de réservations</p>
+							<p>Mes demandes</p>
 					</a></li>
 					<li class="nav-item "><a class="nav-link" href="ListReservationClient.ma">
 							<i class="material-icons">format_indent_decrease</i>
