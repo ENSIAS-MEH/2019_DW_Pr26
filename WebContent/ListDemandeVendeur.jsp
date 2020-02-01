@@ -92,15 +92,18 @@
 										<td>${demandeL.getDate_debut() }</td>
 										<td>${demandeL.getNb_nuit() }</td>
 										<td>${demandeL.getDate_fin() }</td>
+									<td>
 										<c:if test="${demandeL.getStatut()  == 'En attente'}">
-										<td><button class="btn btn-info btn-sm">${demandeL.getStatut() }</button></td>
+										<button class="btn btn-info btn-sm">${demandeL.getStatut() }</button><
 										</c:if>
-										<c:if test="${demande.getStatut()  == 'Acceptée'}">
-										<td><button class="btn btn-success btn-sm">${demandeL.getStatut() }</button></td>
+										<c:if test="${demandeL.getStatut()  == 'Acceptée'}">
+										<button class="btn btn-success btn-sm">${demandeL.getStatut() }</button>
 										</c:if>
-										<c:if test="${demande.getStatut()  == 'Non acceptée'}">
-										<td><button class="btn btn-danger btn-sm">${demandeL.getStatut() }</button></td>
+										<c:if test="${demandeL.getStatut()  == 'Non acceptée'}">
+										<button class="btn btn-danger btn-sm">${demandeL.getStatut() }</button>
 										</c:if>
+									
+										</td>
 										<td><a
 											href="getDetailsOffre.ma?id=${demandeL.getId_demandeur() }"
 											class="btn-circle btn-sm" title="Voir client"
@@ -115,7 +118,7 @@
 										<td>
 											<a href="ModifierDemandeLocation.ma?id=${demandeL.getId()}&id_client=${demandeL.getId_demandeur()}&id_offre=${demandeL.getId_offre()}"	class="  btn-circle  btn-sm" title="Mettre à jour" style="color : blue; "> <i
 													class="fas fa-sync"></i></a> <a
-											href="SupprimerDemande.ma?id=${demandeL.getId()}"
+											href="SupprimerDemandeLocationByVendeur.ma?id=${demandeL.getId()}"
 											class="  btn-circle btn-sm" title="Supprimer"
 											onclick="return confirm('Voulez vous vraiment supprimer cette demande');"
 											style="color: red;"><i class="fas fa-trash"></i></a>
@@ -153,16 +156,17 @@
 									<tr>
 										<td>${demande.getId() }</td>
 										<td>${demande.getDateDemande() }</td>
-										
+										<td>
 										<c:if test="${demande.getStatut()  == 'En attente'}">
-										<td><button class="btn btn-info btn-sm">${demande.getStatut() }</button></td>
+										<button class="btn btn-info btn-sm">${demande.getStatut() }</button><
 										</c:if>
 										<c:if test="${demande.getStatut()  == 'Acceptée'}">
-										<td><button class="btn btn-success btn-sm">${demande.getStatut() }</button></td>
+										<button class="btn btn-success btn-sm">${demande.getStatut() }</button>
 										</c:if>
 										<c:if test="${demande.getStatut()  == 'Non acceptée'}">
-										<td><button class="btn btn-danger btn-sm">${demande.getStatut() }</button></td>
+										<button class="btn btn-danger btn-sm">${demande.getStatut() }</button>
 										</c:if>
+										</td>
 										<td><a
 											href="getDetailsOffre.ma?id=${demande.getId_demandeur() }"
 											class="btn-circle btn-sm" title="Voir client"
@@ -177,7 +181,7 @@
 										<td>
 											<a href="ModifierDemandeAchat.ma?id=${demande.getId()}&id_client=${demande.getId_demandeur()}&id_offre=${demande.getId_offre()}"	class="  btn-circle  btn-sm" title="Mettre à jour" style="color : blue; "> <i
 													class="fas fa-sync"></i></a> <a
-											href="SupprimerDemande.ma?id=${demande.getId()}"
+											href="SupprimerDemandeAchatByVendeur.ma?id=${demande.getId()}"
 											class="  btn-circle btn-sm" title="Supprimer"
 											onclick="return confirm('Voulez vous vraiment supprimer cette demande');"
 											style="color: red;"><i class="fas fa-trash"></i></a>

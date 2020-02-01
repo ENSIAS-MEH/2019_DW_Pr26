@@ -198,8 +198,9 @@
 			</div>
 
 		</div>
-		<div class="row">
+		<div class="row text-center">
 			<div class="col-md-3"></div>
+			<c:if test="${demande.getStatut()  != 'Acceptée'}">
 			<div class="col-md-3">
 				<table border="0" cellpadding="0" cellspacing="0"
 					role="presentation"
@@ -221,7 +222,8 @@
 					</tr>
 				</table>
 			</div>
-
+			</c:if>
+<c:if test="${demande.getStatut()  != 'Non acceptée'}">
 			<div class="col-md-3">
 				<table border="0" cellpadding="0" cellspacing="0"
 					role="presentation"
@@ -229,10 +231,10 @@
 					<tr>
 
 						<td align="center" bgcolor="#32CD32" role="presentation"
-							style="border: 2px solid #32CD32; border-radius: 5px; cursor: auto; padding: 10px 25px; background: #77CD32;"
+							style="border: 2px solid red; border-radius: 5px; cursor: auto; padding: 10px 25px; background: red;"
 							valign="middle"><a
-							href="RefusezDemandeClient.ma?id_demande=${demande.getId() }&type='${type }'"
-							style="background: #77CD32; color: #000; font-family: Arial, Helvetical, sans-serif; font-size: 14px; font-weight: normal; line-height: 120%; Margin: 0; text-decoration: none; text-transform: uppercase;"
+							href="RefusezDemandeClient.ma?id_demande=${demande.getId() }&type=${type }"
+							style="background: red; color: #000; font-family: Arial, Helvetical, sans-serif; font-size: 14px; font-weight: normal; line-height: 120%; Margin: 0; text-decoration: none; text-transform: uppercase;"
 							onclick="return confirm('Voulez vous vraiment refusée cette demande de réservation')">
 								<strong>Refusé la demande</strong>
 						</a></td>
@@ -240,11 +242,11 @@
 					</tr>
 				</table>
 			</div>
+			</c:if>
 		</div>
 
 
 	</div>
-
 	<footer class="ftco-footer ftco-section">
 	<div class="container">
 		<div class="row mb-5">

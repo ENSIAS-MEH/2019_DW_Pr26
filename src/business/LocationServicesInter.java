@@ -85,6 +85,10 @@ public void accepteDemandeAchat(int id);
 
 public void accepteDemandeLocation(int id);
 
+public void refuseDemandeAchat(int id);
+
+public void refuseDemandeLocation(int id);
+
 	
 	
 

@@ -84,4 +84,9 @@ public ArrayList<DemandeLocation> getListReservationLocationByIdVendeur(int id )
 		locationServices.accepteDemandeLocation(id);
 		
 	}
+
+	public void refuseDemandeLocation(int id) {
+		locationServices.refuseDemandeLocation(id);
+		
+	}
 }

@@ -73,6 +73,10 @@ public void accepteDemandeAchat(int id) {
 	locationServices.accepteDemandeAchat(id);
 	
 }
+public void refuseDemandeAchat(int id) {
+	locationServices.refuseDemandeAchat(id);
+	
+}
 
 	
 }

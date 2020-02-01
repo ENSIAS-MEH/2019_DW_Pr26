@@ -207,6 +207,18 @@ public ArrayList<DemandeLocation> getListReservationLocationByIdVendeur(int id )
 		locationepositoryImpl.accepteDemandeLocation(id);
 		
 	}
+
+	@Override
+	public void refuseDemandeAchat(int id) {
+		locationepositoryImpl.refuseDemandeAchat(id);
+		
+	}
+
+	@Override
+	public void refuseDemandeLocation(int id) {
+		locationepositoryImpl.refuseDemandeLocation(id);
+		
+	}
 	
 
 }

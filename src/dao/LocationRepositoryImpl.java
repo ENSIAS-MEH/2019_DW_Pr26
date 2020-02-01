@@ -1045,6 +1045,42 @@ public ArrayList<DemandeLocation> getListReservationLocationByIdVendeur(int id )
 		
 		
 	}
+
+	@Override
+	public void refuseDemandeAchat(int id) {
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			
+			PreparedStatement ps = connection.prepareStatement(
+					"Update demandeachat set statut = 'Non acceptée' where id = "+id);
+			
+			ps.executeUpdate();
+			ps.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+	@Override
+	public void refuseDemandeLocation(int id) {
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			
+			PreparedStatement ps = connection.prepareStatement(
+					"Update demandelocation set statut = 'Non acceptée' where id = "+id);
+			
+			ps.executeUpdate();
+			ps.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 	
 	
 
