@@ -65,10 +65,10 @@
 <body>
 	<p></p>
 	<c:if test="${sessionScope.account_type == 'client'}">
-		<c:import url="../navbar/NavbarClient.jsp" />
+		<c:import url="navbar/NavbarClient.jsp" />
 	</c:if>
 	<c:if test="${sessionScope.account_type == 'vendeur'}">
-		<c:import url="../navbar/NavbarVendeur.jsp" />
+		<c:import url="navbar/NavbarVendeur.jsp" />
 	</c:if>
 
 	<div class="content card" style="width: 98%; margin: 0 auto;">
@@ -77,21 +77,12 @@
 				<div class="col-sm-7 col-sm-offset-3 ">
 					<div class="card">
 						<div class="card-body" style="font-size: 20px;">
-							<strong style="color: #B22222">Détail offre</strong>
+							<strong style="color: #B22222">Détail Demande</strong>
 						</div>
 					</div>
 					<br />
 
-					<div id="gallery">
-						<img alt="Preview Image 1"
-							src="data:image/jpg;base64,${offre.base64Image}"
-							data-image="data:image/jpg;base64,${offre.base64Image}"
-							data-description="Preview Image 1 Description"> <img
-							alt="Preview Image 1"
-							src="data:image/jpg;base64,${offre.base64Image}"
-							data-image="data:image/jpg;base64,${offre.base64Image}"
-							data-description="Preview Image 1 Description">
-					</div>
+					
 				</div>
 			</center>
 		</div>
@@ -113,83 +104,54 @@
 		</center>
 		<br>
 		<div class="row">
-			<div class="col-md-6">
+		<div class="col-md-3">
+</div>
+			
+
+			
+			
+		</div>
+
+		<div class="row">
+<div class="col-md-6">
 				<div class="card">
-					<div class="card-header card-header-icon card-header-rose">
-						<div class="card-icon">
-							<h4>
-								<i class="material-icons">date_range</i> Date disponibilité
+					<div class="card-header card-header-text card-header-primary">
+						<div class="card-text">
+							<h4 class="card-title">
+								<i class="material-icons">wb_iridescent</i>Info Demande
 							</h4>
 						</div>
 					</div>
 
 					<div class="card-body" style="margin: 0 auto;">
+					<c:if test="${type == 'location'}">
 						<div class="input-group input-daterange">
 
-							<input type="date" value="${offre.getDate_debut()}"
+							<input type="date" value="${demande.getDate_debut()}"
 								readonly="readonly">
 							<div class="input-group-addon"
 								style="font-size: 25px; color: red;">
 								<strong><i class="material-icons">arrow_right_alt</i> </strong>
 							</div>
-							<input type="date" value="${offre.getDate_fin() }"
+							<input type="date" value="${demande.getDate_fin() }"
 								readonly="readonly">
 						</div>
+						</c:if>
+						<h4 class="card-title">
+							<strong>Date demande : </strong> ${demande.getDateDemande() }
+							
+						</h4>
+						<c:if test="${type == 'location'}">
+						<h4 class="card-title">
+							<strong>Nombre de nuit : </strong> ${demande.getNb_nuit() }
+							
+						</h4>
+						</c:if>
+						
 					</div>
 				</div>
 			</div>
-
-			<div class="col-md-6">
-				<div class="card">
-					<div class="card-header card-header-text card-header-primary">
-						<div class="card-text">
-							<h4 class="card-title">
-								<i class="material-icons">wb_iridescent</i>Info offre
-							</h4>
-						</div>
-					</div>
-					<div class="card-body" style="margin: 0 auto;">
-						<h4 class="card-title">
-							<strong> Nombre Personne : </strong> ${offre.getNombre_personne() }
-							<span class="flaticon-bed"></span>
-						</h4>
-						<h4 class="card-title">
-							<strong> Nombre Chambre : </strong> ${offre.getNb_chambre() } <span
-								class="flaticon-floor-plan"></span>
-						</h4>
-						<h4 class="card-title">
-							<strong> Nombre salle de bain : </strong> ${offre.getSalle_bain() }
-							<span class="flaticon-bathtub"></span>
-						</h4>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="row">
-
-			<div class="col-md-6">
-				<div class="card">
-					<div class="card-header card-header-text card-header-primary">
-						<div class="card-text">
-							<h4 class="card-title">
-								<i class="material-icons">near_me</i>Localisation
-							</h4>
-						</div>
-					</div>
-					<div class="card-body">
-						<h4>
-							Pays : <strong>${offre.getPays() }</strong>
-						</h4>
-						<h4>
-							Ville : <strong>${offre.getVille() }</strong>
-						</h4>
-						<h4>
-							Adresse : <strong>${offre.getAdresse() }</strong>
-						</h4>
-					</div>
-				</div>
-			</div>
+			
 
 			<div class="col-md-6">
 				<div class="card">
@@ -197,7 +159,7 @@
 						<div class="card-text">
 							<h4 class="card-title">
 								<i class="material-icons">account_circle</i>
-								Info Propriétaire
+								Info Client/Demandeur
 							</h4>
 						</div>
 					</div>
@@ -205,141 +167,25 @@
 						
 					<div class="card-body">
 						<h4>
-							Nom : <strong>${proprietaire.getNom() }</strong>
+							Nom : <strong>${client.getNom() }</strong>
 						</h4>
 						<h4>
-							Prenom : <strong>${proprietaire.getPrenom() }</strong>
+							Prenom : <strong>${client.getPrenom() }</strong>
 						</h4>
 						<h4>
-							Numéro téléphone : <strong>${proprietaire.getNum_telephone() }</strong>
+							Numéro téléphone : <strong>${client.getNum_telephone() }</strong>
 						</h4>
 						<h4>
-							Email : <strong>${proprietaire.getEmail() }</strong>
+							Email : <strong>${client.getEmail() }</strong>
 						</h4>
 					</div>
 				</div>
 			</div>
+						
 		</div>
 
-		<div class="card" style="width: 80%; margin: 0 auto;">
-			<div class="card-body">
-				<h6 class="card-category text-success">
-					<strong> <i class="material-icons">wb_incandescent</i>
-						Description
-					</strong>
-				</h6>
-				<h4 class="card-title">
-					<a href="#">${offre.getDescription() }</a>
-				</h4>
-			</div>
-		</div>
-		<div
-			style="background: #FFFFFF; background-color: #FFFFFF; Margin: 0px auto; max-width: 600px;">
-			<table align="center" border="0" cellpadding="0" cellspacing="0"
-				role="presentation"
-				style="background: #FFFFFF; background-color: #FFFFFF; width: 100%;">
-				<tbody>
-					<tr>
-						<td
-							style="direction: ltr; font-size: 0px; padding: 20px 0; text-align: center; vertical-align: middle; background: #FFFFFF; background-color: #FFFFFF;">
-							<div class="mj-column-per-25 outlook-group-fix"
-								style="font-size: 13px; text-align: left; direction: ltr; display: inline-block; vertical-align: middle; width: 100%; background: #FFFFFF; background-color: #FFFFFF;">
-								<table border="0" cellpadding="0" cellspacing="0"
-									role="presentation" style="vertical-align: middle;"
-									width="100%">
-								</table>
-							</div>
-							<div class="mj-column-per-50 outlook-group-fix"
-								style="font-size: 13px; text-align: left; direction: ltr; display: inline-block; vertical-align: middle; width: 100%;">
-								<table border="0" cellpadding="0" cellspacing="0"
-									role="presentation" width="100%">
-									<tbody>
-										<tr>
-											<td style="vertical-align: middle; padding-bottom: 0px;">
-												<table border="0" cellpadding="0" cellspacing="0"
-													role="presentation" style="" width="100%">
-													<tr>
-														<td align="center"
-															style="font-size: 0px; padding: 10px 25px; word-break: break-word;">
-
-															<c:if test="${offre.getType() == 'Location' }">
-																<div
-																	style="font-family: Arial, Helvetical, sans-serif; font-size: 13px; font-weight: bold; line-height: 110%; text-align: center; color: #000000;">Prix
-																	Total / Nuit</div>
-															</c:if> <c:if test="${offre.getType() == 'Vente' }">
-																<div
-																	style="font-family: Arial, Helvetical, sans-serif; font-size: 13px; font-weight: bold; line-height: 110%; text-align: center; color: #000000;">Prix
-																	Total de Vente</div>
-															</c:if>
-														</td>
-													</tr>
-													<tr>
-														<td align="center" vertical-align="middle"
-															style="font-size: 0px; padding: 10px 25px; padding-top: 0px; padding-bottom: 10px; word-break: break-word;">
-															<table cellpadding="0" cellspacing="0" width="100%"
-																border="0"
-																style="cellspacing: 0; color: #32CD32; font-family: Arial, Helvetical, sans-serif; font-size: 13px; line-height: 110%; table-layout: auto; width: 100%;">
-																<tr>
-																	<td align="center" width="60%">
-																		<p
-																			style="font-size: 65px; font-weight: bold; color: #32CD32; letter-spacing: -2px; line-height: 110%;">${offre.getPrix() }
-																			<sup
-																				style="font-size: 30px; color: #32CD32; line-height: 110%;"
-																				padding-top="0px">${offre.getDevise() }</sup>
-																		</p>
-																	</td>
-																</tr>
-															</table>
-														</td>
-													</tr>
-													<tr>
-														<td align="center" vertical-align="middle"
-															style="font-size: 0px; padding: 10px 25px; word-break: break-word;">
-															<table border="0" cellpadding="0" cellspacing="0"
-																role="presentation"
-																style="border-collapse: separate; width: 200px; line-height: 100%;">
-																<tr>
-																<c:if test="${offre.getType() == 'Location' }">
-																<td align="center" bgcolor="#32CD32"
-																		role="presentation"
-																		style="border: 2px solid #32CD32; border-radius: 5px; cursor: auto; padding: 10px 25px; background: #32CD32;"
-																		valign="middle"><a href="ReservezOffreClient.ma?id=${offre.getId() }"
-																		style="background: #32CD32; color: #000; font-family: Arial, Helvetical, sans-serif; font-size: 14px; font-weight: normal; line-height: 120%; Margin: 0; text-decoration: none; text-transform: uppercase;"
-																		target="_blank" onclick="return confirm('Voulez vous vraiment envoyez une demande de réservation')">															
-																		<strong>Réservez</strong>
-																		</a></td>
-															</c:if> <c:if test="${offre.getType() == 'Vente' }">
-																<td align="center" bgcolor="#32CD32"
-																		role="presentation"
-																		style="border: 2px solid #32CD32; border-radius: 5px; cursor: auto; padding: 10px 25px; background: #32CD32;"
-																		valign="middle"><a href="DemandeAchatClient.ma?id_offre=${offre.getId() }&id_vendeur=${proprietaire.getId() }"
-																		style="background: #32CD32; color: #000; font-family: Arial, Helvetical, sans-serif; font-size: 14px; font-weight: normal; line-height: 120%; Margin: 0; text-decoration: none; text-transform: uppercase;"
-																		onclick="return confirm('Voulez vous vraiment envoyez une demande d'achat')">															
-																		<strong>Demande d'achat</strong>
-																		</a></td>
-															</c:if>		
-																</tr>
-															</table>
-														</td>
-													</tr>
-												</table>
-											</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-							<div class="mj-column-per-25 outlook-group-fix"
-								style="font-size: 13px; text-align: left; direction: ltr; display: inline-block; vertical-align: middle; width: 100%;">
-								<table border="0" cellpadding="0" cellspacing="0"
-									role="presentation" style="vertical-align: middle;"
-									width="100%">
-								</table>
-							</div>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
+		
+		
 	</div>
 	
 	<footer class="ftco-footer ftco-section">

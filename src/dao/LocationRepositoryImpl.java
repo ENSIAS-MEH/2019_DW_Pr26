@@ -781,6 +781,7 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 				demandeAchat.setDateDemande(rs.getString("date_demande"));
 				demandeAchat.setStatut(rs.getString("statut"));
 				listeDemandeAchat.add(demandeAchat);
+				System.out.println(demandeAchat.toString());
 			}
 			ps.close();
 		} catch (SQLException e) {
@@ -949,6 +950,32 @@ public ArrayList<DemandeLocation> getListReservationLocationByIdVendeur(int id )
 		}
 
 		return listeDemandeLocation;
+	}
+
+	@Override
+	public DemandeAchat getDemandeAchatById(int id) {
+		
+		Connection connection = mangementDataBase.connexionDataBase();
+		DemandeAchat demandeAchat = new DemandeAchat();
+		try {
+			PreparedStatement ps = connection.prepareStatement("SELECT * FROM demandelocation where id=" +id);
+			ResultSet rs = ps.executeQuery();
+			
+			if (rs.next()) {
+				
+				demandeAchat.setId(rs.getInt("id"));
+				demandeAchat.setId_vendeur(rs.getInt("id_vendeur"));
+				demandeAchat.setId_demandeur(rs.getInt("id_demandeur"));
+				demandeAchat.setId_offre(rs.getInt("id_offre"));
+				demandeAchat.setDateDemande(rs.getString("date_demande"));
+				demandeAchat.setStatut(rs.getString("statut"));
+				
+			ps.close();
+		}} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return demandeAchat;
 	}
 	
 
