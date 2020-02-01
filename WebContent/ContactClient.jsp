@@ -52,16 +52,6 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet">
-<style>
-table {
-	margin: 0 auto;
-}
-
-td {
-	text-align: center;
-	width: 200px;
-}
-</style>
 </head>
 
 <body>
@@ -70,149 +60,82 @@ td {
 	</c:if>
 
 	<div class="content card" style="width: 98%; margin: 0 auto;">
-		<br> <br> <br> <br> <br>
-		<div class="card card-nav-tabs" style="width: 85%; margin: 0 auto;">
-			<div class="card-header card-header-success">Demande de
-				réservation</div>
-			<br>
+		<div class="card" style="width: 60%; margin: 0 auto;">
 			<div class="card-body">
-				<center>
-					<h4 class="card-title" style="color: #760B39;">
-						<strong>Recherche multicritères et critères spécifiques</strong>
-					</h4>
+				<center class="font-weight-bold">
+					<strong>${message}</strong>
 				</center>
-				<br>
-
-				<form class="form" method="post" action="ChercherOffreByOption.ma"
-					style="width: 70%; margin: 0 auto;">
-					<center>
-						<table style="width: 100%; margin: 0 auto;">
-							<tr>
-								<td>
-									<div class="form-check form-check-inline" style="">
-										<label class="form-check-label"
-											style="color: black; font-size: 15px;"> <input
-											class="form-check-input" type="checkbox" id="inlineCheckbox1"
-											value="option1" name="ville"> Ville <span
-											class="form-check-sign"> <span class="check"></span>
-										</span>
-										</label>
-									</div>
-								</td>
-								<td>
-									<div class="form-check form-check-inline">
-										<label class="form-check-label"
-											style="color: black; font-size: 15px;"> <input
-											class="form-check-input" type="checkbox" id="inlineCheckbox1"
-											value="option1" name="pays"> Pays <span
-											class="form-check-sign"> <span class="check"></span>
-										</span>
-										</label>
-									</div>
-								</td>
-								<td>
-									<div class="form-check form-check-inline" style="">
-										<label class="form-check-label"
-											style="color: black; font-size: 15px;"> <input
-											class="form-check-input" type="checkbox" id="inlineCheckbox1"
-											value="option1" name="nb_chambre"> Nombre chambre <span
-											class="form-check-sign"> <span class="check"></span>
-										</span>
-										</label>
-
-									</div>
-								</td>
-							</tr>
-						</table>
-					</center>
-					<br>
-					<center>
-						<div style="width: 30%;">
-							<div class="form-check form-check-radio form-check-inline"
-								style="float: right;">
-								<label class="form-check-label"
-									style="color: black; font-size: 15px;"> <input
-									class="form-check-input" type="radio" name="venteLocation"
-									id="inlineRadio1" value="vente"> Vente <span
-									class="circle"> <span class="check"></span>
-								</span>
-								</label>
-							</div>
-							<div class="form-check form-check-radio form-check-inline"
-								style="float: left;">
-								<label class="form-check-label"
-									style="color: black; font-size: 15px;"> <input
-									class="form-check-input" type="radio" name="venteLocation"
-									id="inlineRadio2" value="location"> Location <span
-									class="circle"> <span class="check"></span>
-								</span>
-								</label>
-							</div>
+			</div>
+		</div>
+<section class="ftco-section contact-section">
+	<div class="container">
+		<div class="row d-flex mb-5 contact-info justify-content-center">
+			<div class="col-md-8">
+				<div class="row mb-5">
+					<div class="col-md-4 text-center py-4">
+						<div class="icon">
+							<span class="icon-map-o"></span>
 						</div>
-					</center>
-					<br> <br>
-					<div class="input-group" style="width: 70%; margin: 0 auto;">
-
-						<div class="input-group-prepend">
-							<div class="input-group-text" style="backbackground: red;">
-								<i class="material-icons">search</i>
-							</div>
-						</div>
-						<input type="text" class="form-control" placeholder="Search ..."
-							id="" name="searchvalue" required="true">
+						<p>
+							<span>Address:</span> Ecole Nationale Supérieure d'informatique
+							et d'analyse des systèmes
+						</p>
 					</div>
-					<center>
-						<br>
-						<button type="submit" class="btn btn-success">
-							<i class="material-icons">search</i> &nbsp Chercher
-						</button>
-					</center>
-				</form>
-				<form method="post" action="ChercherOffreByDate.ma">
-					<hr>
-					<br>
-					<center>
-						<h4 class="card-title" style="color: #760B39;">
-							<strong>Recherche par date de disponibilité</strong>
-						</h4>
-					</center>
-					<br>
-					<center>
-						<div class="row" style="width: 80%;">
-							<div class="col">
-								<div class="input-group">
-									<div class="input-group-prepend">
-										<div class="input-group-text">
-											<i class="material-icons">date_range</i> &nbsp Date début :
-										</div>
-									</div>
-									<input type="date" class="form-control"
-										placeholder="First Name..." id="date_debut_search"
-										name="date_debut_search" required="true">
-								</div>
-							</div>
-							<div class="col">
-								<div class="input-group">
-									<div class="input-group-prepend">
-										<div class="input-group-text">
-											<i class="material-icons">date_range</i> &nbsp Date fin :
-										</div>
-									</div>
-									<input type="date" class="form-control"
-										placeholder="First Name..." id="date_fin_search"
-										name="date_fin_search" required="true">
-								</div>
-							</div>
+					<div class="col-md-4 text-center border-height py-4">
+						<div class="icon">
+							<span class="icon-mobile-phone"></span>
 						</div>
-						<br>
-						<button type="submit" class="btn btn-success">
-							<i class="material-icons">search</i> &nbsp Chercher
-						</button>
-					</center>
+						<p>
+							<span>Phone:</span> <a href="tel://1234567920">+ 212 6 55 68
+								12 </a>
+						</p>
+					</div>
+					<div class="col-md-4 text-center py-4">
+						<div class="icon">
+							<span class="icon-envelope-o"></span>
+						</div>
+						<p>
+							<span>Email:</span> <a href="mailto:info@yoursite.com">info@hireSale.com</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row block-9 justify-content-center mb-5">
+			<div class="col-md-8 mb-md-5">
+				<h2 class="text-center">
+					Si vous avez des questions <br>N'hésitez pas à nous envoyer un
+					message
+				</h2>
+				<form action="saveContact.ma" method="post"
+					class="bg-light p-5 contact-form">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Votre Nom"
+							name="nom" value="${sessionScope.nom }" hidden="hidden">
+					</div>
+					<div class="form-group">
+						<input type="email" class="form-control" placeholder="Votre Email"
+							name="email" value="${sessionScope.email }" hidden="hidden">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Sujet"
+							name="sujet">
+					</div>
+					<div class="form-group">
+						<textarea id="" cols="30" rows="7" class="form-control"
+							placeholder="Message" name="message"></textarea>
+					</div>
+					<div class="form-group">
+						<input type="submit" value="Envoyer message"
+							class="btn btn-primary py-3 px-5">
+					</div>
 				</form>
 			</div>
 		</div>
-		<br> <br> <br>
+	</div>
+	</section>
+
+	
 		<footer class="ftco-footer ftco-section">
 		<div class="container">
 			<div class="row mb-5">

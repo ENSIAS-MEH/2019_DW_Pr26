@@ -52,16 +52,6 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet">
-<style>
-table {
-	margin: 0 auto;
-}
-
-td {
-	text-align: center;
-	width: 200px;
-}
-</style>
 </head>
 
 <body>
@@ -70,149 +60,50 @@ td {
 	</c:if>
 
 	<div class="content card" style="width: 98%; margin: 0 auto;">
-		<br> <br> <br> <br> <br>
-		<div class="card card-nav-tabs" style="width: 85%; margin: 0 auto;">
-			<div class="card-header card-header-success">Demande de
-				réservation</div>
-			<br>
-			<div class="card-body">
-				<center>
-					<h4 class="card-title" style="color: #760B39;">
-						<strong>Recherche multicritères et critères spécifiques</strong>
-					</h4>
-				</center>
-				<br>
-
-				<form class="form" method="post" action="ChercherOffreByOption.ma"
-					style="width: 70%; margin: 0 auto;">
-					<center>
-						<table style="width: 100%; margin: 0 auto;">
-							<tr>
-								<td>
-									<div class="form-check form-check-inline" style="">
-										<label class="form-check-label"
-											style="color: black; font-size: 15px;"> <input
-											class="form-check-input" type="checkbox" id="inlineCheckbox1"
-											value="option1" name="ville"> Ville <span
-											class="form-check-sign"> <span class="check"></span>
-										</span>
-										</label>
-									</div>
-								</td>
-								<td>
-									<div class="form-check form-check-inline">
-										<label class="form-check-label"
-											style="color: black; font-size: 15px;"> <input
-											class="form-check-input" type="checkbox" id="inlineCheckbox1"
-											value="option1" name="pays"> Pays <span
-											class="form-check-sign"> <span class="check"></span>
-										</span>
-										</label>
-									</div>
-								</td>
-								<td>
-									<div class="form-check form-check-inline" style="">
-										<label class="form-check-label"
-											style="color: black; font-size: 15px;"> <input
-											class="form-check-input" type="checkbox" id="inlineCheckbox1"
-											value="option1" name="nb_chambre"> Nombre chambre <span
-											class="form-check-sign"> <span class="check"></span>
-										</span>
-										</label>
-
-									</div>
-								</td>
-							</tr>
-						</table>
-					</center>
-					<br>
-					<center>
-						<div style="width: 30%;">
-							<div class="form-check form-check-radio form-check-inline"
-								style="float: right;">
-								<label class="form-check-label"
-									style="color: black; font-size: 15px;"> <input
-									class="form-check-input" type="radio" name="venteLocation"
-									id="inlineRadio1" value="vente"> Vente <span
-									class="circle"> <span class="check"></span>
-								</span>
-								</label>
-							</div>
-							<div class="form-check form-check-radio form-check-inline"
-								style="float: left;">
-								<label class="form-check-label"
-									style="color: black; font-size: 15px;"> <input
-									class="form-check-input" type="radio" name="venteLocation"
-									id="inlineRadio2" value="location"> Location <span
-									class="circle"> <span class="check"></span>
-								</span>
-								</label>
+		<div class="card" style="width: 60%; margin: 0 auto;"></div>
+		<section class="ftco-section goto-here">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-12 heading-section text-center ftco-animate mb-5">
+					<span class="subheading">Ce que nous offrons</span>
+					<h2 class="mb-2">Offre exclusive pour vous</h2>
+				</div>
+			</div>
+			<div class="row">
+				<c:forEach items="${ listeOffres }" var="offre">
+					<div class="col-md-4">
+						<div class="property-wrap ftco-animate">
+							<a href="getDetailsOffre.ma?id=${offre.getId() }" class="img"
+								style="background-image: url(data:image/jpg;base64,${offre.base64Image})"></a>
+							<div class="text">
+								<p class="price">
+									<span class="old-price">${offre.getPrix() + 30}</span><span
+										class="orig-price">${offre.getPrix() }
+										${offre.getDevise() }<small>/nuit</small>
+									</span>
+								</p>
+								<ul class="property_list">
+									<li><span class="flaticon-bed"></span>${offre.getNombre_personne() }</li>
+									<li><span class="flaticon-bathtub"></span>${offre.getSalle_bain() }</li>
+								</ul>
+								<h3>
+									<a href="getDetailsOffre.ma?id=${offre.getId() }">${offre.getVille() },
+										${offre.getPays() }</a>
+								</h3>
+								<span class="location">${offre.getType() }</span> <a
+									href="getDetailsOffre.ma?id=${offre.getId() }"
+									class="d-flex align-items-center justify-content-center btn-custom">
+									<span class="ion-ios-link"></span>
+								</a>
 							</div>
 						</div>
-					</center>
-					<br> <br>
-					<div class="input-group" style="width: 70%; margin: 0 auto;">
-
-						<div class="input-group-prepend">
-							<div class="input-group-text" style="backbackground: red;">
-								<i class="material-icons">search</i>
-							</div>
-						</div>
-						<input type="text" class="form-control" placeholder="Search ..."
-							id="" name="searchvalue" required="true">
 					</div>
-					<center>
-						<br>
-						<button type="submit" class="btn btn-success">
-							<i class="material-icons">search</i> &nbsp Chercher
-						</button>
-					</center>
-				</form>
-				<form method="post" action="ChercherOffreByDate.ma">
-					<hr>
-					<br>
-					<center>
-						<h4 class="card-title" style="color: #760B39;">
-							<strong>Recherche par date de disponibilité</strong>
-						</h4>
-					</center>
-					<br>
-					<center>
-						<div class="row" style="width: 80%;">
-							<div class="col">
-								<div class="input-group">
-									<div class="input-group-prepend">
-										<div class="input-group-text">
-											<i class="material-icons">date_range</i> &nbsp Date début :
-										</div>
-									</div>
-									<input type="date" class="form-control"
-										placeholder="First Name..." id="date_debut_search"
-										name="date_debut_search" required="true">
-								</div>
-							</div>
-							<div class="col">
-								<div class="input-group">
-									<div class="input-group-prepend">
-										<div class="input-group-text">
-											<i class="material-icons">date_range</i> &nbsp Date fin :
-										</div>
-									</div>
-									<input type="date" class="form-control"
-										placeholder="First Name..." id="date_fin_search"
-										name="date_fin_search" required="true">
-								</div>
-							</div>
-						</div>
-						<br>
-						<button type="submit" class="btn btn-success">
-							<i class="material-icons">search</i> &nbsp Chercher
-						</button>
-					</center>
-				</form>
+				</c:forEach>
 			</div>
 		</div>
-		<br> <br> <br>
+		</section>
+
+
 		<footer class="ftco-footer ftco-section">
 		<div class="container">
 			<div class="row mb-5">
@@ -637,7 +528,6 @@ td {
 		$(document).ready(function() {
 			// Javascript method's body can be found in assets/js/demos.js
 			md.initDashboardPageCharts();
-
 		});
 	</script>
 
