@@ -59,7 +59,8 @@
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet">
 <!--  Jquery  -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -82,12 +83,11 @@
 					</div>
 					<br />
 
-					
+
 				</div>
 			</center>
 		</div>
-		<br>
-		<br>
+		<br> <br>
 		<center>
 			<div class="col-md-6">
 				<div class="card" style="margin: 0 auto;">
@@ -98,22 +98,34 @@
 						<h4 class="card-title">
 							<strong> Catégorie : </strong> ${offre.getCategorie() }
 						</h4>
+						<h4 class="card-title">
+							<strong>Statut demande : </strong>
+							<c:if test="${demande.getStatut()  == 'En attente'}">
+								<button class="btn btn-info btn-sm">${demande.getStatut() }</button>
+							</c:if>
+							<c:if test="${demande.getStatut()  == 'Acceptée'}">
+								<button class="btn btn-success btn-sm">${demande.getStatut() }</button>
+							</c:if>
+							<c:if test="${demande.getStatut()  == 'Non acceptée'}">
+								<button class="btn btn-danger btn-sm">${demande.getStatut() }</button>
+							</c:if>
+
+						</h4>
 					</div>
 				</div>
 			</div>
 		</center>
 		<br>
 		<div class="row">
-		<div class="col-md-3">
-</div>
-			
+			<div class="col-md-3"></div>
 
-			
-			
+
+
+
 		</div>
 
 		<div class="row">
-<div class="col-md-6">
+			<div class="col-md-6">
 				<div class="card">
 					<div class="card-header card-header-text card-header-primary">
 						<div class="card-text">
@@ -124,47 +136,50 @@
 					</div>
 
 					<div class="card-body" style="margin: 0 auto;">
-					<c:if test="${type == 'location'}">
-						<div class="input-group input-daterange">
+						<c:if test="${type == 'location'}">
+							<div class="input-group input-daterange">
 
-							<input type="date" value="${demande.getDate_debut()}"
-								readonly="readonly">
-							<div class="input-group-addon"
-								style="font-size: 25px; color: red;">
-								<strong><i class="material-icons">arrow_right_alt</i> </strong>
+								<input type="date" value="${demande.getDate_debut()}"
+									readonly="readonly">
+								<div class="input-group-addon"
+									style="font-size: 25px; color: red;">
+									<strong><i class="material-icons">arrow_right_alt</i>
+									</strong>
+								</div>
+								<input type="date" value="${demande.getDate_fin() }"
+									readonly="readonly">
 							</div>
-							<input type="date" value="${demande.getDate_fin() }"
-								readonly="readonly">
-						</div>
+							<br>
 						</c:if>
 						<h4 class="card-title">
 							<strong>Date demande : </strong> ${demande.getDateDemande() }
-							
+
 						</h4>
+
 						<c:if test="${type == 'location'}">
-						<h4 class="card-title">
-							<strong>Nombre de nuit : </strong> ${demande.getNb_nuit() }
-							
-						</h4>
+							<h4 class="card-title">
+								<strong>Nombre de nuit : </strong> ${demande.getNb_nuit() }
+
+							</h4>
 						</c:if>
-						
+
 					</div>
 				</div>
 			</div>
-			
+
 
 			<div class="col-md-6">
 				<div class="card">
 					<div class="card-header card-header-text card-header-rose">
 						<div class="card-text">
 							<h4 class="card-title">
-								<i class="material-icons">account_circle</i>
-								Info Client/Demandeur
+								<i class="material-icons">account_circle</i> Info
+								Client/Demandeur
 							</h4>
 						</div>
 					</div>
-					
-						
+
+
 					<div class="card-body">
 						<h4>
 							Nom : <strong>${client.getNom() }</strong>
@@ -181,13 +196,55 @@
 					</div>
 				</div>
 			</div>
-						
+
+		</div>
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-3">
+				<table border="0" cellpadding="0" cellspacing="0"
+					role="presentation"
+					style="border-collapse: separate; width: 200px; line-height: 100%;">
+					<tr>
+
+						<td align="center" bgcolor="#32CD32" role="presentation"
+							style="border: 2px solid #32CD32; border-radius: 5px; cursor: auto; padding: 10px 25px; background: #32CD32;"
+							valign="middle"><a
+							href="AcceptezDemandeClient.ma?id_demande=${demande.getId() }&type=${offre.getType() }"
+							style="background: #32CD32; color: #000; font-family: Arial, Helvetical, sans-serif; font-size: 14px; font-weight: normal; line-height: 120%; Margin: 0; text-decoration: none; text-transform: uppercase;"
+							target="_blank" onclick="return confirm('Voulez vous vraiment envoyer une confirmation de cette demande de réservation')"
+							>
+								<strong>Accépté la demande</strong>
+						</a></td>
+
+					
+
+					</tr>
+				</table>
+			</div>
+
+			<div class="col-md-3">
+				<table border="0" cellpadding="0" cellspacing="0"
+					role="presentation"
+					style="border-collapse: separate; width: 200px; line-height: 100%;">
+					<tr>
+
+						<td align="center" bgcolor="#32CD32" role="presentation"
+							style="border: 2px solid #32CD32; border-radius: 5px; cursor: auto; padding: 10px 25px; background: #77CD32;"
+							valign="middle"><a
+							href="RefusezDemandeClient.ma?id_demande=${demande.getId() }&type='${type }'"
+							style="background: #77CD32; color: #000; font-family: Arial, Helvetical, sans-serif; font-size: 14px; font-weight: normal; line-height: 120%; Margin: 0; text-decoration: none; text-transform: uppercase;"
+							onclick="return confirm('Voulez vous vraiment refusée cette demande de réservation')">
+								<strong>Refusé la demande</strong>
+						</a></td>
+
+					</tr>
+				</table>
+			</div>
 		</div>
 
-		
-		
+
 	</div>
-	
+
 	<footer class="ftco-footer ftco-section">
 	<div class="container">
 		<div class="row mb-5">
@@ -648,7 +705,7 @@
 
 		});
 	</script>
-	
+
 
 </body>
 

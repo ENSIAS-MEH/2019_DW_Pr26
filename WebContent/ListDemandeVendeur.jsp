@@ -76,7 +76,9 @@
 								<th>N° Demande</th>
 								<th>Date de la demande</th>
 								<th>Date Début</th>
+								<th>Nombre Nuits</th>
 								<th>Date fin</th>
+								
 								<th>Statut</th>
 								<th>Client</th>
 								<th>Offre</th>
@@ -88,8 +90,9 @@
 										<td>${demandeL.getId() }</td>
 										<td>${demandeL.getDateDemande() }</td>
 										<td>${demandeL.getDate_debut() }</td>
+										<td>${demandeL.getNb_nuit() }</td>
 										<td>${demandeL.getDate_fin() }</td>
-										<c:if test="${demande.getStatut()  == 'En attente'}">
+										<c:if test="${demandeL.getStatut()  == 'En attente'}">
 										<td><button class="btn btn-info btn-sm">${demandeL.getStatut() }</button></td>
 										</c:if>
 										<c:if test="${demande.getStatut()  == 'Acceptée'}">
@@ -98,7 +101,11 @@
 										<c:if test="${demande.getStatut()  == 'Non acceptée'}">
 										<td><button class="btn btn-danger btn-sm">${demandeL.getStatut() }</button></td>
 										</c:if>
-										
+										<td><a
+											href="getDetailsOffre.ma?id=${demandeL.getId_demandeur() }"
+											class="btn-circle btn-sm" title="Voir client"
+											style="color: green;"> <i class="far fa-folder-open"></i></a>
+										</td>
 										<td><a
 											href="getDetailsOffre.ma?id=${demandeL.getId_offre() }"
 											class="btn-circle btn-sm" title="Ouvrir offre"
@@ -106,8 +113,8 @@
 										</td>
 
 										<td>
-											<!-- <a href="ModifierDemande.ma?id=${demande.getId()}"	class="  btn-circle  btn-sm" title="Mettre à jour" style="color : blue; "> <i
-													class="fas fa-sync"></i></a> --> <a
+											<a href="ModifierDemandeLocation.ma?id=${demandeL.getId()}&id_client=${demandeL.getId_demandeur()}&id_offre=${demandeL.getId_offre()}"	class="  btn-circle  btn-sm" title="Mettre à jour" style="color : blue; "> <i
+													class="fas fa-sync"></i></a> <a
 											href="SupprimerDemande.ma?id=${demandeL.getId()}"
 											class="  btn-circle btn-sm" title="Supprimer"
 											onclick="return confirm('Voulez vous vraiment supprimer cette demande');"

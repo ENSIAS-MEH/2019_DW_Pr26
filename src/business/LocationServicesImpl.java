@@ -190,6 +190,23 @@ public ArrayList<DemandeLocation> getListReservationLocationByIdVendeur(int id )
 	public DemandeAchat getDemandeAchatById(int id) {
 		return locationepositoryImpl.getDemandeAchatById(id);
 	}
+
+	@Override
+	public DemandeLocation getDemandeLocationById(int id) {
+		return locationepositoryImpl.getDemandeLocationById(id);
+	}
+
+	@Override
+	public void accepteDemandeAchat(int id) {
+		locationepositoryImpl.accepteDemandeAchat(id);
+		
+	}
+
+	@Override
+	public void accepteDemandeLocation(int id) {
+		locationepositoryImpl.accepteDemandeLocation(id);
+		
+	}
 	
 
 }

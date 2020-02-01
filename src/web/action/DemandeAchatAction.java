@@ -69,6 +69,10 @@ public ArrayList<DemandeAchat> getListReservationAchatByIdVendeur(int id ){
 public DemandeAchat getDemandeAchatById(int id) {
 	return locationServices.getDemandeAchatById(id); 
 }
+public void accepteDemandeAchat(int id) {
+	locationServices.accepteDemandeAchat(id);
+	
+}
 
 	
 }

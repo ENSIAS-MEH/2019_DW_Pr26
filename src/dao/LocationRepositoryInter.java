@@ -75,6 +75,12 @@ public ArrayList<DemandeLocation> getListReservationLocationByIdVendeur(int id )
 
 public DemandeAchat getDemandeAchatById(int id);
 
+public DemandeLocation getDemandeLocationById(int id);
+
+public void accepteDemandeAchat(int id);
+
+public void accepteDemandeLocation(int id);
+
 
 	
 	

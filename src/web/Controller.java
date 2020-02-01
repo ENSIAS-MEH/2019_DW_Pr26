@@ -27,7 +27,7 @@ import web.action.AdminAction;
 		"/AcceuilVendeur.ma", "/FormAjouterOffre.ma", "/AjouterOffre.ma", "/ListOffre.ma", "/SupprimerOffre.ma",
 		"/ModifierOffre.ma", "/AccueilAdmin.ma", "/DetailOffre.ma", "/ConnexionAdmin.ma", "/saveContact.ma",
 		"/ListVendeur.ma", "/getAllOffres.ma","/ListDemandeClient.ma",  "/ListClient.ma","/getDetailsOffre.ma","/SupprimerVendeur.ma","/SupprimerClient.ma","/DetailVendeur.ma","/ReservezOffreClient.ma","/saveDemandeReservation.ma","/SupprimerDemande.ma","/DemandeAchatClient.ma","/SupprimerDemandeAchat.ma","/DetailClient.ma","/ListReservationClient.ma","/ChercherOffreClient.ma",
-		"/ListDemandeVendeur.ma","/ModifierDemandeAchat.ma"})
+		"/ListDemandeVendeur.ma","/ModifierDemandeAchat.ma","/ModifierDemandeLocation.ma","/AcceptezDemandeClient.ma","/RefusezDemandeClient.ma"})
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 4)
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -135,7 +135,43 @@ public class Controller extends HttpServlet {
 				views = "ModifierDemandeVendeur";
 			} else
 				views = "/404";
+		} else if (action.equals("ModifierDemandeLocation")) {
+			if (session.getAttribute("account_type") != null
+					&& session.getAttribute("account_type").equals("vendeur")) {
+				int id = Integer.parseInt(request.getParameter("id"));
+				int id_client = Integer.parseInt(request.getParameter("id_client"));
+				int id_offre = Integer.parseInt(request.getParameter("id_offre"));
+				request.setAttribute("type", "location");
+				request.setAttribute("demande", demandeLocationAction.getDemandeLocationById(id));
+				request.setAttribute("client", clientAction.getClientById(id_client));
+				request.setAttribute("offre", offreAction.getOffre(id_offre));
+				
+				views = "ModifierDemandeVendeur";
+			} else
+				views = "/404";
+		} else if (action.equals("AcceptezDemandeClient")) {
+			if (session.getAttribute("account_type") != null
+					&& session.getAttribute("account_type").equals("vendeur")) {
+				int id = Integer.parseInt(request.getParameter("id_demande"));
+				String type = request.getParameter("type");
+				request.setAttribute("demande", demandeLocationAction.getDemandeLocationById(id));
+				
+				if (type.equals("Location") ) {
+					
+					demandeLocationAction.accepteDemandeLocation(id);
+				}else {
+					
+					demandeAchatAction.accepteDemandeAchat(id);
+				} 
+				int id_hote = (int) session.getAttribute("id");
+				request.setAttribute("listeDemandeA", demandeAchatAction.getListDemandeAchatByIdVendeur(id_hote));
+				request.setAttribute("listeDemandeL", demandeLocationAction.getListDemandeLocationByIdVendeur(id_hote));
+				views = "ListDemandeVendeur";
+				
+			} else
+				views = "/404";
 		} 
+		
 		// traitement offre
 		else if (action.equals("FormAjouterOffre")) {
 			if (session.getAttribute("account_type") != null

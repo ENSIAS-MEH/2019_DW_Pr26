@@ -958,7 +958,7 @@ public ArrayList<DemandeLocation> getListReservationLocationByIdVendeur(int id )
 		Connection connection = mangementDataBase.connexionDataBase();
 		DemandeAchat demandeAchat = new DemandeAchat();
 		try {
-			PreparedStatement ps = connection.prepareStatement("SELECT * FROM demandelocation where id=" +id);
+			PreparedStatement ps = connection.prepareStatement("SELECT * FROM demandeAchat where id=" +id);
 			ResultSet rs = ps.executeQuery();
 			
 			if (rs.next()) {
@@ -967,6 +967,7 @@ public ArrayList<DemandeLocation> getListReservationLocationByIdVendeur(int id )
 				demandeAchat.setId_vendeur(rs.getInt("id_vendeur"));
 				demandeAchat.setId_demandeur(rs.getInt("id_demandeur"));
 				demandeAchat.setId_offre(rs.getInt("id_offre"));
+				
 				demandeAchat.setDateDemande(rs.getString("date_demande"));
 				demandeAchat.setStatut(rs.getString("statut"));
 				
@@ -977,6 +978,74 @@ public ArrayList<DemandeLocation> getListReservationLocationByIdVendeur(int id )
 
 		return demandeAchat;
 	}
+
+	@Override
+	public DemandeLocation getDemandeLocationById(int id) {
+		Connection connection = mangementDataBase.connexionDataBase();
+		DemandeLocation demandeLocation = new DemandeLocation();
+		try {
+			PreparedStatement ps = connection.prepareStatement("SELECT * FROM demandelocation where id=" +id);
+			ResultSet rs = ps.executeQuery();
+			
+			if (rs.next()) {
+				
+				demandeLocation.setId(rs.getInt("id"));
+				demandeLocation.setId_vendeur(rs.getInt("id_vendeur"));
+				demandeLocation.setId_demandeur(rs.getInt("id_demandeur"));
+				demandeLocation.setId_offre(rs.getInt("id_offre"));
+				demandeLocation.setDateDemande(rs.getString("date_demande"));
+				demandeLocation.setDate_debut(rs.getString("date_debut"));
+				demandeLocation.setDate_fin(rs.getString("date_fin"));
+				demandeLocation.setNb_nuit(rs.getInt("nb_nuit"));
+				demandeLocation.setStatut(rs.getString("statut"));
+				
+			ps.close();
+		}} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return demandeLocation;
+	}
+
+	@Override
+	public void accepteDemandeAchat(int id) {
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			
+			PreparedStatement ps = connection.prepareStatement(
+					"Update demandeachat set statut = 'Acceptée' where id = "+id);
+			
+			ps.executeUpdate();
+			ps.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+	@Override
+	public void accepteDemandeLocation(int id) {
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			
+			PreparedStatement ps = connection.prepareStatement(
+					"Update demandelocation set statut = 'Acceptée' where id = "+id);
+			
+			ps.executeUpdate();
+			ps.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+	}
+	
 	
 
 }

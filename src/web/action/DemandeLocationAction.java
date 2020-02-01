@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import business.LocationServicesImpl;
 import business.LocationServicesInter;
 import models.Client;
+import models.DemandeAchat;
 import models.DemandeLocation;
 
 public class DemandeLocationAction {
@@ -73,5 +74,14 @@ public ArrayList<DemandeLocation> getListReservationLocationByIdVendeur(int id )
 	
 	public void deleteDemande(int id){
 		locationServices.deleteDemande(id); 
+	}
+
+	public DemandeLocation getDemandeLocationById(int id) {
+		return locationServices.getDemandeLocationById(id); 
+	}
+
+	public void accepteDemandeLocation(int id) {
+		locationServices.accepteDemandeLocation(id);
+		
 	}
 }
