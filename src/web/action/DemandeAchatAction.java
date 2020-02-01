@@ -10,6 +10,7 @@ import business.LocationServicesInter;
 import models.Client;
 import models.DemandeAchat;
 import models.DemandeLocation;
+import models.Offre;
 
 public class DemandeAchatAction {
 	private DemandeAchat demandeAchat;
@@ -65,6 +66,9 @@ public class DemandeAchatAction {
 public ArrayList<DemandeAchat> getListReservationAchatByIdVendeur(int id ){
 	return locationServices.getListReservationAchatByIdVendeur(id); 
 	}
+public DemandeAchat getDemandeAchatById(int id) {
+	return locationServices.getDemandeAchatById(id); 
+}
 
 	
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import models.Client;
 import models.Contact;
+import models.Demande;
 import models.DemandeAchat;
 import models.DemandeLocation;
 import models.Offre;
@@ -71,6 +72,10 @@ public interface LocationRepositoryInter {
 	public ArrayList<DemandeAchat> getListReservationAchatByIdVendeur(int id ); 
 	public ArrayList<DemandeLocation> getListReservationLocationByIdClient(int id);
 public ArrayList<DemandeLocation> getListReservationLocationByIdVendeur(int id );
+
+public DemandeAchat getDemandeAchatById(int id);
+public ArrayList<Offre> ChercherOffreByOption(boolean ville, boolean pays , boolean nb_chambre, String locationOrVente,String motCles);
+public ArrayList<Offre> ChercherOffreByDate(String date_debut_forms,String date_fin_forms);
 
 
 

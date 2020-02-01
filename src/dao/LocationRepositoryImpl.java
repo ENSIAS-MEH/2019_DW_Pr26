@@ -9,6 +9,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Base64;
+
+import javafx.beans.property.ReadOnlyBooleanProperty;
+
 import java.sql.Blob;
 
 import models.Client;
@@ -781,6 +784,7 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 				demandeAchat.setDateDemande(rs.getString("date_demande"));
 				demandeAchat.setStatut(rs.getString("statut"));
 				listeDemandeAchat.add(demandeAchat);
+				System.out.println(demandeAchat.toString());
 			}
 			ps.close();
 		} catch (SQLException e) {
@@ -950,6 +954,160 @@ public ArrayList<DemandeLocation> getListReservationLocationByIdVendeur(int id )
 
 		return listeDemandeLocation;
 	}
+
+	@Override
+	public DemandeAchat getDemandeAchatById(int id) {
+		
+		Connection connection = mangementDataBase.connexionDataBase();
+		DemandeAchat demandeAchat = new DemandeAchat();
+		try {
+			PreparedStatement ps = connection.prepareStatement("SELECT * FROM demandelocation where id=" +id);
+			ResultSet rs = ps.executeQuery();
+			
+			if (rs.next()) {
+				
+				demandeAchat.setId(rs.getInt("id"));
+				demandeAchat.setId_vendeur(rs.getInt("id_vendeur"));
+				demandeAchat.setId_demandeur(rs.getInt("id_demandeur"));
+				demandeAchat.setId_offre(rs.getInt("id_offre"));
+				demandeAchat.setDateDemande(rs.getString("date_demande"));
+				demandeAchat.setStatut(rs.getString("statut"));
+				
+			ps.close();
+		}} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return demandeAchat;
+	}
+	
+	@Override
+
+public ArrayList<Offre> ChercherOffreByOption(boolean ville, boolean pays , boolean nb_chambre, String locationOrVente, String motCles){
+		String requeteSql = ""; 
+		
+		requeteSql += "SELECT * FROM offre WHERE date_fin >= CURDATE() and "; 
+		if(locationOrVente.equals("vente")){
+			requeteSql += "type='Vente' and ( "; 
+		}else{
+			requeteSql += "type='Location' and ( "; 
+		}
+		int i =0 ; 	
+		requeteSql += "( "; 
+		if(ville){
+			if(i==0) {i++;}else{requeteSql += " or "; }
+			requeteSql += "ville ='"+motCles+"'"; 
+		}
+		if(pays){
+			if(i==0) {i++;}else{requeteSql += " or "; }
+			requeteSql += "pays ='"+motCles+"'";
+		}
+		if(nb_chambre){
+			if(i==0) {i++;}else{requeteSql += " or "; }
+			requeteSql += "nombre_personne ='"+motCles+"'";
+		}
+		requeteSql+=" )";		
+		
+		
+		ArrayList<Offre> listeOffre = new ArrayList<>();
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			PreparedStatement ps = connection.prepareStatement(requeteSql);
+			System.out.println(requeteSql);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				Offre offre = new Offre();
+				offre.setId(rs.getInt("id"));
+				offre.setId_hote(rs.getInt("id_hote"));
+				offre.setType(rs.getString("type"));
+				offre.setCategorie(rs.getString("categorie"));
+				offre.setNombre_personne(rs.getInt("nombre_personne"));
+				offre.setPays(rs.getString("pays"));
+				offre.setVille(rs.getString("ville"));
+				offre.setAdresse(rs.getString("adresse"));
+				offre.setDate_debut(rs.getString("date_debut"));
+				offre.setDate_fin(rs.getString("date_fin"));
+				offre.setPrix(rs.getFloat("prix"));
+				offre.setDevise(rs.getString("devise"));
+				offre.setSalle_bain(rs.getInt("salle_bain"));
+				offre.setNb_chambre(rs.getInt("nb_chambre"));
+				offre.setDescription(rs.getString("description"));
+				offre.setDate_offre(rs.getString("date_offre"));
+				offre.setEtat(rs.getString("etat"));
+				offre.setPhoto(rs.getBinaryStream("photo"));
+				if (offre.getPhoto() != null) {
+					try {
+						offre.setBase64Image(Transfer(rs.getBlob("photo")));
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				} else {
+					offre.setBase64Image(null);
+				}
+				listeOffre.add(offre);
+			}
+			ps.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return listeOffre;
+		
+	}
+@Override
+public ArrayList<Offre> ChercherOffreByDate(String date_debut_forms,String date_fin_forms){
+	String requeteSql = ""; 
+	
+	requeteSql += "SELECT * FROM offre WHERE type = 'Location' and date_debut = '"+date_debut_forms+"' and date_fin = + '"+date_fin_forms; 
+		
+	
+	
+	ArrayList<Offre> listeOffre = new ArrayList<>();
+	Connection connection = mangementDataBase.connexionDataBase();
+	try {
+		PreparedStatement ps = connection.prepareStatement(requeteSql);
+		System.out.println(requeteSql);
+		ResultSet rs = ps.executeQuery();
+		while (rs.next()) {
+			Offre offre = new Offre();
+			offre.setId(rs.getInt("id"));
+			offre.setId_hote(rs.getInt("id_hote"));
+			offre.setType(rs.getString("type"));
+			offre.setCategorie(rs.getString("categorie"));
+			offre.setNombre_personne(rs.getInt("nombre_personne"));
+			offre.setPays(rs.getString("pays"));
+			offre.setVille(rs.getString("ville"));
+			offre.setAdresse(rs.getString("adresse"));
+			offre.setDate_debut(rs.getString("date_debut"));
+			offre.setDate_fin(rs.getString("date_fin"));
+			offre.setPrix(rs.getFloat("prix"));
+			offre.setDevise(rs.getString("devise"));
+			offre.setSalle_bain(rs.getInt("salle_bain"));
+			offre.setNb_chambre(rs.getInt("nb_chambre"));
+			offre.setDescription(rs.getString("description"));
+			offre.setDate_offre(rs.getString("date_offre"));
+			offre.setEtat(rs.getString("etat"));
+			offre.setPhoto(rs.getBinaryStream("photo"));
+			if (offre.getPhoto() != null) {
+				try {
+					offre.setBase64Image(Transfer(rs.getBlob("photo")));
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			} else {
+				offre.setBase64Image(null);
+			}
+			listeOffre.add(offre);
+		}
+		ps.close();
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+
+	return listeOffre;
+}
 	
 
 }

@@ -185,6 +185,11 @@ public ArrayList<DemandeAchat> getListReservationAchatByIdVendeur(int id ){
 public ArrayList<DemandeLocation> getListReservationLocationByIdVendeur(int id ){
 	return locationepositoryImpl.getListReservationLocationByIdVendeur(id); 
 	}
+
+	@Override
+	public DemandeAchat getDemandeAchatById(int id) {
+		return locationepositoryImpl.getDemandeAchatById(id);
+	}
 	
 
 }

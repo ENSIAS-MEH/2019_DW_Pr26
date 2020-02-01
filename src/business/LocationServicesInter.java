@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import models.Client;
 import models.Contact;
+import models.Demande;
 import models.DemandeAchat;
 import models.DemandeLocation;
 import models.Offre;
@@ -75,6 +76,8 @@ public ArrayList<DemandeAchat> getListReservationAchatByIdVendeur(int id );
 	public ArrayList<DemandeLocation> getListReservationLocationByIdClient(int id);
 	
 public ArrayList<DemandeLocation> getListReservationLocationByIdVendeur(int id );
+
+public DemandeAchat getDemandeAchatById(int id);
 
 	
 	

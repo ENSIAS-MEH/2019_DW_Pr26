@@ -63,7 +63,7 @@
 			
 			<!-- Begin What's Your First Name Field -->
 			<div class="categ field hs-form-field">
-				<label for="hs_categ">Transaction* :</label><br>
+				<label for="hs_categ">Transaction <b style="color: red;">*</b> :</label><br>
 				<div class="control row col-md-12">
 					<label class="radio col-md-4"> <input type="radio" name="type" value="Vente" id="vente" checked="checked" onclick="Vente()">
 						Vente
@@ -73,7 +73,7 @@
 						Location vacances
 					</label>
 				</div>
-				<label for="hs_categ">Catégorie* :</label><br>
+				<label for="hs_categ">Catégorie <b style="color: red;">*</b> :</label><br>
 				<div class="control row col-md-12">
 					<label class="radio col-md-4" style="display: block;" id="Appartement"> <input type="radio" name="categorie" value="Appartement"  checked="checked">
 						Appartement
@@ -151,7 +151,7 @@ function Location() {
 				class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field"
 				id="webform-component-acquisition--amount-1">
 
-				<label for="pays">Pays *</label> <input id="pays"
+				<label for="pays">Pays <b style="color: red;">*</b></label> <input id="pays"
 					class="form-text hs-input" name="pays" required="required"
 					type="text" value="" placeholder="" data-rule-required="true"
 					data-msg-required="Please enter a text"> <span
@@ -166,7 +166,7 @@ function Location() {
 				class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_2 field hs-form-field"
 				id="webform-component-acquisition--amount-2">
 
-				<label for="ville">Ville *</label> <input id="ville"
+				<label for="ville">Ville <b style="color: red;">*</b></label> <input id="ville"
 					class="form-text hs-input" name="ville" required="required"
 					type="text" value="" placeholder="" data-rule-required="true"
 					data-msg-required="Please enter a text"> <span
@@ -181,7 +181,7 @@ function Location() {
 			<div
 				class="form-item webform-component webform-component-textfield webform-container-inline hs_total_donor_percent_change field hs-form-field">
 
-				<label for="adresse">Adresse *</label> <input id="adresse"
+				<label for="adresse">Adresse <b style="color: red;">*</b></label> <input id="adresse"
 					class="form-text hs-input" name="adresse" type="text" value=""
 					required="required" data-rule-required="true"
 					data-msg-required="Please enter a text"> <span
@@ -207,7 +207,7 @@ function Location() {
 			<!-- Begin Average Gift Size in Year 1 Field -->
 			<div class="row col-md-12">
 			<div class="hs_nombre field hs-form-field col-md-4" style="display: none;" id="inf1">
-				<label for="nmb">Nombre de personne* <br> <input id="nmb"
+				<label for="nmb">Nombre de personne <b style="color: red;">*</b> <br> <input id="nmb"
 					name="nombre_personne" required="required" type="number"
 					maxlength="5" minlength="0" placeholder=""
 					data-rule-required="true"
@@ -220,7 +220,7 @@ function Location() {
 				class="hs_nombre field hs-form-field  col-md-4"
 				id="webform-component-cultivation--amount-4" id="inf2">
 
-				<label for="nb_chambre">Nombre de chambres*   <input
+				<label for="nb_chambre">Nombre de chambres <b style="color: red;">*</b>   <input
 					id="nb_chambre" class="form-text hs-input" name="nb_chambre"
 					required="required"  min="1" max="100" type="number"
 					 placeholder="" data-rule-required="true" maxlength="5" minlength="0"
@@ -233,7 +233,7 @@ function Location() {
 			<div class="hs_nombre field hs-form-field  col-md-4"
 				id="webform-component-cultivation--amount-3 hs_total_giving_in_year_1 field hs-form-field inf3">
 
-				<label for="bain">Nombre de salles de bain *<input
+				<label for="bain">Nombre de salles de bain <b style="color: red;">*</b><input
 					id="bain" class="form-text hs-input" name="salle_bain"
 					required="required" size="60" maxlength="128" type="number"
 					 placeholder="" data-rule-required="true"
@@ -251,7 +251,7 @@ function Location() {
 				class="form-item webform-component webform-component-textfield hs_average_gift_size_in_year_1 field hs-form-field"
 				id="edit-submitted-cultivation-amount-1 average_gift_size_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_3256 " >
 
-				<label for="date_debut">Date début *</label> <input id="date_debut"
+				<label for="date_debut">Date début <b style="color: red;">*</b></label> <input id="date_debut"
 					class="form-text hs-input" name="date_debut" required="required"
 					type="date"  placeholder="" data-rule-required="true"
 					data-msg-required="Please enter a valid date"> <span
@@ -268,7 +268,7 @@ function Location() {
 				class="form-item webform-component webform-component-textfield hs_average_gift_size_in_year_2 field hs-form-field "
 				id="webform-component-cultivation--amount-2" >
 
-				<label for="date_fin">Date fin *</label> <input id="date_fin"
+				<label for="date_fin">Date fin <b style="color: red;">*</b></label> <input id="date_fin"
 					class="form-text hs-input" name="date_fin" required="required"
 					type="date"  placeholder="" data-rule-required="true"
 					data-msg-required="Please enter a valid date"> <span
@@ -282,7 +282,7 @@ function Location() {
 			<div
 				class="col-md-6 form-item webform-component webform-component-textfield webform-container-inline hs_total_donor_percent_change field hs-form-field inf6">
 
-				<label for="^prix">Prix/Nuit *</label> <input id="prix"
+				<label for="^prix">Prix/Nuit <b style="color: red;">*</b></label> <input id="prix"
 					class="form-text hs-input" name="prix" type="number" 
 					placeholder="0" required="required" data-rule-required="true"
 					data-msg-required="Please enter a number" > <span
@@ -293,10 +293,14 @@ function Location() {
 			<div
 				class="col-md-6 form-item webform-component webform-component-textfield webform-container-inline hs_total_donor_percent_change field hs-form-field ">
 
-				<label for="devise">Devise *</label> <input id="devise"
-					class="form-text hs-input" name="devise" type="text" 
-					required="required" data-rule-required="true"
-					data-msg-required="Please enter a text"> <span
+				<label for="devise">Devise <b style="color: red;">*</b></label>
+				<select name="devise" required="required" data-rule-required="true"
+					data-msg-required="Please enter a text">
+				<option value="">choisir une devise</option>
+				<option value="DH">DH</option>
+				<option value="EUR">EUR</option>
+				<option value="USD">USD</option>
+				</select>  <span
 					class="error1" style="display: none;"> <i
 					class="error-log fa fa-exclamation-triangle"></i>
 				</span>
