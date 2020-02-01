@@ -62,7 +62,6 @@ td {
 	width: 200px;
 }
 </style>
-
 </head>
 
 <body>
@@ -76,7 +75,6 @@ td {
 		<br>
 		<br>
 		<br>
-
 		<div class="card card-nav-tabs" style="width: 85%; margin: 0 auto;">
 			<div class="card-header card-header-success">Demande de
 				réservation</div>

@@ -73,6 +73,7 @@ public interface LocationRepositoryInter {
 public ArrayList<DemandeLocation> getListReservationLocationByIdVendeur(int id );
 
 
+
 	
 	
 }
