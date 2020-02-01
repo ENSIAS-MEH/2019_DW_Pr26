@@ -983,7 +983,7 @@ public ArrayList<DemandeLocation> getListReservationLocationByIdVendeur(int id )
 	
 	@Override
 
-public ArrayList<Offre> ChercherOffreByOption(boolean ville, boolean pays , boolean nb_chambre, String locationOrVente, String motCles){
+public ArrayList<Offre> chercherOffreByOption(boolean ville, boolean pays , boolean nb_chambre, String locationOrVente, String motCles){
 		String requeteSql = ""; 
 		
 		requeteSql += "SELECT * FROM offre WHERE date_fin >= CURDATE() and "; 
@@ -1056,7 +1056,7 @@ public ArrayList<Offre> ChercherOffreByOption(boolean ville, boolean pays , bool
 		
 	}
 @Override
-public ArrayList<Offre> ChercherOffreByDate(String date_debut_forms,String date_fin_forms){
+public ArrayList<Offre> chercherOffreByDate(String date_debut_forms,String date_fin_forms){
 	String requeteSql = ""; 
 	
 	requeteSql += "SELECT * FROM offre WHERE type = 'Location' and date_debut = '"+date_debut_forms+"' and date_fin = + '"+date_fin_forms; 

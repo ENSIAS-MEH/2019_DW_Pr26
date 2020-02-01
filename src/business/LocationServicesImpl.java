@@ -185,6 +185,16 @@ public ArrayList<DemandeAchat> getListReservationAchatByIdVendeur(int id ){
 public ArrayList<DemandeLocation> getListReservationLocationByIdVendeur(int id ){
 	return locationepositoryImpl.getListReservationLocationByIdVendeur(id); 
 	}
+	
+	@Override
+
+public ArrayList<Offre> chercherOffreByOption(boolean ville, boolean pays , boolean nb_chambre, String locationOrVente,String motCles){
+		return locationepositoryImpl.chercherOffreByOption(ville, pays, nb_chambre, locationOrVente, motCles);
+	}
+@Override
+	public ArrayList<Offre> chercherOffreByDate(String date_debut_forms,String date_fin_forms){
+	return locationepositoryImpl.chercherOffreByDate(date_debut_forms, date_fin_forms);
+}
 
 	@Override
 	public DemandeAchat getDemandeAchatById(int id) {

@@ -79,6 +79,10 @@ public ArrayList<DemandeLocation> getListReservationLocationByIdVendeur(int id )
 
 public DemandeAchat getDemandeAchatById(int id);
 
+
+public ArrayList<Offre> chercherOffreByOption(boolean ville, boolean pays , boolean nb_chambre, String locationOrVente,String motCles);
+public ArrayList<Offre> chercherOffreByDate(String date_debut_forms,String date_fin_forms);
+
 	
 	
 

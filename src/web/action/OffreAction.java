@@ -8,6 +8,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.catalina.connector.Request;
+
 import business.LocationServicesImpl;
 import business.LocationServicesInter;
 import models.Client;
@@ -96,4 +98,22 @@ public class OffreAction {
 		return locationServices.getOffres();
 	}
 	
+
+public ArrayList<Offre> chercherOffreByOption(HttpServletRequest request){
+	boolean ville = true, pays = true, nb_chambre=true; 
+	if(request.getParameter("nb_chambre") == null)
+		nb_chambre = false ;
+	if(request.getParameter("pays") == null)
+		pays = false ;
+	if(request.getParameter("ville") == null)
+		ville = false ;
+	String motCles = request.getParameter("searchvalue"); 
+	String VenteLocation = request.getParameter("venteLocation"); 
+	return locationServices.chercherOffreByOption(ville, pays, nb_chambre, VenteLocation, motCles);
+}
+public ArrayList<Offre> chercherOffreByDate(HttpServletRequest request){
+	String dateDebut = request.getParameter("date_debut_search"); 
+	String dateFin = request.getParameter("date_debut_search");
+	return locationServices.chercherOffreByDate(dateDebut, dateFin); 
+}
 }

@@ -97,7 +97,7 @@ td {
 										<label class="form-check-label"
 											style="color: black; font-size: 15px;"> <input
 											class="form-check-input" type="checkbox" id="inlineCheckbox1"
-											value="option1"> Ville <span class="form-check-sign">
+											value="option1" name="ville"> Ville <span class="form-check-sign">
 												<span class="check"></span>
 										</span>
 										</label>
@@ -108,7 +108,7 @@ td {
 										<label class="form-check-label"
 											style="color: black; font-size: 15px;"> <input
 											class="form-check-input" type="checkbox" id="inlineCheckbox1"
-											value="option1"> Pays <span class="form-check-sign">
+											value="option1" name="pays"> Pays <span class="form-check-sign">
 												<span class="check"></span>
 										</span>
 										</label>
@@ -119,7 +119,7 @@ td {
 										<label class="form-check-label"
 											style="color: black; font-size: 15px;"> <input
 											class="form-check-input" type="checkbox" id="inlineCheckbox1"
-											value="option1"> Nombre chambre <span
+											value="option1" name = "nb_chambre"> Nombre chambre <span
 											class="form-check-sign"> <span class="check"></span>
 										</span>
 										</label>
@@ -136,8 +136,8 @@ td {
 								style="float: right;">
 								<label class="form-check-label"
 									style="color: black; font-size: 15px;"> <input
-									class="form-check-input" type="radio" name="inlineRadioOptions"
-									id="inlineRadio1" value="option1"> Vente <span
+									class="form-check-input" type="radio" name="venteLocation"
+									id="inlineRadio1" value="vente"> Vente <span
 									class="circle"> <span class="check"></span>
 								</span>
 								</label>
@@ -146,8 +146,8 @@ td {
 								style="float: left;">
 								<label class="form-check-label"
 									style="color: black; font-size: 15px;"> <input
-									class="form-check-input" type="radio" name="inlineRadioOptions"
-									id="inlineRadio2" value="option2"> Location <span
+									class="form-check-input" type="radio" name="venteLocation"
+									id="inlineRadio2" value="location"> Location <span
 									class="circle"> <span class="check"></span>
 								</span>
 								</label>
@@ -163,7 +163,7 @@ td {
 							</div>
 						</div>
 						<input type="text" class="form-control" placeholder="Search ..."
-							id="" name="date_debut_reservation" required="true">
+							id="" name="searchvalue" required="true">
 					</div>
 					<center>
 						<br>
@@ -191,8 +191,8 @@ td {
 										</div>
 									</div>
 									<input type="date" class="form-control"
-										placeholder="First Name..." id="date_debut_reservation"
-										name="date_debut_reservation" required="true">
+										placeholder="First Name..." id="date_debut_search"
+										name="date_debut_search" required="true">
 								</div>
 							</div>
 							<div class="col">
@@ -203,8 +203,8 @@ td {
 										</div>
 									</div>
 									<input type="date" class="form-control"
-										placeholder="First Name..." id="date_debut_reservation"
-										name="date_debut_reservation" required="true">
+										placeholder="First Name..." id="date_fin_search"
+										name="date_fin_search" required="true">
 								</div>
 							</div>
 						</div>
