@@ -54,7 +54,10 @@
 <c:if test="${sessionScope.account_type == 'client'}">
         <c:import url="navbar/NavbarClient.jsp" />
       </c:if>
-
+	<c:if test="${sessionScope.account_type == 'vendeur'}">
+		<c:import url="navbar/NavbarVendeur.jsp" />
+	</c:if>
+	
       <div class="content card" style="width: 98%; margin:0 auto; ">
       <div class="card" style="width: 60%; margin:0 auto; ">
   
