@@ -38,7 +38,7 @@
 			<div class="sidebar-wrapper">
 				<ul class="nav">
 					<li class="nav-item active"><a class="nav-link"
-						href="AcceuilVendeur.ma"> <i class="material-icons">home</i>
+						href="accueilClient.ma"> <i class="material-icons">home</i>
 							<p>Acceuil</p>
 					</a></li>
 					<li class="nav-item"><a class="nav-link"
@@ -69,7 +69,7 @@
 							<i class="material-icons">near_me</i>
 							<p>Planifier un voyage</p>
 					</a></li>
-					<li class="nav-item "><a class="nav-link" href="./icons.html">
+					<li class="nav-item "><a class="nav-link" href="contactByClient.ma">
 							<i class="material-icons">textsms</i>
 							<p>Messages</p>
 					</a></li>

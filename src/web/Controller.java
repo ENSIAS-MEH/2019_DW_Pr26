@@ -30,7 +30,7 @@ import web.action.AdminAction;
 		"/SupprimerVendeur.ma", "/SupprimerClient.ma", "/DetailVendeur.ma", "/ReservezOffreClient.ma",
 		"/saveDemandeReservation.ma", "/SupprimerDemande.ma", "/DemandeAchatClient.ma", "/SupprimerDemandeAchat.ma",
 		"/DetailClient.ma", "/ListReservationClient.ma", "/ChercherOffreClient.ma", "/ListDemandeVendeur.ma",
-		"/ModifierDemandeAchat.ma", "/ChercherOffreByOption.ma", "/ChercherOffreByDate.ma" })
+		"/ModifierDemandeAchat.ma", "/ChercherOffreByOption.ma", "/ChercherOffreByDate.ma","/contactByClient.ma","/accueilClient.ma" })
 
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 4)
 public class Controller extends HttpServlet {
@@ -285,7 +285,11 @@ public class Controller extends HttpServlet {
 			views = "ListReservationClient";
 		} else if (action.equals("ChercherOffreClient")) {
 			views = "ChercherOffreClient";
-		} else
+		} else if(action.equals("contactByClient")){
+			views ="ContactClient"; 
+		}else if(action.equals("accueilClient")){
+			views = "AcceuilClientAfterConnexion";
+		}else
 			views = "/404";
 
 		request.getRequestDispatcher(views + ".jsp").forward(request, response);
@@ -329,7 +333,7 @@ public class Controller extends HttpServlet {
 				request.setAttribute("messageError", "Mot de passe ou Username est Incorrect");
 				views = "ConnexionClient";
 			}
-		}
+		} 
 
 		// traitement offre
 		else if (action.equals("AjouterOffre")) {
@@ -365,6 +369,9 @@ public class Controller extends HttpServlet {
 		else if (action.equals("saveContact")) {
 			contactMessage.ajouteContactMessage(request, session);
 			request.setAttribute("message", "votre message a bien été envoyé");
+			if(session.getAttribute("account_type") != null){
+				views = "ContactClient";
+			}else 
 			views = "Contact";
 		} else if (action.equals("saveDemandeReservation")) {
 			demandeLocationAction.ajouterDeamandeLocation(request, session);
