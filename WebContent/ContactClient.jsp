@@ -58,84 +58,88 @@
 	<c:if test="${sessionScope.account_type == 'client'}">
 		<c:import url="navbar/NavbarClient.jsp" />
 	</c:if>
-
+	<br>
+	<br>
+	<br>
 	<div class="content card" style="width: 98%; margin: 0 auto;">
+
 		<div class="card" style="width: 60%; margin: 0 auto;">
 			<div class="card-body">
 				<center class="font-weight-bold">
-					<strong>${message}</strong>
+					<strong>Contactez l'administrateur</strong><br> <strong>${message}</strong>
 				</center>
 			</div>
 		</div>
-<section class="ftco-section contact-section">
-	<div class="container">
-		<div class="row d-flex mb-5 contact-info justify-content-center">
-			<div class="col-md-8">
-				<div class="row mb-5">
-					<div class="col-md-4 text-center py-4">
-						<div class="icon">
-							<span class="icon-map-o"></span>
+		<section class="ftco-section contact-section">
+		<div class="container">
+			<div class="row d-flex mb-5 contact-info justify-content-center">
+				<div class="col-md-8">
+					<div class="row mb-5">
+						<div class="col-md-4 text-center py-4">
+							<div class="icon">
+								<span class="icon-map-o"></span>
+							</div>
+							<p>
+								<span>Address:</span> Ecole Nationale Supérieure d'informatique
+								et d'analyse des systèmes
+							</p>
 						</div>
-						<p>
-							<span>Address:</span> Ecole Nationale Supérieure d'informatique
-							et d'analyse des systèmes
-						</p>
-					</div>
-					<div class="col-md-4 text-center border-height py-4">
-						<div class="icon">
-							<span class="icon-mobile-phone"></span>
+						<div class="col-md-4 text-center border-height py-4">
+							<div class="icon">
+								<span class="icon-mobile-phone"></span>
+							</div>
+							<p>
+								<span>Phone:</span> <a href="tel://1234567920">+ 212 6 55 68
+									12 </a>
+							</p>
 						</div>
-						<p>
-							<span>Phone:</span> <a href="tel://1234567920">+ 212 6 55 68
-								12 </a>
-						</p>
-					</div>
-					<div class="col-md-4 text-center py-4">
-						<div class="icon">
-							<span class="icon-envelope-o"></span>
+						<div class="col-md-4 text-center py-4">
+							<div class="icon">
+								<span class="icon-envelope-o"></span>
+							</div>
+							<p>
+								<span>Email:</span> <a href="mailto:info@yoursite.com">info@hireSale.com</a>
+							</p>
 						</div>
-						<p>
-							<span>Email:</span> <a href="mailto:info@yoursite.com">info@hireSale.com</a>
-						</p>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="row block-9 justify-content-center mb-5">
-			<div class="col-md-8 mb-md-5">
-				<h2 class="text-center">
-					Si vous avez des questions <br>N'hésitez pas à nous envoyer un
-					message
-				</h2>
-				<form action="saveContact.ma" method="post"
-					class="bg-light p-5 contact-form">
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Votre Nom"
-							name="nom" value="${sessionScope.nom }" hidden="hidden">
-					</div>
-					<div class="form-group">
-						<input type="email" class="form-control" placeholder="Votre Email"
-							name="email" value="${sessionScope.email }" hidden="hidden">
-					</div>
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Sujet"
-							name="sujet">
-					</div>
-					<div class="form-group">
-						<textarea id="" cols="30" rows="7" class="form-control"
-							placeholder="Message" name="message"></textarea>
-					</div>
-					<div class="form-group">
-						<input type="submit" value="Envoyer message"
-							class="btn btn-primary py-3 px-5">
-					</div>
-				</form>
+			<div class="row block-9 justify-content-center mb-5">
+				<div class="col-md-8 mb-md-5">
+					<h2 class="text-center">
+						Si vous avez des questions <br>N'hésitez pas à nous envoyer
+						un message
+					</h2>
+					<form action="saveContact.ma" method="post"
+						class="bg-light p-5 contact-form">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Votre Nom"
+								name="nom" value="${sessionScope.nom }" hidden="hidden">
+						</div>
+						<div class="form-group">
+							<input type="email" class="form-control"
+								placeholder="Votre Email" name="email"
+								value="${sessionScope.email }" hidden="hidden">
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Sujet"
+								name="sujet">
+						</div>
+						<div class="form-group">
+							<textarea id="" cols="30" rows="7" class="form-control"
+								placeholder="Message" name="message"></textarea>
+						</div>
+						<div class="form-group">
+							<input type="submit" value="Envoyer message"
+								class="btn btn-primary py-3 px-5">
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
-	</div>
-	</section>
+		</section>
 
-	
+
 		<footer class="ftco-footer ftco-section">
 		<div class="container">
 			<div class="row mb-5">

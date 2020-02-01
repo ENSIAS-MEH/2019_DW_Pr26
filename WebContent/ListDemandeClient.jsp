@@ -62,7 +62,13 @@
 	<br>
 	<br>
 	<div class="content card" style="width: 98%; margin: 0 auto;">
-
+	<br>
+		<div class="row justify-content-center">
+				<div class="col-md-12 heading-section text-center ftco-animate mb-5">
+					<span class="subheading">Mes demandes</span>
+					<h3 class="mb-2"><strong>Demandes Achat / Location effectuées</strong></h3>
+				</div>
+			</div>
 		<div class="col-md-12">
 			<div class="card">
 				<div class="card-header card-header-primary">
@@ -90,13 +96,13 @@
 										<td>${demande.getDate_debut() }</td>
 										<td>${demande.getDate_fin() }</td>
 										<c:if test="${demande.getStatut()  == 'En attente'}">
-										<td><button class="btn btn-info btn-sm">${demande.getStatut() }</button></td>
+											<td><button class="btn btn-info btn-sm">${demande.getStatut() }</button></td>
 										</c:if>
 										<c:if test="${demande.getStatut()  == 'Acceptée'}">
-										<td><button class="btn btn-success btn-sm">${demande.getStatut() }</button></td>
+											<td><button class="btn btn-success btn-sm">${demande.getStatut() }</button></td>
 										</c:if>
 										<c:if test="${demande.getStatut()  == 'Non acceptée'}">
-										<td><button class="btn btn-danger btn-sm">${demande.getStatut() }</button></td>
+											<td><button class="btn btn-danger btn-sm">${demande.getStatut() }</button></td>
 										</c:if>
 										<td><a
 											href="getDetailsOffre.ma?id=${demande.getId_offre() }"
@@ -104,14 +110,12 @@
 											style="color: green;"> <i class="far fa-folder-open"></i></a>
 										</td>
 
-										<td>
-											<!-- <a href="ModifierDemande.ma?id=${demande.getId()}"	class="  btn-circle  btn-sm" title="Mettre à jour" style="color : blue; "> <i
-													class="fas fa-sync"></i></a> --> <a
-											href="SupprimerDemande.ma?id=${demande.getId()}"
-											class="  btn-circle btn-sm" title="Supprimer"
-											onclick="return confirm('Voulez vous vraiment supprimer cette demande');"
-											style="color: red;"><i class="fas fa-trash"></i></a>
-										</td>
+										<td><c:if test="${demande.getStatut()  == 'En attente' }">
+												<a href="SupprimerDemande.ma?id=${demande.getId()}"
+													class="  btn-circle btn-sm" title="Supprimer"
+													onclick="return confirm('Voulez vous vraiment supprimer cette demande');"
+													style="color: red;"><i class="fas fa-trash"></i></a>
+											</c:if></td>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -125,7 +129,8 @@
 			<div class="card card-plain">
 				<div class="card-header card-header-primary">
 					<h4 class="card-title mt-0">Demandes d'achat</h4>
-					<p class="card-category">Liste des demandes d'achat que vous avez effectuées</p>
+					<p class="card-category">Liste des demandes d'achat que vous
+						avez effectuées</p>
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
@@ -143,27 +148,25 @@
 										<td>${demande.getId() }</td>
 										<td>${demande.getDateDemande() }</td>
 										<c:if test="${demande.getStatut()  == 'En attente'}">
-										<td><button class="btn btn-info btn-sm">${demande.getStatut() }</button></td>
+											<td><button class="btn btn-info btn-sm">${demande.getStatut() }</button></td>
 										</c:if>
 										<c:if test="${demande.getStatut()  == 'Acceptée'}">
-										<td><button class="btn btn-success btn-sm">${demande.getStatut() }</button></td>
+											<td><button class="btn btn-success btn-sm">${demande.getStatut() }</button></td>
 										</c:if>
 										<c:if test="${demande.getStatut()  == 'Non acceptée'}">
-										<td><button class="btn btn-danger btn-sm">${demande.getStatut() }</button></td>
+											<td><button class="btn btn-danger btn-sm">${demande.getStatut() }</button></td>
 										</c:if>
 										<td><a
 											href="getDetailsOffre.ma?id=${demande.getId_offre() }"
 											class="btn-circle btn-sm" title="Ouvrir offre"
 											style="color: green;"> <i class="far fa-folder-open"></i></a>
 										</td>
-										<td>
-											<!-- <a href="ModifierDemande.ma?id=${demande.getId()}"	class="  btn-circle  btn-sm" title="Mettre à jour" style="color : blue; "> <i
-													class="fas fa-sync"></i></a> --> <a
-											href="SupprimerDemandeAchat.ma?id=${demande.getId()}"
-											class="  btn-circle btn-sm" title="Supprimer"
-											onclick="return confirm('Voulez vous vraiment supprimer cette demande');"
-											style="color: red;"><i class="fas fa-trash"></i></a>
-										</td>
+										<td><c:if test="${demande.getStatut()  == 'En attente' }">
+												<a href="SupprimerDemandeAchat.ma?id=${demande.getId()}"
+													class="btn-circle btn-sm" title="Supprimer"
+													onclick="return confirm('Voulez vous vraiment supprimer cette demande');"
+													style="color: red;"><i class="fas fa-trash"></i></a>
+											</c:if></td>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -173,8 +176,6 @@
 			</div>
 		</div>
 	</div>
-
-
 	<footer class="ftco-footer ftco-section">
 	<div class="container">
 		<div class="row mb-5">

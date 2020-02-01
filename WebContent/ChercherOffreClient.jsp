@@ -71,12 +71,14 @@ td {
 	<c:if test="${sessionScope.account_type == 'vendeur'}">
 		<c:import url="navbar/NavbarVendeur.jsp" />
 	</c:if>
-
+	<br>
+	<br>
+	<br>
 	<div class="content card" style="width: 98%; margin: 0 auto;">
 		<br> <br> <br> <br> <br>
 		<div class="card card-nav-tabs" style="width: 85%; margin: 0 auto;">
-			<div class="card-header card-header-success">Demande de
-				réservation</div>
+			<div class="card-header card-header-success">Chercher des
+				offres spéciales</div>
 			<br>
 			<div class="card-body">
 				<center>

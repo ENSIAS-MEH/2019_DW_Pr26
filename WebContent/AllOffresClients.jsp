@@ -61,7 +61,9 @@
 	<c:if test="${sessionScope.account_type == 'vendeur'}">
 		<c:import url="navbar/NavbarVendeur.jsp" />
 	</c:if>
-
+	<br>
+	<br>
+	<br>
 	<div class="content card" style="width: 98%; margin: 0 auto;">
 		<div class="card" style="width: 60%; margin: 0 auto;"></div>
 		<section class="ftco-section goto-here">

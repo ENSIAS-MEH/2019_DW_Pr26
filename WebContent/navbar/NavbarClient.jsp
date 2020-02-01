@@ -49,11 +49,11 @@
 						href="ListDemandeClient.ma"> <i class="material-icons">format_indent_increase</i>
 							<p>Mes demandes</p>
 					</a></li>
-					<li class="nav-item "><a class="nav-link" href="ListReservationClient.ma">
+					<li class="nav-item ${active4 }"><a class="nav-link" href="ListReservationClient.ma">
 							<i class="material-icons">format_indent_decrease</i>
 							<p>Mes réservations</p>
 					</a></li>
-					<li class="nav-item "><a class="nav-link" href="ChercherOffreClient.ma">
+					<li class="nav-item ${active5 }"><a class="nav-link" href="ChercherOffreClient.ma">
 							<i class="material-icons">search</i>
 							<p>Chercher une offre</p>
 					</a></li>
@@ -61,7 +61,7 @@
 							<i class="material-icons">near_me</i>
 							<p>Planifier un voyage</p>
 					</a></li>
-					<li class="nav-item "><a class="nav-link" href="contactByClient.ma">
+					<li class="nav-item ${active6 }"><a class="nav-link" href="contactByClient.ma">
 							<i class="material-icons">textsms</i>
 							<p>Messages</p>
 					</a></li>
