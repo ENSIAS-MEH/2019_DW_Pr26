@@ -7,10 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import business.LocationServicesImpl;
 import business.LocationServicesInter;
-import models.Client;
 import models.DemandeAchat;
-import models.DemandeLocation;
-import models.Offre;
 
 public class DemandeAchatAction {
 	private DemandeAchat demandeAchat;
@@ -31,7 +28,7 @@ public class DemandeAchatAction {
 		return demandeAchat;
 	}
 
-	public void setDemandeAchat(DemandeAchatAction demandeAchatAction) {
+	public void setDemandeAchat(DemandeAchat demandeAchat) {
 		this.demandeAchat = demandeAchat;
 	}
 
@@ -78,13 +75,14 @@ public class DemandeAchatAction {
 		return locationServices.getDemandeAchatById(id);
 	}
 
-public void accepteDemandeAchat(int id) {
-	locationServices.accepteDemandeAchat(id);
-	
-}
-public void refuseDemandeAchat(int id) {
-	locationServices.refuseDemandeAchat(id);
-	
-}
+	public void accepteDemandeAchat(int id) {
+		locationServices.accepteDemandeAchat(id);
+
+	}
+
+	public void refuseDemandeAchat(int id) {
+		locationServices.refuseDemandeAchat(id);
+
+	}
 
 }

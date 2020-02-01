@@ -8,7 +8,6 @@ import javax.servlet.http.HttpSession;
 import business.LocationServicesImpl;
 import business.LocationServicesInter;
 import models.Client;
-import models.Vendeur;
 
 public class ClientAction {
 
@@ -69,17 +68,16 @@ public class ClientAction {
 				return false;
 		}
 	}
-	
 
-	public ArrayList<Client> ListClient(){
+	public ArrayList<Client> ListClient() {
 		return locationServices.getListClient();
 	}
 
 	public void SupprimerClient(int id) {
 		locationServices.SupprimerClient(id);
-		
+
 	}
-	
+
 	public Client getClientById(int id) {
 
 		return locationServices.getClientById(id);

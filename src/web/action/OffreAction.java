@@ -6,26 +6,19 @@ import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
-import org.apache.catalina.connector.Request;
 
 import business.LocationServicesImpl;
 import business.LocationServicesInter;
-import models.Client;
 import models.Offre;
-import models.Vendeur;
 
 public class OffreAction {
 
 	private Offre offre;
 	private LocationServicesInter locationServices;
-	private HttpSession session;
 
 	public OffreAction() {
 		super();
 		locationServices = (LocationServicesInter) new LocationServicesImpl();
-		session = null;
 	}
 
 	public OffreAction(Offre offre) {

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import models.Client;
 import models.Contact;
-import models.Demande;
 import models.DemandeAchat;
 import models.DemandeLocation;
 import models.Offre;

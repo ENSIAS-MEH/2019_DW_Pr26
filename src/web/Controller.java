@@ -9,9 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import models.Client;
-import models.DemandeAchat;
-import models.DemandeLocation;
 import models.Offre;
 import web.action.ClientAction;
 import web.action.ContactMessage;

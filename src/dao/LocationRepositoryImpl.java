@@ -10,8 +10,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Base64;
 
-import javafx.beans.property.ReadOnlyBooleanProperty;
-
 import java.sql.Blob;
 
 import models.Client;

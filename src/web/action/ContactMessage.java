@@ -6,7 +6,6 @@ import javax.servlet.http.HttpSession;
 import business.LocationServicesImpl;
 import business.LocationServicesInter;
 import models.Contact;
-import sun.invoke.empty.Empty;
 
 public class ContactMessage {
 	private Contact contact;

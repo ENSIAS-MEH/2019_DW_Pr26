@@ -7,8 +7,6 @@ import javax.servlet.http.HttpSession;
 
 import business.LocationServicesImpl;
 import business.LocationServicesInter;
-import models.Client;
-import models.DemandeAchat;
 import models.DemandeLocation;
 
 public class DemandeLocationAction {
@@ -77,16 +75,16 @@ public class DemandeLocationAction {
 	}
 
 	public DemandeLocation getDemandeLocationById(int id) {
-		return locationServices.getDemandeLocationById(id); 
+		return locationServices.getDemandeLocationById(id);
 	}
 
 	public void accepteDemandeLocation(int id) {
 		locationServices.accepteDemandeLocation(id);
-		
+
 	}
 
 	public void refuseDemandeLocation(int id) {
 		locationServices.refuseDemandeLocation(id);
-		
+
 	}
 }
