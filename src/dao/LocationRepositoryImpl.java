@@ -993,7 +993,6 @@ public ArrayList<Offre> chercherOffreByOption(boolean ville, boolean pays , bool
 			requeteSql += "type='Location' and ( "; 
 		}
 		int i =0 ; 	
-		requeteSql += "( "; 
 		if(ville){
 			if(i==0) {i++;}else{requeteSql += " or "; }
 			requeteSql += "ville ='"+motCles+"'"; 
@@ -1059,8 +1058,8 @@ public ArrayList<Offre> chercherOffreByOption(boolean ville, boolean pays , bool
 public ArrayList<Offre> chercherOffreByDate(String date_debut_forms,String date_fin_forms){
 	String requeteSql = ""; 
 	
-	requeteSql += "SELECT * FROM offre WHERE type = 'Location' and date_debut = '"+date_debut_forms+"' and date_fin = + '"+date_fin_forms; 
-		
+	requeteSql += "SELECT * FROM offre WHERE type = 'Location' and date_debut <= '"+date_debut_forms+"' and date_fin >= '"+date_fin_forms+"'"; 
+		System.out.println(requeteSql);
 	
 	
 	ArrayList<Offre> listeOffre = new ArrayList<>();

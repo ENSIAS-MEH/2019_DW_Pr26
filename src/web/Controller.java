@@ -27,7 +27,8 @@ import web.action.AdminAction;
 		"/AcceuilVendeur.ma", "/FormAjouterOffre.ma", "/AjouterOffre.ma", "/ListOffre.ma", "/SupprimerOffre.ma",
 		"/ModifierOffre.ma", "/AccueilAdmin.ma", "/DetailOffre.ma", "/ConnexionAdmin.ma", "/saveContact.ma",
 		"/ListVendeur.ma", "/getAllOffres.ma","/ListDemandeClient.ma",  "/ListClient.ma","/getDetailsOffre.ma","/SupprimerVendeur.ma","/SupprimerClient.ma","/DetailVendeur.ma","/ReservezOffreClient.ma","/saveDemandeReservation.ma","/SupprimerDemande.ma","/DemandeAchatClient.ma","/SupprimerDemandeAchat.ma","/DetailClient.ma","/ListReservationClient.ma","/ChercherOffreClient.ma",
-		"/ListDemandeVendeur.ma","/ModifierDemandeAchat.ma"})
+		"/ListDemandeVendeur.ma","/ModifierDemandeAchat.ma","/ChercherOffreByOption.ma","/ChercherOffreByDate.ma"})
+
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 4)
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -361,6 +362,12 @@ public class Controller extends HttpServlet {
 		} else if(action.equals("saveDemandeReservation")){
 			demandeLocationAction.ajouterDeamandeLocation(request, session);
 			views = "ListDemandeClient"; 
+		}else if(action.equals("ChercherOffreByOption")){
+			request.setAttribute("listeOffres", offreAction.chercherOffreByOption(request));
+			views = "ResultatRechercheClient"; 
+		}else if(action.equals("ChercherOffreByDate")){
+			request.setAttribute("listeOffres", offreAction.chercherOffreByDate(request));
+			views = "ResultatRechercheClient"; 
 		}else
 			views = "/404";
 

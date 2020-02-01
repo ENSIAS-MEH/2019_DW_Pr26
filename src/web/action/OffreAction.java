@@ -113,7 +113,7 @@ public ArrayList<Offre> chercherOffreByOption(HttpServletRequest request){
 }
 public ArrayList<Offre> chercherOffreByDate(HttpServletRequest request){
 	String dateDebut = request.getParameter("date_debut_search"); 
-	String dateFin = request.getParameter("date_debut_search");
+	String dateFin = request.getParameter("date_fin_search");
 	return locationServices.chercherOffreByDate(dateDebut, dateFin); 
 }
 }
