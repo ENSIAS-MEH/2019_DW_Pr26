@@ -70,11 +70,7 @@ td {
 	</c:if>
 
 	<div class="content card" style="width: 98%; margin: 0 auto;">
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
+		<br> <br> <br> <br> <br>
 		<div class="card card-nav-tabs" style="width: 85%; margin: 0 auto;">
 			<div class="card-header card-header-success">Demande de
 				réservation</div>
@@ -97,8 +93,8 @@ td {
 										<label class="form-check-label"
 											style="color: black; font-size: 15px;"> <input
 											class="form-check-input" type="checkbox" id="inlineCheckbox1"
-											value="option1" name="ville"> Ville <span class="form-check-sign">
-												<span class="check"></span>
+											value="option1" name="ville"> Ville <span
+											class="form-check-sign"> <span class="check"></span>
 										</span>
 										</label>
 									</div>
@@ -108,8 +104,8 @@ td {
 										<label class="form-check-label"
 											style="color: black; font-size: 15px;"> <input
 											class="form-check-input" type="checkbox" id="inlineCheckbox1"
-											value="option1" name="pays"> Pays <span class="form-check-sign">
-												<span class="check"></span>
+											value="option1" name="pays"> Pays <span
+											class="form-check-sign"> <span class="check"></span>
 										</span>
 										</label>
 									</div>
@@ -119,7 +115,7 @@ td {
 										<label class="form-check-label"
 											style="color: black; font-size: 15px;"> <input
 											class="form-check-input" type="checkbox" id="inlineCheckbox1"
-											value="option1" name = "nb_chambre"> Nombre chambre <span
+											value="option1" name="nb_chambre"> Nombre chambre <span
 											class="form-check-sign"> <span class="check"></span>
 										</span>
 										</label>
@@ -216,9 +212,7 @@ td {
 				</form>
 			</div>
 		</div>
-		<br>
-		<br>
-		<br>
+		<br> <br> <br>
 		<footer class="ftco-footer ftco-section">
 		<div class="container">
 			<div class="row mb-5">

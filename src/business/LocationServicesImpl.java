@@ -78,9 +78,9 @@ public class LocationServicesImpl implements LocationServicesInter {
 	public Offre getOffresById(int id) {
 		return locationepositoryImpl.getOffresById(id);
 	}
-	
+
 	@Override
-	public ArrayList<Offre> getOffresActifs(){
+	public ArrayList<Offre> getOffresActifs() {
 		return locationepositoryImpl.getOffresActifs();
 	}
 
@@ -120,86 +120,97 @@ public class LocationServicesImpl implements LocationServicesInter {
 	public void SupprimerClient(int id) {
 		locationepositoryImpl.supprimerClient(id);
 	}
-	
+
 	@Override
-	public void ajouterDeamandeLocation(DemandeLocation demandeLocation){
+	public void ajouterDeamandeLocation(DemandeLocation demandeLocation) {
 		locationepositoryImpl.ajouterDeamandeLocation(demandeLocation);
 	}
-	
+
 	@Override
-	public ArrayList<DemandeLocation> getListDemandeLocationByIdClient(int id){
-		return locationepositoryImpl.getListDemandeLocationByIdClient(id); 
+	public ArrayList<DemandeLocation> getListDemandeLocationByIdClient(int id) {
+		return locationepositoryImpl.getListDemandeLocationByIdClient(id);
 	}
+
 	@Override
-	public ArrayList<DemandeLocation> getListDemandeLocationByIdVendeur(int id){
-		return locationepositoryImpl.getListDemandeLocationByIdVendeur(id); 
+	public ArrayList<DemandeLocation> getListDemandeLocationByIdVendeur(int id) {
+		return locationepositoryImpl.getListDemandeLocationByIdVendeur(id);
 	}
+
 	@Override
-	public ArrayList<DemandeLocation> getAllDemandeLocation(){
-		return locationepositoryImpl.getAllDemandeLocation(); 
+	public ArrayList<DemandeLocation> getAllDemandeLocation() {
+		return locationepositoryImpl.getAllDemandeLocation();
 	}
+
 	@Override
-	public void deleteDemande(int id){
-		locationepositoryImpl.deleteDemande(id); 
+	public void deleteDemande(int id) {
+		locationepositoryImpl.deleteDemande(id);
 	}
-	
+
 	@Override
-	public void ajouterDeamandeAchat(DemandeAchat demandeAchat){
+	public void ajouterDeamandeAchat(DemandeAchat demandeAchat) {
 		locationepositoryImpl.ajouterDeamandeAchat(demandeAchat);
 	}
+
 	@Override
-	public ArrayList<DemandeAchat> getListDemandeAchatByIdClient(int id){
+	public ArrayList<DemandeAchat> getListDemandeAchatByIdClient(int id) {
 		return locationepositoryImpl.getListDemandeAchatByIdClient(id);
 	}
+
 	@Override
-	public ArrayList<DemandeAchat> getListDemandeAchatByIdVendeur(int id){
-		return locationepositoryImpl.getListDemandeAchatByIdVendeur(id); 
+	public ArrayList<DemandeAchat> getListDemandeAchatByIdVendeur(int id) {
+		return locationepositoryImpl.getListDemandeAchatByIdVendeur(id);
 	}
+
 	@Override
-	public ArrayList<DemandeAchat> getAllDemandeAchat(){
-		return locationepositoryImpl.getAllDemandeAchat(); 
+	public ArrayList<DemandeAchat> getAllDemandeAchat() {
+		return locationepositoryImpl.getAllDemandeAchat();
 	}
+
 	@Override
-	public void deleteDemandeAchat(int id){
-		locationepositoryImpl.deleteDemandeAchat(id); 
+	public void deleteDemandeAchat(int id) {
+		locationepositoryImpl.deleteDemandeAchat(id);
 	}
 
 	@Override
 	public Client getClientById(int id) {
 		return locationepositoryImpl.getClientbyId(id);
 	}
+
 	@Override
-	public ArrayList<DemandeAchat> getListReservationAchatByIdClient(int id){
-		return locationepositoryImpl.getListReservationAchatByIdClient(id); 
-	}
-	@Override
-public ArrayList<DemandeAchat> getListReservationAchatByIdVendeur(int id ){
-	return locationepositoryImpl.getListReservationAchatByIdVendeur(id); 
+	public ArrayList<DemandeAchat> getListReservationAchatByIdClient(int id) {
+		return locationepositoryImpl.getListReservationAchatByIdClient(id);
 	}
 
 	@Override
-	public ArrayList<DemandeLocation> getListReservationLocationByIdClient(int id){
-		return locationepositoryImpl.getListReservationLocationByIdClient(id); 
+	public ArrayList<DemandeAchat> getListReservationAchatByIdVendeur(int id) {
+		return locationepositoryImpl.getListReservationAchatByIdVendeur(id);
 	}
+
 	@Override
-public ArrayList<DemandeLocation> getListReservationLocationByIdVendeur(int id ){
-	return locationepositoryImpl.getListReservationLocationByIdVendeur(id); 
+	public ArrayList<DemandeLocation> getListReservationLocationByIdClient(int id) {
+		return locationepositoryImpl.getListReservationLocationByIdClient(id);
 	}
-	
+
+	@Override
+	public ArrayList<DemandeLocation> getListReservationLocationByIdVendeur(int id) {
+		return locationepositoryImpl.getListReservationLocationByIdVendeur(id);
+	}
+
 	@Override
 
-public ArrayList<Offre> chercherOffreByOption(boolean ville, boolean pays , boolean nb_chambre, String locationOrVente,String motCles){
+	public ArrayList<Offre> chercherOffreByOption(boolean ville, boolean pays, boolean nb_chambre,
+			String locationOrVente, String motCles) {
 		return locationepositoryImpl.chercherOffreByOption(ville, pays, nb_chambre, locationOrVente, motCles);
 	}
-@Override
-	public ArrayList<Offre> chercherOffreByDate(String date_debut_forms,String date_fin_forms){
-	return locationepositoryImpl.chercherOffreByDate(date_debut_forms, date_fin_forms);
-}
+
+	@Override
+	public ArrayList<Offre> chercherOffreByDate(String date_debut_forms, String date_fin_forms) {
+		return locationepositoryImpl.chercherOffreByDate(date_debut_forms, date_fin_forms);
+	}
 
 	@Override
 	public DemandeAchat getDemandeAchatById(int id) {
 		return locationepositoryImpl.getDemandeAchatById(id);
 	}
-	
 
 }

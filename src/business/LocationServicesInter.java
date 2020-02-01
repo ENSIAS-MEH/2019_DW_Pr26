@@ -18,18 +18,17 @@ public interface LocationServicesInter {
 	public Vendeur getVendeurByEmail(String email);
 
 	public Vendeur getVendeurById(int id);
-	
+
 	public ArrayList<Vendeur> getListVendeur();
-	
+
 	// Client
 	public boolean inscriptionClient(Client client);
 
 	public Client getClientByEmail(String email);
-	
-	public ArrayList<Client> getListClient();
-	
-	public Client getClientById(int id);
 
+	public ArrayList<Client> getListClient();
+
+	public Client getClientById(int id);
 
 	// offre
 	public boolean AjouterOffre(Offre offre);
@@ -39,12 +38,12 @@ public interface LocationServicesInter {
 	public void SupprimerOffre(int id);
 
 	public Offre getOffresById(int id);
-	
+
 	public ArrayList<Offre> getOffres();
-	
+
 	public boolean ModifierOffre(Offre offre);
-	
-	public ArrayList<Offre> getOffresActifs(); 
+
+	public ArrayList<Offre> getOffresActifs();
 
 	// Contact
 	public void ajouteContactMessage(Contact contact);
@@ -52,38 +51,41 @@ public interface LocationServicesInter {
 	public void SupprimerVendeur(int id);
 
 	public void SupprimerClient(int id);
-	
-	//dmande location 
-	public void ajouterDeamandeLocation(DemandeLocation demandeLocation); 
-	public ArrayList<DemandeLocation> getListDemandeLocationByIdClient(int id); 
-	public ArrayList<DemandeLocation> getListDemandeLocationByIdVendeur(int id);
-	public ArrayList<DemandeLocation> getAllDemandeLocation();
-	
-	public void deleteDemande(int id); 
-	
-	public void ajouterDeamandeAchat(DemandeAchat demandeAchat);
-	public ArrayList<DemandeAchat> getListDemandeAchatByIdClient(int id); 
-	public ArrayList<DemandeAchat> getListDemandeAchatByIdVendeur(int id);
-	public ArrayList<DemandeAchat> getAllDemandeAchat();
-	public void deleteDemandeAchat(int id) ;
-	
-	
-	public ArrayList<DemandeAchat> getListReservationAchatByIdClient(int id);
-	
-public ArrayList<DemandeAchat> getListReservationAchatByIdVendeur(int id );
 
+	// dmande location
+	public void ajouterDeamandeLocation(DemandeLocation demandeLocation);
+
+	public ArrayList<DemandeLocation> getListDemandeLocationByIdClient(int id);
+
+	public ArrayList<DemandeLocation> getListDemandeLocationByIdVendeur(int id);
+
+	public ArrayList<DemandeLocation> getAllDemandeLocation();
+
+	public void deleteDemande(int id);
+
+	public void ajouterDeamandeAchat(DemandeAchat demandeAchat);
+
+	public ArrayList<DemandeAchat> getListDemandeAchatByIdClient(int id);
+
+	public ArrayList<DemandeAchat> getListDemandeAchatByIdVendeur(int id);
+
+	public ArrayList<DemandeAchat> getAllDemandeAchat();
+
+	public void deleteDemandeAchat(int id);
+
+	public ArrayList<DemandeAchat> getListReservationAchatByIdClient(int id);
+
+	public ArrayList<DemandeAchat> getListReservationAchatByIdVendeur(int id);
 
 	public ArrayList<DemandeLocation> getListReservationLocationByIdClient(int id);
-	
-public ArrayList<DemandeLocation> getListReservationLocationByIdVendeur(int id );
 
-public DemandeAchat getDemandeAchatById(int id);
+	public ArrayList<DemandeLocation> getListReservationLocationByIdVendeur(int id);
 
+	public DemandeAchat getDemandeAchatById(int id);
 
-public ArrayList<Offre> chercherOffreByOption(boolean ville, boolean pays , boolean nb_chambre, String locationOrVente,String motCles);
-public ArrayList<Offre> chercherOffreByDate(String date_debut_forms,String date_fin_forms);
+	public ArrayList<Offre> chercherOffreByOption(boolean ville, boolean pays, boolean nb_chambre,
+			String locationOrVente, String motCles);
 
-	
-	
+	public ArrayList<Offre> chercherOffreByDate(String date_debut_forms, String date_fin_forms);
 
 }
