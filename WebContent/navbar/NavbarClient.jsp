@@ -57,7 +57,7 @@
 							<i class="material-icons">search</i>
 							<p>Chercher une offre</p>
 					</a></li>
-					<li class="nav-item "><a class="nav-link" href="./icons.html">
+					<li class="nav-item ${active7 }"><a class="nav-link" href="PlanifierUnVoyage.ma">
 							<i class="material-icons">near_me</i>
 							<p>Planifier un voyage</p>
 					</a></li>

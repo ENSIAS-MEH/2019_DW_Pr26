@@ -62,6 +62,14 @@
 	<br>
 	<br>
 	<div class="content card" style="width: 98%; margin: 0 auto;">
+	<c:if test="${message != null }">
+	<div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 80%; margin: 0 auto;">
+  <strong>${ message}</strong> 
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+</c:if>
 	<br>
 		<div class="row justify-content-center">
 				<div class="col-md-12 heading-section text-center ftco-animate mb-5">

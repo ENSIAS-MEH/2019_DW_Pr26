@@ -70,7 +70,7 @@
 	<c:if test="${sessionScope.account_type == 'vendeur'}">
 		<c:import url="../navbar/NavbarVendeur.jsp" />
 	</c:if>
-
+<br><br><br>
 	<div class="content card" style="width: 98%; margin: 0 auto;">
 		<div class="comtainer">
 			<center>
@@ -113,6 +113,7 @@
 		</center>
 		<br>
 		<div class="row">
+		<c:if test="${offre.getType() != 'Vente'}">
 			<div class="col-md-6">
 				<div class="card">
 					<div class="card-header card-header-icon card-header-rose">
@@ -122,7 +123,7 @@
 							</h4>
 						</div>
 					</div>
-
+					
 					<div class="card-body" style="margin: 0 auto;">
 						<div class="input-group input-daterange">
 
@@ -136,8 +137,10 @@
 								readonly="readonly">
 						</div>
 					</div>
+					
 				</div>
 			</div>
+			</c:if>
 
 			<div class="col-md-6">
 				<div class="card">

@@ -240,7 +240,11 @@ public class LocationServicesImpl implements LocationServicesInter {
 	@Override
 	public void refuseDemandeLocation(int id) {
 		locationepositoryImpl.refuseDemandeLocation(id);
-		
+	}
+	
+	@Override
+	public ArrayList<Offre> planifierVoyage(String date_debut_forms, String date_fin_forms, String ville){
+		return locationepositoryImpl.planifierVoyage(date_debut_forms, date_fin_forms, ville); 
 	}
 
 

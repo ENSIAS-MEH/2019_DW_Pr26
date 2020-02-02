@@ -97,5 +97,7 @@ public interface LocationRepositoryInter {
 	public void refuseDemandeLocation(int id);
 
 	public ArrayList<Offre> chercherOffreByDate(String date_debut_forms, String date_fin_forms);
+	
+	public ArrayList<Offre> planifierVoyage(String date_debut_forms, String date_fin_forms, String ville); 
 
 }

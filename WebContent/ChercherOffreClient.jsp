@@ -77,8 +77,8 @@ td {
 	<div class="content card" style="width: 98%; margin: 0 auto;">
 		<br> <br> <br> <br> <br>
 		<div class="card card-nav-tabs" style="width: 85%; margin: 0 auto;">
-			<div class="card-header card-header-success">Chercher des
-				offres spéciales</div>
+			<div class="card-header card-header-success">Chercher l'offre
+				qui vous plaît</div>
 			<br>
 			<div class="card-body">
 				<center>
@@ -138,7 +138,7 @@ td {
 								<label class="form-check-label"
 									style="color: black; font-size: 15px;"> <input
 									class="form-check-input" type="radio" name="venteLocation"
-									id="inlineRadio1" value="vente"> Vente <span
+									id="inlineRadio1" value="vente" required> Vente <span
 									class="circle"> <span class="check"></span>
 								</span>
 								</label>

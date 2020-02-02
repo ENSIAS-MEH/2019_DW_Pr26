@@ -113,4 +113,10 @@ public class OffreAction {
 		return locationServices.chercherOffreByDate(request.getParameter("date_debut_search"),
 				request.getParameter("date_fin_search"));
 	}
+
+	public ArrayList<Offre> planifierVoyage(HttpServletRequest request) {
+		return locationServices.planifierVoyage(request.getParameter("date_debut_search"),
+				request.getParameter("date_fin_search"), request.getParameter("ville"));
+	}
+
 }
