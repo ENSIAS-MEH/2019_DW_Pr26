@@ -31,7 +31,7 @@
 		<div class="sidebar" data-color="purple" data-background-color="white"
 			data-image="img/sidebar-1.jpg">
 			<div class="logo text-center">
-				<a class="navbar-brand" href="AccueilClient.ma"><i
+				<a class="navbar-brand" href="accueilClient.ma"><i
 					class="fas fa-hotel"></i> Hire && sale <i class="fas fa-building"></i>
 				</a>
 			</div>
