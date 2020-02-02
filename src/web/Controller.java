@@ -23,14 +23,14 @@ import web.action.AdminAction;
 		"/contact.ma", "/Deconnexion.ma", "/FormConnexionClient.ma", "/ConnexionClient.ma", "/ProfilVendeur.ma",
 		"/AcceuilVendeur.ma", "/FormAjouterOffre.ma", "/AjouterOffre.ma", "/ListOffre.ma", "/SupprimerOffre.ma",
 		"/ModifierOffre.ma", "/AccueilAdmin.ma", "/DetailOffre.ma", "/ConnexionAdmin.ma", "/saveContact.ma",
-
 		"/ListVendeur.ma", "/getAllOffres.ma", "/ListDemandeClient.ma", "/ListClient.ma", "/getDetailsOffre.ma",
 		"/SupprimerVendeur.ma", "/SupprimerClient.ma", "/DetailVendeur.ma", "/ReservezOffreClient.ma",
 		"/saveDemandeReservation.ma", "/SupprimerDemande.ma", "/DemandeAchatClient.ma", "/SupprimerDemandeAchat.ma",
 		"/DetailClient.ma", "/ListReservationClient.ma", "/ChercherOffreClient.ma", "/ListDemandeVendeur.ma",
 		"/ModifierDemandeAchat.ma", "/ModifierDemandeLocation.ma", "/AcceptezDemandeClient.ma",
 		"/RefusezDemandeClient.ma", "/SupprimerDemandeLocationByVendeur.ma", "/SupprimerDemandeAchatByVendeur.ma",
-		"/ChercherOffreByOption.ma", "/ChercherOffreByDate.ma", "/contactByClient.ma", "/accueilClient.ma","/PlanifierUnVoyage.ma" })
+		"/ChercherOffreByOption.ma", "/ChercherOffreByDate.ma", "/contactByClient.ma", "/accueilClient.ma",
+		"/PlanifierUnVoyage.ma", "/planifireVoyageForms.ma" })
 
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 4)
 public class Controller extends HttpServlet {
@@ -289,10 +289,12 @@ public class Controller extends HttpServlet {
 				views = "/404";
 		} else if (action.equals("getDetailsOffre")) {
 			if (session.getAttribute("account_type") != null && session.getAttribute("account_type").equals("client")) {
-			Offre offre = offreAction.getOffre(Integer.parseInt(request.getParameter("id")));
-			request.setAttribute("offre", offre);
-			request.setAttribute("proprietaire", vendeurAction.getVendeurById(offre.getId_hote()));
-			views = "offres/DetailsOffreDisplay";}else views = "/404";
+				Offre offre = offreAction.getOffre(Integer.parseInt(request.getParameter("id")));
+				request.setAttribute("offre", offre);
+				request.setAttribute("proprietaire", vendeurAction.getVendeurById(offre.getId_hote()));
+				views = "offres/DetailsOffreDisplay";
+			} else
+				views = "/404";
 		} else if (action.equals("SupprimerVendeur")) {
 			if (session.getAttribute("account_type") != null && session.getAttribute("account_type").equals("admin")) {
 				int id = Integer.parseInt(request.getParameter("id"));
@@ -320,10 +322,12 @@ public class Controller extends HttpServlet {
 				views = "/404";
 		} else if (action.equals("ReservezOffreClient")) {
 			if (session.getAttribute("account_type") != null && session.getAttribute("account_type").equals("client")) {
-			Offre offre = offreAction.getOffre(Integer.parseInt(request.getParameter("id")));
-			request.setAttribute("offre", offre);
-			views = "ReservationOffreClient";
-			request.setAttribute("proprietaire", vendeurAction.getVendeurById(offre.getId_hote()));}else views = "/404";
+				Offre offre = offreAction.getOffre(Integer.parseInt(request.getParameter("id")));
+				request.setAttribute("offre", offre);
+				views = "ReservationOffreClient";
+				request.setAttribute("proprietaire", vendeurAction.getVendeurById(offre.getId_hote()));
+			} else
+				views = "/404";
 		} else if (action.equals("ListDemandeClient")) {
 			if (session.getAttribute("account_type") != null && session.getAttribute("account_type").equals("client")) {
 				request.setAttribute("listeDemande",
@@ -344,14 +348,16 @@ public class Controller extends HttpServlet {
 			views = "ListDemandeClient";
 		} else if (action.equals("DemandeAchatClient")) {
 			if (session.getAttribute("account_type") != null && session.getAttribute("account_type").equals("client")) {
-			demandeAchatAction.ajouterDeamandeAchat(request, session);
-			request.setAttribute("listeDemande",
-					demandeLocationAction.getListDemandeLocationByIdClient((int) session.getAttribute("id")));
-			request.setAttribute("listeDemandeAchat",
-					demandeAchatAction.getListDemandeAchatByIdClient((int) session.getAttribute("id")));
-			request.setAttribute("active3","active");
-			request.setAttribute("message", "Votre demande d'achat a bien été effectuée");
-			views = "ListDemandeClient";}else views = "/404"; 
+				demandeAchatAction.ajouterDeamandeAchat(request, session);
+				request.setAttribute("listeDemande",
+						demandeLocationAction.getListDemandeLocationByIdClient((int) session.getAttribute("id")));
+				request.setAttribute("listeDemandeAchat",
+						demandeAchatAction.getListDemandeAchatByIdClient((int) session.getAttribute("id")));
+				request.setAttribute("active3", "active");
+				request.setAttribute("message", "Votre demande d'achat a bien été effectuée");
+				views = "ListDemandeClient";
+			} else
+				views = "/404";
 		} else if (action.equals("SupprimerDemandeAchat")) {
 			if (session.getAttribute("account_type") != null && session.getAttribute("account_type").equals("client")) {
 				demandeAchatAction.deleteDemandeAchat(Integer.parseInt(request.getParameter("id")));
@@ -400,13 +406,13 @@ public class Controller extends HttpServlet {
 				views = "AcceuilClientAfterConnexion";
 			} else
 				views = "/404";
-		} else if(action.equals("PlanifierUnVoyage")){
+		} else if (action.equals("PlanifierUnVoyage")) {
 			if (session.getAttribute("account_type") != null && session.getAttribute("account_type").equals("client")) {
 				request.setAttribute("active7", "active");
 				views = "PlanifierUnVoyage";
 			} else
 				views = "/404";
-		}else
+		} else
 			views = "/404";
 		request.getRequestDispatcher(views + ".jsp").forward(request, response);
 	}
@@ -488,6 +494,7 @@ public class Controller extends HttpServlet {
 			contactMessage.ajouteContactMessage(request, session);
 			request.setAttribute("message", "votre message a bien été envoyé");
 			if (session.getAttribute("account_type") != null) {
+				request.setAttribute("active6", "active");
 				views = "ContactClient";
 			} else
 				views = "Contact";
@@ -499,8 +506,8 @@ public class Controller extends HttpServlet {
 						demandeAchatAction.getListDemandeAchatByIdClient((int) session.getAttribute("id")));
 				request.setAttribute("active3", "active");
 				request.setAttribute("message", "Votre demande de réservation a été effectuée aves succès ");
-			demandeLocationAction.ajouterDeamandeLocation(request, session);
-			views = "ListDemandeClient";
+				demandeLocationAction.ajouterDeamandeLocation(request, session);
+				views = "ListDemandeClient";
 			} else
 				views = "/404";
 		} else if (action.equals("ChercherOffreByOption")) {
@@ -514,6 +521,13 @@ public class Controller extends HttpServlet {
 			if (session.getAttribute("account_type") != null && session.getAttribute("account_type").equals("client")) {
 				request.setAttribute("listeOffres", offreAction.chercherOffreByDate(request));
 				request.setAttribute("active5", "active");
+				views = "ResultatRechercheClient";
+			} else
+				views = "/404";
+		} else if (action.equals("planifireVoyageForms")) {
+			if (session.getAttribute("account_type") != null && session.getAttribute("account_type").equals("client")) {
+				request.setAttribute("active7", "active");
+				request.setAttribute("listeOffres", offreAction.planifierVoyage(request));
 				views = "ResultatRechercheClient";
 			} else
 				views = "/404";

@@ -62,21 +62,25 @@
 	<br>
 	<br>
 	<div class="content card" style="width: 98%; margin: 0 auto;">
-	<c:if test="${message != null }">
-	<div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 80%; margin: 0 auto;">
-  <strong>${ message}</strong> 
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-</c:if>
-	<br>
-		<div class="row justify-content-center">
-				<div class="col-md-12 heading-section text-center ftco-animate mb-5">
-					<span class="subheading">Mes demandes</span>
-					<h3 class="mb-2"><strong>Demandes Achat / Location effectuées</strong></h3>
-				</div>
+		<c:if test="${message != null }">
+			<div class="alert alert-success alert-dismissible fade show"
+				role="alert" style="width: 80%; margin: 0 auto;">
+				<strong>${ message}</strong>
+				<button type="button" class="close" data-dismiss="alert"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
 			</div>
+		</c:if>
+		<br>
+		<div class="row justify-content-center">
+			<div class="col-md-12 heading-section text-center ftco-animate mb-5">
+				<span class="subheading">Mes demandes</span>
+				<h3 class="mb-2">
+					<strong>Demandes Achat / Location effectuées</strong>
+				</h3>
+			</div>
+		</div>
 		<div class="col-md-12">
 			<div class="card">
 				<div class="card-header card-header-primary">

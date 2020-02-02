@@ -62,11 +62,21 @@
 	<br>
 	<br>
 	<div class="content card" style="width: 98%; margin: 0 auto;">
-
+		<c:if test="${message != null }">
+			<div class="alert alert-success alert-dismissible fade show"
+				role="alert" style="width: 80%; margin: 0 auto;">
+				<strong>${ message}</strong>
+				<button type="button" class="close" data-dismiss="alert"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+		</c:if>
+		<br><br>
 		<div class="card" style="width: 60%; margin: 0 auto;">
 			<div class="card-body">
 				<center class="font-weight-bold">
-					<strong>Contactez l'administrateur</strong><br> <strong>${message}</strong>
+					<strong>Contactez l'administrateur</strong>
 				</center>
 			</div>
 		</div>
