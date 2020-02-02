@@ -1,14 +1,14 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8" />
 <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon.png">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>Liste des clientst</title>
+<title>Location et vente de logement</title>
 <meta
 	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
 	name='viewport' />
@@ -21,216 +21,210 @@
 <link href="css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
 <!-- CSS Just for demo purpose, don't include it in your project -->
 <link href="demo/demo.css" rel="stylesheet" />
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+	rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900&display=swap"
+	rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="css/accueil_css/open-iconic-bootstrap.min.css">
+<link rel="stylesheet" href="css/accueil_css/animate.css">
+<link rel="stylesheet" href="css/accueil_css/owl.carousel.min.css">
+<link rel="stylesheet" href="css/accueil_css/owl.theme.default.min.css">
+<link rel="stylesheet" href="css/accueil_css/magnific-popup.css">
+<link rel="stylesheet" href="css/accueil_css/aos.css">
+<link rel="stylesheet" href="css/ionicons.min.css">
+<link rel="stylesheet" href="css/accueil_css/bootstrap-datepicker.css">
+<link rel="stylesheet" href="css/accueil_css/jquery.timepicker.css">
+<link rel="stylesheet" href="css/flaticon.css">
+<link rel="stylesheet" href="css/icomoon.css">
+<link rel="stylesheet" href="css/accueil_css/style.css">
+<!-- Icon fontawensom  -->
 
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
 	rel="stylesheet">
+
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+	rel="stylesheet">
+<style>
+table {
+	margin: 0 auto;
+}
+
+td {
+	text-align: center;
+	width: 200px;
+}
+</style>
 </head>
 
-<body class="">
-	<div class="wrapper ">
-		<div class="sidebar" data-color="purple" data-background-color="white"
-			data-image="assets/img/sidebar-1.jpg">
-			<!--
-        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+<body>
+	<c:if test="${sessionScope.account_type == 'client'}">
+		<c:import url="navbar/NavbarClient.jsp" />
+	</c:if>
+	<c:if test="${sessionScope.account_type == 'vendeur'}">
+		<c:import url="navbar/NavbarVendeur.jsp" />
+	</c:if>
+	<br>
+	<br>
+	<br>
+	<div class="content card" style="width: 98%; margin: 0 auto;">
+		<br> <br> <br> <br> <br>
+		<div class="card card-nav-tabs" style="width: 70%; margin: 0 auto;">
+			<div class="card-header card-header-success">Planifier un voyage </div>
+			<br>
+			<div class="card-body" >
 
-        Tip 2: you can also add an image using data-image tag
-    -->
-			<div class="logo ">
-				<a href="#" class="simple-text logo-normal active"> Hire && Sale
-				</a>
-			</div>
-			<div class="sidebar-wrapper">
-				<ul class="nav">
-					<li class="nav-item "><a class="nav-link"
-						href="AcceuilAdmin.ma"> <i class="material-icons">home</i>
-							<p>Acceuil</p>
-					</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="#"> <i class="material-icons">dashboard</i>
-							<p>Dashboard</p>
-					</a></li>
-					<li class="nav-item "><a class="nav-link" href="ListVendeur.ma">
-							<i class="material-icons">account_circle</i>
-							<p>Liste des propriétaires</p>
-					</a></li>
-					<li class="nav-item active"><a class="nav-link" href="ListClient.ma">
-							<i class="material-icons">supervised_user_circle</i>
-							<p>Liste des clients</p>
-					</a></li>
-					<li class="nav-item "><a class="nav-link" href="ListOffre.ma">
-							<i class="material-icons">local_offer</i>
-							<p>Liste des offres</p>
-					</a></li>
-					<li class="nav-item "><a class="nav-link"
-						href="./typography.html"> <i class="material-icons">format_indent_increase</i>
-							<p>Liste des demandes</p>
-					</a></li>
-					<li class="nav-item "><a class="nav-link" href="./icons.html">
-							<i class="material-icons">format_indent_decrease</i>
-							<p>Demandes confirmées</p>
-					</a></li>
+				<form method="post" action="planifireVoyageForms.ma">
 
-				</ul>
+					<center>
+					<div class="form-group bmd-form-group">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<div class="input-group-text">
+								<i class="material-icons">date_range</i> &nbsp Date début
+								:
+							</div>
+						</div>
+						<input type="date" class="form-control"
+							placeholder="First Name..." id="date_debut_reservation"
+							name="date_debut_search" required="true">
+					</div>
+				</div>
+				
+				<div class="form-group bmd-form-group">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<div class="input-group-text">
+								<i class="material-icons">date_range</i> &nbsp Date Fin
+								:
+							</div>
+						</div>
+						<input type="date" class="form-control"
+							placeholder="First Name..." id="date_debut_reservation"
+							name="date_fin_search" required="true">
+					</div>
+				</div>
+				<div class="form-group bmd-form-group">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<div class="input-group-text">
+								<i class="material-icons">date_range</i> &nbsp Destination :
+							</div>
+						</div>
+						<input type="text" class="form-control"
+							placeholder="Ville .... " id="date_debut_reservation"
+							name="ville" required="true" >
+					</div>
+				</div>
+				
+						<br>
+						<button type="submit" class="btn btn-success">
+							<i class="material-icons">search</i> &nbsp Chercher
+						</button>
+					</center>
+				</form>
 			</div>
 		</div>
-		
-		
-	<div class="main-panel">
-		<nav
-				class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
-				<div class="container-fluid">
-					<div class="navbar-wrapper">
-						<a class="navbar-brand" href="#pablo">Accueil</a>
-					</div>
-					<button class="navbar-toggler" type="button" data-toggle="collapse"
-						aria-controls="navigation-index" aria-expanded="false"
-						aria-label="Toggle navigation">
-						<span class="sr-only">Toggle navigation</span> <span
-							class="navbar-toggler-icon icon-bar"></span> <span
-							class="navbar-toggler-icon icon-bar"></span> <span
-							class="navbar-toggler-icon icon-bar"></span>
-					</button>
-					<div class="collapse navbar-collapse justify-content-end">
-						<form class="navbar-form">
-							<div class="input-group no-border">
-								<input type="text" value="" class="form-control"
-									placeholder="Search...">
-								<button type="submit"
-									class="btn btn-white btn-round btn-just-icon">
-									<i class="material-icons">search</i>
-									<div class="ripple-container"></div>
-								</button>
-							</div>
-						</form>
-						<ul class="navbar-nav">
-
-							<li class="nav-item dropdown"><a class="nav-link"
-								href="http://example.com" id="navbarDropdownMenuLink"
-								data-toggle="dropdown" aria-haspopup="true"
-								aria-expanded="false"> <i class="material-icons">notifications</i>
-									<span class="notification">2</span>
-									<p class="d-lg-none d-md-block">Some Actions</p>
-							</a>
-								<div class="dropdown-menu dropdown-menu-right"
-									aria-labelledby="navbarDropdownMenuLink">
-									<a class="dropdown-item" href="#">Mike John responded to
-										your email</a> <a class="dropdown-item" href="#">You have 5
-										new tasks</a>
-								</div></li>
-							<li class="nav-item dropdown"><a class="nav-link"
-								href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown"
-								aria-haspopup="true" aria-expanded="false"> <i
-									class="material-icons">person</i>
-									<p class="d-lg-none d-md-block">Compte</p>
-							</a>
-								<div class="dropdown-menu dropdown-menu-right"
-									aria-labelledby="navbarDropdownProfile">
-									<a class="dropdown-item" href="#"
-									style="background-color: gray;">${sessionScope.nom }${sessionScope.prenom }</a>
-								<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="#">Profil</a>
-									<a class="dropdown-item" href="Deconnexion.ma">Se déconnecter</a>
-								</div></li>
+		<br> <br> <br>
+		<footer class="ftco-footer ftco-section">
+		<div class="container">
+			<div class="row mb-5">
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">Hire && Sale</h2>
+						<p>Réservez des hébergements uniques.</p>
+						<ul class="ftco-footer-social list-unstyled mt-5">
+							<li class="ftco-animate"><a href="#"><span
+									class="icon-twitter"></span></a></li>
+							<li class="ftco-animate"><a href="#"><span
+									class="icon-facebook"></span></a></li>
+							<li class="ftco-animate"><a href="#"><span
+									class="icon-instagram"></span></a></li>
 						</ul>
 					</div>
 				</div>
-			</nav>
-			<!-- End Navbar -->
-			<div class="content">
-		<div class="container-fluid">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="card">
-                <div class="card-header card-header-primary">
-                  <h4 class="card-title ">Clients</h4>
-                  <p class="card-category"> la liste de tous les clients</p>
-                </div>
-                <div class="card-body">
-                  <div class="table-responsive">
-                    <table class="table">
-                      <thead class=" text-primary">
-                        <th>Nom</th>
-                        <th>Prénom</th>
-                        <th>Date de naissance</th>
-                        <th>Sexe</th>
-                        <th>Pays</th>
-                        <th>Téléphone</th>
-                        <th>Action</th>
-                      </thead>
-                      <tbody>
-                      <c:forEach items="${clients}" var="c">
-                       <tr>
-                          <td>${c.getNom()}</td>
-                          <td>${c.getPrenom()}</td>
-                          <td>${c.getDate_naissane()}</td>
-                          <td>${c.getSexe()}</td>
-                          <td>${c.getPays()}</td>
-                          <td>${c.getNum_telephone()}</td>
-                          <td>
-                          	 <a href="DetailClient.ma?id=${c.getId()}" class=" btn-circle btn-sm" title="Ouvrir"><i class="far fa-folder-open"></i></a>
-                   			 <a href="ModifierClient.ma?id=${c.getId()}" class="  btn-circle  btn-sm" title="Mettre à jour"> <i class="fas fa-sync"></i></a>
-                  			 <a href="SupprimerClient.ma?id=${c.getId()}" class="  btn-circle btn-sm" title="Supprimer" onclick="return confirm('Voulez vous vraiment supprimer ce compte');"><i class="fas fa-trash"></i></a>
-                          </td>
-                        </tr>
-                      </c:forEach>
-                       
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-          </div>
-        </div>
-        </div>
-       </div>
-<!--   Core JS Files   -->
-	<script src="assets/js/core/jquery.min.js"></script>
-	<script src="assets/js/core/popper.min.js"></script>
-	<script src="assets/js/core/bootstrap-material-design.min.js"></script>
-	<script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4 ml-md-4">
+						<h2 class="ftco-heading-2">À propos</h2>
+						<ul class="list-unstyled">
+							<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Notre
+									Histoire</a></li>
+							<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Nos
+									Carrières</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">Avez-vous des questions?</h2>
+						<div class="block-23 mb-3">
+							<ul>
+								<li><span class="icon icon-map-marker"></span><span
+									class="text">203 Fake St. Mountain View, San Francisco,
+										California, USA</span></li>
+								<li><a href="#"><span class="icon icon-phone"></span><span
+										class="text">+2 392 3929 210</span></a></li>
+								<li><a href="#"><span class="icon icon-envelope pr-4"></span><span
+										class="text">info@yourdomain.com</span></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</footer>
+	</div>
+	<script src="js/core/popper.min.js"></script>
+	<script src="js/core/bootstrap-material-design.min.js"></script>
+	<script src="js/plugins/perfect-scrollbar.jquery.min.js"></script>
 	<!-- Plugin for the momentJs  -->
-	<script src="assets/js/plugins/moment.min.js"></script>
+	<script src="js/plugins/moment.min.js"></script>
 	<!--  Plugin for Sweet Alert -->
-	<script src="assets/js/plugins/sweetalert2.js"></script>
+	<script src="js/plugins/sweetalert2.js"></script>
 	<!-- Forms Validations Plugin -->
-	<script src="assets/js/plugins/jquery.validate.min.js"></script>
+	<script src="js/plugins/jquery.validate.min.js"></script>
 	<!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
-	<script src="assets/js/plugins/jquery.bootstrap-wizard.js"></script>
+	<script src="js/plugins/jquery.bootstrap-wizard.js"></script>
 	<!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
-	<script src="assets/js/plugins/bootstrap-selectpicker.js"></script>
+	<script src="js/plugins/bootstrap-selectpicker.js"></script>
 	<!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
-	<script src="assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
+	<script src="js/plugins/bootstrap-datetimepicker.min.js"></script>
 	<!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
-	<script src="assets/js/plugins/jquery.dataTables.min.js"></script>
+	<script src="js/plugins/jquery.dataTables.min.js"></script>
 	<!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
-	<script src="assets/js/plugins/bootstrap-tagsinput.js"></script>
+	<script src="js/plugins/bootstrap-tagsinput.js"></script>
 	<!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-	<script src="assets/js/plugins/jasny-bootstrap.min.js"></script>
+	<script src="js/plugins/jasny-bootstrap.min.js"></script>
 	<!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
-	<script src="assets/js/plugins/fullcalendar.min.js"></script>
+	<script src="js/plugins/fullcalendar.min.js"></script>
 	<!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
-	<script src="assets/js/plugins/jquery-jvectormap.js"></script>
+	<script src="js/plugins/jquery-jvectormap.js"></script>
 	<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-	<script src="assets/js/plugins/nouislider.min.js"></script>
+	<script src="js/plugins/nouislider.min.js"></script>
 	<!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 	<!-- Library for adding dinamically elements -->
-	<script src="assets/js/plugins/arrive.min.js"></script>
+	<script src="js/plugins/arrive.min.js"></script>
 	<!--  Google Maps Plugin    -->
 	<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 	<!-- Chartist JS -->
-	<script src="assets/js/plugins/chartist.min.js"></script>
+	<script src="js/plugins/chartist.min.js"></script>
 	<!--  Notifications Plugin    -->
-	<script src="assets/js/plugins/bootstrap-notify.js"></script>
+	<script src="js/plugins/bootstrap-notify.js"></script>
 	<!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-	<script src="assets/js/material-dashboard.js?v=2.1.1"
-		type="text/javascript"></script>
+	<script src="js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
 	<!-- Material Dashboard DEMO methods, don't include it in your project! -->
-	<script src="assets/demo/demo.js"></script>
+	<script src="demo/demo.js"></script>
 	<script>
 		$(document)
 				.ready(
@@ -559,6 +553,32 @@
 											});
 						});
 	</script>
+	<script>
+		$(document).ready(function() {
+			// Javascript method's body can be found in assets/js/demos.js
+			md.initDashboardPageCharts();
+
+		});
+	</script>
+
+	<script src="js/accueil_js/jquery.min.js"></script>
+	<script src="js/accueil_js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="js/accueil_js/popper.min.js"></script>
+	<script src="js/accueil_js/bootstrap.min.js"></script>
+	<script src="js/accueil_js/jquery.easing.1.3.js"></script>
+	<script src="js/accueil_js/jquery.waypoints.min.js"></script>
+	<script src="js/accueil_js/jquery.stellar.min.js"></script>
+	<script src="js/accueil_js/owl.carousel.min.js"></script>
+	<script src="js/accueil_js/jquery.magnific-popup.min.js"></script>
+	<script src="js/accueil_js/aos.js"></script>
+	<script src="js/accueil_js/jquery.animateNumber.min.js"></script>
+	<script src="js/accueil_js/bootstrap-datepicker.js"></script>
+	<script src="js/accueil_js/jquery.timepicker.min.js"></script>
+	<script src="js/accueil_js/scrollax.min.js"></script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+	<script src="js/accueil_js/google-map.js"></script>
+	<script src="js/accueil_js/main.js"></script>
 </body>
 
 </html>

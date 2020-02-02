@@ -170,12 +170,12 @@
                           <td>${v.getNum_telephone()}</td>
                          <td><a href="DetailVendeur.ma?id=${v.getId()}"
 												class=" btn-circle btn-sm" title="Ouvrir"><i
-													class="far fa-folder-open"></i></a> <a
+													class="far fa-folder-open" style="color:green;"></i></a> <a
 												href="ModifierVendeur.ma?id=${v.getId()}"
-												class="  btn-circle  btn-sm" title="Mettre à jour"> <i
+												class="  btn-circle  btn-sm" title="Mettre à jour" style="color:blue;"> <i
 													class="fas fa-sync"></i></a> <a
 												href="SupprimerVendeur.ma?id=${v.getId()}"
-												class="  btn-circle btn-sm" title="Supprimer"
+												class="  btn-circle btn-sm" style="color: red;" title="Supprimer"
 												onclick="return confirm('Voulez vous vraiment supprimer cet compte');"><i
 													class="fas fa-trash"></i></a></td>
                         </tr>
