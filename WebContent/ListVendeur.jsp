@@ -172,7 +172,7 @@
 												class=" btn-circle btn-sm" title="Ouvrir"><i
 													class="far fa-folder-open"></i></a>  <a
 												href="SupprimerVendeur.ma?id=${v.getId()}"
-												class="  btn-circle btn-sm" title="Supprimer"
+												class="  btn-circle btn-sm" style="color: red;" title="Supprimer"
 												onclick="return confirm('Voulez vous vraiment supprimer cet compte');"><i
 													class="fas fa-trash"></i></a></td>
                         </tr>

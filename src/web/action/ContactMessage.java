@@ -6,7 +6,6 @@ import javax.servlet.http.HttpSession;
 import business.LocationServicesImpl;
 import business.LocationServicesInter;
 import models.Contact;
-import sun.invoke.empty.Empty;
 
 public class ContactMessage {
 	private Contact contact;
@@ -31,8 +30,10 @@ public class ContactMessage {
 	}
 
 	public void ajouteContactMessage(HttpServletRequest request, HttpSession session) {
-		// empty if(session.getAttribute("account_type"))
 		String type_emetteur = "Other";
+		if (session != null && session.getAttribute("account_type") != null)
+			if (session.getAttribute("account_type").equals("client"))
+				type_emetteur = "Client";
 		if (session.getAttribute("account_type") != null) {
 			if (!((String) session.getAttribute("account_type")).isEmpty()) {
 				if (session.getAttribute("account_type").equals("client"))

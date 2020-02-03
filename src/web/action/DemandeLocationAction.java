@@ -7,7 +7,6 @@ import javax.servlet.http.HttpSession;
 
 import business.LocationServicesImpl;
 import business.LocationServicesInter;
-import models.Client;
 import models.DemandeLocation;
 
 public class DemandeLocationAction {
@@ -50,18 +49,42 @@ public class DemandeLocationAction {
 				Integer.parseInt(request.getParameter("nb_nuit")), "En attente");
 		locationServices.ajouterDeamandeLocation(demandeLocation);
 	}
-	 
-	public ArrayList<DemandeLocation> getListDemandeLocationByIdClient(int id){
-		return locationServices.getListDemandeLocationByIdClient(id); 
+
+	public ArrayList<DemandeLocation> getListDemandeLocationByIdClient(int id) {
+		return locationServices.getListDemandeLocationByIdClient(id);
 	}
-	public ArrayList<DemandeLocation> getListDemandeLocationByIdVendeur(int id){
-		return locationServices.getListDemandeLocationByIdVendeur(id); 
+
+	public ArrayList<DemandeLocation> getListReservationLocationByIdClient(int id) {
+		return locationServices.getListReservationLocationByIdClient(id);
 	}
-	public ArrayList<DemandeLocation> getAllDemandeLocation(){
-		return locationServices.getAllDemandeLocation(); 
+
+	public ArrayList<DemandeLocation> getListReservationLocationByIdVendeur(int id) {
+		return locationServices.getListReservationLocationByIdVendeur(id);
 	}
-	
-	public void deleteDemande(int id){
-		locationServices.deleteDemande(id); 
+
+	public ArrayList<DemandeLocation> getListDemandeLocationByIdVendeur(int id) {
+		return locationServices.getListDemandeLocationByIdVendeur(id);
+	}
+
+	public ArrayList<DemandeLocation> getAllDemandeLocation() {
+		return locationServices.getAllDemandeLocation();
+	}
+
+	public void deleteDemande(int id) {
+		locationServices.deleteDemande(id);
+	}
+
+	public DemandeLocation getDemandeLocationById(int id) {
+		return locationServices.getDemandeLocationById(id);
+	}
+
+	public void accepteDemandeLocation(int id) {
+		locationServices.accepteDemandeLocation(id);
+
+	}
+
+	public void refuseDemandeLocation(int id) {
+		locationServices.refuseDemandeLocation(id);
+
 	}
 }

@@ -73,7 +73,7 @@ body {
   transition: all 0.3s linear 0s;
 }
 
-.steps input[type=text],.steps input[type=number],.steps input[type=date], .steps textarea {
+.steps input[type=text],.steps input[type=number],.steps input[type=date], .steps textarea ,.steps select {
   outline: none;
   display: block;
   width: 100%; 

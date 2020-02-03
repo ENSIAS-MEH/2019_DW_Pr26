@@ -1,16 +1,13 @@
 package web.action;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import business.LocationServicesImpl;
 import business.LocationServicesInter;
 
-import models.Offre;
 import models.Vendeur;
 
 public class VendeurAction {
@@ -71,11 +68,11 @@ public class VendeurAction {
 		return locationServices.getVendeurById(id);
 	}
 
-	public ArrayList<Vendeur> ListVendeur(){
+	public ArrayList<Vendeur> ListVendeur() {
 		return locationServices.getListVendeur();
 	}
 
 	public void SupprimerVendeur(int id) {
-	    locationServices.SupprimerVendeur(id);
+		locationServices.SupprimerVendeur(id);
 	}
 }

@@ -52,317 +52,87 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet">
+<style>
+table {
+	margin: 0 auto;
+}
+
+td {
+	text-align: center;
+	width: 200px;
+}
+</style>
 </head>
 
 <body>
 	<c:if test="${sessionScope.account_type == 'client'}">
 		<c:import url="navbar/NavbarClient.jsp" />
 	</c:if>
+	<c:if test="${sessionScope.account_type == 'vendeur'}">
+		<c:import url="navbar/NavbarVendeur.jsp" />
+	</c:if>
 	<br>
 	<br>
 	<br>
 	<div class="content card" style="width: 98%; margin: 0 auto;">
-		<div class="card" style="width: 60%; margin: 0 auto;">
-			<div class="card-body">
-				<center class="font-weight-bold">
-					<strong>Bienvenue ${sessionScope.nom }
-						${sessionScope.prenom }.</strong>
-				</center>
-			</div>
-		</div>
-		<section class="ftco-section goto-here"> <%
- 	int compteur = 0;
- %>
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-md-12 heading-section text-center ftco-animate mb-5">
-					<span class="subheading">Ce que nous offrons</span>
-					<h2 class="mb-2">Offre exclusive pour vous</h2>
-				</div>
-			</div>
-			<div class="row">
-				<c:forEach items="${ listeOffres }" var="offre">
-					<%
-						compteur++;
-							if (compteur > 6)
-								break;
-					%>
-					<div class="col-md-4">
-						<div class="property-wrap ftco-animate">
-							<a href="getDetailsOffre.ma?id=${offre.getId() }" class="img"
-								style="background-image: url(data:image/jpg;base64,${offre.base64Image})"></a>
-							<div class="text">
-								<p class="price">
-									<span class="old-price">${offre.getPrix() + 30}</span><span
-										class="orig-price">${offre.getPrix() }
-										${offre.getDevise() }<small>/nuit</small>
-									</span>
-								</p>
-								<ul class="property_list">
-									<li><span class="flaticon-bed"></span>${offre.getNombre_personne() }</li>
-									<li><span class="flaticon-bathtub"></span>${offre.getSalle_bain() }</li>
-								</ul>
-								<h3>
-									<a href="getDetailsOffre.ma?id=${offre.getId() }">${offre.getVille() },
-										${offre.getPays() }</a>
-								</h3>
-								<span class="location">${offre.getType() }</span> <a
-									href="getDetailsOffre.ma?id=${offre.getId() }"
-									class="d-flex align-items-center justify-content-center btn-custom">
-									<span class="ion-ios-link"></span>
-								</a>
-							</div>
-						</div>
-					</div>
-				</c:forEach>
-			</div>
-		</div>
-		</section>
+		<br> <br> <br> <br> <br>
+		<div class="card card-nav-tabs" style="width: 70%; margin: 0 auto;">
+			<div class="card-header card-header-success">Planifier un voyage </div>
+			<br>
+			<div class="card-body" >
 
-		<section
-			class="ftco-section ftco-degree-bg services-section img mx-md-5"
-			style="background-image: url(images/bg_2.jpg);">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row justify-content-start mb-5">
-				<div
-					class="col-md-6 text-center heading-section heading-section-white ftco-animate">
-					<span class="subheading">Utilisation</span>
-					<h2 class="mb-3">Comment ça fonctionne</h2>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6">
-					<div class="row">
-						<div
-							class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
-							<div class="media block-6 services services-2">
-								<div class="media-body py-md-4 text-center">
-									<div
-										class="icon mb-3 d-flex align-items-center justify-content-center">
-										<span>01</span>
-									</div>
-									<h3>Se connecter</h3>
-								</div>
-							</div>
-						</div>
-						<div
-							class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
-							<div class="media block-6 services services-2">
-								<div class="media-body py-md-4 text-center">
-									<div
-										class="icon mb-3 d-flex align-items-center justify-content-center">
-										<span>02</span>
-									</div>
-									<h3>Chercher une offre</h3>
-								</div>
-							</div>
-						</div>
-						<div
-							class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
-							<div class="media block-6 services services-2">
-								<div class="media-body py-md-4 text-center">
-									<div
-										class="icon mb-3 d-flex align-items-center justify-content-center">
-										<span>03</span>
-									</div>
-									<h3>Faire une demande de réservation</h3>
-								</div>
-							</div>
-						</div>
-						<div
-							class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
-							<div class="media block-6 services services-2">
-								<div class="media-body py-md-4 text-center">
-									<div
-										class="icon mb-3 d-flex align-items-center justify-content-center">
-										<span>04</span>
-									</div>
-									<h3>Confirmer votre réservation</h3>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		</section>
-		<br> <br> <br> <br>
+				<form method="post" action="planifireVoyageForms.ma">
 
-		<section class="ftco-section ftco-no-pt">
-		<div class="container">
-			<div class="row justify-content-center mb-5">
-				<div class="col-md-7 heading-section text-center ftco-animate">
-					<span class="subheading">Voyages</span>
-					<h2>Expériences très bien notées</h2>
-				</div>
-			</div>
-			<div class="row d-flex">
-				<div class="col-md-3 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<div class="text">
-							<h3 class="heading">
-								<a href="#">ALLEMAGNE</a>
-							</h3>
-							<div class="meta mb-3">
-								<div>
-									<a href="#">Décem. 15, 2019</a>
-								</div>
-								<div>
-									<a href="#"></a>
-								</div>
+					<center>
+					<div class="form-group bmd-form-group">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<div class="input-group-text">
+								<i class="material-icons">date_range</i> &nbsp Date début
+								:
 							</div>
-							<a href="blog-single.html" class="block-20 img"
-								style="background-image: url('images/chiens.png');"> </a>
-							<p>Promenez-vous avec une meute de chiens.</p>
 						</div>
+						<input type="date" class="form-control"
+							placeholder="First Name..." id="date_debut_reservation"
+							name="date_debut_search" required="true">
 					</div>
 				</div>
-				<div class="col-md-3 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<div class="text">
-							<h3 class="heading">
-								<a href="#">Maroc</a>
-							</h3>
-							<div class="meta mb-3">
-								<div>
-									<a href="#">Juin. 29, 2019</a>
-								</div>
-								<div>
-									<a href="#"></a>
-								</div>
+				
+				<div class="form-group bmd-form-group">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<div class="input-group-text">
+								<i class="material-icons">date_range</i> &nbsp Date Fin
+								:
 							</div>
-							<a href="blog-single.html" class="block-20 img"
-								style="background-image: url('images/maroc.png');"> </a>
-							<p>Excursion d'une journée dans le désert d'Agafay et ses
-								montagnes.</p>
 						</div>
+						<input type="date" class="form-control"
+							placeholder="First Name..." id="date_debut_reservation"
+							name="date_fin_search" required="true">
 					</div>
 				</div>
-				<div class="col-md-3 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<div class="text">
-							<h3 class="heading">
-								<a href="#">Russian Federation</a>
-							</h3>
-							<div class="meta mb-3">
-								<div>
-									<a href="#">Mars. 9, 2019</a>
-								</div>
-								<div>
-									<a href="#"></a>
-								</div>
+				<div class="form-group bmd-form-group">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<div class="input-group-text">
+								<i class="material-icons">date_range</i> &nbsp Destination :
 							</div>
-							<a href="blog-single.html" class="block-20 img"
-								style="background-image: url('images/russ.png');"> </a>
-							<p>Peinture de poupées russes.</p>
 						</div>
+						<input type="text" class="form-control"
+							placeholder="Ville .... " id="date_debut_reservation"
+							name="ville" required="true" >
 					</div>
 				</div>
-				<div class="col-md-3 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<div class="text">
-							<h3 class="heading">
-								<a href="#">Marrakech</a>
-							</h3>
-							<div class="meta mb-3">
-								<div>
-									<a href="#">Août. 12, 2019</a>
-								</div>
-								<div>
-									<a href="#"></a>
-								</div>
-							</div>
-							<a href="blog-single.html" class="block-20 img"
-								style="background-image: url('images/marrakech.png');"> </a>
-							<p>Excursion à cheval dans la montagne de l'Atlas 2 jours et
-								1 nuit.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<div class="text">
-							<h3 class="heading">
-								<a href="#">Fès, Maroc</a>
-							</h3>
-							<div class="meta mb-3">
-								<div>
-									<a href="#">Novembre. 17, 2019</a>
-								</div>
-								<div>
-									<a href="#"></a>
-								</div>
-							</div>
-							<a href="blog-single.html" class="block-20 img"
-								style="background-image: url('images/fes2.png');"> </a>
-							<p>Excursion à travers le désert marocain.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<div class="text">
-							<h3 class="heading">
-								<a href="#">Marrakech</a>
-							</h3>
-							<div class="meta mb-3">
-								<div>
-									<a href="#">Octobre. 16, 2019</a>
-								</div>
-								<div>
-									<a href="#"></a>
-								</div>
-							</div>
-							<a href="blog-single.html" class="block-20 img"
-								style="background-image: url('images/marra.png');"> </a>
-							<p>Ascension De Mont Toubkal en 2 jours et 1 Nuit.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<div class="text">
-							<h3 class="heading">
-								<a href="#">Padang, Indonésie</a>
-							</h3>
-							<div class="meta mb-3">
-								<div>
-									<a href="#">Juillet. 24, 2019</a>
-								</div>
-								<div>
-									<a href="#"></a>
-								</div>
-							</div>
-							<a href="blog-single.html" class="block-20 img"
-								style="background-image: url('images/ind.png');"> </a>
-							<p>Randonnée et snorkeling en Indonésie.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<div class="text">
-							<h3 class="heading">
-								<a href="#">Alora Espagne</a>
-							</h3>
-							<div class="meta mb-3">
-								<div>
-									<a href="#">Août. 20, 2019</a>
-								</div>
-								<div>
-									<a href="#"></a>
-								</div>
-							</div>
-							<a href="blog-single.html" class="block-20 img"
-								style="background-image: url('images/malaga.png');"> </a>
-							<p>Admirez le sud de l'Espagne à cheval.</p>
-						</div>
-					</div>
-				</div>
+				
+						<br>
+						<button type="submit" class="btn btn-success">
+							<i class="material-icons">search</i> &nbsp Chercher
+						</button>
+					</center>
+				</form>
 			</div>
 		</div>
-		</section>
+		<br> <br> <br>
 		<footer class="ftco-footer ftco-section">
 		<div class="container">
 			<div class="row mb-5">

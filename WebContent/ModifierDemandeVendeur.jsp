@@ -5,6 +5,10 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
+<link rel='stylesheet'
+	href='https://www.jqueryscript.net/demo/Fully-Functional-jQuery-Image-Video-Gallery-Plugin-Unite-Gallery/unitegallery/css/unite-gallery.css'>
+
+
 <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon.png">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -43,6 +47,8 @@
 <link rel="stylesheet" href="css/flaticon.css">
 <link rel="stylesheet" href="css/icomoon.css">
 <link rel="stylesheet" href="css/accueil_css/style.css">
+
+<link rel="stylesheet" href="css/material-dashboard.css">
 <!-- Icon fontawensom  -->
 
 <link
@@ -52,367 +58,245 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet">
+<!--  Jquery  -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
+	<p></p>
 	<c:if test="${sessionScope.account_type == 'client'}">
 		<c:import url="navbar/NavbarClient.jsp" />
 	</c:if>
-	<br>
-	<br>
-	<br>
+	<c:if test="${sessionScope.account_type == 'vendeur'}">
+		<c:import url="navbar/NavbarVendeur.jsp" />
+	</c:if>
+
 	<div class="content card" style="width: 98%; margin: 0 auto;">
-		<div class="card" style="width: 60%; margin: 0 auto;">
-			<div class="card-body">
-				<center class="font-weight-bold">
-					<strong>Bienvenue ${sessionScope.nom }
-						${sessionScope.prenom }.</strong>
-				</center>
-			</div>
-		</div>
-		<section class="ftco-section goto-here"> <%
- 	int compteur = 0;
- %>
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-md-12 heading-section text-center ftco-animate mb-5">
-					<span class="subheading">Ce que nous offrons</span>
-					<h2 class="mb-2">Offre exclusive pour vous</h2>
-				</div>
-			</div>
-			<div class="row">
-				<c:forEach items="${ listeOffres }" var="offre">
-					<%
-						compteur++;
-							if (compteur > 6)
-								break;
-					%>
-					<div class="col-md-4">
-						<div class="property-wrap ftco-animate">
-							<a href="getDetailsOffre.ma?id=${offre.getId() }" class="img"
-								style="background-image: url(data:image/jpg;base64,${offre.base64Image})"></a>
-							<div class="text">
-								<p class="price">
-									<span class="old-price">${offre.getPrix() + 30}</span><span
-										class="orig-price">${offre.getPrix() }
-										${offre.getDevise() }<small>/nuit</small>
-									</span>
-								</p>
-								<ul class="property_list">
-									<li><span class="flaticon-bed"></span>${offre.getNombre_personne() }</li>
-									<li><span class="flaticon-bathtub"></span>${offre.getSalle_bain() }</li>
-								</ul>
-								<h3>
-									<a href="getDetailsOffre.ma?id=${offre.getId() }">${offre.getVille() },
-										${offre.getPays() }</a>
-								</h3>
-								<span class="location">${offre.getType() }</span> <a
-									href="getDetailsOffre.ma?id=${offre.getId() }"
-									class="d-flex align-items-center justify-content-center btn-custom">
-									<span class="ion-ios-link"></span>
-								</a>
-							</div>
+		<div class="comtainer">
+			<center>
+				<div class="col-sm-7 col-sm-offset-3 ">
+					<div class="card">
+						<div class="card-body" style="font-size: 20px;">
+							<strong style="color: #B22222">Détail Demande</strong>
 						</div>
 					</div>
-				</c:forEach>
-			</div>
-		</div>
-		</section>
+					<br />
 
-		<section
-			class="ftco-section ftco-degree-bg services-section img mx-md-5"
-			style="background-image: url(images/bg_2.jpg);">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row justify-content-start mb-5">
-				<div
-					class="col-md-6 text-center heading-section heading-section-white ftco-animate">
-					<span class="subheading">Utilisation</span>
-					<h2 class="mb-3">Comment ça fonctionne</h2>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6">
-					<div class="row">
-						<div
-							class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
-							<div class="media block-6 services services-2">
-								<div class="media-body py-md-4 text-center">
-									<div
-										class="icon mb-3 d-flex align-items-center justify-content-center">
-										<span>01</span>
-									</div>
-									<h3>Se connecter</h3>
-								</div>
-							</div>
-						</div>
-						<div
-							class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
-							<div class="media block-6 services services-2">
-								<div class="media-body py-md-4 text-center">
-									<div
-										class="icon mb-3 d-flex align-items-center justify-content-center">
-										<span>02</span>
-									</div>
-									<h3>Chercher une offre</h3>
-								</div>
-							</div>
-						</div>
-						<div
-							class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
-							<div class="media block-6 services services-2">
-								<div class="media-body py-md-4 text-center">
-									<div
-										class="icon mb-3 d-flex align-items-center justify-content-center">
-										<span>03</span>
-									</div>
-									<h3>Faire une demande de réservation</h3>
-								</div>
-							</div>
-						</div>
-						<div
-							class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
-							<div class="media block-6 services services-2">
-								<div class="media-body py-md-4 text-center">
-									<div
-										class="icon mb-3 d-flex align-items-center justify-content-center">
-										<span>04</span>
-									</div>
-									<h3>Confirmer votre réservation</h3>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		</section>
-		<br> <br> <br> <br>
 
-		<section class="ftco-section ftco-no-pt">
-		<div class="container">
-			<div class="row justify-content-center mb-5">
-				<div class="col-md-7 heading-section text-center ftco-animate">
-					<span class="subheading">Voyages</span>
-					<h2>Expériences très bien notées</h2>
 				</div>
-			</div>
-			<div class="row d-flex">
-				<div class="col-md-3 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<div class="text">
-							<h3 class="heading">
-								<a href="#">ALLEMAGNE</a>
-							</h3>
-							<div class="meta mb-3">
-								<div>
-									<a href="#">Décem. 15, 2019</a>
-								</div>
-								<div>
-									<a href="#"></a>
-								</div>
-							</div>
-							<a href="blog-single.html" class="block-20 img"
-								style="background-image: url('images/chiens.png');"> </a>
-							<p>Promenez-vous avec une meute de chiens.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<div class="text">
-							<h3 class="heading">
-								<a href="#">Maroc</a>
-							</h3>
-							<div class="meta mb-3">
-								<div>
-									<a href="#">Juin. 29, 2019</a>
-								</div>
-								<div>
-									<a href="#"></a>
-								</div>
-							</div>
-							<a href="blog-single.html" class="block-20 img"
-								style="background-image: url('images/maroc.png');"> </a>
-							<p>Excursion d'une journée dans le désert d'Agafay et ses
-								montagnes.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<div class="text">
-							<h3 class="heading">
-								<a href="#">Russian Federation</a>
-							</h3>
-							<div class="meta mb-3">
-								<div>
-									<a href="#">Mars. 9, 2019</a>
-								</div>
-								<div>
-									<a href="#"></a>
-								</div>
-							</div>
-							<a href="blog-single.html" class="block-20 img"
-								style="background-image: url('images/russ.png');"> </a>
-							<p>Peinture de poupées russes.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<div class="text">
-							<h3 class="heading">
-								<a href="#">Marrakech</a>
-							</h3>
-							<div class="meta mb-3">
-								<div>
-									<a href="#">Août. 12, 2019</a>
-								</div>
-								<div>
-									<a href="#"></a>
-								</div>
-							</div>
-							<a href="blog-single.html" class="block-20 img"
-								style="background-image: url('images/marrakech.png');"> </a>
-							<p>Excursion à cheval dans la montagne de l'Atlas 2 jours et
-								1 nuit.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<div class="text">
-							<h3 class="heading">
-								<a href="#">Fès, Maroc</a>
-							</h3>
-							<div class="meta mb-3">
-								<div>
-									<a href="#">Novembre. 17, 2019</a>
-								</div>
-								<div>
-									<a href="#"></a>
-								</div>
-							</div>
-							<a href="blog-single.html" class="block-20 img"
-								style="background-image: url('images/fes2.png');"> </a>
-							<p>Excursion à travers le désert marocain.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<div class="text">
-							<h3 class="heading">
-								<a href="#">Marrakech</a>
-							</h3>
-							<div class="meta mb-3">
-								<div>
-									<a href="#">Octobre. 16, 2019</a>
-								</div>
-								<div>
-									<a href="#"></a>
-								</div>
-							</div>
-							<a href="blog-single.html" class="block-20 img"
-								style="background-image: url('images/marra.png');"> </a>
-							<p>Ascension De Mont Toubkal en 2 jours et 1 Nuit.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<div class="text">
-							<h3 class="heading">
-								<a href="#">Padang, Indonésie</a>
-							</h3>
-							<div class="meta mb-3">
-								<div>
-									<a href="#">Juillet. 24, 2019</a>
-								</div>
-								<div>
-									<a href="#"></a>
-								</div>
-							</div>
-							<a href="blog-single.html" class="block-20 img"
-								style="background-image: url('images/ind.png');"> </a>
-							<p>Randonnée et snorkeling en Indonésie.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<div class="text">
-							<h3 class="heading">
-								<a href="#">Alora Espagne</a>
-							</h3>
-							<div class="meta mb-3">
-								<div>
-									<a href="#">Août. 20, 2019</a>
-								</div>
-								<div>
-									<a href="#"></a>
-								</div>
-							</div>
-							<a href="blog-single.html" class="block-20 img"
-								style="background-image: url('images/malaga.png');"> </a>
-							<p>Admirez le sud de l'Espagne à cheval.</p>
-						</div>
-					</div>
-				</div>
-			</div>
+			</center>
 		</div>
-		</section>
-		<footer class="ftco-footer ftco-section">
-		<div class="container">
-			<div class="row mb-5">
-				<div class="col-md">
-					<div class="ftco-footer-widget mb-4">
-						<h2 class="ftco-heading-2">Hire && Sale</h2>
-						<p>Réservez des hébergements uniques.</p>
-						<ul class="ftco-footer-social list-unstyled mt-5">
-							<li class="ftco-animate"><a href="#"><span
-									class="icon-twitter"></span></a></li>
-							<li class="ftco-animate"><a href="#"><span
-									class="icon-facebook"></span></a></li>
-							<li class="ftco-animate"><a href="#"><span
-									class="icon-instagram"></span></a></li>
-						</ul>
-					</div>
-				</div>
+		<br> <br>
+		<center>
+			<div class="col-md-6">
+				<div class="card" style="margin: 0 auto;">
+					<div class="card-header">
+						<h4 class="card-title">
+							<strong> Type offre : </strong> ${offre.getType() }
+						</h4>
+						<h4 class="card-title">
+							<strong> Catégorie : </strong> ${offre.getCategorie() }
+						</h4>
+						<h4 class="card-title">
+							<strong>Statut demande : </strong>
+							<c:if test="${demande.getStatut()  == 'En attente'}">
+								<button class="btn btn-info btn-sm">${demande.getStatut() }</button>
+							</c:if>
+							<c:if test="${demande.getStatut()  == 'Acceptée'}">
+								<button class="btn btn-success btn-sm">${demande.getStatut() }</button>
+							</c:if>
+							<c:if test="${demande.getStatut()  == 'Non acceptée'}">
+								<button class="btn btn-danger btn-sm">${demande.getStatut() }</button>
+							</c:if>
 
-				<div class="col-md">
-					<div class="ftco-footer-widget mb-4 ml-md-4">
-						<h2 class="ftco-heading-2">À propos</h2>
-						<ul class="list-unstyled">
-							<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Notre
-									Histoire</a></li>
-							<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Nos
-									Carrières</a></li>
-						</ul>
-					</div>
-				</div>
-
-				<div class="col-md">
-					<div class="ftco-footer-widget mb-4">
-						<h2 class="ftco-heading-2">Avez-vous des questions?</h2>
-						<div class="block-23 mb-3">
-							<ul>
-								<li><span class="icon icon-map-marker"></span><span
-									class="text">203 Fake St. Mountain View, San Francisco,
-										California, USA</span></li>
-								<li><a href="#"><span class="icon icon-phone"></span><span
-										class="text">+2 392 3929 210</span></a></li>
-								<li><a href="#"><span class="icon icon-envelope pr-4"></span><span
-										class="text">info@yourdomain.com</span></a></li>
-							</ul>
-						</div>
+						</h4>
 					</div>
 				</div>
 			</div>
+		</center>
+		<br>
+		<div class="row">
+			<div class="col-md-3"></div>
+
+
+
+
 		</div>
-		</footer>
+
+		<div class="row">
+			<div class="col-md-6">
+				<div class="card">
+					<div class="card-header card-header-text card-header-primary">
+						<div class="card-text">
+							<h4 class="card-title">
+								<i class="material-icons">wb_iridescent</i>Info Demande
+							</h4>
+						</div>
+					</div>
+
+					<div class="card-body" style="margin: 0 auto;">
+						<c:if test="${type == 'location'}">
+							<div class="input-group input-daterange">
+
+								<input type="date" value="${demande.getDate_debut()}"
+									readonly="readonly">
+								<div class="input-group-addon"
+									style="font-size: 25px; color: red;">
+									<strong><i class="material-icons">arrow_right_alt</i>
+									</strong>
+								</div>
+								<input type="date" value="${demande.getDate_fin() }"
+									readonly="readonly">
+							</div>
+							<br>
+						</c:if>
+						<h4 class="card-title">
+							<strong>Date demande : </strong> ${demande.getDateDemande() }
+
+						</h4>
+
+						<c:if test="${type == 'location'}">
+							<h4 class="card-title">
+								<strong>Nombre de nuit : </strong> ${demande.getNb_nuit() }
+
+							</h4>
+						</c:if>
+
+					</div>
+				</div>
+			</div>
+
+
+			<div class="col-md-6">
+				<div class="card">
+					<div class="card-header card-header-text card-header-rose">
+						<div class="card-text">
+							<h4 class="card-title">
+								<i class="material-icons">account_circle</i> Info
+								Client/Demandeur
+							</h4>
+						</div>
+					</div>
+
+
+					<div class="card-body">
+						<h4>
+							Nom : <strong>${client.getNom() }</strong>
+						</h4>
+						<h4>
+							Prenom : <strong>${client.getPrenom() }</strong>
+						</h4>
+						<h4>
+							Numéro téléphone : <strong>${client.getNum_telephone() }</strong>
+						</h4>
+						<h4>
+							Email : <strong>${client.getEmail() }</strong>
+						</h4>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="row text-center">
+			<div class="col-md-3"></div>
+			<c:if test="${demande.getStatut()  != 'Acceptée'}">
+			<div class="col-md-3">
+				<table border="0" cellpadding="0" cellspacing="0"
+					role="presentation"
+					style="border-collapse: separate; width: 200px; line-height: 100%;">
+					<tr>
+
+						<td align="center" bgcolor="#32CD32" role="presentation"
+							style="border: 2px solid #32CD32; border-radius: 5px; cursor: auto; padding: 10px 25px; background: #32CD32;"
+							valign="middle"><a
+							href="AcceptezDemandeClient.ma?id_demande=${demande.getId() }&type=${offre.getType() }"
+							style="background: #32CD32; color: #000; font-family: Arial, Helvetical, sans-serif; font-size: 14px; font-weight: normal; line-height: 120%; Margin: 0; text-decoration: none; text-transform: uppercase;"
+							target="_blank" onclick="return confirm('Voulez vous vraiment envoyer une confirmation de cette demande de réservation')"
+							>
+								<strong>Accépté la demande</strong>
+						</a></td>
+
+					
+
+					</tr>
+				</table>
+			</div>
+			</c:if>
+<c:if test="${demande.getStatut()  != 'Non acceptée'}">
+			<div class="col-md-3">
+				<table border="0" cellpadding="0" cellspacing="0"
+					role="presentation"
+					style="border-collapse: separate; width: 200px; line-height: 100%;">
+					<tr>
+
+						<td align="center" bgcolor="#32CD32" role="presentation"
+							style="border: 2px solid red; border-radius: 5px; cursor: auto; padding: 10px 25px; background: red;"
+							valign="middle"><a
+							href="RefusezDemandeClient.ma?id_demande=${demande.getId() }&type=${type }"
+							style="background: red; color: #000; font-family: Arial, Helvetical, sans-serif; font-size: 14px; font-weight: normal; line-height: 120%; Margin: 0; text-decoration: none; text-transform: uppercase;"
+							onclick="return confirm('Voulez vous vraiment refusée cette demande de réservation')">
+								<strong>Refusé la demande</strong>
+						</a></td>
+
+					</tr>
+				</table>
+			</div>
+			</c:if>
+		</div>
+
+
 	</div>
+	<footer class="ftco-footer ftco-section">
+	<div class="container">
+		<div class="row mb-5">
+			<div class="col-md">
+				<div class="ftco-footer-widget mb-4">
+					<h2 class="ftco-heading-2">Hire && Sale</h2>
+					<p>Réservez des hébergements uniques.</p>
+					<ul class="ftco-footer-social list-unstyled mt-5">
+						<li class="ftco-animate"><a href="#"><span
+								class="icon-twitter"></span></a></li>
+						<li class="ftco-animate"><a href="#"><span
+								class="icon-facebook"></span></a></li>
+						<li class="ftco-animate"><a href="#"><span
+								class="icon-instagram"></span></a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-md">
+				<div class="ftco-footer-widget mb-4 ml-md-4">
+					<h2 class="ftco-heading-2">À propos</h2>
+					<ul class="list-unstyled">
+						<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Notre
+								Histoire</a></li>
+						<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Nos
+								Carrières</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-md">
+				<div class="ftco-footer-widget mb-4">
+					<h2 class="ftco-heading-2">Avez-vous des questions?</h2>
+					<div class="block-23 mb-3">
+						<ul>
+							<li><span class="icon icon-map-marker"></span><span
+								class="text">203 Fake St. Mountain View, San Francisco,
+									California, USA</span></li>
+							<li><a href="#"><span class="icon icon-phone"></span><span
+									class="text">+2 392 3929 210</span></a></li>
+							<li><a href="#"><span class="icon icon-envelope pr-4"></span><span
+									class="text">info@yourdomain.com</span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</footer>
+
 	<script src="js/core/popper.min.js"></script>
 	<script src="js/core/bootstrap-material-design.min.js"></script>
 	<script src="js/plugins/perfect-scrollbar.jquery.min.js"></script>
@@ -809,6 +693,22 @@
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 	<script src="js/accueil_js/google-map.js"></script>
 	<script src="js/accueil_js/main.js"></script>
+
+	<script
+		src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+	<script
+		src='https://www.jqueryscript.net/demo/Fully-Functional-jQuery-Image-Video-Gallery-Plugin-Unite-Gallery/unitegallery/js/unitegallery.min.js'></script>
+	<script
+		src='https://www.jqueryscript.net/demo/Fully-Functional-jQuery-Image-Video-Gallery-Plugin-Unite-Gallery/unitegallery/themes/slider/ug-theme-slider.js'></script>
+	<script>
+		jQuery(document).ready(function() {
+
+			jQuery("#gallery").unitegallery();
+
+		});
+	</script>
+
+
 </body>
 
 </html>

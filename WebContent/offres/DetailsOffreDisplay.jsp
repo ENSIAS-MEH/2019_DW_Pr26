@@ -67,7 +67,10 @@
 	<c:if test="${sessionScope.account_type == 'client'}">
 		<c:import url="../navbar/NavbarClient.jsp" />
 	</c:if>
-
+	<c:if test="${sessionScope.account_type == 'vendeur'}">
+		<c:import url="../navbar/NavbarVendeur.jsp" />
+	</c:if>
+<br><br><br>
 	<div class="content card" style="width: 98%; margin: 0 auto;">
 		<div class="comtainer">
 			<center>
@@ -110,6 +113,7 @@
 		</center>
 		<br>
 		<div class="row">
+		<c:if test="${offre.getType() != 'Vente'}">
 			<div class="col-md-6">
 				<div class="card">
 					<div class="card-header card-header-icon card-header-rose">
@@ -119,7 +123,7 @@
 							</h4>
 						</div>
 					</div>
-
+					
 					<div class="card-body" style="margin: 0 auto;">
 						<div class="input-group input-daterange">
 
@@ -133,8 +137,10 @@
 								readonly="readonly">
 						</div>
 					</div>
+					
 				</div>
 			</div>
+			</c:if>
 
 			<div class="col-md-6">
 				<div class="card">
@@ -311,7 +317,7 @@
 																		style="border: 2px solid #32CD32; border-radius: 5px; cursor: auto; padding: 10px 25px; background: #32CD32;"
 																		valign="middle"><a href="DemandeAchatClient.ma?id_offre=${offre.getId() }&id_vendeur=${proprietaire.getId() }"
 																		style="background: #32CD32; color: #000; font-family: Arial, Helvetical, sans-serif; font-size: 14px; font-weight: normal; line-height: 120%; Margin: 0; text-decoration: none; text-transform: uppercase;"
-																		target="_blank" onclick="return confirm('Voulez vous vraiment envoyez une demande d'achat')">															
+																		onclick="return confirm('Voulez vous vraiment envoyez une demande d'achat')">															
 																		<strong>Demande d'achat</strong>
 																		</a></td>
 															</c:if>		

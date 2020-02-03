@@ -36,7 +36,7 @@
 							<i class="material-icons">library_books</i>
 							<p>Mes offres</p>
 					</a></li>
-					<li class="nav-item "><a class="nav-link" href="./icons.html">
+					<li class="nav-item "><a class="nav-link" href="ListDemandeVendeur.ma">
 							<i class="material-icons">format_indent_increase</i>
 							<p>Liste des demandes</p>
 					</a></li>
@@ -44,7 +44,7 @@
 							<i class="material-icons">format_indent_decrease</i>
 							<p>Demandes confirmées</p>
 					</a></li>
-					<li class="nav-item "><a class="nav-link" href="./icons.html">
+					<li class="nav-item "><a class="nav-link" href="ChercherOffreClient.ma">
 							<i class="material-icons">search</i>
 							<p>Chercher une offre</p>
 					</a></li>

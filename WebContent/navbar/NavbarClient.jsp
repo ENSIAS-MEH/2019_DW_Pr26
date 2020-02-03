@@ -31,45 +31,37 @@
 		<div class="sidebar" data-color="purple" data-background-color="white"
 			data-image="img/sidebar-1.jpg">
 			<div class="logo text-center">
-				<a class="navbar-brand" href="AccueilClient.ma"><i
+				<a class="navbar-brand" href="accueilClient.ma"><i
 					class="fas fa-hotel"></i> Hire && sale <i class="fas fa-building"></i>
 				</a>
 			</div>
 			<div class="sidebar-wrapper">
 				<ul class="nav">
-					<li class="nav-item active"><a class="nav-link"
-						href="AcceuilVendeur.ma"> <i class="material-icons">home</i>
+					<li class="nav-item ${active1 }"><a class="nav-link"
+						href="accueilClient.ma"> <i class="material-icons">home</i>
 							<p>Acceuil</p>
 					</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="AcceuilVendeur.ma"> <i class="material-icons">dashboard</i>
-							<p>Dashboard</p>
-					</a></li>
-					<li class="nav-item "><a class="nav-link" href="getAllOffres.ma">
+					<li class="nav-item ${active2 }"><a class="nav-link" href="getAllOffres.ma">
 							<i class="material-icons">local_offer</i>
 							<p>Toutes les offres</p>
 					</a></li>
-					<li class="nav-item "><a class="nav-link" href="./tables.html">
-							<i class="material-icons">location_city</i>
-							<p>Offres Par Ville</p>
-					</a></li>
-					<li class="nav-item "><a class="nav-link"
+					<li class="nav-item ${active3 }"><a class="nav-link"
 						href="ListDemandeClient.ma"> <i class="material-icons">format_indent_increase</i>
-							<p>Mes demandes de réservations</p>
+							<p>Mes demandes</p>
 					</a></li>
-					<li class="nav-item "><a class="nav-link" href="./icons.html">
+					<li class="nav-item ${active4 }"><a class="nav-link" href="ListReservationClient.ma">
 							<i class="material-icons">format_indent_decrease</i>
 							<p>Mes réservations</p>
 					</a></li>
-					<li class="nav-item "><a class="nav-link" href="./icons.html">
+					<li class="nav-item ${active5 }"><a class="nav-link" href="ChercherOffreClient.ma">
 							<i class="material-icons">search</i>
 							<p>Chercher une offre</p>
 					</a></li>
-					<li class="nav-item "><a class="nav-link" href="./icons.html">
+					<li class="nav-item ${active7 }"><a class="nav-link" href="PlanifierUnVoyage.ma">
 							<i class="material-icons">near_me</i>
 							<p>Planifier un voyage</p>
 					</a></li>
-					<li class="nav-item "><a class="nav-link" href="./icons.html">
+					<li class="nav-item ${active6 }"><a class="nav-link" href="contactByClient.ma">
 							<i class="material-icons">textsms</i>
 							<p>Messages</p>
 					</a></li>
