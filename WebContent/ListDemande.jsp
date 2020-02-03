@@ -1,14 +1,15 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en">
+<html>
 <head>
+
 <meta charset="utf-8" />
 <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon.png">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>Location et vente de logement</title>
+<title>Liste Demandes</title>
 <meta
 	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
 	name='viewport' />
@@ -26,101 +27,242 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
 	rel="stylesheet">
 </head>
-<c:if test="${sessionScope.account_type == 'vendeur'}">
-	<c:import url="../navbar/NavbarVendeur.jsp" />
-</c:if>
-<c:if test="${sessionScope.account_type == 'admin'}">
-	<c:import url="../navbar/NavbarAdmin.jsp" />
-</c:if>
-<div class="content">
 
-	<c:if test="${alert != null}">
-		<div class="card" style="width: 60%; margin: 0 auto;">
-			<div class="card-body">
-				<center class="font-weight-bold">
-					<strong>${alert } </strong>
-				</center>
+<body class="">
+	
+		<div class="wrapper ">
+		<div class="sidebar" data-color="purple" data-background-color="white"
+			data-image="assets/img/sidebar-1.jpg">
+			<!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+			<div class="logo ">
+				<a href="#" class="simple-text logo-normal active"> Hire && Sale
+				</a>
+			</div>
+			<div class="sidebar-wrapper">
+				<ul class="nav">
+					<li class="nav-item "><a class="nav-link"
+						href="AccueilAdmin.ma"> <i class="material-icons">home</i>
+							<p>Acceuil</p>
+					</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="#"> <i class="material-icons">dashboard</i>
+							<p>Dashboard</p>
+					</a></li>
+					<li class="nav-item "><a class="nav-link" href="ListVendeur.ma">
+							<i class="material-icons">account_circle</i>
+							<p>Liste des propriétaires</p>
+					</a></li>
+					<li class="nav-item "><a class="nav-link" href="ListClient.ma">
+							<i class="material-icons">supervised_user_circle</i>
+							<p>Liste des clients</p>
+					</a></li>
+					<li class="nav-item "><a class="nav-link" href="ListOffre.ma">
+							<i class="material-icons">local_offer</i>
+							<p>Liste des offres</p>
+					</a></li>
+					<li class="nav-item  active"><a class="nav-link"
+						href="ListDemandeClient.ma"> <i class="material-icons">format_indent_increase</i>
+							<p>Liste des demandes</p>
+					</a></li>
+					<li class="nav-item "><a class="nav-link" href="./icons.html">
+							<i class="material-icons">format_indent_decrease</i>
+							<p>Demandes confirmées</p>
+					</a></li>
+
+				</ul>
 			</div>
 		</div>
-	</c:if>
-
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="card">
-					<div class="card-header card-header-primary">
-						<h4 class="card-title ">Liste des offres</h4>
-						<c:if test="${sessionScope.account_type == 'vendeur'}">
-							<p class="card-category">la liste de tous vos offres effectuées</p>
-						</c:if>
+		
+		
+	<div class="main-panel">
+		<nav
+				class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+				<div class="container-fluid">
+					<div class="navbar-wrapper">
+						<a class="navbar-brand" href="#pablo">Accueil</a>
 					</div>
-					<div class="card-body">
-						<div class="table-responsive">
-							<table class="table">
-								<thead class=" text-primary">
-									<th>Catégorie</th>
-									<th>Vente/Location</th>
-									<th>Pays</th>
-									<th>Ville</th>
-									<th>Adresse</th>
-									<th>Date Début</th>
-									<th>Date Fin</th>
-									<th>Etat</th>
-									<th>Action</th>
-								</thead>
-								<tbody>
-									<c:forEach items="${offres}" var="o">
-										<tr>
-											<td>${o.getCategorie()}</td>
-											<td>${o.getType()}</td>
-											<td>${o.getPays()}</td>
-											<td>${o.getVille()}</td>
-											<td>${o.getAdresse()}</td>
-											<td>${o.getDate_debut()}</td>
-											<td>${o.getDate_fin()}</td>
-											<td><c:if test="${o.getEtat() == 'en attente'}">
-													<button type="button" class="btn btn-warning btn-sm">En
-														Attente</button>
-												</c:if> <c:if test="${o.getEtat() == 'acceptee'}">
-													<button type="button" class="btn btn-info btn-sm">Acceptée</button>
-												</c:if> <c:if test="${o.getEtat() == 'reservee'}">
-													<button type="button" class="btn btn-success btn-sm">Reservée</button>
-												</c:if></td>
-											<td><a href="DetailOffre.ma?id=${o.getId()}"
-												class=" btn-circle btn-sm" title="Ouvrir"><i
-													class="far fa-folder-open"></i></a>
-<c:if test="${sessionScope.account_type == 'vendeur'}">
-													<c:if test="${o.getEtat() == 'en attente'}"> <a
-												href="ModifierOffre.ma?id=${o.getId()}"
-												class="  btn-circle  btn-sm" title="Mettre à jour"> <i
-													class="fas fa-sync"></i></a></c:if> </c:if>	<a
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						aria-controls="navigation-index" aria-expanded="false"
+						aria-label="Toggle navigation">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="navbar-toggler-icon icon-bar"></span> <span
+							class="navbar-toggler-icon icon-bar"></span> <span
+							class="navbar-toggler-icon icon-bar"></span>
+					</button>
+					<div class="collapse navbar-collapse justify-content-end">
+						<form class="navbar-form">
+							<div class="input-group no-border">
+								<input type="text" value="" class="form-control"
+									placeholder="Search...">
+								<button type="submit"
+									class="btn btn-white btn-round btn-just-icon">
+									<i class="material-icons">search</i>
+									<div class="ripple-container"></div>
+								</button>
+							</div>
+						</form>
+						<ul class="navbar-nav">
 
-													
-									<%-- 	<c:if test="${sessionScope.account_type == 'vendeur'}"> <a
-												href="ModifierOffre.ma?id=${o.getId()}"
-												class="  btn-circle  btn-sm" title="Mettre à jour"> <i
-													class="fas fa-sync"></i></a>
-										</c:if>	
-												 <a --%>
-
-												href="SupprimerOffre.ma?id=${o.getId()}"
-												class="  btn-circle btn-sm" title="Supprimer"
-												onclick="return confirm('Voulez vous vraiment supprimer cette demande');"><i
-													class="fas fa-trash"></i></a></td>
-										</tr>
-									</c:forEach>
-
-								</tbody>
-							</table>
-						</div>
+							<li class="nav-item dropdown"><a class="nav-link"
+								href="http://example.com" id="navbarDropdownMenuLink"
+								data-toggle="dropdown" aria-haspopup="true"
+								aria-expanded="false"> <i class="material-icons">notifications</i>
+									<span class="notification">2</span>
+									<p class="d-lg-none d-md-block">Some Actions</p>
+							</a>
+								<div class="dropdown-menu dropdown-menu-right"
+									aria-labelledby="navbarDropdownMenuLink">
+									<a class="dropdown-item" href="#">Mike John responded to
+										your email</a> <a class="dropdown-item" href="#">You have 5
+										new tasks</a>
+								</div></li>
+							<li class="nav-item dropdown"><a class="nav-link"
+								href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false"> <i
+									class="material-icons">person</i>
+									<p class="d-lg-none d-md-block">Compte</p>
+							</a>
+								<div class="dropdown-menu dropdown-menu-right"
+									aria-labelledby="navbarDropdownProfile">
+									<a class="dropdown-item" href="#"
+									style="background-color: gray;">${sessionScope.nom }${sessionScope.prenom }</a>
+								<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="#">Profil</a>
+									<a class="dropdown-item" href="Deconnexion.ma">Se déconnecter</a>
+								</div></li>
+						</ul>
 					</div>
 				</div>
-			</div>
+			</nav>
+			<!-- End Navbar -->
+			<div class="content">
+		<div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">Demandes de location</h4>
+                  <p class="card-category"> la liste de toutes les demandes de location</p>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                     <thead class="">
+								<th>N° Demande</th>
+								<th>Date de la demande</th>
+								<th>Statut</th>
+								<th>Offre</th>
+								<th>Action</th>
+							</thead>
+							<tbody>
+								<c:forEach items="${demandeLocation}" var="location">
+									<tr>
+										<td>${location.getId() }</td>
+										<td>${location.getDateDemande() }</td>
+										<c:if test="${location.getStatut()  == 'En attente'}">
+											<td><button class="btn btn-info btn-sm">${location.getStatut() }</button></td>
+										</c:if>
+										<c:if test="${location.getStatut()  == 'Acceptée'}">
+											<td><button class="btn btn-success btn-sm">${location.getStatut() }</button></td>
+										</c:if>
+										<c:if test="${location.getStatut()  == 'Non acceptée'}">
+											<td><button class="btn btn-danger btn-sm">${location.getStatut() }</button></td>
+										</c:if>
+										<td><a
+											href="DetailOffre.ma?id=${location.getId_offre() }"
+											class="btn-circle btn-sm" title="Ouvrir offre"
+											style="color: green;"> <i class="far fa-folder-open"></i></a>
+										</td>
+										<td><c:if test="${location.getStatut()  == 'En attente' }">
+												<a href="SupprimerDemandeAchat.ma?id=${location.getId()}"
+													class="btn-circle btn-sm" title="Supprimer"
+													onclick="return confirm('Voulez vous vraiment supprimer cette demande ?');"
+													style="color: red;"><i class="fas fa-trash"></i></a>
+											</c:if></td>
+									</tr>
+								</c:forEach>
+							</tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        
+        
+           <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">Demandes d'achat</h4>
+                  <p class="card-category"> la liste de toutes les demandes d'achat</p>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                     <thead class="">
+								<th>N° Demande</th>
+								<th>Date de la demande</th>
+								<th>Statut</th>
+								<th>Offre</th>
+								<th>Action</th>
+							</thead>
+							<tbody>
+								<c:forEach items="${demandeAchat}" var="Achat">
+									<tr>
+										<td>${Achat.getId() }</td>
+										<td>${Achat.getDateDemande() }</td>
+										<c:if test="${Achat.getStatut()  == 'En attente'}">
+											<td><button class="btn btn-info btn-sm">${Achat.getStatut() }</button></td>
+										</c:if>
+										<c:if test="${location.getStatut()  == 'Acceptée'}">
+											<td><button class="btn btn-success btn-sm">${Achat.getStatut() }</button></td>
+										</c:if>
+										<c:if test="${location.getStatut()  == 'Non acceptée'}">
+											<td><button class="btn btn-danger btn-sm">${Achat.getStatut() }</button></td>
+										</c:if>
+										<td><a
+											href="DetailOffre.ma?id=${Achat.getId_offre() }"
+											class="btn-circle btn-sm" title="Ouvrir offre"
+											style="color: green;"> <i class="far fa-folder-open"></i></a>
+										</td>
+										<td><c:if test="${Achat.getStatut()  == 'En attente' }">
+												<a href="SupprimerDemandeAchat.ma?id=${Achat.getId()}"
+													class="btn-circle btn-sm" title="Supprimer"
+													onclick="return confirm('Voulez vous vraiment supprimer cette demande ?');"
+													style="color: red;"><i class="fas fa-trash"></i></a>
+											</c:if></td>
+									</tr>
+								</c:forEach>
+							</tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+       
+        
+        
+        </div>
+        </div>
+       </div>
 
-		</div>
-	</div>
-</div>
-<script src="js/core/jquery.min.js"></script>
+
+
+
+
+
+
+
+<!--   Core JS Files   -->
+	<script src="js/core/jquery.min.js"></script>
 
 
 <script src="js/core/popper.min.js"></script>

@@ -43,7 +43,7 @@
 			<div class="sidebar-wrapper">
 				<ul class="nav">
 					<li class="nav-item "><a class="nav-link"
-						href="AcceuilAdmin.ma"> <i class="material-icons">home</i>
+						href="AccueilAdmin.ma"> <i class="material-icons">home</i>
 							<p>Acceuil</p>
 					</a></li>
 					<li class="nav-item"><a class="nav-link"
@@ -63,7 +63,7 @@
 							<p>Liste des offres</p>
 					</a></li>
 					<li class="nav-item "><a class="nav-link"
-						href="./typography.html"> <i class="material-icons">format_indent_increase</i>
+						href="ListDemandeClient.ma"> <i class="material-icons">format_indent_increase</i>
 							<p>Liste des demandes</p>
 					</a></li>
 					<li class="nav-item "><a class="nav-link" href="./icons.html">
@@ -169,7 +169,6 @@
                           <td>${c.getNum_telephone()}</td>
                           <td>
                           	 <a href="DetailClient.ma?id=${c.getId()}" class=" btn-circle btn-sm" title="Ouvrir"><i class="far fa-folder-open"></i></a>
-                   			 <a href="ModifierClient.ma?id=${c.getId()}" class="  btn-circle  btn-sm" title="Mettre à jour"> <i class="fas fa-sync"></i></a>
                   			 <a href="SupprimerClient.ma?id=${c.getId()}" class="  btn-circle btn-sm" title="Supprimer" onclick="return confirm('Voulez vous vraiment supprimer ce compte');"><i class="fas fa-trash"></i></a>
                           </td>
                         </tr>

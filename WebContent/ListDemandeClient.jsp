@@ -57,7 +57,7 @@
 <body>
 	<c:if test="${sessionScope.account_type == 'client'}">
 		<c:import url="navbar/NavbarClient.jsp" />
-	</c:if>
+	
 	<br>
 	<br>
 	<br>
@@ -237,7 +237,10 @@
 		</div>
 	</div>
 	</footer>
-	</div>
+	
+	</c:if>
+	
+	
 	<script src="js/core/popper.min.js"></script>
 	<script src="js/core/bootstrap-material-design.min.js"></script>
 	<script src="js/plugins/perfect-scrollbar.jquery.min.js"></script>

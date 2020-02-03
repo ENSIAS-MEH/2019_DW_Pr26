@@ -76,7 +76,7 @@
 							<p>Liste des offres</p>
 					</a></li>
 					<li class="nav-item "><a class="nav-link"
-						href="./typography.html"> <i class="material-icons">format_indent_increase</i>
+						href="ListDemandeClient.ma"> <i class="material-icons">format_indent_increase</i>
 							<p>Liste des demandes</p>
 					</a></li>
 					<li class="nav-item "><a class="nav-link" href="./icons.html">
@@ -181,7 +181,7 @@
 				<div class="dropdown-divider"></div>
 			</div>
 		</div>
-		</div><br/>
+		</div><br/><br/>
 		
 	<div class="row">
 		<div class="col-md-4">
@@ -197,7 +197,7 @@
 				<div class="dropdown-divider"></div>
 			</div>
 			</div>
-		</div><br/>
+		</div><br/><br/>
 			
 			<div class="categ field hs-form-field">			
 				<span class="label">Email :</span> ${vendeur.getEmail()}<br>
@@ -218,7 +218,7 @@
 				<div class="dropdown-divider"></div>
 			</div>
 			</div>
-		</div>
+		</div><br/><br/>
 			
 		</fieldset>
 	</div>
