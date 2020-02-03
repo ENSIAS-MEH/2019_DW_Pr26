@@ -276,7 +276,7 @@ public class Controller extends HttpServlet {
 			} else
 				views = "/404";
 		} else if (action.equals("AccueilAdmin")) {
-			if (session.getAttribute("account_type").equals("admin")) {
+			if (session.getAttribute("account_type") != null && session.getAttribute("account_type").equals("admin")) {
 				request.setAttribute("type", "acceuilAdmin");
 				views = "AccueilAdmin";
 			} else
@@ -337,12 +337,12 @@ public class Controller extends HttpServlet {
 				request.setAttribute("active3", "active");
 				views = "ListDemandeClient";
 			} 
-			/*else if (session.getAttribute("account_type") != null
+			else if (session.getAttribute("account_type") != null
 				&& session.getAttribute("account_type").equals("admin")) {
 				request.setAttribute("demandeLocation", demandeLocationAction. getAllDemandeLocation());
 				request.setAttribute("demandeAchat", demandeAchatAction. getAllDemandeAchat());
 				views = "ListDemande";
-			}*/else
+			}else
 				views = "/404";
 
 		} else if (action.equals("SupprimerDemande")) {
@@ -489,7 +489,7 @@ public class Controller extends HttpServlet {
 		// Administrateur
 		else if (action.equals("ConnexionAdmin")) {
 			if (adminAction.ConnexionAdmin(request, session)) {
-				views = "AcceuilAdmin";
+				views = "AccueilAdmin";
 			} else {
 				request.setAttribute("messageError", "Mot de passe ou Email Incorrect");
 				views = "ConnexionAdmin";

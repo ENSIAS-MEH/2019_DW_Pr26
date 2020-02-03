@@ -57,7 +57,7 @@
 							<p>Liste des offres</p>
 					</a></li>
 					<li class="nav-item "><a class="nav-link"
-						href="./typography.html"> <i class="material-icons">format_indent_increase</i>
+						href="ListDemandeClient.ma"> <i class="material-icons">format_indent_increase</i>
 							<p>Liste des demandes</p>
 					</a></li>
 					<li class="nav-item "><a class="nav-link" href="./icons.html">
