@@ -50,9 +50,9 @@
 
 	<ul id="progressbar">
 		<li class="active">Categorie</li>
+		<li>Emplacement</li>
 		<li>Informations</li>
-		<li>Date</li>
-		<li>Specification</li>
+	
 		<li>Description</li>
 	</ul>
 	<%-- pour l affichage photo 
@@ -68,92 +68,184 @@
 		enctype="multipart/form-data">
 		<input type="hidden" name="id" value="${offre.getId()}">
 		<!-- USER INFORMATION FIELD SET -->
-		<fieldset>
-			<h2 class="fs-title">Categorie de la location</h2>
+		<fieldset style="width: 100%; float: left; margin: 0;">
+			<h2 class="fs-title">Categorie de l'immobilier</h2>
 			<h3 class="fs-subtitle">Choisissez la catégorie de votre
-				location</h3>
+				immobilier</h3>
+			
 			<!-- Begin What's Your First Name Field -->
 			<div class="categ field hs-form-field">
-				<label for="hs_categ">Catégorie* :</label><br> <select
-					style="width: 100%; height: 50px" name="categorie"
-					value="${offre.getCategorie()}" id="categ"
-					data-rule-required="true"
-					data-msg-required="Please choose an option" required="required">
-
-					<option class="text-center" value="">--------choisir une
-						catégorie--------</option>
-					<c:choose>
-						<c:when test="${offre.getCategorie() == 'chambreHotel'}">
-							<option value="chambreHotel" selected>Chambre d'un hôtel</option>
+				<label for="hs_categ">Transaction <b style="color: red;">*</b> :</label><br>
+				<div class="control row col-md-12">
+				<c:choose>
+						<c:when test="${offre.getType() == 'Vente'}">
+							<label class="radio col-md-4"> <input type="radio" name="type" value="Vente" id="vente"  onclick="Vente()" checked="checked" >
+						Vente
+					</label>
 						</c:when>
 						<c:otherwise>
-							<option value="chambreHotel">Chambre d'un hôtel</option>
+							<label class="radio col-md-4"> <input type="radio" name="type" value="Vente" id="vente"  onclick="Vente()" >
+						Vente
+					</label>
 						</c:otherwise>
 					</c:choose>
 					<c:choose>
-						<c:when test="${offre.getCategorie() == 'chambreHauberge'}">
-							<option value="chambreHauberge" selected>Chambre d'un
-								hauberge</option>
+						<c:when test="${offre.getType() == 'Location'}">
+							<label class="radio col-md-4"> <input type="radio" name="type" value="Location" id="location" onClick="Location()" checked="checked">
+						Location
+					</label>
 						</c:when>
 						<c:otherwise>
-							<option value="chambreHauberge">Chambre d'un hauberge</option>
+							 <label class="radio col-md-4"> <input type="radio" name="type" value="Location" id="location" onClick="Location()">
+						Location
+					</label>
 						</c:otherwise>
 					</c:choose>
 					<c:choose>
-						<c:when test="${offre.getCategorie() == 'chambreHote'}">
-							<option value="chambreHote" selected>Chambre d'hôte</option>
+						<c:when test="${offre.getType() == 'Location vacances'}">
+							<label class="radio col-md-4"> <input type="radio" name="type" value="Location vacances" id="vacances" onClick="Location()" checked="checked">
+						Location vacances
+					</label>
 						</c:when>
 						<c:otherwise>
-							<option value="chambreHote">Chambre d'hôte</option>
+							<label class="radio col-md-4"> <input type="radio" name="type" value="Location vacances" id="vacances" onClick="Location()">
+						Location vacances
+					</label>
+						</c:otherwise>
+					</c:choose>
+					 
+				</div>
+				<label for="hs_categ">Catégorie <b style="color: red;">*</b> :</label><br>
+				<div class="control row col-md-12">
+				<c:choose>
+						<c:when test="${offre.getCategorie() == 'Appartement'}">
+							<label class="radio col-md-4" style="display: block;" id="Appartement"> <input type="radio" name="categorie" value="Appartement"  checked="checked">
+						Appartement
+					</label>
+						</c:when>
+						<c:otherwise>
+							 <label class="radio col-md-4" style="display: block;" id="Appartement"> <input type="radio" name="categorie" value="Appartement"  >
+						Appartement
+					</label>
+						</c:otherwise>
+					</c:choose>
+				<c:choose>
+						<c:when test="${offre.getCategorie() == 'Maison'}">
+							 <label class="radio col-md-4" style="display: block;" id="Maison"> <input type="radio" name="categorie" value="Maison" checked="checked" >
+						Maison
+					</label>
+						</c:when>
+						<c:otherwise>
+							  <label class="radio col-md-4" style="display: block;" id="Maison"> <input type="radio" name="categorie" value="Maison" >
+						Maison
+					</label>
 						</c:otherwise>
 					</c:choose>
 					<c:choose>
-						<c:when test="${offre.getCategorie() == 'maison'}">
-							<option value="maison" selected>Maison</option>
+						<c:when test="${offre.getCategorie() == 'Villas & maisons de luxe'}">
+							<label class="radio col-md-4" style="display: block;" id="Villas"> <input type="radio" name="categorie" value="Villas & maisons de luxe" checked="checked">
+						 Villas & maisons de luxe
+					</label>
 						</c:when>
 						<c:otherwise>
-							<option value="maison">Maison</option>
+							 <label class="radio col-md-4" style="display: block;" id="Villas"> <input type="radio" name="categorie" value="Villas & maisons de luxe" >
+						 Villas & maisons de luxe
+					</label>
 						</c:otherwise>
 					</c:choose>
 					<c:choose>
-						<c:when test="${offre.getCategorie() == 'appartement'}">
-							<option value="appartement" selected>Appartement</option>
+						<c:when test="${offre.getCategorie() == 'Riad'}">
+							 <label class="radio col-md-4" style="display: block;" id = "Riad"> <input type="radio" name="categorie" value="Riad" checked="checked">
+						  Riad
+					</label>
 						</c:when>
 						<c:otherwise>
-							<option value="appartement">Appartement</option>
+							 <label class="radio col-md-4" style="display: block;" id = "Riad"> <input type="radio" name="categorie" value="Riad" >
+						  Riad
+					</label>
 						</c:otherwise>
 					</c:choose>
 					<c:choose>
-						<c:when test="${offre.getCategorie() == 'logementUnique'}">
-							<option value="logementUnique" selected>Logement Unique</option>
+						<c:when test="${offre.getCategorie() == 'Chambres'}">
+							<label class="radio col-md-4" style="display: none;" id = "Chambres"> <input type="radio" name="categorie" value="Chambres" checked="checked">
+						  Chambres
+					</label>
 						</c:when>
 						<c:otherwise>
-							<option value="logementUnique">Logement Unique</option>
+							 <label class="radio col-md-4" style="display: none;" id = "Chambres"> <input type="radio" name="categorie" value="Chambres" >
+						  Chambres
+					</label>
 						</c:otherwise>
 					</c:choose>
-
-
-
-
-
-				</select> <span class="error1" style="display: none;"> <i
+					<c:choose>
+						<c:when test="${offre.getCategorie() == 'Chambre d un Hôtel'}">
+							 <label class="radio col-md-4" id="Hotel" style="display: none;"> <input type="radio" name="categorie" value="Chambre d'un Hotel" checked="checked" >
+						  Chambre d'un Hôtel
+					</label>
+						</c:when>
+						<c:otherwise>
+							 <label class="radio col-md-4" id="Hotel" style="display: none;"> <input type="radio" name="categorie" value="Chambre d'un Hôtel" >
+						  Chambre d'un Hôtel
+					</label>
+						</c:otherwise>
+					</c:choose>
+					<c:choose>
+						<c:when test="${offre.getCategorie() == 'Chambre d une auberge'}">
+							<label  id="Hauberge" style="display: none;" class="radio col-md-4"> <input type="radio" name="categorie" value="Chambre d'une auberge" checked="checked">
+						  Chambre d'une auberge
+					</label >
+						</c:when>
+						<c:otherwise>
+							 <label  id="Hauberge" style="display: none;" class="radio col-md-4"> <input type="radio" name="categorie" value="Chambre d'une auberge" >
+						  Chambre d'une auberge
+					</label >
+						</c:otherwise>
+					</c:choose>
+					
+				</div>
+				  <span class="error1" style="display: none;"> <i
 					class="error-log fa fa-exclamation-triangle"></i>
 				</span>
 			</div>
 			<!-- End What's Your First Name Field -->
 
+
 			<!-- Begin What's Your Email Field -->
-			<div class="hs_nombre field hs-form-field">
+<script >
 
-				<label for="nmb">Nombre de personne* :</label> <input id="nmb"
-					name="nombre_personne" required="required" type="number"
-					value="${offre.getNombre_personne()}" data-rule-required="true"
-					data-msg-required="Please enter a number "> <span
-					class="error1" style="display: none;"> <i
-					class="error-log fa fa-exclamation-triangle"></i>
-				</span>
-			</div>
 
+function Vente() {
+ 
+ 
+    document.getElementById("Appartement").style.display = "block";
+    document.getElementById("Maison").style.display = "block";
+    document.getElementById("Villas").style.display = "block";
+    document.getElementById("Riad").style.display = "block";
+    document.getElementById("Chambres").style.display = "none";
+    document.getElementById("Hotel").style.display = "none";
+    document.getElementById("Hauberge").style.display = "none";
+    document.getElementById("inf1").style.display = "none";
+    document.getElementById("inf4").style.display = "none";
+    document.getElementById("inf5").style.display = "none";
+  
+}
+function Location() {
+	
+	    document.getElementById("Appartement").style.display = "block";
+	    document.getElementById("Maison").style.display = "block";
+	    document.getElementById("Villas").style.display = "block";
+	    document.getElementById("Riad").style.display = "block";
+	    document.getElementById("Chambres").style.display = "block";
+	    document.getElementById("Hotel").style.display = "block";
+	    document.getElementById("Hauberge").style.display = "block";
+	    document.getElementById("inf1").style.display = "block";
+	    document.getElementById("inf4").style.display = "block";
+	    document.getElementById("inf5").style.display = "block";
+	  
+	}
+
+
+</script>
 
 			<!-- End Total Number of Constituents in Your Database Field -->
 			<input type="button" data-page="1" name="next"
@@ -163,19 +255,19 @@
 
 
 		<!-- ACQUISITION FIELD SET -->
-		<fieldset>
-			<h2 class="fs-title">Informations</h2>
-			<h3 class="fs-subtitle">Des informations sur la location</h3>
+		<fieldset style="width: 100%; float: left; margin: 0;">
+			<h2 class="fs-title">Emplacement</h2>
+			<h3 class="fs-subtitle">Des informations sur l'Emplacement de l'immobilier</h3>
 			<!-- Begin Total Number of Donors in Year 1 Field -->
 			<div
 				class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field"
 				id="webform-component-acquisition--amount-1">
 
-				<label for="pays">Pays *</label> <input id="pays"
+				<label for="pays">Pays <b style="color: red;">*</b></label> <input id="pays"
 					class="form-text hs-input" name="pays" required="required"
-					type="text" value="${offre.getPays()}" placeholder=""
-					data-rule-required="true" data-msg-required="Please enter a text">
-				<span class="error1" style="display: none;"> <i
+					type="text" value="${offre.getPays()}" placeholder="" data-rule-required="true"
+					data-msg-required="Please enter a text"> <span
+					class="error1" style="display: none;"> <i
 					class="error-log fa fa-exclamation-triangle"></i>
 				</span>
 			</div>
@@ -186,11 +278,11 @@
 				class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_2 field hs-form-field"
 				id="webform-component-acquisition--amount-2">
 
-				<label for="ville">Ville *</label> <input id="ville"
+				<label for="ville">Ville <b style="color: red;">*</b></label> <input id="ville"
 					class="form-text hs-input" name="ville" required="required"
-					type="text" value="${offre.getVille()}" placeholder=""
-					data-rule-required="true" data-msg-required="Please enter a text">
-				<span class="error1" style="display: none;"> <i
+					type="text"  placeholder="" value="${offre.getVille()}" data-rule-required="true"
+					data-msg-required="Please enter a text"> <span
+					class="error1" style="display: none;"> <i
 					class="error-log fa fa-exclamation-triangle"></i>
 				</span>
 			</div>
@@ -201,11 +293,11 @@
 			<div
 				class="form-item webform-component webform-component-textfield webform-container-inline hs_total_donor_percent_change field hs-form-field">
 
-				<label for="adresse">Adresse *</label> <input id="adresse"
-					class="form-text hs-input" name="adresse" type="text"
-					value="${offre.getAdresse()}" required="required"
-					data-rule-required="true" data-msg-required="Please enter a text">
-				<span class="error1" style="display: none;"> <i
+				<label for="adresse">Adresse <b style="color: red;">*</b></label> <input id="adresse"
+					class="form-text hs-input" name="adresse" type="text" value="${offre.getAdresse()}"
+					required="required" data-rule-required="true"
+					data-msg-required="Please enter a text"> <span
+					class="error1" style="display: none;"> <i
 					class="error-log fa fa-exclamation-triangle"></i>
 				</span>
 			</div>
@@ -220,62 +312,133 @@
 
 
 		<!-- Cultivation FIELD SET -->
-		<fieldset>
-			<h2 class="fs-title">Date & prix</h2>
-			<h3 class="fs-subtitle">Date début, date fin et prix de la
-				location</h3>
+		<fieldset style="width: 100%; float: left; margin: 0;">
+			<h2 class="fs-title">Informations</h2>
+			<h3 class="fs-subtitle">Date début, date fin et prix de
+				l'immobilier</h3>
 			<!-- Begin Average Gift Size in Year 1 Field -->
+			<div class="row col-md-12">
+			<div class="hs_nombre field hs-form-field col-md-4" style="display: none;" id="inf1">
+				<label for="nmb">Nombre de personne <b style="color: red;">*</b> <br> <input id="nmb"
+					name="nombre_personne" required="required" type="number"
+					maxlength="5" minlength="0" placeholder=""
+					data-rule-required="true"
+					data-msg-required="Please enter a number " min="1" max="100"  > <span
+					class="error1" style="display: none;"> <i
+					class="error-log fa fa-exclamation-triangle"></i>
+				</span></label>
+			</div>
+			<div
+				class="hs_nombre field hs-form-field  col-md-4"
+				id="webform-component-cultivation--amount-4" id="inf2">
+
+				<label for="nb_chambre">Nombre de chambres <b style="color: red;">*</b>   <input
+					id="nb_chambre" class="form-text hs-input" name="nb_chambre"
+					required="required"  min="1" max="100" value="${offre.getNb_chambre()}" type="number"
+					 placeholder="" data-rule-required="true" maxlength="5" minlength="0"
+					data-msg-required="Please enter a valid number"> <span
+					class="error1" style="display: none;"> <i
+					class="error-log fa fa-exclamation-triangle"></i>
+				</span></label>
+			
+			</div>
+			<div class="hs_nombre field hs-form-field  col-md-4"
+				id="webform-component-cultivation--amount-3 hs_total_giving_in_year_1 field hs-form-field inf3">
+
+				<label for="bain">Nombre de salles de bain <b style="color: red;">*</b><input
+					id="bain" class="form-text hs-input" name="salle_bain"
+					required="required" size="60" maxlength="128" value="${offre.getSalle_bain()}" type="number"
+					 placeholder="" data-rule-required="true"
+					data-msg-required="Please enter a valid number" min="1" max="100"> <span
+					class="error1" style="display: none;"> <i
+					class="error-log fa fa-exclamation-triangle"></i>
+				</span></label> 
+			</div>
+			<!-- End Total Giving In Year 1 Field -->
+</div>
+			<!-- Begin Total Giving In Year 2 Field -->
+			<div class="row col-md-12">
+			<div id="inf4" class="col-md-6" style="display: none;">
 			<div
 				class="form-item webform-component webform-component-textfield hs_average_gift_size_in_year_1 field hs-form-field"
-				id="edit-submitted-cultivation-amount-1 average_gift_size_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_3256">
+				id="edit-submitted-cultivation-amount-1 average_gift_size_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_3256 " >
 
-				<label for="date_debut">Date début *</label> <input id="date_debut"
+				<label for="date_debut">Date début <b style="color: red;">*</b></label> <input id="date_debut"
 					class="form-text hs-input" name="date_debut" required="required"
-					type="date" value="${offre.getDate_debut()}" placeholder=""
-					data-rule-required="true"
+					type="date"  placeholder="" value="${offre.getDate_debut()}" data-rule-required="true"
 					data-msg-required="Please enter a valid date"> <span
 					class="error1" style="display: none;"> <i
 					class="error-log fa fa-exclamation-triangle"></i>
 				</span>
+			</div>
 			</div>
 			<!-- End Average Gift Size in Year 1 Field -->
 
 			<!-- Begin Average Gift Size in Year 2 Field -->
+			<div id="inf5" class="col-md-6" style="display: none;">
 			<div
-				class="form-item webform-component webform-component-textfield hs_average_gift_size_in_year_2 field hs-form-field"
-				id="webform-component-cultivation--amount-2">
+				class="form-item webform-component webform-component-textfield hs_average_gift_size_in_year_2 field hs-form-field "
+				id="webform-component-cultivation--amount-2" >
 
-				<label for="date_fin">Date fin *</label> <input id="date_fin"
-					class="form-text hs-input" name="date_fin" required="required"
-					type="date" value="${offre.getDate_fin()}" placeholder=""
-					data-rule-required="true"
+				<label for="date_fin">Date fin <b style="color: red;">*</b></label> <input id="date_fin"
+					class="form-text hs-input" name="date_fin" value="${offre.getDate_fin()}" required="required"
+					type="date"  placeholder="" data-rule-required="true"
 					data-msg-required="Please enter a valid date"> <span
 					class="error1" style="display: none;"> <i
 					class="error-log fa fa-exclamation-triangle"></i>
 				</span>
 			</div>
-
+</div>
+</div>
+<div class="row col-md-12">
 			<div
-				class="form-item webform-component webform-component-textfield webform-container-inline hs_total_donor_percent_change field hs-form-field">
+				class="col-md-6 form-item webform-component webform-component-textfield webform-container-inline hs_total_donor_percent_change field hs-form-field inf6">
 
-				<label for="^prix">Prix/Nuit *</label> <input id="prix"
-					class="form-text hs-input" name="prix" type="number"
-					value="${offre.getPrix()}" placeholder="0" required="required"
-					data-rule-required="true" data-msg-required="Please enter a number">
-				<span class="error1" style="display: none;"> <i
+				<label for="^prix">Prix/Nuit <b style="color: red;">*</b></label> <input id="prix"
+					class="form-text hs-input" name="prix" type="number" value="${offre.getPrix()}"
+					placeholder="0" required="required" data-rule-required="true"
+					data-msg-required="Please enter a number" > <span
+					class="error1" style="display: none;"> <i
 					class="error-log fa fa-exclamation-triangle"></i>
 				</span>
 			</div>
 			<div
-				class="form-item webform-component webform-component-textfield webform-container-inline hs_total_donor_percent_change field hs-form-field">
+				class="col-md-6 form-item webform-component webform-component-textfield webform-container-inline hs_total_donor_percent_change field hs-form-field ">
 
-				<label for="devise">Devise *</label> <input id="devise"
-					class="form-text hs-input" name="devise" type="text"
-					value="${offre.getDevise()}" required="required"
-					data-rule-required="true" data-msg-required="Please enter a text">
-				<span class="error1" style="display: none;"> <i
+				<label for="devise">Devise <b style="color: red;">*</b></label>
+				<select name="devise" required="required" data-rule-required="true"
+					data-msg-required="Please enter a text">
+				<option value="">choisir une devise</option>
+				<c:choose>
+						<c:when test="${offre.getDevise() == 'DH'}">
+							 <option value="DH" selected="selected">DH</option>
+						</c:when>
+						<c:otherwise>
+							<option value="DH">DH</option>
+						</c:otherwise>
+					</c:choose>
+					<c:choose>
+						<c:when test="${offre.getDevise() == 'EUR'}">
+							 <option value="EUR" selected="selected">EUR</option>
+						</c:when>
+						<c:otherwise>
+							<option value="EUR">EUR</option>
+						</c:otherwise>
+					</c:choose>
+					<c:choose>
+						<c:when test="${offre.getDevise() == 'USD'}">
+							 <option value="USD" selected="selected">USD</option>
+						</c:when>
+						<c:otherwise>
+							<option value="USD">USD</option>
+						</c:otherwise>
+					</c:choose>
+				
+				</select>  <span
+					class="error1" style="display: none;"> <i
 					class="error-log fa fa-exclamation-triangle"></i>
 				</span>
+			</div>
 			</div>
 			<!-- End Average Gift Size in Year 2 Field -->
 
@@ -290,51 +453,7 @@
 
 
 		<!-- Cultivation2 FIELD SET -->
-		<fieldset>
-			<h2 class="fs-title">Spécification</h2>
-			<h3 class="fs-subtitle">Spécifications de la location</h3>
-			<!-- Begin Total Giving In Year 1 Field -->
-			<div class="form-item webform-component webform-component-textfield"
-				id="webform-component-cultivation--amount-3 hs_total_giving_in_year_1 field hs-form-field">
-
-				<label for="bain">Nombre de salles de bain *</label> <input
-					id="bain" class="form-text hs-input" name="salle_bain"
-					required="required" size="60" maxlength="128" type="number"
-					value="${offre.getSalle_bain()}" placeholder=""
-					data-rule-required="true"
-					data-msg-required="Please enter a valid number"> <span
-					class="error1" style="display: none;"> <i
-					class="error-log fa fa-exclamation-triangle"></i>
-				</span>
-			</div>
-			<!-- End Total Giving In Year 1 Field -->
-
-			<!-- Begin Total Giving In Year 2 Field -->
-			<div
-				class="form-item webform-component webform-component-textfield hs_total_giving_in_year_2 field hs-form-field"
-				id="webform-component-cultivation--amount-4">
-
-				<label for="nb_chambre">Nombre de chambres </label> <input
-					id="nb_chambre" class="form-text hs-input" name="nb_chambre"
-					required="required" size="60" maxlength="128" type="number"
-					value="${offre.getNb_chambre()}" placeholder=""
-					data-rule-required="true"
-					data-msg-required="Please enter a valid number"> <span
-					class="error1" style="display: none;"> <i
-					class="error-log fa fa-exclamation-triangle"></i>
-				</span>
-			</div>
-
-			<!-- End Total Giving In Year 2 Field -->
-
-
-			<input type="button" data-page="4" name="previous"
-				class="previous action-button" value="Previous" /> <input
-				type="button" data-page="4" name="next" class="next action-button"
-				value="Next" />
-
-		</fieldset>
-
+		
 
 
 		<!-- RETENTION FIELD SET -->
@@ -769,6 +888,8 @@
 
 	});
 </script>
+
+
 </body>
 
 </html>

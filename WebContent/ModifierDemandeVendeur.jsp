@@ -198,7 +198,110 @@
 			</div>
 
 		</div>
-		<div class="row text-center">
+		<div
+			style="background: #FFFFFF; background-color: #FFFFFF; Margin: 0px auto; max-width: 600px;">
+			<table align="center" border="0" cellpadding="0" cellspacing="0"
+				role="presentation"
+				style="background: #FFFFFF; background-color: #FFFFFF; width: 100%;">
+				<tbody>
+					<tr>
+						<td
+							style="direction: ltr; font-size: 0px; padding: 20px 0; text-align: center; vertical-align: middle; background: #FFFFFF; background-color: #FFFFFF;">
+							<div class="mj-column-per-25 outlook-group-fix"
+								style="font-size: 13px; text-align: left; direction: ltr; display: inline-block; vertical-align: middle; width: 100%; background: #FFFFFF; background-color: #FFFFFF;">
+								<table border="0" cellpadding="0" cellspacing="0"
+									role="presentation" style="vertical-align: middle;"
+									width="100%">
+								</table>
+							</div>
+							<div class="mj-column-per-50 outlook-group-fix"
+								style="font-size: 13px; text-align: left; direction: ltr; display: inline-block; vertical-align: middle; width: 100%;">
+								<table border="0" cellpadding="0" cellspacing="0"
+									role="presentation" width="100%">
+									<tbody>
+										<tr>
+											<td style="vertical-align: middle; padding-bottom: 0px;">
+												<table border="0" cellpadding="0" cellspacing="0"
+													role="presentation" style="" width="100%">
+													<tr>
+														<td align="center"
+															style="font-size: 0px; padding: 10px 25px; word-break: break-word;">
+
+															
+														</td>
+													</tr>
+													<tr>
+														<td align="center" vertical-align="middle"
+															style="font-size: 0px; padding: 10px 25px; padding-top: 0px; padding-bottom: 10px; word-break: break-word;">
+															<table cellpadding="0" cellspacing="0" width="100%"
+																border="0"
+																style="cellspacing: 0; color: #32CD32; font-family: Arial, Helvetical, sans-serif; font-size: 13px; line-height: 110%; table-layout: auto; width: 100%;">
+																<tr>
+																	<td align="center" width="60%">
+																		
+																	</td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+													
+													<tr>
+														<td align="center" vertical-align="middle"
+															style="font-size: 0px; padding: 10px 60px; word-break: break-word;">
+															<table border="0" cellpadding="0" cellspacing="0"
+																role="presentation"
+																style="border-collapse: separate; width: 400px; line-height: 100%;">
+																<tr>
+																<c:if test="${demande.getStatut()  != 'Acceptée' && demandeL.getStatut()  != 'Acceptée'}">
+																
+																
+																		<td align="center" bgcolor="#32CD32"
+																		role="presentation"
+																		style="border: 2px solid #32CD32; border-radius: 5px; cursor: auto; padding: 10px 25px; background: #32CD32;"
+																		valign="middle"><a href="AcceptezDemandeClient.ma?id_demande=${demande.getId() }&type=${offre.getType() }"
+																		style="background: #32CD32; color: #000; font-family: Arial, Helvetical, sans-serif; font-size: 14px; font-weight: normal; line-height: 120%; Margin: 0; text-decoration: none; text-transform: uppercase;"
+																		onclick="return confirm('Voulez vous vraiment envoyer une confirmation de cette demande de réservation')">															
+																		<strong>Accépter la demande</strong>
+																		</a></td>
+															</c:if> 
+																<c:if test="${demande.getStatut()  != 'Non acceptée' && demandeL.getStatut()  != 'Non acceptée'}">
+
+																<td align="center" bgcolor="red"
+																		role="presentation"
+																		style="border: 2px solid red; border-radius: 5px; cursor: auto; padding: 10px 25px; background: red;"
+																		valign="middle"><a href="RefusezDemandeClient.ma?id_demande=${demande.getId() }&type=${type}"
+																		style="background: red; color: #000; font-family: Arial, Helvetical, sans-serif; font-size: 14px; font-weight: normal; line-height: 120%; Margin: 0; text-decoration: none; text-transform: uppercase;"
+																		onclick="return confirm('Voulez vous vraiment refusée cette demande de réservation')">															
+																		<strong>Refuser la demande</strong>
+																		</a></td>
+															</c:if>		
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							</br></br>
+							
+							<div class="mj-column-per-25 outlook-group-fix"
+								style="font-size: 13px; text-align: left; direction: ltr; display: inline-block; vertical-align: middle; width: 100%;">
+								<table border="0" cellpadding="0" cellspacing="0"
+									role="presentation" style="vertical-align: middle;"
+									width="100%">
+								</table>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		</br></br></br></br>
+		<%-- <div class="row text-center">
 			<div class="col-md-3"></div>
 			<c:if test="${demande.getStatut()  != 'Acceptée'}">
 			<div class="col-md-3">
@@ -243,59 +346,12 @@
 				</table>
 			</div>
 			</c:if>
-		</div>
+		</div> --%>
+		
 
 
 	</div>
-	<footer class="ftco-footer ftco-section">
-	<div class="container">
-		<div class="row mb-5">
-			<div class="col-md">
-				<div class="ftco-footer-widget mb-4">
-					<h2 class="ftco-heading-2">Hire && Sale</h2>
-					<p>Réservez des hébergements uniques.</p>
-					<ul class="ftco-footer-social list-unstyled mt-5">
-						<li class="ftco-animate"><a href="#"><span
-								class="icon-twitter"></span></a></li>
-						<li class="ftco-animate"><a href="#"><span
-								class="icon-facebook"></span></a></li>
-						<li class="ftco-animate"><a href="#"><span
-								class="icon-instagram"></span></a></li>
-					</ul>
-				</div>
-			</div>
-
-			<div class="col-md">
-				<div class="ftco-footer-widget mb-4 ml-md-4">
-					<h2 class="ftco-heading-2">À propos</h2>
-					<ul class="list-unstyled">
-						<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Notre
-								Histoire</a></li>
-						<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Nos
-								Carrières</a></li>
-					</ul>
-				</div>
-			</div>
-
-			<div class="col-md">
-				<div class="ftco-footer-widget mb-4">
-					<h2 class="ftco-heading-2">Avez-vous des questions?</h2>
-					<div class="block-23 mb-3">
-						<ul>
-							<li><span class="icon icon-map-marker"></span><span
-								class="text">203 Fake St. Mountain View, San Francisco,
-									California, USA</span></li>
-							<li><a href="#"><span class="icon icon-phone"></span><span
-									class="text">+2 392 3929 210</span></a></li>
-							<li><a href="#"><span class="icon icon-envelope pr-4"></span><span
-									class="text">info@yourdomain.com</span></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	</footer>
+	
 
 	<script src="js/core/popper.min.js"></script>
 	<script src="js/core/bootstrap-material-design.min.js"></script>

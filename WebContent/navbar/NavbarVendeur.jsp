@@ -24,10 +24,7 @@
 						href="AcceuilVendeur.ma"> <i class="material-icons">home</i>
 							<p>Acceuil</p>
 					</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="AcceuilVendeur.ma"> <i class="material-icons">dashboard</i>
-							<p>Dashboard</p>
-					</a></li>
+					
 					<li class="nav-item "><a class="nav-link"
 						href="FormAjouterOffre.ma"> <i class="material-icons">local_offer</i>
 							<p>Ajouter une offre</p>

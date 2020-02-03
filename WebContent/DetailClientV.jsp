@@ -8,7 +8,7 @@
 <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon.png">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>Location et vente de logement</title>
+<title>Données Client</title>
 <meta
 	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
 	name='viewport' />
@@ -25,13 +25,30 @@
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
 	rel="stylesheet">
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/offre/style.css">
+
+<style>
+.label {
+  color: white;
+  padding: 6px;
+  background-color: #e7e7e7; color: black;
+}
+</style>
+
 </head>
-<c:if test="${sessionScope.account_type == 'vendeur'}">
-	<c:import url="../navbar/NavbarVendeur.jsp" />
-</c:if>
-<c:if test="${sessionScope.account_type == 'admin'}">
-	<c:import url="../navbar/NavbarAdmin.jsp" />
-</c:if>
+
+<body class="">
+	<c:if test="${sessionScope.account_type == 'vendeur'}">
+		<c:import url="navbar/NavbarVendeur.jsp" />
+	</c:if>
+		
+		
+		
+	
+	
 <div class="content">
 
 	<c:if test="${alert != null}">
@@ -44,84 +61,74 @@
 		</div>
 	</c:if>
 
-	<div class="container-fluid">
+	<div class="steps" method="post">
+	
+		<fieldset>
+			<h2 class="fs-title">Données du propriétaire N° ${client.getId()} </h2><br/><br/>
 		<div class="row">
-			<div class="col-md-12">
-				<div class="card">
-					<div class="card-header card-header-primary">
-						<h4 class="card-title ">Liste des offres</h4>
-						<c:if test="${sessionScope.account_type == 'vendeur'}">
-							<p class="card-category">la liste de tous vos offres effectuées</p>
-						</c:if>
-					</div>
-					<div class="card-body">
-						<div class="table-responsive">
-							<table class="table">
-								<thead class=" text-primary">
-									<th>Catégorie</th>
-									<th>Vente/Location</th>
-									<th>Pays</th>
-									<th>Ville</th>
-									<th>Adresse</th>
-									<th>Date Début</th>
-									<th>Date Fin</th>
-									<th>Etat</th>
-									<th>Action</th>
-								</thead>
-								<tbody>
-									<c:forEach items="${offres}" var="o">
-										<tr>
-											<td>${o.getCategorie()}</td>
-											<td>${o.getType()}</td>
-											<td>${o.getPays()}</td>
-											<td>${o.getVille()}</td>
-											<td>${o.getAdresse()}</td>
-											<td>${o.getDate_debut()}</td>
-											<td>${o.getDate_fin()}</td>
-											<td><c:if test="${o.getEtat() == 'en attente'}">
-													<button type="button" class="btn btn-warning btn-sm">En
-														Attente</button>
-												</c:if> <c:if test="${o.getEtat() == 'acceptee'}">
-													<button type="button" class="btn btn-info btn-sm">Acceptée</button>
-												</c:if> <c:if test="${o.getEtat() == 'reservee'}">
-													<button type="button" class="btn btn-success btn-sm">Reservée</button>
-												</c:if></td>
-											<td><a href="DetailOffre.ma?id=${o.getId()}"
-												class=" btn-circle btn-sm" title="Ouvrir"><i
-													class="far fa-folder-open"></i></a>
-<c:if test="${sessionScope.account_type == 'vendeur'}">
-													<c:if test="${o.getEtat() == 'en attente'}"> <a
-												href="ModifierOffre.ma?id=${o.getId()}"
-												class="  btn-circle  btn-sm" title="Mettre à jour"> <i
-													class="fas fa-sync"></i></a></c:if> </c:if>	<a
-
-													
-									<%-- 	<c:if test="${sessionScope.account_type == 'vendeur'}"> <a
-												href="ModifierOffre.ma?id=${o.getId()}"
-												class="  btn-circle  btn-sm" title="Mettre à jour"> <i
-													class="fas fa-sync"></i></a>
-										</c:if>	
-												 <a --%>
-
-												href="SupprimerOffre.ma?id=${o.getId()}"
-												class="  btn-circle btn-sm" title="Supprimer"
-												onclick="return confirm('Voulez vous vraiment supprimer cette demande');"><i
-													class="fas fa-trash"></i></a></td>
-										</tr>
-									</c:forEach>
-
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
+		<div class="col-md-6">
+			<div class="categ field hs-form-field">
+				<span class="label">Nom :</span> ${client.getNom()} <br>
+				<div class="dropdown-divider"></div>
 			</div>
-
 		</div>
+			
+		<div class="col-md-6">
+			<div class="categ field hs-form-field">
+				<span class="label">Prenom :</span> ${client.getPrenom()}<br>
+				<div class="dropdown-divider"></div>
+			</div>
+		</div>
+		</div><br/>
+		
+	<div class="row">
+		<div class="col-md-4">
+			<div class="categ field hs-form-field">			
+				<span class="label">Cin :</span> ${client.getNum_cin()}<br>
+				<div class="dropdown-divider"></div>
+			</div>
+		</div>
+
+			<div class="col-md-8">
+			<div class="categ field hs-form-field">			
+				<span class="label">Date de naissance :</span> ${client.getDate_naissane()}<br>
+				<div class="dropdown-divider"></div>
+			</div>
+			</div>
+		</div><br/>
+			
+			<div class="categ field hs-form-field">			
+				<span class="label">Email :</span> ${client.getEmail()}<br>
+				<div class="dropdown-divider"></div>
+			</div><br/>
+			
+	<div class="row">
+		<div class="col-md-6">
+			<div class="categ field hs-form-field">
+				<span class="label">Pays :</span> ${client.getPays()}<br>
+				<div class="dropdown-divider"></div>
+			</div>
+		</div>
+			
+			<div class="col-md-6">
+			<div class="categ field hs-form-field">
+				<span class="label">Ville :</span> ${client.getVille()}<br>
+				<div class="dropdown-divider"></div>
+			</div>
+			</div>
+		</div>
+			
+		</fieldset>
 	</div>
 </div>
-<script src="js/core/jquery.min.js"></script>
-
+<!-- partial -->
+<script
+	src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script
+	src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
+<script
+	src='https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js'></script>
+<script src="js/offre/script.js"></script>
 
 <script src="js/core/popper.min.js"></script>
 <script src="js/core/bootstrap-material-design.min.js"></script>

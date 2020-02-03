@@ -66,7 +66,7 @@
 		<div class="col-md-12">
 			<div class="card">
 				<div class="card-header card-header-primary">
-					<h4 class="card-title ">Demande réservation</h4>
+					<h4 class="card-title ">Demande de Location</h4>
 					<p class="card-category">Liste des demandes de location </p>
 				</div>
 				<div class="card-body">
@@ -81,7 +81,7 @@
 								
 								<th>Statut</th>
 								<th>Client</th>
-								<th>Offre</th>
+								<!-- <th>Offre</th> -->
 								<th>Action</th>
 							</thead>
 							<tbody>
@@ -94,7 +94,7 @@
 										<td>${demandeL.getDate_fin() }</td>
 									<td>
 										<c:if test="${demandeL.getStatut()  == 'En attente'}">
-										<button class="btn btn-info btn-sm">${demandeL.getStatut() }</button><
+										<button class="btn btn-info btn-sm">${demandeL.getStatut() }</button>
 										</c:if>
 										<c:if test="${demandeL.getStatut()  == 'Acceptée'}">
 										<button class="btn btn-success btn-sm">${demandeL.getStatut() }</button>
@@ -105,15 +105,15 @@
 									
 										</td>
 										<td><a
-											href="getDetailsOffre.ma?id=${demandeL.getId_demandeur() }"
+											href="DetailClient.ma?id=${demandeL.getId_demandeur() }"
 											class="btn-circle btn-sm" title="Voir client"
 											style="color: green;"> <i class="far fa-folder-open"></i></a>
 										</td>
-										<td><a
+										<%-- <td><a
 											href="getDetailsOffre.ma?id=${demandeL.getId_offre() }"
 											class="btn-circle btn-sm" title="Ouvrir offre"
 											style="color: green;"> <i class="far fa-folder-open"></i></a>
-										</td>
+										</td> --%>
 
 										<td>
 											<a href="ModifierDemandeLocation.ma?id=${demandeL.getId()}&id_client=${demandeL.getId_demandeur()}&id_offre=${demandeL.getId_offre()}"	class="  btn-circle  btn-sm" title="Mettre à jour" style="color : blue; "> <i
@@ -136,7 +136,7 @@
 		<div class="col-md-12">
 			<div class="card">
 				<div class="card-header card-header-primary">
-					<h4 class="card-title ">Demande réservation</h4>
+					<h4 class="card-title ">Demande d'Achat</h4>
 					<p class="card-category">Liste des demandes d'Achat </p>
 				</div>
 				<div class="card-body">
@@ -148,7 +148,7 @@
 						
 								<th>Statut</th>
 								<th>Client</th>
-								<th>Offre</th>
+							<!-- 	<th>Offre</th> -->
 								<th>Action</th>
 							</thead>
 							<tbody>
@@ -168,15 +168,15 @@
 										</c:if>
 										</td>
 										<td><a
-											href="getDetailsOffre.ma?id=${demande.getId_demandeur() }"
+											href="DetailClient.ma?id=${demande.getId_demandeur() }"
 											class="btn-circle btn-sm" title="Voir client"
 											style="color: green;"> <i class="far fa-folder-open"></i></a>
 										</td>
-										<td><a
+										<%-- <td><a
 											href="getDetailsOffre.ma?id=${demande.getId_offre() }"
 											class="btn-circle btn-sm" title="Ouvrir offre"
 											style="color: green;"> <i class="far fa-folder-open"></i></a>
-										</td>
+										</td> --%>
 
 										<td>
 											<a href="ModifierDemandeAchat.ma?id=${demande.getId()}&id_client=${demande.getId_demandeur()}&id_offre=${demande.getId_offre()}"	class="  btn-circle  btn-sm" title="Mettre à jour" style="color : blue; "> <i
