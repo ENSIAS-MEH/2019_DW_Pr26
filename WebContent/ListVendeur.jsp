@@ -170,10 +170,7 @@
                           <td>${v.getNum_telephone()}</td>
                          <td><a href="DetailVendeur.ma?id=${v.getId()}"
 												class=" btn-circle btn-sm" title="Ouvrir"><i
-													class="far fa-folder-open"></i></a> <a
-												href="ModifierVendeur.ma?id=${v.getId()}"
-												class="  btn-circle  btn-sm" title="Mettre à jour"> <i
-													class="fas fa-sync"></i></a> <a
+													class="far fa-folder-open"></i></a>  <a
 												href="SupprimerVendeur.ma?id=${v.getId()}"
 												class="  btn-circle btn-sm" title="Supprimer"
 												onclick="return confirm('Voulez vous vraiment supprimer cet compte');"><i

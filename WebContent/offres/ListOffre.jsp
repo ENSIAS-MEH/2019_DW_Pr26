@@ -88,10 +88,14 @@
 												</c:if></td>
 											<td><a href="DetailOffre.ma?id=${o.getId()}"
 												class=" btn-circle btn-sm" title="Ouvrir"><i
-													class="far fa-folder-open"></i></a> <a
+													class="far fa-folder-open"></i></a>
+													
+										<c:if test="${sessionScope.account_type == 'vendeur'}"> <a
 												href="ModifierOffre.ma?id=${o.getId()}"
 												class="  btn-circle  btn-sm" title="Mettre à jour"> <i
-													class="fas fa-sync"></i></a> <a
+													class="fas fa-sync"></i></a>
+										</c:if>	
+												 <a
 												href="SupprimerOffre.ma?id=${o.getId()}"
 												class="  btn-circle btn-sm" title="Supprimer"
 												onclick="return confirm('Voulez vous vraiment supprimer cette demande');"><i

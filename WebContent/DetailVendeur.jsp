@@ -181,7 +181,7 @@
 				<div class="dropdown-divider"></div>
 			</div>
 		</div>
-		</div><br/>
+		</div><br/><br/>
 		
 	<div class="row">
 		<div class="col-md-4">
@@ -197,7 +197,7 @@
 				<div class="dropdown-divider"></div>
 			</div>
 			</div>
-		</div><br/>
+		</div><br/><br/>
 			
 			<div class="categ field hs-form-field">			
 				<span class="label">Email :</span> ${vendeur.getEmail()}<br>
@@ -218,7 +218,7 @@
 				<div class="dropdown-divider"></div>
 			</div>
 			</div>
-		</div>
+		</div><br/><br/>
 			
 		</fieldset>
 	</div>

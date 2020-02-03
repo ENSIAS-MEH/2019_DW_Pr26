@@ -154,7 +154,6 @@
                         <th>Prénom</th>
                         <th>Date de naissance</th>
                         <th>Sexe</th>
-                        <th>Adresse</th>
                         <th>Pays</th>
                         <th>Téléphone</th>
                         <th>Action</th>
@@ -166,12 +165,10 @@
                           <td>${c.getPrenom()}</td>
                           <td>${c.getDate_naissane()}</td>
                           <td>${c.getSexe()}</td>
-                          <td>${c.getAdresse()}</td>
-                          <td>${c.getPays}</td>
+                          <td>${c.getPays()}</td>
                           <td>${c.getNum_telephone()}</td>
                           <td>
                           	 <a href="DetailClient.ma?id=${c.getId()}" class=" btn-circle btn-sm" title="Ouvrir"><i class="far fa-folder-open"></i></a>
-                   			 <a href="ModifierClient.ma?id=${c.getId()}" class="  btn-circle  btn-sm" title="Mettre à jour"> <i class="fas fa-sync"></i></a>
                   			 <a href="SupprimerClient.ma?id=${c.getId()}" class="  btn-circle btn-sm" title="Supprimer" onclick="return confirm('Voulez vous vraiment supprimer ce compte');"><i class="fas fa-trash"></i></a>
                           </td>
                         </tr>

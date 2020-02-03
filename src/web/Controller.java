@@ -216,10 +216,23 @@ public class Controller extends HttpServlet {
 			request.setAttribute("offre",offre);
 			views = "ReservationOffreClient"; 
 			request.setAttribute("proprietaire", vendeurAction.getVendeurById(offre.getId_hote()));
+			
 		}else if(action.equals("ListDemandeClient")){
+			
+			if (session.getAttribute("account_type") != null
+					&& session.getAttribute("account_type").equals("client")){
 			request.setAttribute("listeDemande",demandeLocationAction.getListDemandeLocationByIdClient((int)session.getAttribute("id")));
 			request.setAttribute("listeDemandeAchat",demandeAchatAction.getListDemandeAchatByIdClient((int)session.getAttribute("id")));
-			views ="ListDemandeClient"; 
+			views ="ListDemandeClient";
+			
+			}/*else if (session.getAttribute("account_type") != null
+				&& session.getAttribute("account_type").equals("admin")) {
+				request.setAttribute("demandeLocation", demandeLocationAction. getAllDemandeLocation());
+				request.setAttribute("demandeAchat", demandeAchatAction. getAllDemandeAchat());
+				views = "ListDemande";
+			}*/
+			else
+				views = "/404";
 		} else if (action.equals("SupprimerDemande")) {
 			demandeLocationAction.deleteDemande(Integer.parseInt(request.getParameter("id"))); 
 			request.setAttribute("listeDemande",demandeLocationAction.getListDemandeLocationByIdClient((int)session.getAttribute("id")));
