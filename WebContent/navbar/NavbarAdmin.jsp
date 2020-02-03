@@ -44,6 +44,10 @@
 							<i class="material-icons">format_indent_decrease</i>
 							<p>Demandes confirmées</p>
 					</a></li>
+					<li class="nav-item "><a class="nav-link" href="Message.ma">
+							<i class="material-icons">textsms</i>
+							<p>Messages</p>
+					</a></li>
 
 				</ul>
 			</div>

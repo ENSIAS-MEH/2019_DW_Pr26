@@ -1283,4 +1283,73 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 		return listeOffre;
 	}
 
+	
+	
+	@Override
+	public ArrayList<Contact> getListContact() {
+		ArrayList<Contact> listeContact = new ArrayList<>();
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			PreparedStatement ps = connection.prepareStatement("select * from contact");
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				Contact contact= new Contact();
+				contact.setId(rs.getInt("id"));
+				contact.setNom(rs.getString("nom"));
+				contact.setEmail(rs.getString("email"));
+				contact.setSujet(rs.getString("sujet"));
+				contact.setMessage(rs.getString("message"));
+				contact.setType_emetteur(rs.getString("type_emetteur"));
+				listeContact.add(contact);
+			}
+			ps.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return listeContact;
+	}
+
+	@Override
+	public Contact getContactbyId(int id) {
+		Contact contact = null;
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			PreparedStatement ps = connection.prepareStatement("select * from contact where id =" + id);
+			ResultSet rs = ps.executeQuery();
+
+			if (rs.next()) {
+				contact = new Contact();
+				contact.setId(rs.getInt("id"));
+				contact.setNom(rs.getString("nom"));
+				contact.setEmail(rs.getString("email"));
+				contact.setSujet(rs.getString("sujet"));
+				contact.setMessage(rs.getString("message"));
+				contact.setType_emetteur(rs.getString("type_emetteur"));
+			}
+
+			ps.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return contact;
+	}
+
+	@Override
+	public void supprimerContact(int id) {
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			PreparedStatement ps = connection.prepareStatement("delete from contact where id =" + id);
+			ps.executeUpdate();
+			ps.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}		
+	}
+	
 }
+
+

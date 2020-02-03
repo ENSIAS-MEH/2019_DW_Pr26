@@ -247,5 +247,20 @@ public class LocationServicesImpl implements LocationServicesInter {
 		return locationepositoryImpl.planifierVoyage(date_debut_forms, date_fin_forms, ville); 
 	}
 
+	@Override
+	public ArrayList<Contact> getListContact() {
+		return locationepositoryImpl.getListContact();
+	}
+
+	@Override
+	public Contact getContactById(int id) {
+		return locationepositoryImpl.getContactbyId(id);
+	}
+
+	@Override
+	public void SupprimerContact(int id) {
+		locationepositoryImpl.supprimerContact(id);		
+	}
+
 
 }

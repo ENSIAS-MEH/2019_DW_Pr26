@@ -9,7 +9,7 @@
 <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon.png">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>Liste Demandes</title>
+<title>Messages</title>
 <meta
 	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
 	name='viewport' />
@@ -29,8 +29,7 @@
 </head>
 
 <body class="">
-	
-		<div class="wrapper ">
+	<div class="wrapper ">
 		<div class="sidebar" data-color="purple" data-background-color="white"
 			data-image="assets/img/sidebar-1.jpg">
 			<!--
@@ -64,7 +63,7 @@
 							<i class="material-icons">local_offer</i>
 							<p>Liste des offres</p>
 					</a></li>
-					<li class="nav-item  active"><a class="nav-link"
+					<li class="nav-item "><a class="nav-link"
 						href="ListDemandeClient.ma"> <i class="material-icons">format_indent_increase</i>
 							<p>Liste des demandes</p>
 					</a></li>
@@ -72,7 +71,7 @@
 							<i class="material-icons">format_indent_decrease</i>
 							<p>Demandes confirmées</p>
 					</a></li>
-					<li class="nav-item "><a class="nav-link" href="Message.ma">
+					<li class="nav-item  active"><a class="nav-link" href="Message.ma">
 							<i class="material-icons">textsms</i>
 							<p>Messages</p>
 					</a></li>
@@ -146,50 +145,38 @@
 			<div class="content">
 		<div class="container-fluid">
           <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-10" style="margin-left :90px; ">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title ">Demandes de location</h4>
-                  <p class="card-category"> la liste de toutes les demandes de location</p>
+                  <h4 class="card-title ">Messages</h4>
+                  <p class="card-category"> la liste de tous les messages reçus</p>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
                     <table class="table">
-                     <thead class="">
-								<th>N° Demande</th>
-								<th>Date de la demande</th>
-								<th>Statut</th>
-								<th>Offre</th>
-								<th>Action</th>
-							</thead>
-							<tbody>
-								<c:forEach items="${demandeLocation}" var="location">
-									<tr>
-										<td>${location.getId() }</td>
-										<td>${location.getDateDemande() }</td>
-										<c:if test="${location.getStatut()  == 'En attente'}">
-											<td><button class="btn btn-info btn-sm">${location.getStatut() }</button></td>
-										</c:if>
-										<c:if test="${location.getStatut()  == 'Acceptée'}">
-											<td><button class="btn btn-success btn-sm">${location.getStatut() }</button></td>
-										</c:if>
-										<c:if test="${location.getStatut()  == 'Non acceptée'}">
-											<td><button class="btn btn-danger btn-sm">${location.getStatut() }</button></td>
-										</c:if>
-										<td><a
-											href="DetailOffre.ma?id=${location.getId_offre() }"
-											class="btn-circle btn-sm" title="Ouvrir offre"
-											style="color: green;"> <i class="far fa-folder-open"></i></a>
-										</td>
-										<td><c:if test="${location.getStatut()  == 'En attente' }">
-												<a href="SupprimerDemandeAchat.ma?id=${location.getId()}"
-													class="btn-circle btn-sm" title="Supprimer"
-													onclick="return confirm('Voulez vous vraiment supprimer cette demande ?');"
-													style="color: red;"><i class="fas fa-trash"></i></a>
-											</c:if></td>
-									</tr>
-								</c:forEach>
-							</tbody>
+                      <thead class=" text-primary">
+                        <th>Type</th>
+                        <th>Nom</th>
+                        <th>Sujet</th>
+                        <th>Action</th>
+                      </thead>
+                      <tbody>
+                      <c:forEach items="${contacts}" var="c">
+                       <tr>
+                          <td>${c.getType_emetteur()}</td>
+                          <td>${c.getNom()}</td>
+                          <td>${c.getSujet()}</td>
+                         <td><a href="DetailMessage.ma?id=${c.getId()}"
+												class=" btn-circle btn-sm" title="Ouvrir"><i
+													class="far fa-folder-open"></i></a>  <a
+												href="SupprimerMessage.ma?id=${c.getId()}"
+												class="  btn-circle btn-sm" style="color: red;" title="Supprimer"
+												onclick="return confirm('Voulez vous vraiment supprimer ce message');"><i
+													class="fas fa-trash"></i></a></td>
+                        </tr>
+                      </c:forEach>
+                       
+                      </tbody>
                     </table>
                   </div>
                 </div>
@@ -197,74 +184,9 @@
             </div>
             
           </div>
-        
-        
-           <div class="row">
-            <div class="col-md-12">
-              <div class="card">
-                <div class="card-header card-header-primary">
-                  <h4 class="card-title ">Demandes d'achat</h4>
-                  <p class="card-category"> la liste de toutes les demandes d'achat</p>
-                </div>
-                <div class="card-body">
-                  <div class="table-responsive">
-                    <table class="table">
-                     <thead class="">
-								<th>N° Demande</th>
-								<th>Date de la demande</th>
-								<th>Statut</th>
-								<th>Offre</th>
-								<th>Action</th>
-							</thead>
-							<tbody>
-								<c:forEach items="${demandeAchat}" var="Achat">
-									<tr>
-										<td>${Achat.getId() }</td>
-										<td>${Achat.getDateDemande() }</td>
-										<c:if test="${Achat.getStatut()  == 'En attente'}">
-											<td><button class="btn btn-info btn-sm">${Achat.getStatut() }</button></td>
-										</c:if>
-										<c:if test="${location.getStatut()  == 'Acceptée'}">
-											<td><button class="btn btn-success btn-sm">${Achat.getStatut() }</button></td>
-										</c:if>
-										<c:if test="${location.getStatut()  == 'Non acceptée'}">
-											<td><button class="btn btn-danger btn-sm">${Achat.getStatut() }</button></td>
-										</c:if>
-										<td><a
-											href="DetailOffre.ma?id=${Achat.getId_offre() }"
-											class="btn-circle btn-sm" title="Ouvrir offre"
-											style="color: green;"> <i class="far fa-folder-open"></i></a>
-										</td>
-										<td><c:if test="${Achat.getStatut()  == 'En attente' }">
-												<a href="SupprimerDemandeAchat.ma?id=${Achat.getId()}"
-													class="btn-circle btn-sm" title="Supprimer"
-													onclick="return confirm('Voulez vous vraiment supprimer cette demande ?');"
-													style="color: red;"><i class="fas fa-trash"></i></a>
-											</c:if></td>
-									</tr>
-								</c:forEach>
-							</tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-          </div>
-       
-        
-        
         </div>
         </div>
        </div>
-
-
-
-
-
-
-
-
 <!--   Core JS Files   -->
 	<script src="js/core/jquery.min.js"></script>
 
