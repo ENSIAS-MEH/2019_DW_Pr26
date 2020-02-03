@@ -1,106 +1,178 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon.png">
-  <link rel="icon" type="image/png" href="img/favicon.png">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>
-    Location et vente de logement 
-  </title>
-  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-  <!--     Fonts and icons     -->
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-  <!-- CSS Files -->
-  <link href="css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
-  <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="demo/demo.css" rel="stylesheet" />
-  
-   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<meta charset="utf-8" />
+<link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon.png">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>Données Client</title>
+<meta
+	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+	name='viewport' />
+<!--     Fonts and icons     -->
+<link rel="stylesheet" type="text/css"
+	href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+<!-- CSS Files -->
+<link href="css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
+<!-- CSS Just for demo purpose, don't include it in your project -->
+<link href="demo/demo.css" rel="stylesheet" />
+
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+	rel="stylesheet">
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/offre/style.css">
+
+<style>
+.label {
+  color: white;
+  padding: 6px;
+  background-color: #e7e7e7; color: black;
+}
+</style>
+
 </head>
-<c:if test="${sessionScope.account_type == 'vendeur'}">
-        <c:import url="navbar/NavbarVendeur.jsp" />
-      </c:if>
-      <div class="content">
-      
-      <div class="card" style="width: 60%; margin: 0 auto;">
+
+<body class="">
+	<c:if test="${sessionScope.account_type == 'vendeur'}">
+		<c:import url="navbar/NavbarVendeur.jsp" />
+	</c:if>
+		
+		
+		
+	
+	
+<div class="content">
+
+	<c:if test="${alert != null}">
+		<div class="card" style="width: 60%; margin: 0 auto;">
 			<div class="card-body">
 				<center class="font-weight-bold">
-					<strong>Bienvenue ${sessionScope.nom }
-						${sessionScope.prenom }.</strong>
+					<strong>${alert } </strong>
 				</center>
 			</div>
 		</div>
-      <c:if test="${sessionScope.account_type == 'vendeur'}">
-      <c:if test="${type == 'profil'}">
-        <c:import url="profil/ProfilVendeur.jsp" />
-      </c:if>
-      <c:if test="${type == 'ajoutOffre'}">
-        <c:import url="offres/AjoutOffre.jsp" />
-      </c:if>
-      <c:if test="${type == 'listOffre'}">
-        <c:import url="offres/ListOffre.jsp" />
-      </c:if>
-      <c:if test="${type == 'modifierOffre'}">
-        <c:import url="offres/ModifierOffre.jsp" />
-      </c:if>
-      <c:if test="${type == 'detailOffre'}">
-        <c:import url="offres/DetailOffre.jsp" />
-      </c:if>
-      </c:if>
-      </div>
-  
-  <!--   Core JS Files   -->
-   <c:if test="${type != 'ajoutOffre' && type != 'modifierOffre'}">
-        <script src="js/core/jquery.min.js"></script>
-      </c:if>
-  
-  <script src="js/core/popper.min.js"></script>
-  <script src="js/core/bootstrap-material-design.min.js"></script>
-  <script src="js/plugins/perfect-scrollbar.jquery.min.js"></script>
-  <!-- Plugin for the momentJs  -->
-  <script src="js/plugins/moment.min.js"></script>
-  <!--  Plugin for Sweet Alert -->
-  <script src="js/plugins/sweetalert2.js"></script>
-  <!-- Forms Validations Plugin -->
-  <script src="js/plugins/jquery.validate.min.js"></script>
-  <!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
-  <script src="js/plugins/jquery.bootstrap-wizard.js"></script>
-  <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
-  <script src="js/plugins/bootstrap-selectpicker.js"></script>
-  <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
-  <script src="js/plugins/bootstrap-datetimepicker.min.js"></script>
-  <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
-  <script src="js/plugins/jquery.dataTables.min.js"></script>
-  <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
-  <script src="js/plugins/bootstrap-tagsinput.js"></script>
-  <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-  <script src="js/plugins/jasny-bootstrap.min.js"></script>
-  <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
-  <script src="js/plugins/fullcalendar.min.js"></script>
-  <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
-  <script src="js/plugins/jquery-jvectormap.js"></script>
-  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-  <script src="js/plugins/nouislider.min.js"></script>
-  <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
-  <!-- Library for adding dinamically elements -->
-  <script src="js/plugins/arrive.min.js"></script>
-  <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-  <!-- Chartist JS -->
-  <script src="js/plugins/chartist.min.js"></script>
-  <!--  Notifications Plugin    -->
-  <script src="js/plugins/bootstrap-notify.js"></script>
-  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
-  <!-- Material Dashboard DEMO methods, don't include it in your project! -->
-  <script src="demo/demo.js"></script>
-  <script>
+	</c:if>
+
+	<div class="steps" method="post">
+	
+		<fieldset>
+			<h2 class="fs-title">Données du propriétaire N° ${client.getId()} </h2><br/><br/>
+		<div class="row">
+		<div class="col-md-6">
+			<div class="categ field hs-form-field">
+				<span class="label">Nom :</span> ${client.getNom()} <br>
+				<div class="dropdown-divider"></div>
+			</div>
+		</div>
+			
+		<div class="col-md-6">
+			<div class="categ field hs-form-field">
+				<span class="label">Prenom :</span> ${client.getPrenom()}<br>
+				<div class="dropdown-divider"></div>
+			</div>
+		</div>
+		</div><br/>
+		
+	<div class="row">
+		<div class="col-md-4">
+			<div class="categ field hs-form-field">			
+				<span class="label">Cin :</span> ${client.getNum_cin()}<br>
+				<div class="dropdown-divider"></div>
+			</div>
+		</div>
+
+			<div class="col-md-8">
+			<div class="categ field hs-form-field">			
+				<span class="label">Date de naissance :</span> ${client.getDate_naissane()}<br>
+				<div class="dropdown-divider"></div>
+			</div>
+			</div>
+		</div><br/>
+			
+			<div class="categ field hs-form-field">			
+				<span class="label">Email :</span> ${client.getEmail()}<br>
+				<div class="dropdown-divider"></div>
+			</div><br/>
+			
+	<div class="row">
+		<div class="col-md-6">
+			<div class="categ field hs-form-field">
+				<span class="label">Pays :</span> ${client.getPays()}<br>
+				<div class="dropdown-divider"></div>
+			</div>
+		</div>
+			
+			<div class="col-md-6">
+			<div class="categ field hs-form-field">
+				<span class="label">Ville :</span> ${client.getVille()}<br>
+				<div class="dropdown-divider"></div>
+			</div>
+			</div>
+		</div>
+			
+		</fieldset>
+	</div>
+</div>
+<!-- partial -->
+<script
+	src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script
+	src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
+<script
+	src='https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js'></script>
+<script src="js/offre/script.js"></script>
+
+<script src="js/core/popper.min.js"></script>
+<script src="js/core/bootstrap-material-design.min.js"></script>
+<script src="js/plugins/perfect-scrollbar.jquery.min.js"></script>
+<!-- Plugin for the momentJs  -->
+<script src="js/plugins/moment.min.js"></script>
+<!--  Plugin for Sweet Alert -->
+<script src="js/plugins/sweetalert2.js"></script>
+<!-- Forms Validations Plugin -->
+<script src="js/plugins/jquery.validate.min.js"></script>
+<!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
+<script src="js/plugins/jquery.bootstrap-wizard.js"></script>
+<!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
+<script src="js/plugins/bootstrap-selectpicker.js"></script>
+<!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
+<script src="js/plugins/bootstrap-datetimepicker.min.js"></script>
+<!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
+<script src="js/plugins/jquery.dataTables.min.js"></script>
+<!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
+<script src="js/plugins/bootstrap-tagsinput.js"></script>
+<!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+<script src="js/plugins/jasny-bootstrap.min.js"></script>
+<!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
+<script src="js/plugins/fullcalendar.min.js"></script>
+<!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
+<script src="js/plugins/jquery-jvectormap.js"></script>
+<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+<script src="js/plugins/nouislider.min.js"></script>
+<!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+<!-- Library for adding dinamically elements -->
+<script src="js/plugins/arrive.min.js"></script>
+<!--  Google Maps Plugin    -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+<!-- Chartist JS -->
+<script src="js/plugins/chartist.min.js"></script>
+<!--  Notifications Plugin    -->
+<script src="js/plugins/bootstrap-notify.js"></script>
+<!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+<script src="js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
+<!-- Material Dashboard DEMO methods, don't include it in your project! -->
+<script src="demo/demo.js"></script>
+<script>
     $(document).ready(function() {
       $().ready(function() {
         $sidebar = $('.sidebar');
@@ -271,7 +343,7 @@
       });
     });
   </script>
-  <script>
+<script>
     $(document).ready(function() {
       // Javascript method's body can be found in assets/js/demos.js
       md.initDashboardPageCharts();

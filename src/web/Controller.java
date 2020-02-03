@@ -182,6 +182,7 @@ public class Controller extends HttpServlet {
 				String type = request.getParameter("type");
 
 				if (type.equals("Location")) {
+					System.out.println("ddddddd");
 
 					demandeLocationAction.refuseDemandeLocation(id);
 				} else {
@@ -238,8 +239,9 @@ public class Controller extends HttpServlet {
 		} else if (action.equals("DetailOffre")) {
 			if (session.getAttribute("account_type") != null && (session.getAttribute("account_type").equals("vendeur")
 					|| session.getAttribute("account_type").equals("admin"))) {
-				int id = Integer.parseInt(request.getParameter("id"));
-				request.setAttribute("offre", offreAction.getOffre(id));
+				Offre offre = offreAction.getOffre(Integer.parseInt(request.getParameter("id")));
+				request.setAttribute("offre", offre);
+				request.setAttribute("proprietaire", vendeurAction.getVendeurById(offre.getId_hote()));
 				views = "offres/DetailOffre";
 			} else
 				views = "/404";
@@ -375,6 +377,10 @@ public class Controller extends HttpServlet {
 				int id = Integer.parseInt(request.getParameter("id"));
 				request.setAttribute("client", clientAction.getClientById(id));
 				views = "DetailClient";
+			}else if (session.getAttribute("account_type") != null && session.getAttribute("account_type").equals("vendeur")) {
+				int id = Integer.parseInt(request.getParameter("id"));
+				request.setAttribute("client", clientAction.getClientById(id));
+				views = "DetailClientV";
 			} else
 				views = "/404";
 		} else if (action.equals("ListReservationClient")) {
