@@ -141,5 +141,9 @@ public class OffreAction {
 		return locationServices.chercherOffreByDate(request.getParameter("date_debut_search"),
 				request.getParameter("date_fin_search"),id);
 	}
+	
+	public int nbrOffre() {
+		return locationServices.getNbreOffre();
+	}
 
 }

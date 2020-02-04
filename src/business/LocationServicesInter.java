@@ -113,5 +113,14 @@ public interface LocationServicesInter {
 
 	public int getNbreClient();
 
+	public int getNbreVendeur();
+	
+	public int getNbreOffre();
+	
+	public int getNbreDmdLocation() ;
+
+	public int getNbreDmdAchat();
+
+	public int getAllDmd();
 
 }

@@ -84,5 +84,13 @@ public class DemandeAchatAction {
 		locationServices.refuseDemandeAchat(id);
 
 	}
+	
+	public int getNbreDmdAchat() {
+		return locationServices.getNbreDmdAchat();
+	}
+	
+	public int getAllDmd() {
+		return locationServices.getAllDmd();
+	}
 
 }

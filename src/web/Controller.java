@@ -1,6 +1,12 @@
 package web;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -30,7 +36,7 @@ import web.action.AdminAction;
 		"/ModifierDemandeAchat.ma", "/ModifierDemandeLocation.ma", "/AcceptezDemandeClient.ma",
 		"/RefusezDemandeClient.ma", "/SupprimerDemandeLocationByVendeur.ma", "/SupprimerDemandeAchatByVendeur.ma",
 		"/ChercherOffreByOption.ma", "/ChercherOffreByDate.ma", "/contactByClient.ma", "/accueilClient.ma",
-
+		"/Dashboard.ma",
 		"/PlanifierUnVoyage.ma", "/planifireVoyageForms.ma","/ChercherOffreVendeur.ma","/contactByVendeur.ma" ,
 		"/Message.ma","/DetailMessage.ma","/SupprimerMessage.ma"})
 
@@ -496,7 +502,19 @@ public class Controller extends HttpServlet {
 					views = "Message";
 				} else
 					views = "/404";
-		} else
+		}
+		 else if (action.equals("Dashboard")) {
+				if (session.getAttribute("account_type") != null && session.getAttribute("account_type").equals("admin")) {
+					request.setAttribute("nbrclt", clientAction.nbrClient());
+					request.setAttribute("nbrvendeur", vendeurAction.nbrVendeur());
+					request.setAttribute("nbroffre", offreAction.nbrOffre());
+					request.setAttribute("nbrdmdlocation", demandeLocationAction.getNbreDmdLocation());
+					request.setAttribute("nbrdmdAchat", demandeAchatAction.getNbreDmdAchat());
+					request.setAttribute("alldmd", demandeAchatAction.getAllDmd());
+					views = "AccueilAdmin";
+				} else
+					views = "/404";
+		}else
 			views = "/404";
 		request.getRequestDispatcher(views + ".jsp").forward(request, response);
 	}
@@ -648,4 +666,5 @@ public class Controller extends HttpServlet {
 		else
 			return uri.substring(uri.lastIndexOf("/") + 1, uri.length());
 	}
+	
 }

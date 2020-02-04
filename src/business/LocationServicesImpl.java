@@ -277,6 +277,29 @@ public class LocationServicesImpl implements LocationServicesInter {
 	public int getNbreClient() {
 		return locationepositoryImpl.getNbreClient();
 	}
+	
+	public int getNbreVendeur(){
+		return locationepositoryImpl.getNbreVendeur();
+	}
+
+	@Override
+	public int getNbreOffre() {
+		return locationepositoryImpl.getNbreOffre();
+	}
+
+	public int getNbreDmdLocation() {
+		return locationepositoryImpl.getNbreDmdLocation();
+	}
+
+	@Override
+	public int getNbreDmdAchat() {
+		return  locationepositoryImpl.getNbreDmdAchat();
+	}
+
+	@Override
+	public int getAllDmd() {
+		return  locationepositoryImpl.getAllDmd();
+	}
 
 
 }

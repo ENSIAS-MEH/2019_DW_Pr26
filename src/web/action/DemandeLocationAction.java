@@ -87,4 +87,8 @@ public class DemandeLocationAction {
 		locationServices.refuseDemandeLocation(id);
 
 	}
+	
+	public int getNbreDmdLocation() {
+		return locationServices.getNbreDmdLocation();
+	}
 }

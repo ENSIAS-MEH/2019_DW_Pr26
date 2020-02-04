@@ -1549,6 +1549,79 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 
 	}
 	
+	public int getNbreDmdLocation() {
+		int total = 0;
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			PreparedStatement ps = connection.prepareStatement("select count(*) as nbr from demandelocation");
+			ResultSet rs = ps.executeQuery();
+
+			if (rs.next()) {
+				total = (rs.getInt("nbr"));
+				}
+
+			ps.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return total;
+
+	}
+	
+	public int getNbreDmdAchat() {
+		int total = 0;
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			PreparedStatement ps = connection.prepareStatement("select count(*) as nbr from demandeachat");
+			ResultSet rs = ps.executeQuery();
+
+			if (rs.next()) {
+				total = (rs.getInt("nbr"));
+				}
+
+			ps.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return total;
+
+	}
+	
+	public int getAllDmd() {
+		int total = 0;
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			PreparedStatement ps = connection.prepareStatement("select count(*) as nbr from demandeachat");
+			ResultSet rs = ps.executeQuery();
+
+			if (rs.next()) {
+				total += (rs.getInt("nbr"));
+				}
+
+			ps.close();
+			
+			ps = connection.prepareStatement("select count(*) as nbr from demandelocation");
+			rs = ps.executeQuery();
+
+			if (rs.next()) {
+				total += (rs.getInt("nbr"));
+				}
+
+			ps.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return total;
+
+	}
+	
+	
 
 }
 

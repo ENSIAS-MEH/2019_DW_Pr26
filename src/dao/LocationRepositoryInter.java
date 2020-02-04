@@ -112,7 +112,17 @@ public interface LocationRepositoryInter {
 
 	public void supprimerContact(int id);
 
-	public int getNbreClient(); 
+	public int getNbreClient();
+
+	public int getNbreVendeur();
+
+	public int getNbreOffre();
+
+	public int getNbreDmdLocation();
+
+	public int getNbreDmdAchat();
+
+	public int getAllDmd(); 
 
 
 }
