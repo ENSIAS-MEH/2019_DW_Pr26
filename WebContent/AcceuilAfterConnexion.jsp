@@ -52,6 +52,9 @@
         <c:import url="offres/DetailOffre.jsp" />
       </c:if>
       </c:if>
+      
+			
+		
       </div>
   
   <!--   Core JS Files   -->

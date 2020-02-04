@@ -247,6 +247,16 @@ public class LocationServicesImpl implements LocationServicesInter {
 		return locationepositoryImpl.planifierVoyage(date_debut_forms, date_fin_forms, ville); 
 	}
 
+
+	public ArrayList<Offre> chercherOffreByOption(boolean ville, boolean pays, boolean nb_chambre,
+			String locationOrVente, String motCles,int id) {
+		return locationepositoryImpl.chercherOffreByOption(ville, pays, nb_chambre, locationOrVente, motCles,id);
+	}
+
+	@Override
+	public ArrayList<Offre> chercherOffreByDate(String date_debut_forms, String date_fin_forms,int id) {
+		return locationepositoryImpl.chercherOffreByDate(date_debut_forms, date_fin_forms,id);
+	}
 	@Override
 	public ArrayList<Contact> getListContact() {
 		return locationepositoryImpl.getListContact();
@@ -260,6 +270,7 @@ public class LocationServicesImpl implements LocationServicesInter {
 	@Override
 	public void SupprimerContact(int id) {
 		locationepositoryImpl.supprimerContact(id);		
+
 	}
 
 

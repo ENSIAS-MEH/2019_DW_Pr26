@@ -125,4 +125,21 @@ public class OffreAction {
 				request.getParameter("date_fin_search"), request.getParameter("ville"));
 	}
 
+	public Object chercherOffreByOptionforVendeur(HttpServletRequest request, int id) {
+		boolean ville = true, pays = true, nb_chambre = true;
+		if (request.getParameter("nb_chambre") == null)
+			nb_chambre = false;
+		if (request.getParameter("pays") == null)
+			pays = false;
+		if (request.getParameter("ville") == null)
+			ville = false;
+		return locationServices.chercherOffreByOption(ville, pays, nb_chambre, request.getParameter("venteLocation"),
+				request.getParameter("searchvalue"),id);
+	}
+
+	public Object chercherOffreByDateforVendeur(HttpServletRequest request, int id) {
+		return locationServices.chercherOffreByDate(request.getParameter("date_debut_search"),
+				request.getParameter("date_fin_search"),id);
+	}
+
 }

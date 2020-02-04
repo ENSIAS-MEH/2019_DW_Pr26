@@ -95,11 +95,19 @@
 									<a href="getDetailsOffre.ma?id=${offre.getId() }">${offre.getVille() },
 										${offre.getPays() }</a>
 								</h3>
-								<span class="location">${offre.getType() }</span> <a
-									href="getDetailsOffre.ma?id=${offre.getId() }"
-									class="d-flex align-items-center justify-content-center btn-custom">
-									<span class="ion-ios-link"></span>
-								</a>
+								<span class="location">${offre.getType() }</span>
+								<c:if test="${sessionScope.account_type == 'client'}">
+									<a href="getDetailsOffre.ma?id=${offre.getId() }"
+										class="d-flex align-items-center justify-content-center btn-custom">
+										<span class="ion-ios-link"></span>
+									</a>
+								</c:if>
+								<c:if test="${sessionScope.account_type == 'vendeur'}">
+									<a href="DetailOffre.ma?id=${offre.getId() }"
+										class="d-flex align-items-center justify-content-center btn-custom">
+										<span class="ion-ios-link"></span>
+									</a>
+								</c:if>
 							</div>
 						</div>
 					</div>

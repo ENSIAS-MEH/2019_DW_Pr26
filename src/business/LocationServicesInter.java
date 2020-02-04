@@ -99,10 +99,17 @@ public interface LocationServicesInter {
 
 	public ArrayList<Offre> planifierVoyage(String date_debut_forms, String date_fin_forms, String ville);
 
+
+	public ArrayList<Offre> chercherOffreByOption(boolean ville, boolean pays, boolean nb_chambre, String parameter,
+			String parameter2, int id);
+
+	public ArrayList<Offre> chercherOffreByDate(String parameter, String parameter2, int id);
+
 	public ArrayList<Contact> getListContact();
 
 	public Contact getContactById(int id);
 
 	public void SupprimerContact(int id);
+
 
 }
