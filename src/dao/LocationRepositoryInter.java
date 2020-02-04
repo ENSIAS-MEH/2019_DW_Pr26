@@ -110,7 +110,9 @@ public interface LocationRepositoryInter {
 
 	public Contact getContactbyId(int id);
 
-	public void supprimerContact(int id); 
+	public void supprimerContact(int id);
+
+	public int getNbreClient(); 
 
 
 }

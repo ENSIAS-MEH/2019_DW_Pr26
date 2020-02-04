@@ -1484,6 +1484,70 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 			e.printStackTrace();
 		}		
 	}
+
+	@Override
+	public int getNbreClient() {
+		int total = 0;
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			PreparedStatement ps = connection.prepareStatement("select count(*) as nbrClient from client");
+			ResultSet rs = ps.executeQuery();
+
+			if (rs.next()) {
+				total = (rs.getInt("nbrClient"));
+				}
+
+			ps.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return total;
+
+	}
+	
+	public int getNbreVendeur() {
+		int total = 0;
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			PreparedStatement ps = connection.prepareStatement("select count(*) as nbr from vendeur");
+			ResultSet rs = ps.executeQuery();
+
+			if (rs.next()) {
+				total = (rs.getInt("nbr"));
+				}
+
+			ps.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return total;
+
+	}
+	
+	public int getNbreOffre() {
+		int total = 0;
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			PreparedStatement ps = connection.prepareStatement("select count(*) as nbr from offre");
+			ResultSet rs = ps.executeQuery();
+
+			if (rs.next()) {
+				total = (rs.getInt("nbr"));
+				}
+
+			ps.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return total;
+
+	}
 	
 
 }

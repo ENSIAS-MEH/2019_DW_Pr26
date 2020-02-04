@@ -82,4 +82,8 @@ public class ClientAction {
 
 		return locationServices.getClientById(id);
 	}
+	
+	public int nbrClient () {
+		return  locationServices.getNbreClient();
+	}
 }

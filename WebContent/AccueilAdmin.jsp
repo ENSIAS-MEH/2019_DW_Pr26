@@ -31,7 +31,7 @@
 			data-image="assets/img/sidebar-1.jpg">
 	
 			<div class="logo ">
-				<a href="#" class="simple-text logo-normal active"> Hire && Sale
+				<a href="AccueilAdmin.ma" class="simple-text logo-normal active"> Hire && Sale
 				</a>
 			</div>
 			<div class="sidebar-wrapper">
@@ -130,7 +130,79 @@
 			</nav>
 			<!-- End Navbar -->
 			<div class="content">
-			
+		
+		
+		
+		
+	 <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-warning card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">content_copy</i>
+                  </div>
+                  <p class="card-category">Used Space</p>
+                  <h3 class="card-title">49/50
+                    <small>GB</small>
+                  </h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons text-danger">warning</i>
+                    <a href="#pablo">Get More Space...</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-success card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">store</i>
+                  </div>
+                  <p class="card-category">Revenue</p>
+                  <h3 class="card-title">$34,245</h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">date_range</i> Last 24 Hours
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-danger card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">info_outline</i>
+                  </div>
+                  <p class="card-category">Fixed Issues</p>
+                  <h3 class="card-title">75</h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">local_offer</i> Tracked from Github
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-info card-header-icon">
+                  <div class="card-icon">
+                    <i class="fa fa-twitter"></i>
+                  </div>
+                  <p class="card-category">Followers</p>
+                  <h3 class="card-title">+245</h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">update</i> Just Updated
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>	
 
    <div class="row">
             <div class="col-md-4">
@@ -191,6 +263,68 @@
 		</div>
 	</div>
 
+
+
+
+<script>
+
+  var data = [
+      { y: '<?php echo $liste_mois[10]["month"] ."/".$liste_mois[10]["year"]; ?>', a: <?php echo $tableau_statistiqueNombreDemandeTraiterParMois[10]; ?> , b: <?php echo $tableau_statistiqueNombreDemandeAccepterParMois[10]; ?>},
+      { y: '<?php echo $liste_mois[9]["month"] ."/".$liste_mois[9]["year"]; ?>', a:  <?php echo $tableau_statistiqueNombreDemandeTraiterParMois[9]; ?>, b: <?php echo $tableau_statistiqueNombreDemandeAccepterParMois[9]; ?>},
+      { y: '<?php echo $liste_mois[8]["month"] ."/".$liste_mois[8]["year"]; ?>', a:  <?php echo $tableau_statistiqueNombreDemandeTraiterParMois[8]; ?>, b: <?php echo $tableau_statistiqueNombreDemandeAccepterParMois[8]; ?>},
+      { y: '<?php echo $liste_mois[7]["month"] ."/".$liste_mois[7]["year"]; ?>', a:  <?php echo $tableau_statistiqueNombreDemandeTraiterParMois[7]; ?>, b: <?php echo $tableau_statistiqueNombreDemandeAccepterParMois[7]; ?>},
+      { y: '<?php echo $liste_mois[6]["month"] ."/".$liste_mois[6]["year"]; ?>', a:  <?php echo $tableau_statistiqueNombreDemandeTraiterParMois[6]; ?>, b: <?php echo $tableau_statistiqueNombreDemandeAccepterParMois[6]; ?>},
+      { y: '<?php echo $liste_mois[5]["month"] ."/".$liste_mois[5]["year"]; ?>', a:  <?php echo $tableau_statistiqueNombreDemandeTraiterParMois[5]; ?>, b: <?php echo $tableau_statistiqueNombreDemandeAccepterParMois[5]; ?>},
+      { y: '<?php echo $liste_mois[4]["month"] ."/".$liste_mois[4]["year"]; ?>', a:  <?php echo $tableau_statistiqueNombreDemandeTraiterParMois[4]; ?>, b: <?php echo $tableau_statistiqueNombreDemandeAccepterParMois[4]; ?>},
+      { y: '<?php echo $liste_mois[3]["month"] ."/".$liste_mois[3]["year"]; ?>', a:  <?php echo $tableau_statistiqueNombreDemandeTraiterParMois[3]; ?>, b: <?php echo $tableau_statistiqueNombreDemandeAccepterParMois[3]; ?>},
+      { y: '<?php echo $liste_mois[2]["month"] ."/".$liste_mois[2]["year"]; ?>', a:  <?php echo $tableau_statistiqueNombreDemandeTraiterParMois[2]; ?>, b: <?php echo $tableau_statistiqueNombreDemandeAccepterParMois[2]; ?>},
+      { y: '<?php echo $liste_mois[1]["month"] ."/".$liste_mois[1]["year"]; ?>', a:  <?php echo $tableau_statistiqueNombreDemandeTraiterParMois[1]; ?>, b: <?php echo $tableau_statistiqueNombreDemandeAccepterParMois[1]; ?>},
+      { y: '<?php echo $liste_mois[0]["month"] ."/".$liste_mois[0]["year"]; ?>', a:  <?php echo $tableau_statistiqueNombreDemandeTraiterParMois[0]; ?>, b: <?php echo $tableau_statistiqueNombreDemandeAccepterParMois[0]; ?>}
+    ],
+    config1 = {
+      data: data,
+      xkey: 'y',
+      ykeys: ['a', 'b'],
+      labels: ['# demandes refuser','# demandes accepter'],
+      fillOpacity: 0.6,
+      hideHover: 'auto',
+      behaveLikeLine: true,
+      resize: true,
+      pointFillColors:['#ffffff'],
+      pointStrokeColors: ['black'],
+      lineColors:['gray','red']
+  };
+
+
+  var data2 = [
+  <?php $i=0; while ($row = $listePc->fetch()){?>
+       { y: '<?php echo $row["NOM_PC"] ?>', a: <?php echo $nombreDeamndePC[$i]?>},
+  <?php $i++; }?>
+   
+    ],
+    config2 = {
+      data: data2,
+      xkey: 'y',
+      ykeys: ['a'],
+      labels: ['# demandes traitées'],
+      fillOpacity: 0.6,
+      hideHover: 'auto',
+      behaveLikeLine: true,
+      resize: true,
+      pointFillColors:['#ffffff'],
+      pointStrokeColors: ['black'],
+      lineColors:['gray','red']
+  };
+config1.element = 'stacked';
+config1.stacked = true;
+Morris.Bar(config1);
+
+
+config2.element = 'stacked2';
+config2.stacked = true;
+Morris.Bar(config2);
+
+</script>
 	<!--   Core JS Files   -->
 	<script src="assets/js/core/jquery.min.js"></script>
 	<script src="assets/js/core/popper.min.js"></script>

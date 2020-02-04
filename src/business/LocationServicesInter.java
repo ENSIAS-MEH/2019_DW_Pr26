@@ -111,5 +111,7 @@ public interface LocationServicesInter {
 
 	public void SupprimerContact(int id);
 
+	public int getNbreClient();
+
 
 }

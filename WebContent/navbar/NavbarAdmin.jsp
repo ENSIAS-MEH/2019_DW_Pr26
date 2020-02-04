@@ -11,7 +11,7 @@
 			data-image="assets/img/sidebar-1.jpg">
 	
 			<div class="logo ">
-				<a href="#" class="simple-text logo-normal active"> Hire && Sale
+				<a href="AccueilAdmin.ma" class="simple-text logo-normal active"> Hire && Sale
 				</a>
 			</div>
 			<div class="sidebar-wrapper">

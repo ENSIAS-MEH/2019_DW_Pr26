@@ -273,5 +273,10 @@ public class LocationServicesImpl implements LocationServicesInter {
 
 	}
 
+	@Override
+	public int getNbreClient() {
+		return locationepositoryImpl.getNbreClient();
+	}
+
 
 }
