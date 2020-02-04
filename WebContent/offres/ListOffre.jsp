@@ -35,12 +35,17 @@
 <div class="content">
 
 	<c:if test="${alert != null}">
-		<div class="card" style="width: 60%; margin: 0 auto;">
-			<div class="card-body">
+	
+		<div class="alert alert-dismissible fade show" role="alert" style="width: 60%; margin: 0 auto;">
+			
 				<center class="font-weight-bold">
-					<strong>${alert } </strong>
+					${alert }
 				</center>
-			</div>
+				<button type="button" class="close" data-dismiss="alert"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			
 		</div>
 	</c:if>
 

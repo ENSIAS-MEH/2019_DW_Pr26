@@ -33,6 +33,15 @@
 <c:if test="${sessionScope.account_type == 'vendeur'}">
 	<c:import url="../navbar/NavbarVendeur.jsp" />
 </c:if>
+<c:choose>
+						<c:when test="${offre.getType() == 'Vente'}">
+							<body onload="Vente()" >
+						</c:when>
+						<c:otherwise>
+							<body onload="Location()" >
+						</c:otherwise>
+					</c:choose>
+<body >
 <div class="content">
 
 	<c:if test="${alert != null}">

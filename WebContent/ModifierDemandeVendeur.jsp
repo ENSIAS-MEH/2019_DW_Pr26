@@ -223,27 +223,8 @@
 											<td style="vertical-align: middle; padding-bottom: 0px;">
 												<table border="0" cellpadding="0" cellspacing="0"
 													role="presentation" style="" width="100%">
-													<tr>
-														<td align="center"
-															style="font-size: 0px; padding: 10px 25px; word-break: break-word;">
-
-															
-														</td>
-													</tr>
-													<tr>
-														<td align="center" vertical-align="middle"
-															style="font-size: 0px; padding: 10px 25px; padding-top: 0px; padding-bottom: 10px; word-break: break-word;">
-															<table cellpadding="0" cellspacing="0" width="100%"
-																border="0"
-																style="cellspacing: 0; color: #32CD32; font-family: Arial, Helvetical, sans-serif; font-size: 13px; line-height: 110%; table-layout: auto; width: 100%;">
-																<tr>
-																	<td align="center" width="60%">
-																		
-																	</td>
-																</tr>
-															</table>
-														</td>
-													</tr>
+													
+													
 													
 													<tr>
 														<td align="center" vertical-align="middle"
@@ -263,12 +244,14 @@
 																		onclick="return confirm('Voulez vous vraiment envoyer une confirmation de cette demande de réservation')">															
 																		<strong>Accépter la demande</strong>
 																		</a></td>
+																		
 															</c:if> 
+															<td>&nbsp;&nbsp;&nbsp;</td>
 																<c:if test="${demande.getStatut()  != 'Non acceptée' && demandeL.getStatut()  != 'Non acceptée'}">
 
 																<td align="center" bgcolor="red"
 																		role="presentation"
-																		style="border: 2px solid red; border-radius: 5px; cursor: auto; padding: 10px 25px; background: red;"
+																		style="border: 2px solid red;  border-radius: 5px; cursor: auto; padding: 10px 25px; background: red;"
 																		valign="middle"><a href="RefusezDemandeClient.ma?id_demande=${demande.getId() }&type=${type}"
 																		style="background: red; color: #000; font-family: Arial, Helvetical, sans-serif; font-size: 14px; font-weight: normal; line-height: 120%; Margin: 0; text-decoration: none; text-transform: uppercase;"
 																		onclick="return confirm('Voulez vous vraiment refusée cette demande de réservation')">															

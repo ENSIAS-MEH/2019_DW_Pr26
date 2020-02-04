@@ -99,4 +99,9 @@ public interface LocationServicesInter {
 
 	public ArrayList<Offre> planifierVoyage(String date_debut_forms, String date_fin_forms, String ville);
 
+	public Object chercherOffreByOption(boolean ville, boolean pays, boolean nb_chambre, String parameter,
+			String parameter2, int id);
+
+	public Object chercherOffreByDate(String parameter, String parameter2, int id);
+
 }
