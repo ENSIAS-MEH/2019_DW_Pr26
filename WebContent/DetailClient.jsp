@@ -63,11 +63,11 @@
 						href="#"> <i class="material-icons">dashboard</i>
 							<p>Dashboard</p>
 					</a></li>
-					<li class="nav-item  active"><a class="nav-link" href="Listclient.ma">
+					<li class="nav-item "><a class="nav-link" href="Listclient.ma">
 							<i class="material-icons">account_circle</i>
 							<p>Liste des propriétaires</p>
 					</a></li>
-					<li class="nav-item "><a class="nav-link" href="ListClient.ma">
+					<li class="nav-item  active"><a class="nav-link" href="ListClient.ma">
 							<i class="material-icons">supervised_user_circle</i>
 							<p>Liste des clients</p>
 					</a></li>
@@ -76,12 +76,16 @@
 							<p>Liste des offres</p>
 					</a></li>
 					<li class="nav-item "><a class="nav-link"
-						href="./typography.html"> <i class="material-icons">format_indent_increase</i>
+						href="ListDemandeClient.ma"> <i class="material-icons">format_indent_increase</i>
 							<p>Liste des demandes</p>
 					</a></li>
 					<li class="nav-item "><a class="nav-link" href="./icons.html">
 							<i class="material-icons">format_indent_decrease</i>
 							<p>Demandes confirmées</p>
+					</a></li>
+					<li class="nav-item "><a class="nav-link" href="Message.ma">
+							<i class="material-icons">textsms</i>
+							<p>Messages</p>
 					</a></li>
 
 				</ul>
@@ -181,7 +185,7 @@
 				<div class="dropdown-divider"></div>
 			</div>
 		</div>
-		</div><br/>
+		</div><br/><br/>
 		
 	<div class="row">
 		<div class="col-md-4">
@@ -197,12 +201,12 @@
 				<div class="dropdown-divider"></div>
 			</div>
 			</div>
-		</div><br/>
+		</div><br/><br/>
 			
 			<div class="categ field hs-form-field">			
 				<span class="label">Email :</span> ${client.getEmail()}<br>
 				<div class="dropdown-divider"></div>
-			</div><br/>
+			</div><br/><br/>
 			
 	<div class="row">
 		<div class="col-md-6">
@@ -218,7 +222,7 @@
 				<div class="dropdown-divider"></div>
 			</div>
 			</div>
-		</div>
+		</div><br/><br/>
 			
 		</fieldset>
 	</div>

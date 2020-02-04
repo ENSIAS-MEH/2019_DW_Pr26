@@ -58,6 +58,9 @@
 	<c:if test="${sessionScope.account_type == 'client'}">
 		<c:import url="navbar/NavbarClient.jsp" />
 	</c:if>
+	<c:if test="${sessionScope.account_type == 'vendeur'}">
+		<c:import url="navbar/NavbarVendeur.jsp" />
+	</c:if>
 	<br>
 	<br>
 	<br>

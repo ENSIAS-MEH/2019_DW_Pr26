@@ -8,7 +8,7 @@
 <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon.png">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>Données Propriétaire</title>
+<title>Données Client</title>
 <meta
 	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
 	name='viewport' />
@@ -41,119 +41,13 @@
 </head>
 
 <body class="">
-	<div class="wrapper ">
-		<div class="sidebar" data-color="purple" data-background-color="white"
-			data-image="assets/img/sidebar-1.jpg">
-			<!--
-        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-
-        Tip 2: you can also add an image using data-image tag
-    -->
-			<div class="logo ">
-				<a href="#" class="simple-text logo-normal active"> Hire && Sale
-				</a>
-			</div>
-			<div class="sidebar-wrapper">
-				<ul class="nav">
-					<li class="nav-item "><a class="nav-link"
-						href="AcceuilAdmin.ma"> <i class="material-icons">home</i>
-							<p>Acceuil</p>
-					</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="#"> <i class="material-icons">dashboard</i>
-							<p>Dashboard</p>
-					</a></li>
-					<li class="nav-item  active"><a class="nav-link" href="ListVendeur.ma">
-							<i class="material-icons">account_circle</i>
-							<p>Liste des propriétaires</p>
-					</a></li>
-					<li class="nav-item "><a class="nav-link" href="ListClient.ma">
-							<i class="material-icons">supervised_user_circle</i>
-							<p>Liste des clients</p>
-					</a></li>
-					<li class="nav-item "><a class="nav-link" href="ListOffre.ma">
-							<i class="material-icons">local_offer</i>
-							<p>Liste des offres</p>
-					</a></li>
-					<li class="nav-item "><a class="nav-link"
-						href="ListDemandeClient.ma"> <i class="material-icons">format_indent_increase</i>
-							<p>Liste des demandes</p>
-					</a></li>
-					<li class="nav-item "><a class="nav-link" href="./icons.html">
-							<i class="material-icons">format_indent_decrease</i>
-							<p>Demandes confirmées</p>
-					</a></li>
-					<li class="nav-item "><a class="nav-link" href="Message.ma">
-							<i class="material-icons">textsms</i>
-							<p>Messages</p>
-					</a></li>
-
-				</ul>
-			</div>
-		</div>
+	<c:if test="${sessionScope.account_type == 'vendeur'}">
+		<c:import url="navbar/NavbarVendeur.jsp" />
+	</c:if>
 		
 		
-	<div class="main-panel">
-		<nav
-				class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
-				<div class="container-fluid">
-					<div class="navbar-wrapper">
-						<a class="navbar-brand" href="#pablo">Accueil</a>
-					</div>
-					<button class="navbar-toggler" type="button" data-toggle="collapse"
-						aria-controls="navigation-index" aria-expanded="false"
-						aria-label="Toggle navigation">
-						<span class="sr-only">Toggle navigation</span> <span
-							class="navbar-toggler-icon icon-bar"></span> <span
-							class="navbar-toggler-icon icon-bar"></span> <span
-							class="navbar-toggler-icon icon-bar"></span>
-					</button>
-					<div class="collapse navbar-collapse justify-content-end">
-						<form class="navbar-form">
-							<div class="input-group no-border">
-								<input type="text" value="" class="form-control"
-									placeholder="Search...">
-								<button type="submit"
-									class="btn btn-white btn-round btn-just-icon">
-									<i class="material-icons">search</i>
-									<div class="ripple-container"></div>
-								</button>
-							</div>
-						</form>
-						<ul class="navbar-nav">
-
-							<li class="nav-item dropdown"><a class="nav-link"
-								href="http://example.com" id="navbarDropdownMenuLink"
-								data-toggle="dropdown" aria-haspopup="true"
-								aria-expanded="false"> <i class="material-icons">notifications</i>
-									<span class="notification">2</span>
-									<p class="d-lg-none d-md-block">Some Actions</p>
-							</a>
-								<div class="dropdown-menu dropdown-menu-right"
-									aria-labelledby="navbarDropdownMenuLink">
-									<a class="dropdown-item" href="#">Mike John responded to
-										your email</a> <a class="dropdown-item" href="#">You have 5
-										new tasks</a>
-								</div></li>
-							<li class="nav-item dropdown"><a class="nav-link"
-								href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown"
-								aria-haspopup="true" aria-expanded="false"> <i
-									class="material-icons">person</i>
-									<p class="d-lg-none d-md-block">Compte</p>
-							</a>
-								<div class="dropdown-menu dropdown-menu-right"
-									aria-labelledby="navbarDropdownProfile">
-									<a class="dropdown-item" href="#"
-									style="background-color: gray;">${sessionScope.nom }${sessionScope.prenom }</a>
-								<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="#">Profil</a>
-									<a class="dropdown-item" href="Deconnexion.ma">Se déconnecter</a>
-								</div></li>
-						</ul>
-					</div>
-				</div>
-			</nav>
-			<!-- End Navbar -->
+		
+	
 	
 <div class="content">
 
@@ -170,59 +64,59 @@
 	<div class="steps" method="post">
 	
 		<fieldset>
-			<h2 class="fs-title">Données du propriétaire N° ${vendeur.getId()} </h2><br/><br/>
+			<h2 class="fs-title">Données du propriétaire N° ${client.getId()} </h2><br/><br/>
 		<div class="row">
 		<div class="col-md-6">
 			<div class="categ field hs-form-field">
-				<span class="label">Nom :</span> ${vendeur.getNom()} <br>
+				<span class="label">Nom :</span> ${client.getNom()} <br>
 				<div class="dropdown-divider"></div>
 			</div>
 		</div>
 			
 		<div class="col-md-6">
 			<div class="categ field hs-form-field">
-				<span class="label">Prenom :</span> ${vendeur.getPrenom()}<br>
+				<span class="label">Prenom :</span> ${client.getPrenom()}<br>
 				<div class="dropdown-divider"></div>
 			</div>
 		</div>
-		</div><br/><br/>
+		</div><br/>
 		
 	<div class="row">
 		<div class="col-md-4">
 			<div class="categ field hs-form-field">			
-				<span class="label">Cin :</span> ${vendeur.getNum_cin()}<br>
+				<span class="label">Cin :</span> ${client.getNum_cin()}<br>
 				<div class="dropdown-divider"></div>
 			</div>
 		</div>
 
 			<div class="col-md-8">
 			<div class="categ field hs-form-field">			
-				<span class="label">Date de naissance :</span> ${vendeur.getDate_naissane()}<br>
+				<span class="label">Date de naissance :</span> ${client.getDate_naissane()}<br>
 				<div class="dropdown-divider"></div>
 			</div>
 			</div>
-		</div><br/><br/>
+		</div><br/>
 			
 			<div class="categ field hs-form-field">			
-				<span class="label">Email :</span> ${vendeur.getEmail()}<br>
+				<span class="label">Email :</span> ${client.getEmail()}<br>
 				<div class="dropdown-divider"></div>
 			</div><br/>
 			
 	<div class="row">
 		<div class="col-md-6">
 			<div class="categ field hs-form-field">
-				<span class="label">Pays :</span> ${vendeur.getPays()}<br>
+				<span class="label">Pays :</span> ${client.getPays()}<br>
 				<div class="dropdown-divider"></div>
 			</div>
 		</div>
 			
 			<div class="col-md-6">
 			<div class="categ field hs-form-field">
-				<span class="label">Ville :</span> ${vendeur.getVille()}<br>
+				<span class="label">Ville :</span> ${client.getVille()}<br>
 				<div class="dropdown-divider"></div>
 			</div>
 			</div>
-		</div><br/><br/>
+		</div>
 			
 		</fieldset>
 	</div>

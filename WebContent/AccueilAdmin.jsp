@@ -57,12 +57,16 @@
 							<p>Liste des offres</p>
 					</a></li>
 					<li class="nav-item "><a class="nav-link"
-						href="./typography.html"> <i class="material-icons">format_indent_increase</i>
+						href="ListDemandeClient.ma"> <i class="material-icons">format_indent_increase</i>
 							<p>Liste des demandes</p>
 					</a></li>
 					<li class="nav-item "><a class="nav-link" href="./icons.html">
 							<i class="material-icons">format_indent_decrease</i>
 							<p>Demandes confirmées</p>
+					</a></li>
+					<li class="nav-item "><a class="nav-link" href="Message.ma">
+							<i class="material-icons">textsms</i>
+							<p>Messages</p>
 					</a></li>
 
 				</ul>

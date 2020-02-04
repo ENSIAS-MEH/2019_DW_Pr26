@@ -1,14 +1,15 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en">
+<html>
 <head>
+
 <meta charset="utf-8" />
 <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon.png">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>Données Propriétaire</title>
+<title>Messages</title>
 <meta
 	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
 	name='viewport' />
@@ -25,19 +26,6 @@
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
 	rel="stylesheet">
-
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="css/offre/style.css">
-
-<style>
-.label {
-  color: white;
-  padding: 6px;
-  background-color: #e7e7e7; color: black;
-}
-</style>
-
 </head>
 
 <body class="">
@@ -56,14 +44,14 @@
 			<div class="sidebar-wrapper">
 				<ul class="nav">
 					<li class="nav-item "><a class="nav-link"
-						href="AcceuilAdmin.ma"> <i class="material-icons">home</i>
+						href="AccueilAdmin.ma"> <i class="material-icons">home</i>
 							<p>Acceuil</p>
 					</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="#"> <i class="material-icons">dashboard</i>
 							<p>Dashboard</p>
 					</a></li>
-					<li class="nav-item  active"><a class="nav-link" href="ListVendeur.ma">
+					<li class="nav-item "><a class="nav-link" href="ListVendeur.ma">
 							<i class="material-icons">account_circle</i>
 							<p>Liste des propriétaires</p>
 					</a></li>
@@ -83,7 +71,7 @@
 							<i class="material-icons">format_indent_decrease</i>
 							<p>Demandes confirmées</p>
 					</a></li>
-					<li class="nav-item "><a class="nav-link" href="Message.ma">
+					<li class="nav-item  active"><a class="nav-link" href="Message.ma">
 							<i class="material-icons">textsms</i>
 							<p>Messages</p>
 					</a></li>
@@ -154,87 +142,54 @@
 				</div>
 			</nav>
 			<!-- End Navbar -->
-	
-<div class="content">
+			<div class="content">
+		<div class="container-fluid">
+          <div class="row">
+            <div class="col-md-10" style="margin-left :90px; ">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">Messages</h4>
+                  <p class="card-category"> la liste de tous les messages reçus</p>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class=" text-primary">
+                        <th>Type</th>
+                        <th>Nom</th>
+                        <th>Sujet</th>
+                        <th>Action</th>
+                      </thead>
+                      <tbody>
+                      <c:forEach items="${contacts}" var="c">
+                       <tr>
+                          <td>${c.getType_emetteur()}</td>
+                          <td>${c.getNom()}</td>
+                          <td>${c.getSujet()}</td>
+                         <td><a href="DetailMessage.ma?id=${c.getId()}"
+												class=" btn-circle btn-sm" title="Ouvrir"><i
+													class="far fa-folder-open"></i></a>  <a
+												href="SupprimerMessage.ma?id=${c.getId()}"
+												class="  btn-circle btn-sm" style="color: red;" title="Supprimer"
+												onclick="return confirm('Voulez vous vraiment supprimer ce message');"><i
+													class="fas fa-trash"></i></a></td>
+                        </tr>
+                      </c:forEach>
+                       
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        </div>
+       </div>
+<!--   Core JS Files   -->
+	<script src="js/core/jquery.min.js"></script>
 
-	<c:if test="${alert != null}">
-		<div class="card" style="width: 60%; margin: 0 auto;">
-			<div class="card-body">
-				<center class="font-weight-bold">
-					<strong>${alert } </strong>
-				</center>
-			</div>
-		</div>
-	</c:if>
-
-	<div class="steps" method="post">
-	
-		<fieldset>
-			<h2 class="fs-title">Données du propriétaire N° ${vendeur.getId()} </h2><br/><br/>
-		<div class="row">
-		<div class="col-md-6">
-			<div class="categ field hs-form-field">
-				<span class="label">Nom :</span> ${vendeur.getNom()} <br>
-				<div class="dropdown-divider"></div>
-			</div>
-		</div>
-			
-		<div class="col-md-6">
-			<div class="categ field hs-form-field">
-				<span class="label">Prenom :</span> ${vendeur.getPrenom()}<br>
-				<div class="dropdown-divider"></div>
-			</div>
-		</div>
-		</div><br/><br/>
-		
-	<div class="row">
-		<div class="col-md-4">
-			<div class="categ field hs-form-field">			
-				<span class="label">Cin :</span> ${vendeur.getNum_cin()}<br>
-				<div class="dropdown-divider"></div>
-			</div>
-		</div>
-
-			<div class="col-md-8">
-			<div class="categ field hs-form-field">			
-				<span class="label">Date de naissance :</span> ${vendeur.getDate_naissane()}<br>
-				<div class="dropdown-divider"></div>
-			</div>
-			</div>
-		</div><br/><br/>
-			
-			<div class="categ field hs-form-field">			
-				<span class="label">Email :</span> ${vendeur.getEmail()}<br>
-				<div class="dropdown-divider"></div>
-			</div><br/>
-			
-	<div class="row">
-		<div class="col-md-6">
-			<div class="categ field hs-form-field">
-				<span class="label">Pays :</span> ${vendeur.getPays()}<br>
-				<div class="dropdown-divider"></div>
-			</div>
-		</div>
-			
-			<div class="col-md-6">
-			<div class="categ field hs-form-field">
-				<span class="label">Ville :</span> ${vendeur.getVille()}<br>
-				<div class="dropdown-divider"></div>
-			</div>
-			</div>
-		</div><br/><br/>
-			
-		</fieldset>
-	</div>
-</div>
-<!-- partial -->
-<script
-	src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script
-	src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
-<script
-	src='https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js'></script>
-<script src="js/offre/script.js"></script>
 
 <script src="js/core/popper.min.js"></script>
 <script src="js/core/bootstrap-material-design.min.js"></script>

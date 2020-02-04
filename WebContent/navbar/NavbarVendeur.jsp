@@ -20,35 +20,32 @@
 			</div>
 			<div class="sidebar-wrapper">
 				<ul class="nav">
-					<li class="nav-item active  "><a class="nav-link"
+					<li class="nav-item ${active }  "><a class="nav-link"
 						href="AcceuilVendeur.ma"> <i class="material-icons">home</i>
 							<p>Acceuil</p>
 					</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="AcceuilVendeur.ma"> <i class="material-icons">dashboard</i>
-							<p>Dashboard</p>
-					</a></li>
-					<li class="nav-item "><a class="nav-link"
+					
+					<li class="nav-item ${active1 }"><a class="nav-link"
 						href="FormAjouterOffre.ma"> <i class="material-icons">local_offer</i>
 							<p>Ajouter une offre</p>
 					</a></li>
-					<li class="nav-item "><a class="nav-link" href="ListOffre.ma">
+					<li class="nav-item ${active2 }"><a class="nav-link" href="ListOffre.ma">
 							<i class="material-icons">library_books</i>
 							<p>Mes offres</p>
 					</a></li>
-					<li class="nav-item "><a class="nav-link" href="ListDemandeVendeur.ma">
+					<li class="nav-item ${active3 }"><a class="nav-link" href="ListDemandeVendeur.ma">
 							<i class="material-icons">format_indent_increase</i>
 							<p>Liste des demandes</p>
 					</a></li>
-					<li class="nav-item "><a class="nav-link" href="./icons.html">
+					<li class="nav-item ${active4 }"><a class="nav-link" href="./icons.html">
 							<i class="material-icons">format_indent_decrease</i>
 							<p>Demandes confirmées</p>
 					</a></li>
-					<li class="nav-item "><a class="nav-link" href="ChercherOffreClient.ma">
+					<li class="nav-item ${active5 }"><a class="nav-link" href="ChercherOffreVendeur.ma">
 							<i class="material-icons">search</i>
 							<p>Chercher une offre</p>
 					</a></li>
-					<li class="nav-item "><a class="nav-link" href="./icons.html">
+					<li class="nav-item ${active6 }"><a class="nav-link" href="contactByVendeur.ma">
 							<i class="material-icons">textsms</i>
 							<p>Messages</p>
 					</a></li>

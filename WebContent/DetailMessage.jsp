@@ -8,7 +8,7 @@
 <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon.png">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>Données Propriétaire</title>
+<title>Info message</title>
 <meta
 	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
 	name='viewport' />
@@ -63,7 +63,7 @@
 						href="#"> <i class="material-icons">dashboard</i>
 							<p>Dashboard</p>
 					</a></li>
-					<li class="nav-item  active"><a class="nav-link" href="ListVendeur.ma">
+					<li class="nav-item  "><a class="nav-link" href="ListVendeur.ma">
 							<i class="material-icons">account_circle</i>
 							<p>Liste des propriétaires</p>
 					</a></li>
@@ -83,7 +83,7 @@
 							<i class="material-icons">format_indent_decrease</i>
 							<p>Demandes confirmées</p>
 					</a></li>
-					<li class="nav-item "><a class="nav-link" href="Message.ma">
+					<li class="nav-item active"><a class="nav-link" href="Message.ma">
 							<i class="material-icons">textsms</i>
 							<p>Messages</p>
 					</a></li>
@@ -170,59 +170,41 @@
 	<div class="steps" method="post">
 	
 		<fieldset>
-			<h2 class="fs-title">Données du propriétaire N° ${vendeur.getId()} </h2><br/><br/>
+			<h2 class="fs-title">Informations du message N° ${message.getId()} </h2><br/><br/>
 		<div class="row">
 		<div class="col-md-6">
 			<div class="categ field hs-form-field">
-				<span class="label">Nom :</span> ${vendeur.getNom()} <br>
+				<span class="label">Nom :</span> ${message.getNom()} <br>
 				<div class="dropdown-divider"></div>
 			</div>
 		</div>
 			
 		<div class="col-md-6">
 			<div class="categ field hs-form-field">
-				<span class="label">Prenom :</span> ${vendeur.getPrenom()}<br>
+				<span class="label">Type :</span> ${message.getType_emetteur()}<br>
 				<div class="dropdown-divider"></div>
 			</div>
 		</div>
 		</div><br/><br/>
 		
-	<div class="row">
-		<div class="col-md-4">
-			<div class="categ field hs-form-field">			
-				<span class="label">Cin :</span> ${vendeur.getNum_cin()}<br>
+		<div class="categ field hs-form-field">			
+				<span class="label">Email :</span> ${message.getEmail()}<br>
 				<div class="dropdown-divider"></div>
-			</div>
-		</div>
-
-			<div class="col-md-8">
-			<div class="categ field hs-form-field">			
-				<span class="label">Date de naissance :</span> ${vendeur.getDate_naissane()}<br>
-				<div class="dropdown-divider"></div>
-			</div>
-			</div>
-		</div><br/><br/>
-			
-			<div class="categ field hs-form-field">			
-				<span class="label">Email :</span> ${vendeur.getEmail()}<br>
-				<div class="dropdown-divider"></div>
-			</div><br/>
-			
-	<div class="row">
-		<div class="col-md-6">
+			</div><br/><br/>
+		
 			<div class="categ field hs-form-field">
-				<span class="label">Pays :</span> ${vendeur.getPays()}<br>
+				<span class="label">Sujet :</span> ${message.getSujet()}<br>
 				<div class="dropdown-divider"></div>
-			</div>
-		</div>
+			</div><br/><br/>
+		
+		
+	
+			<div class="categ field hs-form-field">			
+				<span class="label">Message :</span> ${message.getMessage()}<br>
+				<div class="dropdown-divider"></div>
+			</div><br/><br/>
 			
-			<div class="col-md-6">
-			<div class="categ field hs-form-field">
-				<span class="label">Ville :</span> ${vendeur.getVille()}<br>
-				<div class="dropdown-divider"></div>
-			</div>
-			</div>
-		</div><br/><br/>
+			
 			
 		</fieldset>
 	</div>

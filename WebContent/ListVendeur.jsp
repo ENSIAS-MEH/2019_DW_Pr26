@@ -44,7 +44,7 @@
 			<div class="sidebar-wrapper">
 				<ul class="nav">
 					<li class="nav-item "><a class="nav-link"
-						href="AcceuilAdmin.ma"> <i class="material-icons">home</i>
+						href="AccueilAdmin.ma"> <i class="material-icons">home</i>
 							<p>Acceuil</p>
 					</a></li>
 					<li class="nav-item"><a class="nav-link"
@@ -64,12 +64,16 @@
 							<p>Liste des offres</p>
 					</a></li>
 					<li class="nav-item "><a class="nav-link"
-						href="./typography.html"> <i class="material-icons">format_indent_increase</i>
+						href="ListDemandeClient.ma"> <i class="material-icons">format_indent_increase</i>
 							<p>Liste des demandes</p>
 					</a></li>
 					<li class="nav-item "><a class="nav-link" href="./icons.html">
 							<i class="material-icons">format_indent_decrease</i>
 							<p>Demandes confirmées</p>
+					</a></li>
+					<li class="nav-item "><a class="nav-link" href="Message.ma">
+							<i class="material-icons">textsms</i>
+							<p>Messages</p>
 					</a></li>
 
 				</ul>
@@ -170,10 +174,7 @@
                           <td>${v.getNum_telephone()}</td>
                          <td><a href="DetailVendeur.ma?id=${v.getId()}"
 												class=" btn-circle btn-sm" title="Ouvrir"><i
-													class="far fa-folder-open" style="color:green;"></i></a> <a
-												href="ModifierVendeur.ma?id=${v.getId()}"
-												class="  btn-circle  btn-sm" title="Mettre à jour" style="color:blue;"> <i
-													class="fas fa-sync"></i></a> <a
+													class="far fa-folder-open"></i></a>  <a
 												href="SupprimerVendeur.ma?id=${v.getId()}"
 												class="  btn-circle btn-sm" style="color: red;" title="Supprimer"
 												onclick="return confirm('Voulez vous vraiment supprimer cet compte');"><i

@@ -35,12 +35,17 @@
 <div class="content">
 
 	<c:if test="${alert != null}">
-		<div class="card" style="width: 60%; margin: 0 auto;">
-			<div class="card-body">
+	
+		<div class="alert alert-dismissible fade show" role="alert" style="width: 60%; margin: 0 auto;">
+			
 				<center class="font-weight-bold">
-					<strong>${alert } </strong>
+					${alert }
 				</center>
-			</div>
+				<button type="button" class="close" data-dismiss="alert"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			
 		</div>
 	</c:if>
 
@@ -88,10 +93,21 @@
 												</c:if></td>
 											<td><a href="DetailOffre.ma?id=${o.getId()}"
 												class=" btn-circle btn-sm" title="Ouvrir"><i
-													class="far fa-folder-open"></i></a> <a
+													class="far fa-folder-open"></i></a>
+<c:if test="${sessionScope.account_type == 'vendeur'}">
+													<c:if test="${o.getEtat() == 'en attente'}"> <a
 												href="ModifierOffre.ma?id=${o.getId()}"
 												class="  btn-circle  btn-sm" title="Mettre à jour"> <i
-													class="fas fa-sync"></i></a> <a
+													class="fas fa-sync"></i></a></c:if> </c:if>	<a
+
+													
+									<%-- 	<c:if test="${sessionScope.account_type == 'vendeur'}"> <a
+												href="ModifierOffre.ma?id=${o.getId()}"
+												class="  btn-circle  btn-sm" title="Mettre à jour"> <i
+													class="fas fa-sync"></i></a>
+										</c:if>	
+												 <a --%>
+
 												href="SupprimerOffre.ma?id=${o.getId()}"
 												class="  btn-circle btn-sm" title="Supprimer"
 												onclick="return confirm('Voulez vous vraiment supprimer cette demande');"><i
