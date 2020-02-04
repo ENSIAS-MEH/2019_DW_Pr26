@@ -100,9 +100,17 @@ public interface LocationRepositoryInter {
 	
 	public ArrayList<Offre> planifierVoyage(String date_debut_forms, String date_fin_forms, String ville);
 
+
 	public ArrayList<Offre> chercherOffreByOption(boolean ville, boolean pays, boolean nb_chambre,
 			String locationOrVente, String motCles, int id);
 
 	public ArrayList<Offre> chercherOffreByDate(String date_debut_forms, String date_fin_forms, int id); 
+
+	public ArrayList<Contact> getListContact();
+
+	public Contact getContactbyId(int id);
+
+	public void supprimerContact(int id); 
+
 
 }

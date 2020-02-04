@@ -30,7 +30,9 @@ import web.action.AdminAction;
 		"/ModifierDemandeAchat.ma", "/ModifierDemandeLocation.ma", "/AcceptezDemandeClient.ma",
 		"/RefusezDemandeClient.ma", "/SupprimerDemandeLocationByVendeur.ma", "/SupprimerDemandeAchatByVendeur.ma",
 		"/ChercherOffreByOption.ma", "/ChercherOffreByDate.ma", "/contactByClient.ma", "/accueilClient.ma",
-		"/PlanifierUnVoyage.ma", "/planifireVoyageForms.ma","/ChercherOffreVendeur.ma","/contactByVendeur.ma" })
+
+		"/PlanifierUnVoyage.ma", "/planifireVoyageForms.ma","/ChercherOffreVendeur.ma","/contactByVendeur.ma" ,
+		"/Message.ma","/DetailMessage.ma","/SupprimerMessage.ma"})
 
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 4)
 public class Controller extends HttpServlet {
@@ -450,6 +452,31 @@ public class Controller extends HttpServlet {
 				views = "PlanifierUnVoyage";
 			} else
 				views = "/404";
+		} 
+		 else if (action.equals("Message")) {
+				if (session.getAttribute("account_type") != null && session.getAttribute("account_type").equals("admin")) {
+					request.setAttribute("contacts", contactMessage.ListContact());
+					views = "Message";
+				} else
+					views = "/404";
+		} 
+		 else if (action.equals("DetailMessage")) {
+				if (session.getAttribute("account_type") != null && session.getAttribute("account_type").equals("admin")) {
+					int id = Integer.parseInt(request.getParameter("id"));
+					request.setAttribute("message", contactMessage.getContactById(id));
+					views = "DetailMessage";
+				} else
+					views = "/404";
+		}
+		 else if (action.equals("SupprimerMessage")) {
+				if (session.getAttribute("account_type") != null && session.getAttribute("account_type").equals("admin")) {
+					int id = Integer.parseInt(request.getParameter("id"));
+					contactMessage.SupprimerContact(id);
+					request.setAttribute("alert", "le message a bien été supprimée");
+					request.setAttribute("contacts", contactMessage.ListContact());
+					views = "Message";
+				} else
+					views = "/404";
 		} else
 			views = "/404";
 		request.getRequestDispatcher(views + ".jsp").forward(request, response);
@@ -472,6 +499,7 @@ public class Controller extends HttpServlet {
 			views = "ResultatCreationVendeur";
 		} else if (action.equals("ConnexionVendeur")) {
 			if (vendeurAction.ConnexionVendeur(request, session)) {
+				request.setAttribute("active", "active");
 				views = "AcceuilAfterConnexion";
 			} else {
 				request.setAttribute("messageError", "Mot de passe ou Email est Incorrect");
