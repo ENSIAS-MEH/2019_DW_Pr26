@@ -21,6 +21,18 @@ body {
 	<!-- partial:index.partial.html -->
 	<br>
 	<br>
+	<c:if test="${alert != null}">
+	
+		<div class="alert alert-dismissible fade show" role="alert" style="width: 60%; margin: 0 auto;">
+			
+				<center class="font-weight-bold">
+					${alert }
+				</center>
+				
+				</button>
+			
+		</div>
+	</c:if>
 	<div class="login">
 		<i ripple> <svg xmlns="http://www.w3.org/2000/svg"
 				viewBox="0 0 24 24">
@@ -61,6 +73,9 @@ body {
 			<div class="form-group">
 				<input type="checkbox" id="rem"> <label for="rem">Restez
 					connecté</label>
+				<c:if test="${alert != null}">
+				<input type="hidden" name="id" value="${id}">
+				</c:if>
 				<button type="submit">Se connecter</button>
 			</div>
 		</form>

@@ -70,7 +70,13 @@ public class Controller extends HttpServlet {
 		String action = getActionKey(request);
 		session = request.getSession();
 		if (action.equals("Accueil")) {
-			// request.setAttribute("offre", offreAction.getOffre(1));
+			int i = 1;
+			request.setAttribute("offre1", offreAction.getOffre(i++));
+			request.setAttribute("offre2", offreAction.getOffre(i++));
+			request.setAttribute("offre3", offreAction.getOffre(i++));
+			request.setAttribute("offre4", offreAction.getOffre(i++));
+			request.setAttribute("offre5", offreAction.getOffre(i++));
+			request.setAttribute("offre6", offreAction.getOffre(i++));
 			views = "Accueil";
 		}
 		// vendeur
@@ -100,6 +106,12 @@ public class Controller extends HttpServlet {
 		} else if (action.equals("contact")) {
 			views = "Contact";
 		} else if (action.equals("FormConnexionClient")) {
+			if(request.getParameter("id") != null){
+                request.setAttribute("alert", "Bonjour! Vous devez tout d'abord vous connecter pour pouvoir continuer");
+                request.setAttribute("id", request.getParameter("id"));
+
+
+			}
 			views = "ConnexionClient";
 		} else if (action.equals("Deconnexion")) {
 
@@ -110,6 +122,13 @@ public class Controller extends HttpServlet {
 			} else {
 				session.invalidate();
 				session = null;
+				int i = 1;
+				request.setAttribute("offre1", offreAction.getOffre(i++));
+				request.setAttribute("offre2", offreAction.getOffre(i++));
+				request.setAttribute("offre3", offreAction.getOffre(i++));
+				request.setAttribute("offre4", offreAction.getOffre(i++));
+				request.setAttribute("offre5", offreAction.getOffre(i++));
+				request.setAttribute("offre6", offreAction.getOffre(i++));
 				views = "Accueil";
 			}
 
@@ -518,7 +537,13 @@ public class Controller extends HttpServlet {
 			if (clientAction.connexionClient(request, session)) {
 				request.setAttribute("listeOffres", offreAction.getOffresActifs());
 				request.setAttribute("active1", "active");
-				views = "AcceuilClientAfterConnexion";
+				if(request.getParameter("id")!= null) {
+					Offre offre = offreAction.getOffre(Integer.parseInt(request.getParameter("id")));
+					request.setAttribute("offre", offre);
+					request.setAttribute("proprietaire", vendeurAction.getVendeurById(offre.getId_hote()));
+					views = "offres/DetailsOffreDisplay";
+				}
+				else views = "AcceuilClientAfterConnexion";
 			} else {
 				request.setAttribute("messageError", "Mot de passe ou Username est Incorrect");
 				views = "ConnexionClient";
