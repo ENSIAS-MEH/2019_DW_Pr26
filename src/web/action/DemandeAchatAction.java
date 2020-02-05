@@ -92,5 +92,9 @@ public class DemandeAchatAction {
 	public int getAllDmd() {
 		return locationServices.getAllDmd();
 	}
+	
+	public void confirmerVente(int id){
+		locationServices.confirmerVente(id);
+	}
 
 }

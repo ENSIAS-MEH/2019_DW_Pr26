@@ -122,5 +122,8 @@ public interface LocationServicesInter {
 	public int getNbreDmdAchat();
 
 	public int getAllDmd();
+	
+	public void confirmerLocation(int id); 
+	public void confirmerVente(int id); 
 
 }

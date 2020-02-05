@@ -626,6 +626,8 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 				demandeLocation.setDateDemande(rs.getString("date_demande"));
 				demandeLocation.setNb_nuit(rs.getInt("nb_nuit"));
 				demandeLocation.setStatut(rs.getString("statut"));
+				demandeLocation.setConfirmation(rs.getString("confirmer"));
+				demandeLocation.setDate_acceptaion(rs.getString("date_acceptation"));
 				listeDemandeLocation.add(demandeLocation);
 			}
 			ps.close();
@@ -656,6 +658,8 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 				demandeLocation.setDateDemande(rs.getString("date_demande"));
 				demandeLocation.setNb_nuit(rs.getInt("nb_nuit"));
 				demandeLocation.setStatut(rs.getString("statut"));
+				demandeLocation.setConfirmation(rs.getString("confirmer"));
+				demandeLocation.setDate_acceptaion(rs.getString("date_acceptation"));
 				listeDemandeLocation.add(demandeLocation);
 			}
 			ps.close();
@@ -684,6 +688,8 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 				demandeLocation.setDateDemande(rs.getString("date_demande"));
 				demandeLocation.setNb_nuit(rs.getInt("nb_nuit"));
 				demandeLocation.setStatut(rs.getString("statut"));
+				demandeLocation.setConfirmation(rs.getString("confirmer"));
+				demandeLocation.setDate_acceptaion(rs.getString("date_acceptation"));
 				listeDemandeLocation.add(demandeLocation);
 			}
 			ps.close();
@@ -925,6 +931,8 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 				demandeLocation.setDateDemande(rs.getString("date_demande"));
 				demandeLocation.setNb_nuit(rs.getInt("nb_nuit"));
 				demandeLocation.setStatut(rs.getString("statut"));
+				demandeLocation.setConfirmation(rs.getString("confirmer"));
+				demandeLocation.setDate_acceptaion(rs.getString("date_acceptation"));
 				listeDemandeLocation.add(demandeLocation);
 			}
 			ps.close();
@@ -954,6 +962,8 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 				demandeLocation.setDateDemande(rs.getString("date_demande"));
 				demandeLocation.setNb_nuit(rs.getInt("nb_nuit"));
 				demandeLocation.setStatut(rs.getString("statut"));
+				demandeLocation.setConfirmation(rs.getString("confirmer"));
+				demandeLocation.setDate_acceptaion(rs.getString("date_acceptation"));
 				listeDemandeLocation.add(demandeLocation);
 			}
 			ps.close();
@@ -1014,6 +1024,8 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 				demandeLocation.setDate_fin(rs.getString("date_fin"));
 				demandeLocation.setNb_nuit(rs.getInt("nb_nuit"));
 				demandeLocation.setStatut(rs.getString("statut"));
+				demandeLocation.setConfirmation(rs.getString("confirmer"));
+				demandeLocation.setDate_acceptaion(rs.getString("date_acceptation"));
 				
 			ps.close();
 		}} catch (SQLException e) {
@@ -1046,13 +1058,10 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 	public void accepteDemandeLocation(int id) {
 		Connection connection = mangementDataBase.connexionDataBase();
 		try {
-			
 			PreparedStatement ps = connection.prepareStatement(
 					"Update demandelocation set statut = 'Acceptée' where id = "+id);
-			
 			ps.executeUpdate();
 			ps.close();
-
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -1621,6 +1630,35 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 
 	}
 	
+	public void confirmerLocation(int id){
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			
+			PreparedStatement ps = connection.prepareStatement(
+					"Update demandeLocation set confirmer = 'Confirmée' where id = "+id);
+			ps.executeUpdate();
+			ps.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public void confirmerVente(int id){
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			
+			PreparedStatement ps = connection.prepareStatement(
+					"Update demandeachat set confirmer = 'Confirmée' where id = "+id);
+			
+			ps.executeUpdate();
+			ps.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 
 }

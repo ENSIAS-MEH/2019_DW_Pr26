@@ -112,12 +112,9 @@
 											style="color: green;"> <i class="far fa-folder-open"></i></a>
 										</td>
 
-										<td><c:if test="${demande.getStatut()  == 'En attente' }">
-												<a href="SupprimerDemande.ma?id=${demande.getId()}"
-													class="  btn-circle btn-sm" title="Supprimer"
-													onclick="return confirm('Voulez vous vraiment supprimer cette demande');"
-													style="color: red;"><i class="fas fa-trash"></i></a>
-											</c:if></td>
+										<td><c:if test="${demande.getStatut()  == 'Acceptée'}">
+										<button onclick="updateForm(${demande.getId() })"  class="btn btn-warning btn-sm" data-toggle="modal" data-target="#engagement" title="Dans le délai de 10 jours la demande sera annulée" ><i class="fas fa-check-double"></i> Confirmation</button>
+										</c:if></td>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -126,6 +123,32 @@
 				</div>
 			</div>
 		</div>
+		
+
+<!-- Modal -->
+<div class="modal fade" id="engagement" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Engagement</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        blablablabl
+        <form method="post" action="ConfirmerLocation.ma">
+        <input type="checkbox" required ><label >Accepter conditions d'utilisation</label>
+        <input value="" id="engagement_location" name="id" hidden>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 		<br> <br> <br>
 		<div class="col-md-12">
 			<div class="card card-plain">
@@ -163,12 +186,9 @@
 											class="btn-circle btn-sm" title="Ouvrir offre"
 											style="color: green;"> <i class="far fa-folder-open"></i></a>
 										</td>
-										<td><c:if test="${demande.getStatut()  == 'En attente' }">
-												<a href="SupprimerDemandeAchat.ma?id=${demande.getId()}"
-													class="btn-circle btn-sm" title="Supprimer"
-													onclick="return confirm('Voulez vous vraiment supprimer cette demande');"
-													style="color: red;"><i class="fas fa-trash"></i></a>
-											</c:if></td>
+										<td><c:if test="${demande.getStatut()  == 'Acceptée'}">
+											<a class="btn btn-success btn-sm" title="Dans le délai de 10 jours la demande sera annulée" href="ConfirmerAchat.ma?id=${demande.getId() }"><i class="fas fa-check-double"></i> Confirmation</a>
+										</c:if></td>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -604,6 +624,10 @@
 			md.initDashboardPageCharts();
 
 		});
+
+		function updateForm($id){
+			$('#engagement_location').attr('value',$id );
+			}
 	</script>
 
 	<script src="js/accueil_js/jquery.min.js"></script>

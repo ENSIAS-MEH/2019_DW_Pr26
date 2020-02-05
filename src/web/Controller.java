@@ -37,7 +37,7 @@ import web.action.AdminAction;
 		"/RefusezDemandeClient.ma", "/SupprimerDemandeLocationByVendeur.ma", "/SupprimerDemandeAchatByVendeur.ma",
 		"/ChercherOffreByOption.ma", "/ChercherOffreByDate.ma", "/contactByClient.ma", "/accueilClient.ma",
 		"/Dashboard.ma","/PlanifierUnVoyage.ma", "/planifireVoyageForms.ma","/ChercherOffreVendeur.ma","/contactByVendeur.ma" ,
-		"/Message.ma","/DetailMessage.ma","/SupprimerMessage.ma","/Services.ma"})
+		"/Message.ma","/DetailMessage.ma","/SupprimerMessage.ma","/Services.ma","/ConfirmerLocation.ma","/ConfirmerVente.ma"})
 
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 4)
 public class Controller extends HttpServlet {
@@ -468,7 +468,7 @@ public class Controller extends HttpServlet {
 				views = "/404";
 		} else if (action.equals("PlanifierUnVoyage")) {
 			if (session.getAttribute("account_type") != null && session.getAttribute("account_type").equals("client")) {
-				request.setAttribute("active6", "active");
+				request.setAttribute("active7", "active");
 				views = "PlanifierUnVoyage";
 			} else
 				views = "/404";
@@ -531,7 +531,15 @@ public class Controller extends HttpServlet {
 				request.setAttribute("resultBool", false);
 			}
 			views = "ResultatCreationVendeur";
-		} else if (action.equals("ConnexionVendeur")) {
+		} else if(action.equals("ConfirmerLocation")){
+			demandeLocationAction.confirmerLocation(Integer.parseInt(request.getParameter("id")));
+			request.setAttribute("listeDemande",
+					demandeLocationAction.getListReservationLocationByIdClient((int) session.getAttribute("id")));
+			request.setAttribute("listeDemandeAchat",
+					demandeAchatAction.getListReservationAchatByIdClient((int) session.getAttribute("id")));
+			request.setAttribute("active4", "active");
+			views = "ListReservationClient";
+		}else if (action.equals("ConnexionVendeur")) {
 			if (vendeurAction.ConnexionVendeur(request, session)) {
 				request.setAttribute("active", "active");
 				views = "AcceuilAfterConnexion";

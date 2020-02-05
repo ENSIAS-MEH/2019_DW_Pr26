@@ -91,4 +91,8 @@ public class DemandeLocationAction {
 	public int getNbreDmdLocation() {
 		return locationServices.getNbreDmdLocation();
 	}
+	
+	public void confirmerLocation(int id){
+		locationServices.confirmerLocation(id);
+	}
 }
