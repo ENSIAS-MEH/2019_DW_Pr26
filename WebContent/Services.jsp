@@ -1,12 +1,17 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html lang="en">
 <head>
-<title>Devenez hôte</title>
+<title>Location et vente de logement</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900&display=swap"
+	rel="stylesheet">
 <link
 	href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900&display=swap"
 	rel="stylesheet">
@@ -24,9 +29,11 @@
 <link rel="stylesheet" href="css/icomoon.css">
 <link rel="stylesheet" href="css/accueil_css/style.css">
 <!-- Icon fontawensom  -->
+
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
 	rel="stylesheet">
+
 <link
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet">
@@ -47,8 +54,8 @@
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item"><a href="Accueil.ma"
 					class="nav-link">Acceuil</a></li>
-				<li class="nav-item"><a href="Services.ma" class="nav-link">Services</a></li>
-				<li class="nav-item active"><a href="DevenezHote.ma" class="nav-link">Devenez
+				<li class="nav-item active"><a href="Services.ma" class="nav-link">Services</a></li>
+				<li class="nav-item"><a href="DevenezHote.ma" class="nav-link">Devenez
 						Hôte</a></li>
 				<li class="nav-item"><a href="InscriptionClient.ma"
 					class="nav-link">Inscription</a></li>
@@ -62,116 +69,114 @@
 	</div>
 	</nav>
 	<!-- END nav -->
-	<br>
-	<br>
-	<section class="ftco-section goto-here">
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-md-12 heading-section text-center ftco-animate mb-5">
-				<span class="subheading">Créer votre compte</span>
-				<h4 class="mb-2">Remplir le formulaire suivant pour créer votre
-					compte</h4>
-			</div>
-		</div>
-		<div class="row block-9 justify-content-center mb-5"
-			style="background-color: #D8EBF7;">
-			<div class="col-md-8 mb-md-5">
-			<br><br>
-				<form method="post" action="InscriptionVendeur.ma">
-					<div class="form-row">
-						<div class="form-group col-md-6">
-							<label for="inputEmail4">Prénom <span style="color: red;">*</span></label>
-							<input type="text" class="form-control" id="inputEmail4"
-								placeholder="Prénom" required="true" name="prenom">
-						</div>
-						<div class="form-group col-md-6">
-							<label for="inputPassword4">Nom <span style="color: red;">*</span>
-							</label> <input type="text" class="form-control" id="inputPassword4"
-								placeholder="Nom" required="true" name="nom">
-						</div>
-					</div>
-					<div class="form-row">
-						<div class="form-group col-md-6">
-							<label for="inputEmail4">Date de naissance <span
-								style="color: red;">*</span></label> <input type="date"
-								class="form-control" id="inputEmail4" placeholder="03/11/1997"
-								required="true" name="date_naissance">
-						</div>
-						<div class="form-group col-md-6">
-							<label for="inputPassword4">Numéro CIN <span
-								style="color: red;">*</span></label> <input type="text"
-								class="form-control" id="inputPassword4" placeholder="CD5...."
-								required="true" name="cin">
-						</div>
-					</div>
-					<div class="form-row">
-						<div class="form-group col-md-6">
-							<label for="inputEmail4">Sexe <span style="color: red;">*</span>
-							</label> <select class="form-control selectpicker"
-								data-style="btn btn-link" id="exampleFormControlSelect1"
-								name="sexe">
-								<option value="Homme">Homme</option>
-								<option value="Femme">Femme</option>
-							</select>
-						</div>
-						<div class="form-group col-md-6">
-							<label for="inputPassword4">Email <span
-								style="color: red;">*</span></label> <input type="email"
-								class="form-control" id="inputPassword4"
-								placeholder="email@gmail.com" required="true" name="email">
-						</div>
-					</div>
-					<div class="form-row">
-						<div class="form-group col-md-6">
-							<label for="inputPassword4">Mot de passe <span
-								style="color: red;">*</span>
-							</label> <input type="password" class="form-control" id="password"
-								placeholder="*******" required="true" name="password"
-								minlength=8>
-						</div>
-						<div class="form-group col-md-6">
-							<label for="inputPassword4">Confirmer le mot de passe <span
-								style="color: red;">*</span></label> <input type="password"
-								class="form-control" id="password_confirm"
-								placeholder="********" required="" name="password_confirm">
-						</div>
-					</div>
+	 <section class="hero-wrap hero-wrap-2 ftco-degree-bg js-fullheight" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate pb-5 text-center">
+          	 <h1 class="mb-3 bread">Nos Services</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    <section class="ftco-section">
+      <div class="container">
+      	<div class="row justify-content-center">
+          <div class="col-md-12 heading-section text-center ftco-animate mb-5">
+          	<span class="subheading">Nos Services</span>
+            <h2 class="mb-2">La façon la plus intelligente d'acheter ou allouer une maison</h2>
+          </div>
+        </div>
+        <div class="row d-flex">
+          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services d-block text-center">
+            	<div class="icon d-flex justify-content-center align-items-center"><span class="flaticon-piggy-bank"></span></div>
+              <div class="media-body py-md-4">
+                <h3>Compte gratuit</h3>
+               </div>
+            </div>      
+          </div>
+          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services d-block text-center">
+            	<div class="icon d-flex justify-content-center align-items-center"><span class="flaticon-wallet"></span></div>
+              <div class="media-body py-md-4">
+                <h3>Prix Exacte et garanti</h3>
+                </div>
+            </div>      
+          </div>
+          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services d-block text-center">
+            	<div class="icon d-flex justify-content-center align-items-center"><span class="flaticon-file"></span></div>
+              <div class="media-body py-md-4">
+                <h3>Des experts dans votre coin</h3>
+                 </div>
+            </div>      
+          </div>
+          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services d-block text-center">
+            	<div class="icon d-flex justify-content-center align-items-center"><span class="flaticon-locked"></span></div>
+              <div class="media-body py-md-4">
+                <h3>Transaction sécurisée</h3>
+                </div>
+            </div>      
+          </div>
+        </div>
+      </div>
+    </section>
 
-					<div class="form-group">
-						<label for="inputAddress">adresse</label> <input type="text"
-							class="form-control" id="inputAddress" placeholder="1234 Main St"
-							name="adresse">
-					</div>
-					<div class="form-row">
-						<div class="form-group col-md-6">
-							<label for="inputEmail4">Pays / Région <span
-								style="color: red;">*</span></label> <input type="text"
-								class="form-control" id="inputEmail4" placeholder="Maroc"
-								required="true" name="pays">
-						</div>
-						<div class="form-group col-md-6">
-							<label for="inputPassword4">Ville</label> <input type="text"
-								class="form-control" id="inputPassword4" placeholder="Fés"
-								name="ville">
-						</div>
-					</div>
-					<div class="form-row">
-						<div class="form-group col-md-6">
-							<label for="inputEmail4">Numéro de téléphone <span
-								style="color: red;">*</span></label> <input type="text"
-								class="form-control" id="inputEmail4" placeholder="065568...."
-								required="true" name="telephone">
-						</div>
-					</div>
-					<center>
-						<button type="submit" class="btn btn-success btn-lg"
-							onclick="return validationFormulaire(); ">Inscription</button>
-					</center>
-				</form>
-			</div>
-		</div>
-	</div>
-	</section>
+		<section class="ftco-section ftco-degree-bg services-section img mx-md-5" style="background-image: url(images/bg_2.jpg);">
+    	<div class="overlay"></div>
+    	<div class="container">
+    		<div class="row justify-content-start mb-5">
+          <div class="col-md-6 text-center heading-section heading-section-white ftco-animate">
+          	<span class="subheading">Work flow</span>
+            <h2 class="mb-3">Comment ça fonctionne</h2>
+          </div>
+        </div>
+    		<div class="row">
+    			<div class="col-md-6">
+    				<div class="row">
+		    			<div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
+		            <div class="media block-6 services services-2">
+		              <div class="media-body py-md-4 text-center">
+		              	<div class="icon mb-3 d-flex align-items-center justify-content-center"><span>01</span></div>
+		                <h3>Créer un compte</h3>
+		                </div>
+		            </div>      
+		          </div>
+		          <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
+		            <div class="media block-6 services services-2">
+		              <div class="media-body py-md-4 text-center">
+		              	<div class="icon mb-3 d-flex align-items-center justify-content-center"><span>02</span></div>
+		                <h3>Se connecter</h3>
+		                </div>
+		            </div>      
+		          </div>
+		          <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
+		            <div class="media block-6 services services-2">
+		              <div class="media-body py-md-4 text-center">
+		              	<div class="icon mb-3 d-flex align-items-center justify-content-center"><span>03</span></div>
+		                <h3>Chercher une offre</h3>
+		                </div>
+		            </div>      
+		          </div>
+		          <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
+		            <div class="media block-6 services services-2">
+		              <div class="media-body py-md-4 text-center">
+		              	<div class="icon mb-3 d-flex align-items-center justify-content-center"><span>04</span></div>
+		                <h3>Réserver une offre</h3>
+		                </div>
+		            </div>      
+		          </div>
+		        </div>
+		      </div>
+    		</div>
+    	</div>
+    </section>
+    
+
 
 	<footer class="ftco-footer ftco-section">
 	<div class="container">
@@ -190,6 +195,7 @@
 					</ul>
 				</div>
 			</div>
+
 			<div class="col-md">
 				<div class="ftco-footer-widget mb-4 ml-md-4">
 					<h2 class="ftco-heading-2">À propos</h2>
@@ -201,6 +207,7 @@
 					</ul>
 				</div>
 			</div>
+
 			<div class="col-md">
 				<div class="ftco-footer-widget mb-4">
 					<h2 class="ftco-heading-2">Avez-vous des questions?</h2>
@@ -228,8 +235,7 @@
 			stroke="#eeeeee" /> <circle class="path" cx="24" cy="24" r="22"
 			fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
 	</div>
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 	<script src="js/accueil_js/jquery.min.js"></script>
 	<script src="js/accueil_js/jquery-migrate-3.0.1.min.js"></script>
 	<script src="js/accueil_js/popper.min.js"></script>
@@ -248,23 +254,6 @@
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 	<script src="js/accueil_js/google-map.js"></script>
 	<script src="js/accueil_js/main.js"></script>
-	<script>
-		$("#password_confirm")
-				.blur(
-						function() {
-							if ($("#password_confirm").val() != $("#password")
-									.val()) {
-								alert('les mot de passe ne sont pas identiques ! merci de confirmez votre mot de passe');
-							}
-						});
 
-		function validationFormulaire() {
-			if ($("#password_confirm").val() != $("#password").val()) {
-				alert('les mot de passe ne sont pas identiques ! merci de confirmez votre mot de passe');
-				return false;
-			}
-			return confirm('Confirmer votre adhésion');
-		}
-	</script>
 </body>
 </html>

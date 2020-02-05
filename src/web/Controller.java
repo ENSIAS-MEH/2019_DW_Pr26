@@ -36,9 +36,8 @@ import web.action.AdminAction;
 		"/ModifierDemandeAchat.ma", "/ModifierDemandeLocation.ma", "/AcceptezDemandeClient.ma",
 		"/RefusezDemandeClient.ma", "/SupprimerDemandeLocationByVendeur.ma", "/SupprimerDemandeAchatByVendeur.ma",
 		"/ChercherOffreByOption.ma", "/ChercherOffreByDate.ma", "/contactByClient.ma", "/accueilClient.ma",
-		"/Dashboard.ma",
-		"/PlanifierUnVoyage.ma", "/planifireVoyageForms.ma","/ChercherOffreVendeur.ma","/contactByVendeur.ma" ,
-		"/Message.ma","/DetailMessage.ma","/SupprimerMessage.ma"})
+		"/Dashboard.ma","/PlanifierUnVoyage.ma", "/planifireVoyageForms.ma","/ChercherOffreVendeur.ma","/contactByVendeur.ma" ,
+		"/Message.ma","/DetailMessage.ma","/SupprimerMessage.ma","/Services.ma"})
 
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 4)
 public class Controller extends HttpServlet {
@@ -76,13 +75,9 @@ public class Controller extends HttpServlet {
 		String action = getActionKey(request);
 		session = request.getSession();
 		if (action.equals("Accueil")) {
-			int i = 1;
-			request.setAttribute("offre1", offreAction.getOffre(i++));
-			request.setAttribute("offre2", offreAction.getOffre(i++));
-			request.setAttribute("offre3", offreAction.getOffre(i++));
-			request.setAttribute("offre4", offreAction.getOffre(i++));
-			request.setAttribute("offre5", offreAction.getOffre(i++));
-			request.setAttribute("offre6", offreAction.getOffre(i++));
+			ArrayList<Offre> listeOffre = offreAction.getOffres(); 
+			for(int i =0 ; i<6 && i<listeOffre.size(); i++)
+				request.setAttribute("offre"+(1+i), listeOffre.get(i));
 			views = "Accueil";
 		}
 		// vendeur
@@ -316,7 +311,7 @@ public class Controller extends HttpServlet {
 			} else
 				views = "/404";
 		} else if (action.equals("getAllOffres")) {
-			if (session.getAttribute("account_type") != null && session.getAttribute("account_type").equals("client")) {
+			if (true) {
 				request.setAttribute("listeOffres", offreAction.getOffresActifs());
 				request.setAttribute("active2", "active");
 				views = "AllOffresClients";
@@ -514,6 +509,8 @@ public class Controller extends HttpServlet {
 					views = "AccueilAdmin";
 				} else
 					views = "/404";
+		}else if(action.equals("Services")){
+			views = "Services"; 
 		}else
 			views = "/404";
 		request.getRequestDispatcher(views + ".jsp").forward(request, response);
