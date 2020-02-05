@@ -539,6 +539,14 @@ public class Controller extends HttpServlet {
 					demandeAchatAction.getListReservationAchatByIdClient((int) session.getAttribute("id")));
 			request.setAttribute("active4", "active");
 			views = "ListReservationClient";
+		}else if(action.equals("ConfirmerVente")){
+			demandeAchatAction.confirmerVente(Integer.parseInt(request.getParameter("id")));
+			request.setAttribute("listeDemande",
+					demandeLocationAction.getListReservationLocationByIdClient((int) session.getAttribute("id")));
+			request.setAttribute("listeDemandeAchat",
+					demandeAchatAction.getListReservationAchatByIdClient((int) session.getAttribute("id")));
+			request.setAttribute("active4", "active");
+			views = "ListReservationClient";
 		}else if (action.equals("ConnexionVendeur")) {
 			if (vendeurAction.ConnexionVendeur(request, session)) {
 				request.setAttribute("active", "active");

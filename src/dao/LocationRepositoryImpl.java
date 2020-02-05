@@ -1066,9 +1066,6 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		
 	}
 
 	@Override
@@ -1642,6 +1639,19 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}	
+		
+		DemandeLocation demandeLocation = getDemandeLocationById(id); 
+		Offre offre = getOffresById(demandeLocation.getId_offre()); 
+		try {
+			System.out.println(offre.getId());
+			PreparedStatement ps = connection.prepareStatement(
+					"Update offre set etat = 'Confirmée' where id = "+offre.getId());
+			ps.executeUpdate();
+			ps.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 	public void confirmerVente(int id){
@@ -1654,6 +1664,18 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 			ps.executeUpdate();
 			ps.close();
 
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		DemandeLocation demandeLocation = getDemandeLocationById(id); 
+		Offre offre = getOffresById(demandeLocation.getId_offre()); 
+		try {
+			System.out.println(offre.getId());
+			PreparedStatement ps = connection.prepareStatement(
+					"Update offre set etat = 'Confirmée' where id = "+offre.getId());
+			ps.executeUpdate();
+			ps.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
