@@ -72,10 +72,11 @@ public class OffreAction {
 		// TODO Auto-generated method stub
 		// InputStream photo = (request.getPart("photo")).getInputStream();
 		if (request.getParameter("type").equals("Vente"))
-		return locationServices.ModifierOffre(new Offre((Integer.parseInt(request.getParameter("id"))), id_hote,
-					request.getParameter("type"), request.getParameter("categorie"),0, request.getParameter("adresse"),
-					request.getParameter("pays"), request.getParameter("ville"),"-----", "-----", (Float.parseFloat(request.getParameter("prix"))),
-					request.getParameter("devise"), (Integer.parseInt(request.getParameter("salle_bain"))),
+			return locationServices.ModifierOffre(new Offre((Integer.parseInt(request.getParameter("id"))), id_hote,
+					request.getParameter("type"), request.getParameter("categorie"), 0, request.getParameter("adresse"),
+					request.getParameter("pays"), request.getParameter("ville"), "-----", "-----",
+					(Float.parseFloat(request.getParameter("prix"))), request.getParameter("devise"),
+					(Integer.parseInt(request.getParameter("salle_bain"))),
 					(Integer.parseInt(request.getParameter("nb_chambre"))), request.getParameter("description"), null));
 		return locationServices.ModifierOffre(new Offre((Integer.parseInt(request.getParameter("id"))), id_hote,
 				request.getParameter("type"), request.getParameter("categorie"),
@@ -134,16 +135,20 @@ public class OffreAction {
 		if (request.getParameter("ville") == null)
 			ville = false;
 		return locationServices.chercherOffreByOption(ville, pays, nb_chambre, request.getParameter("venteLocation"),
-				request.getParameter("searchvalue"),id);
+				request.getParameter("searchvalue"), id);
 	}
 
 	public Object chercherOffreByDateforVendeur(HttpServletRequest request, int id) {
 		return locationServices.chercherOffreByDate(request.getParameter("date_debut_search"),
-				request.getParameter("date_fin_search"),id);
+				request.getParameter("date_fin_search"), id);
 	}
-	
+
 	public int nbrOffre() {
 		return locationServices.getNbreOffre();
+	}
+
+	public ArrayList<Offre> getOffresConfirmerByIdVendeur(int id) {
+		return locationServices.getOffresConfirmerByIdVendeur(id);
 	}
 
 }

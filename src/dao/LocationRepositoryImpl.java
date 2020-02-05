@@ -1746,7 +1746,7 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 		Connection connection = mangementDataBase.connexionDataBase();
 		try {
 			PreparedStatement ps = connection
-					.prepareStatement("SELECT * FROM demandelocation where statut='Confirmée' and id_vendeur = " + id);
+					.prepareStatement("SELECT * FROM demandelocation where confirmer='Confirmée' and id_vendeur = " + id);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				DemandeLocation demandeLocation = new DemandeLocation();
@@ -1776,7 +1776,7 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 		ArrayList<DemandeAchat> listeDemandeAchat = new ArrayList<>();
 		Connection connection = mangementDataBase.connexionDataBase();
 		try {
-			PreparedStatement ps = connection.prepareStatement("SELECT * FROM demandeachat where statut = 'Confirmée' and id_vendeur = " + id);
+			PreparedStatement ps = connection.prepareStatement("SELECT * FROM demandeachat where confirmer = 'Confirmée' and id_vendeur = " + id);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				DemandeAchat demandeAchat = new DemandeAchat();

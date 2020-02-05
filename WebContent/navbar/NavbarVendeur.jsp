@@ -36,7 +36,7 @@
 							<p>Demandes confirmées</p>
 					</a></li>
 					<li class="nav-item ${active7 }"><a class="nav-link" href="ListeOffreConfirmee.ma">
-							<i class="material-icons">textsms</i>
+							<i class="material-icons">check_circle_outline</i>
 							<p>Offres Confirmées</p>
 					</a></li>
 					<li class="nav-item ${active5 }"><a class="nav-link" href="ChercherOffreVendeur.ma">

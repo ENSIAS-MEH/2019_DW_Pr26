@@ -97,4 +97,7 @@ public class DemandeAchatAction {
 		locationServices.confirmerVente(id);
 	}
 
+	public ArrayList<DemandeAchat> getListDemandeAchatConfirmeByIdVendeur(int id){
+		return locationServices.getListDemandeAchatConfirmeByIdVendeur(id); 
+	}
 }

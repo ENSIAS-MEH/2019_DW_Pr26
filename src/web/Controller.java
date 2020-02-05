@@ -37,8 +37,7 @@ import web.action.AdminAction;
 		"/RefusezDemandeClient.ma", "/SupprimerDemandeLocationByVendeur.ma", "/SupprimerDemandeAchatByVendeur.ma",
 		"/ChercherOffreByOption.ma", "/ChercherOffreByDate.ma", "/contactByClient.ma", "/accueilClient.ma",
 		"/Dashboard.ma","/PlanifierUnVoyage.ma", "/planifireVoyageForms.ma","/ChercherOffreVendeur.ma","/contactByVendeur.ma" ,
-		"/Message.ma","/DetailMessage.ma","/SupprimerMessage.ma","/Services.ma","/ConfirmerLocation.ma","/ConfirmerVente.ma"})
-
+		"/Message.ma","/DetailMessage.ma","/SupprimerMessage.ma","/Services.ma","/ConfirmerLocation.ma","/ConfirmerVente.ma","/ListeOffreConfirmee.ma","/ListDemandeConfirmee.ma"})
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 4)
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -511,7 +510,18 @@ public class Controller extends HttpServlet {
 					views = "/404";
 		}else if(action.equals("Services")){
 			views = "Services"; 
-		}else
+		}else if(action.equals("ListeOffreConfirmee")){
+			request.setAttribute("active7", "active");
+			int id_hote = (int) session.getAttribute("id");
+			request.setAttribute("offres", offreAction.getOffresConfirmerByIdVendeur(id_hote));
+			views = "offres/ListOffre";
+		}else if(action.equals("ListDemandeConfirmee")){
+			request.setAttribute("active4", "active");
+			int id_hote = (int) session.getAttribute("id");
+			request.setAttribute("listeDemandeA", demandeAchatAction.getListDemandeAchatConfirmeByIdVendeur(id_hote));
+			request.setAttribute("listeDemandeL", demandeLocationAction.getListDemandeLocationConfirmeByIdVendeur(id_hote));
+			views = "ListDemandeVendeur";
+		} else
 			views = "/404";
 		request.getRequestDispatcher(views + ".jsp").forward(request, response);
 	}

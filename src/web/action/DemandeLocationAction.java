@@ -95,4 +95,8 @@ public class DemandeLocationAction {
 	public void confirmerLocation(int id){
 		locationServices.confirmerLocation(id);
 	}
+	
+	public ArrayList<DemandeLocation> getListDemandeLocationConfirmeByIdVendeur(int id){
+		return locationServices.getListDemandeLocationConfirmeByIdVendeur(id);
+	}
 }
