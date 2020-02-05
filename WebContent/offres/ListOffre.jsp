@@ -93,28 +93,19 @@
 												</c:if></td>
 											<td><a href="DetailOffre.ma?id=${o.getId()}"
 												class=" btn-circle btn-sm" title="Ouvrir"><i
-													class="far fa-folder-open"></i></a>
+													class="far fa-folder-open" style="color:green;"></i></a>
 <c:if test="${sessionScope.account_type == 'vendeur'}">
 													<c:if test="${o.getEtat() == 'en attente'}"> <a
 												href="ModifierOffre.ma?id=${o.getId()}"
-												class="  btn-circle  btn-sm" title="Mettre à jour"> <i
-													class="fas fa-sync"></i></a></c:if> </c:if>	<a
-
-													
-									<%-- 	<c:if test="${sessionScope.account_type == 'vendeur'}"> <a
-												href="ModifierOffre.ma?id=${o.getId()}"
-												class="  btn-circle  btn-sm" title="Mettre à jour"> <i
-													class="fas fa-sync"></i></a>
-										</c:if>	
-												 <a --%>
+												class="  btn-circle  btn-sm" title="Mettre à jour" style="color : blue;"> <i
+													class="fas fa-sync"></i></a></c:if> </c:if>		<c:if test="${o.getEtat() == 'en attente'}"><a
 
 												href="SupprimerOffre.ma?id=${o.getId()}"
 												class="  btn-circle btn-sm" title="Supprimer"
-												onclick="return confirm('Voulez vous vraiment supprimer cette demande');"><i
-													class="fas fa-trash"></i></a></td>
+												onclick="return confirm('Voulez vous vraiment supprimer cette demande');" style="color:red;"><i
+													class="fas fa-trash"></i></a></c:if>	</td>
 										</tr>
 									</c:forEach>
-
 								</tbody>
 							</table>
 						</div>

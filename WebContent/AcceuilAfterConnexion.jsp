@@ -35,6 +35,8 @@
 				</center>
 			</div>
 		</div>
+		
+  
       <c:if test="${sessionScope.account_type == 'vendeur'}">
       <c:if test="${type == 'profil'}">
         <c:import url="profil/ProfilVendeur.jsp" />
@@ -51,10 +53,7 @@
       <c:if test="${type == 'detailOffre'}">
         <c:import url="offres/DetailOffre.jsp" />
       </c:if>
-      </c:if>
-      
-			
-		
+      </c:if>		
       </div>
   
   <!--   Core JS Files   -->
