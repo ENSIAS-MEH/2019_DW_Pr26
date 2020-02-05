@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
-<title>Devenez hôte</title>
+<title>Nouveau client</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -50,8 +50,8 @@
 				<li class="nav-item"><a href="Services.ma" class="nav-link">Services</a></li>
 				<li class="nav-item"><a href="DevenezHote.ma" class="nav-link">Devenez
 						Hôte</a></li>
-				<li class="nav-item"><a href="InscriptionClient.ma"
-					class="nav-link active">Inscription</a></li>
+				<li class="nav-item active"><a href="InscriptionClient.ma"
+					class="nav-link">Inscription</a></li>
 				<li class="nav-item"><a href="FormConnexionVendeur.ma"
 					class="nav-link"> Connexion Hôte</a></li>
 				<li class="nav-item"><a href="FormConnexionClient.ma"

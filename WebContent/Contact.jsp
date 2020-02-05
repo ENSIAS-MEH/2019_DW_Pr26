@@ -5,7 +5,7 @@
 
 <html lang="en">
 <head>
-<title>Location et vente de logement</title>
+<title>Contactez l'administrateur</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -53,20 +53,18 @@
 		</button>
 		<div class="collapse navbar-collapse" id="ftco-nav">
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item "><a href="Accueil.ma" class="nav-link">Acceuil</a></li>
-				<li class="nav-item"><a href="about.html" class="nav-link">À
-						propos</a></li>
-				<li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
-				<li class="nav-item "><a href="DevenezHote.ma" class="nav-link">Devenez
-						hôte</a></li>
-				<li class="nav-item "><a href="InscriptionClient.ma"
+				<li class="nav-item"><a href="Accueil.ma"
+					class="nav-link">Acceuil</a></li>
+				<li class="nav-item"><a href="Services.ma" class="nav-link">Services</a></li>
+				<li class="nav-item"><a href="DevenezHote.ma" class="nav-link">Devenez
+						Hôte</a></li>
+				<li class="nav-item"><a href="InscriptionClient.ma"
 					class="nav-link">Inscription</a></li>
-				<li class="nav-item "><a href="FormConnexionVendeur.ma"
-					class="nav-link "> Connexion</a></li>
+				<li class="nav-item"><a href="FormConnexionVendeur.ma"
+					class="nav-link"> Connexion Hôte</a></li>
 				<li class="nav-item"><a href="FormConnexionClient.ma"
 					class="nav-link"> Connexion Client</a></li>
-				<li class="nav-item active"><a href="contact.ma"
-					class="nav-link">Contact</a></li>
+				<li class="nav-item active"><a href="contact.ma" class="nav-link">Contact</a></li>
 			</ul>
 		</div>
 	</div>
@@ -80,7 +78,7 @@
 		<div
 			class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
 			<div class="col-md-9 ftco-animate pb-5 text-center">
-				<h1 class="mb-3 bread">Cntactez-nous</h1>
+				<h1 class="mb-3 bread">Contactez-nous</h1>
 				<h5 style="color: red;">${message }</h5>
 			</div>
 		</div>
