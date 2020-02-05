@@ -314,8 +314,9 @@ public class LocationServicesImpl implements LocationServicesInter {
 	public ArrayList<DemandeLocation> getListDemandeLocationConfirmeByIdVendeur(int id){
 		return locationepositoryImpl.getListDemandeLocationConfirmeByIdVendeur(id);
 	}
-	public ArrayList<DemandeAchat> getListDemandeAchatConfirmeByIdVendeur(int id){
-		return locationepositoryImpl.getListDemandeAchatConfirmeByIdVendeur(id); 
+
+	public ArrayList<DemandeAchat> getListDemandeAchatConfirmeByIdVendeur(int id) {
+		return locationepositoryImpl.getListDemandeAchatConfirmeByIdVendeur(id);
 	}
 
 
