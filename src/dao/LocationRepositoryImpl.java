@@ -423,7 +423,7 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 		Connection connection = mangementDataBase.connexionDataBase();
 		try {
 			PreparedStatement ps = connection.prepareStatement(
-					"SELECT * FROM offre WHERE (date_fin >= CURDATE() and type='location') or type='vente'");
+					"SELECT * FROM offre WHERE etat !='Confirmée' and ((date_fin >= CURDATE() and (type='location' or type='Location vacances')) or type='vente')");
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				Offre offre = new Offre();
@@ -768,6 +768,8 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 				demandeAchat.setId_offre(rs.getInt("id_offre"));
 				demandeAchat.setDateDemande(rs.getString("date_demande"));
 				demandeAchat.setStatut(rs.getString("statut"));
+				demandeAchat.setConfirmation(rs.getString("Confirmer"));
+				demandeAchat.setDate_acceptaion(rs.getString("date_acceptation"));
 				listeDemandeAchat.add(demandeAchat);
 			}
 			ps.close();
@@ -792,6 +794,8 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 				demandeAchat.setId_offre(rs.getInt("id_offre"));
 				demandeAchat.setDateDemande(rs.getString("date_demande"));
 				demandeAchat.setStatut(rs.getString("statut"));
+				demandeAchat.setConfirmation(rs.getString("Confirmer"));
+				demandeAchat.setDate_acceptaion(rs.getString("date_acceptation"));
 				listeDemandeAchat.add(demandeAchat);
 				System.out.println(demandeAchat.toString());
 			}
@@ -817,6 +821,8 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 				demandeAchat.setId_offre(rs.getInt("id_offre"));
 				demandeAchat.setDateDemande(rs.getString("date_demande"));
 				demandeAchat.setStatut(rs.getString("statut"));
+				demandeAchat.setConfirmation(rs.getString("Confirmer"));
+				demandeAchat.setDate_acceptaion(rs.getString("date_acceptation"));
 				listeDemandeAchat.add(demandeAchat);
 			}
 			ps.close();
@@ -876,6 +882,8 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 				demandeAchat.setId_offre(rs.getInt("id_offre"));
 				demandeAchat.setDateDemande(rs.getString("date_demande"));
 				demandeAchat.setStatut(rs.getString("statut"));
+				demandeAchat.setConfirmation(rs.getString("Confirmer"));
+				demandeAchat.setDate_acceptaion(rs.getString("date_acceptation"));
 				listeDemandeAchat.add(demandeAchat);
 			}
 			ps.close();
@@ -902,6 +910,8 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 				demandeAchat.setId_offre(rs.getInt("id_offre"));
 				demandeAchat.setDateDemande(rs.getString("date_demande"));
 				demandeAchat.setStatut(rs.getString("statut"));
+				demandeAchat.setConfirmation(rs.getString("Confirmer"));
+				demandeAchat.setDate_acceptaion(rs.getString("date_acceptation"));
 				listeDemandeAchat.add(demandeAchat);
 			}
 			ps.close();
@@ -991,9 +1001,10 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 				demandeAchat.setId_vendeur(rs.getInt("id_vendeur"));
 				demandeAchat.setId_demandeur(rs.getInt("id_demandeur"));
 				demandeAchat.setId_offre(rs.getInt("id_offre"));
-				
 				demandeAchat.setDateDemande(rs.getString("date_demande"));
 				demandeAchat.setStatut(rs.getString("statut"));
+				demandeAchat.setConfirmation(rs.getString("Confirmer"));
+				demandeAchat.setDate_acceptaion(rs.getString("date_acceptation"));
 
 				ps.close();
 			}
@@ -1668,8 +1679,8 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DemandeLocation demandeLocation = getDemandeLocationById(id); 
-		Offre offre = getOffresById(demandeLocation.getId_offre()); 
+		DemandeAchat demandeAchat = getDemandeAchatById(id); 
+		Offre offre = getOffresById(demandeAchat.getId_offre()); 
 		try {
 			System.out.println(offre.getId());
 			PreparedStatement ps = connection.prepareStatement(
@@ -1682,6 +1693,111 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 		}
 	}
 	
+	@Override
+	public ArrayList<Offre> getOffresConfirmerByIdVendeur(int id) {
+		ArrayList<Offre> listeOffre = new ArrayList<>();
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			PreparedStatement ps = connection.prepareStatement("select * from offre where etat = 'Confirmée' and id_hote = " + id);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				Offre offre = new Offre();
+				offre.setId(rs.getInt("id"));
+				offre.setType(rs.getString("type"));
+				offre.setCategorie(rs.getString("categorie"));
+				offre.setNb_chambre(rs.getInt("nombre_personne"));
+				offre.setPays(rs.getString("pays"));
+				offre.setVille(rs.getString("ville"));
+				offre.setAdresse(rs.getString("adresse"));
+				offre.setDate_debut(rs.getString("date_debut"));
+				offre.setDate_fin(rs.getString("date_fin"));
+				offre.setPrix(rs.getFloat("prix"));
+				offre.setDevise(rs.getString("devise"));
+				offre.setSalle_bain(rs.getInt("salle_bain"));
+				offre.setNb_chambre(rs.getInt("nb_chambre"));
+				offre.setDescription(rs.getString("description"));
+				offre.setDate_offre(rs.getString("date_offre"));
+				offre.setEtat(rs.getString("etat"));
+				offre.setPhoto(rs.getBinaryStream("photo"));
+				if (offre.getPhoto() != null) {
+					try {
+						offre.setBase64Image(Transfer(rs.getBlob("photo")));
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				} else {
+					offre.setBase64Image(null);
+				}
+				listeOffre.add(offre);
+				System.out.println(offre.toString());
+			}
+			ps.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return listeOffre;
+	}
+	
+	@Override
+	public ArrayList<DemandeLocation> getListDemandeLocationConfirmeByIdVendeur(int id) {
+		ArrayList<DemandeLocation> listeDemandeLocation = new ArrayList<>();
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			PreparedStatement ps = connection
+					.prepareStatement("SELECT * FROM demandelocation where statut='Confirmée' and id_vendeur = " + id);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				DemandeLocation demandeLocation = new DemandeLocation();
+				demandeLocation.setId(rs.getInt("id"));
+				demandeLocation.setDate_debut(rs.getString("date_debut"));
+				demandeLocation.setDate_fin(rs.getString("date_fin"));
+				demandeLocation.setId_vendeur(rs.getInt("id_vendeur"));
+				demandeLocation.setId_demandeur(rs.getInt("id_demandeur"));
+				demandeLocation.setId_offre(rs.getInt("id_offre"));
+				demandeLocation.setDateDemande(rs.getString("date_demande"));
+				demandeLocation.setNb_nuit(rs.getInt("nb_nuit"));
+				demandeLocation.setStatut(rs.getString("statut"));
+				demandeLocation.setConfirmation(rs.getString("confirmer"));
+				demandeLocation.setDate_acceptaion(rs.getString("date_acceptation"));
+				listeDemandeLocation.add(demandeLocation);
+			}
+			ps.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return listeDemandeLocation;
+	}
+	
+
+	public ArrayList<DemandeAchat> getListDemandeAchatConfirmeByIdVendeur(int id){
+		ArrayList<DemandeAchat> listeDemandeAchat = new ArrayList<>();
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			PreparedStatement ps = connection.prepareStatement("SELECT * FROM demandeachat where statut = 'Confirmée' and id_vendeur = " + id);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				DemandeAchat demandeAchat = new DemandeAchat();
+				demandeAchat.setId(rs.getInt("id"));
+				demandeAchat.setId_vendeur(rs.getInt("id_vendeur"));
+				demandeAchat.setId_demandeur(rs.getInt("id_demandeur"));
+				demandeAchat.setId_offre(rs.getInt("id_offre"));
+				demandeAchat.setDateDemande(rs.getString("date_demande"));
+				demandeAchat.setStatut(rs.getString("statut"));
+				demandeAchat.setConfirmation(rs.getString("Confirmer"));
+				demandeAchat.setDate_acceptaion(rs.getString("date_acceptation"));
+				listeDemandeAchat.add(demandeAchat);
+				System.out.println(demandeAchat.toString());
+			}
+			ps.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return listeDemandeAchat;
+	}
 
 }
 

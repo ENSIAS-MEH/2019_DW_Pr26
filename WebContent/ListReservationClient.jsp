@@ -112,9 +112,13 @@
 											style="color: green;"> <i class="far fa-folder-open"></i></a>
 										</td>
 
-										<td><c:if test="${demande.getStatut()  == 'Acceptée'}">
+										<td><c:if test="${demande.getStatut()  == 'Acceptée' && demande.getConfirmation() == 'Non Confirmée'}">
 										<button onclick="updateForm(${demande.getId() })"  class="btn btn-warning btn-sm" data-toggle="modal" data-target="#engagement" title="Dans le délai de 10 jours la demande sera annulée" ><i class="fas fa-check-double"></i> Confirmation</button>
-										</c:if></td>
+										</c:if>
+										<c:if test="${demande.getConfirmation() == 'Confirmée'}">
+										<button  class="btn btn-Info btn-sm" >Confirmée</button>
+										</c:if>
+										</td>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -140,6 +144,30 @@
         <form method="post" action="ConfirmerLocation.ma">
         <input type="checkbox" required ><label >Accepter conditions d'utilisation</label>
         <input value="" id="engagement_location" name="id" hidden>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="engagementVente" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Engagement</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        blablablabl
+        <form method="post" action="ConfirmerVente.ma">
+        <input type="checkbox" required ><label >Accepter conditions d'utilisation</label>
+        <input value="" id="engagement_vente" name="id" hidden>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -186,9 +214,14 @@
 											class="btn-circle btn-sm" title="Ouvrir offre"
 											style="color: green;"> <i class="far fa-folder-open"></i></a>
 										</td>
-										<td><c:if test="${demande.getStatut()  == 'Acceptée'}">
-											<a class="btn btn-success btn-sm" title="Dans le délai de 10 jours la demande sera annulée" href="ConfirmerAchat.ma?id=${demande.getId() }"><i class="fas fa-check-double"></i> Confirmation</a>
-										</c:if></td>
+										
+										<td><c:if test="${demande.getStatut()  == 'Acceptée' && demande.getConfirmation() == 'Non Confirmée'}">
+										<button onclick="updateFormVente(${demande.getId() })"  class="btn btn-warning btn-sm" data-toggle="modal" data-target="#engagementVente" title="Dans le délai de 10 jours la demande sera annulée" ><i class="fas fa-check-double"></i> Confirmation</button>
+										</c:if>
+										<c:if test="${demande.getConfirmation() == 'Confirmée'}">
+										<button  class="btn btn-Info btn-sm" >Confirmée</button>
+										</c:if>
+										</td>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -627,6 +660,10 @@
 
 		function updateForm($id){
 			$('#engagement_location').attr('value',$id );
+			}
+
+		function updateFormVente($id){
+			$('#engagement_vente').attr('value',$id );
 			}
 	</script>
 

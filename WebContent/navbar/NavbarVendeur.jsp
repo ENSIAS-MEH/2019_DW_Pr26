@@ -31,9 +31,13 @@
 							<i class="material-icons">format_indent_increase</i>
 							<p>Liste des demandes</p>
 					</a></li>
-					<li class="nav-item ${active4 }"><a class="nav-link" href="./icons.html">
+					<li class="nav-item ${active4 }"><a class="nav-link" href="ListDemandeConfirmee.ma">
 							<i class="material-icons">format_indent_decrease</i>
 							<p>Demandes confirmées</p>
+					</a></li>
+					<li class="nav-item ${active7 }"><a class="nav-link" href="ListeOffreConfirmee.ma">
+							<i class="material-icons">textsms</i>
+							<p>Offres Confirmées</p>
 					</a></li>
 					<li class="nav-item ${active5 }"><a class="nav-link" href="ChercherOffreVendeur.ma">
 							<i class="material-icons">search</i>
