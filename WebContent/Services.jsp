@@ -52,9 +52,9 @@
 		</button>
 		<div class="collapse navbar-collapse" id="ftco-nav">
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item"><a href="Accueil.ma"
-					class="nav-link">Acceuil</a></li>
-				<li class="nav-item active"><a href="Services.ma" class="nav-link">Services</a></li>
+				<li class="nav-item"><a href="Accueil.ma" class="nav-link">Acceuil</a></li>
+				<li class="nav-item active"><a href="Services.ma"
+					class="nav-link">Services</a></li>
 				<li class="nav-item"><a href="DevenezHote.ma" class="nav-link">Devenez
 						Hôte</a></li>
 				<li class="nav-item"><a href="InscriptionClient.ma"
@@ -69,113 +69,144 @@
 	</div>
 	</nav>
 	<!-- END nav -->
-	 <section class="hero-wrap hero-wrap-2 ftco-degree-bg js-fullheight" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
-          <div class="col-md-9 ftco-animate pb-5 text-center">
-          	 <h1 class="mb-3 bread">Nos Services</h1>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    
-    <section class="ftco-section">
-      <div class="container">
-      	<div class="row justify-content-center">
-          <div class="col-md-12 heading-section text-center ftco-animate mb-5">
-          	<span class="subheading">Nos Services</span>
-            <h2 class="mb-2">La façon la plus intelligente d'acheter ou allouer une maison</h2>
-          </div>
-        </div>
-        <div class="row d-flex">
-          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 services d-block text-center">
-            	<div class="icon d-flex justify-content-center align-items-center"><span class="flaticon-piggy-bank"></span></div>
-              <div class="media-body py-md-4">
-                <h3>Compte gratuit</h3>
-               </div>
-            </div>      
-          </div>
-          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 services d-block text-center">
-            	<div class="icon d-flex justify-content-center align-items-center"><span class="flaticon-wallet"></span></div>
-              <div class="media-body py-md-4">
-                <h3>Prix Exacte et garanti</h3>
-                </div>
-            </div>      
-          </div>
-          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 services d-block text-center">
-            	<div class="icon d-flex justify-content-center align-items-center"><span class="flaticon-file"></span></div>
-              <div class="media-body py-md-4">
-                <h3>Des experts dans votre coin</h3>
-                 </div>
-            </div>      
-          </div>
-          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 services d-block text-center">
-            	<div class="icon d-flex justify-content-center align-items-center"><span class="flaticon-locked"></span></div>
-              <div class="media-body py-md-4">
-                <h3>Transaction sécurisée</h3>
-                </div>
-            </div>      
-          </div>
-        </div>
-      </div>
-    </section>
+	<section class="hero-wrap hero-wrap-2 ftco-degree-bg js-fullheight"
+		style="background-image: url('images/bg_1.jpg');"
+		data-stellar-background-ratio="0.5">
+	<div class="overlay"></div>
+	<div class="container">
+		<div
+			class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
+			<div class="col-md-9 ftco-animate pb-5 text-center">
+				<h1 class="mb-3 bread">Nos Services</h1>
+			</div>
+		</div>
+	</div>
+	</section>
 
-		<section class="ftco-section ftco-degree-bg services-section img mx-md-5" style="background-image: url(images/bg_2.jpg);">
-    	<div class="overlay"></div>
-    	<div class="container">
-    		<div class="row justify-content-start mb-5">
-          <div class="col-md-6 text-center heading-section heading-section-white ftco-animate">
-          	<span class="subheading">Work flow</span>
-            <h2 class="mb-3">Comment ça fonctionne</h2>
-          </div>
-        </div>
-    		<div class="row">
-    			<div class="col-md-6">
-    				<div class="row">
-		    			<div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
-		            <div class="media block-6 services services-2">
-		              <div class="media-body py-md-4 text-center">
-		              	<div class="icon mb-3 d-flex align-items-center justify-content-center"><span>01</span></div>
-		                <h3>Créer un compte</h3>
-		                </div>
-		            </div>      
-		          </div>
-		          <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
-		            <div class="media block-6 services services-2">
-		              <div class="media-body py-md-4 text-center">
-		              	<div class="icon mb-3 d-flex align-items-center justify-content-center"><span>02</span></div>
-		                <h3>Se connecter</h3>
-		                </div>
-		            </div>      
-		          </div>
-		          <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
-		            <div class="media block-6 services services-2">
-		              <div class="media-body py-md-4 text-center">
-		              	<div class="icon mb-3 d-flex align-items-center justify-content-center"><span>03</span></div>
-		                <h3>Chercher une offre</h3>
-		                </div>
-		            </div>      
-		          </div>
-		          <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
-		            <div class="media block-6 services services-2">
-		              <div class="media-body py-md-4 text-center">
-		              	<div class="icon mb-3 d-flex align-items-center justify-content-center"><span>04</span></div>
-		                <h3>Réserver une offre</h3>
-		                </div>
-		            </div>      
-		          </div>
-		        </div>
-		      </div>
-    		</div>
-    	</div>
-    </section>
-    
+
+	<section class="ftco-section">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-12 heading-section text-center ftco-animate mb-5">
+				<span class="subheading">Nos Services</span>
+				<h2 class="mb-2">La façon la plus intelligente d'acheter ou
+					allouer une maison</h2>
+			</div>
+		</div>
+		<div class="row d-flex">
+			<div class="col-md-3 d-flex align-self-stretch ftco-animate">
+				<div class="media block-6 services d-block text-center">
+					<div class="icon d-flex justify-content-center align-items-center">
+						<span class="flaticon-piggy-bank"></span>
+					</div>
+					<div class="media-body py-md-4">
+						<h3>Compte gratuit</h3>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 d-flex align-self-stretch ftco-animate">
+				<div class="media block-6 services d-block text-center">
+					<div class="icon d-flex justify-content-center align-items-center">
+						<span class="flaticon-wallet"></span>
+					</div>
+					<div class="media-body py-md-4">
+						<h3>Prix Exacte et garanti</h3>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 d-flex align-self-stretch ftco-animate">
+				<div class="media block-6 services d-block text-center">
+					<div class="icon d-flex justify-content-center align-items-center">
+						<span class="flaticon-file"></span>
+					</div>
+					<div class="media-body py-md-4">
+						<h3>Des experts dans votre coin</h3>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 d-flex align-self-stretch ftco-animate">
+				<div class="media block-6 services d-block text-center">
+					<div class="icon d-flex justify-content-center align-items-center">
+						<span class="flaticon-locked"></span>
+					</div>
+					<div class="media-body py-md-4">
+						<h3>Transaction sécurisée</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</section>
+
+	<section
+		class="ftco-section ftco-degree-bg services-section img mx-md-5"
+		style="background-image: url(images/bg_2.jpg);">
+	<div class="overlay"></div>
+	<div class="container">
+		<div class="row justify-content-start mb-5">
+			<div
+				class="col-md-6 text-center heading-section heading-section-white ftco-animate">
+				<span class="subheading">Work flow</span>
+				<h2 class="mb-3">Comment ça fonctionne</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="row">
+					<div
+						class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
+						<div class="media block-6 services services-2">
+							<div class="media-body py-md-4 text-center">
+								<div
+									class="icon mb-3 d-flex align-items-center justify-content-center">
+									<span>01</span>
+								</div>
+								<h3>Créer un compte</h3>
+							</div>
+						</div>
+					</div>
+					<div
+						class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
+						<div class="media block-6 services services-2">
+							<div class="media-body py-md-4 text-center">
+								<div
+									class="icon mb-3 d-flex align-items-center justify-content-center">
+									<span>02</span>
+								</div>
+								<h3>Se connecter</h3>
+							</div>
+						</div>
+					</div>
+					<div
+						class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
+						<div class="media block-6 services services-2">
+							<div class="media-body py-md-4 text-center">
+								<div
+									class="icon mb-3 d-flex align-items-center justify-content-center">
+									<span>03</span>
+								</div>
+								<h3>Chercher une offre</h3>
+							</div>
+						</div>
+					</div>
+					<div
+						class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
+						<div class="media block-6 services services-2">
+							<div class="media-body py-md-4 text-center">
+								<div
+									class="icon mb-3 d-flex align-items-center justify-content-center">
+									<span>04</span>
+								</div>
+								<h3>Réserver une offre</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</section>
+
 
 
 	<footer class="ftco-footer ftco-section">
