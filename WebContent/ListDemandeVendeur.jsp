@@ -67,7 +67,7 @@
 			<div class="card">
 				<div class="card-header card-header-primary">
 					<h4 class="card-title ">Demande de Location</h4>
-					<p class="card-category">Liste des demandes de location </p>
+					<p class="card-category">Liste des demandes de location</p>
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
@@ -78,7 +78,7 @@
 								<th>Date Début</th>
 								<th>Nombre Nuits</th>
 								<th>Date fin</th>
-								
+
 								<th>Statut</th>
 								<th>Client</th>
 								<!-- <th>Offre</th> -->
@@ -86,24 +86,20 @@
 							</thead>
 							<tbody>
 								<c:forEach items="${ listeDemandeL }" var="demandeL">
-									<tr  <c:if test="${demandeL.getConfirmation()  == 'Confirmée'}"> style="background-color: #ffcc66;" title="Déjà confirmée"</c:if>>
+									<tr
+										<c:if test="${demandeL.getConfirmation()  == 'Confirmée'}"> style="background-color: #ffcc66;" title="Déjà confirmée"</c:if>>
 										<td>${demandeL.getId() }</td>
 										<td>${demandeL.getDateDemande() }</td>
 										<td>${demandeL.getDate_debut() }</td>
 										<td>${demandeL.getNb_nuit() }</td>
 										<td>${demandeL.getDate_fin() }</td>
-									<td>
-										<c:if test="${demandeL.getStatut()  == 'En attente'}">
-										<button class="btn btn-info btn-sm">${demandeL.getStatut() }</button>
-										</c:if>
-										<c:if test="${demandeL.getStatut()  == 'Acceptée'}">
-										<button class="btn btn-success btn-sm">${demandeL.getStatut() }</button>
-										</c:if>
-										<c:if test="${demandeL.getStatut()  == 'Non acceptée'}">
-										<button class="btn btn-danger btn-sm">${demandeL.getStatut() }</button>
-										</c:if>
-									
-										</td>
+										<td><c:if test="${demandeL.getStatut()  == 'En attente'}">
+												<button class="btn btn-info btn-sm">${demandeL.getStatut() }</button>
+											</c:if> <c:if test="${demandeL.getStatut()  == 'Acceptée'}">
+												<button class="btn btn-success btn-sm">${demandeL.getStatut() }</button>
+											</c:if> <c:if test="${demandeL.getStatut()  == 'Non acceptée'}">
+												<button class="btn btn-danger btn-sm">${demandeL.getStatut() }</button>
+											</c:if></td>
 										<td><a
 											href="DetailClient.ma?id=${demandeL.getId_demandeur() }"
 											class="btn-circle btn-sm" title="Voir client"
@@ -115,14 +111,14 @@
 											style="color: green;"> <i class="far fa-folder-open"></i></a>
 										</td> --%>
 
-										<td>
-											<a href="ModifierDemandeLocation.ma?id=${demandeL.getId()}&id_client=${demandeL.getId_demandeur()}&id_offre=${demandeL.getId_offre()}"	class="  btn-circle  btn-sm" title="Mettre à jour" style="color : blue; "> <i
-													class="fas fa-sync"></i></a> <a
+										<td><a
+											href="ModifierDemandeLocation.ma?id=${demandeL.getId()}&id_client=${demandeL.getId_demandeur()}&id_offre=${demandeL.getId_offre()}"
+											class="  btn-circle  btn-sm" title="Mettre à jour"
+											style="color: blue;"> <i class="fas fa-sync"></i></a> <a
 											href="SupprimerDemandeLocationByVendeur.ma?id=${demandeL.getId()}"
 											class="  btn-circle btn-sm" title="Supprimer"
 											onclick="return confirm('Voulez vous vraiment supprimer cette demande');"
-											style="color: red;"><i class="fas fa-trash"></i></a>
-										</td>
+											style="color: red;"><i class="fas fa-trash"></i></a></td>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -137,7 +133,7 @@
 			<div class="card">
 				<div class="card-header card-header-primary">
 					<h4 class="card-title ">Demande d'Achat</h4>
-					<p class="card-category">Liste des demandes d'Achat </p>
+					<p class="card-category">Liste des demandes d'Achat</p>
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
@@ -145,42 +141,39 @@
 							<thead class=" text-primary">
 								<th>N° Demande</th>
 								<th>Date de la demande</th>
-						
+
 								<th>Statut</th>
 								<th>Client</th>
-							<!-- 	<th>Offre</th> -->
+								<!-- 	<th>Offre</th> -->
 								<th>Action</th>
 							</thead>
 							<tbody>
 								<c:forEach items="${ listeDemandeA }" var="demande">
-									<tr <c:if test="${demande.getConfirmation()  == 'Confirmée'}"> style="background-color: #ffcc66;" title="Déjà confirmée"</c:if>>
+									<tr
+										<c:if test="${demande.getConfirmation()  == 'Confirmée'}"> style="background-color: #ffcc66;" title="Déjà confirmée"</c:if>>
 										<td>${demande.getId() }</td>
 										<td>${demande.getDateDemande() }</td>
-										<td>
-										<c:if test="${demande.getStatut()  == 'En attente'}">
-										<button class="btn btn-info btn-sm">${demande.getStatut() }</button>
-										</c:if>
-										<c:if test="${demande.getStatut()  == 'Acceptée'}">
-										<button class="btn btn-success btn-sm">${demande.getStatut() }</button>
-										</c:if>
-										<c:if test="${demande.getStatut()  == 'Non acceptée'}">
-										<button class="btn btn-danger btn-sm">${demande.getStatut() }</button>
-										</c:if>
-										</td>
+										<td><c:if test="${demande.getStatut()  == 'En attente'}">
+												<button class="btn btn-info btn-sm">${demande.getStatut() }</button>
+											</c:if> <c:if test="${demande.getStatut()  == 'Acceptée'}">
+												<button class="btn btn-success btn-sm">${demande.getStatut() }</button>
+											</c:if> <c:if test="${demande.getStatut()  == 'Non acceptée'}">
+												<button class="btn btn-danger btn-sm">${demande.getStatut() }</button>
+											</c:if></td>
 										<td><a
 											href="DetailClient.ma?id=${demande.getId_demandeur() }"
 											class="btn-circle btn-sm" title="Voir client"
 											style="color: green;"> <i class="far fa-folder-open"></i></a>
 										</td>
 
-										<td>
-											<a href="ModifierDemandeAchat.ma?id=${demande.getId()}&id_client=${demande.getId_demandeur()}&id_offre=${demande.getId_offre()}"	class="  btn-circle  btn-sm" title="Mettre à jour" style="color : blue; "> <i
-													class="fas fa-sync"></i></a> <a
+										<td><a
+											href="ModifierDemandeAchat.ma?id=${demande.getId()}&id_client=${demande.getId_demandeur()}&id_offre=${demande.getId_offre()}"
+											class="  btn-circle  btn-sm" title="Mettre à jour"
+											style="color: blue;"> <i class="fas fa-sync"></i></a> <a
 											href="SupprimerDemandeAchatByVendeur.ma?id=${demande.getId()}"
 											class="  btn-circle btn-sm" title="Supprimer"
 											onclick="return confirm('Voulez vous vraiment supprimer cette demande');"
-											style="color: red;"><i class="fas fa-trash"></i></a>
-										</td>
+											style="color: red;"><i class="fas fa-trash"></i></a></td>
 									</tr>
 								</c:forEach>
 							</tbody>

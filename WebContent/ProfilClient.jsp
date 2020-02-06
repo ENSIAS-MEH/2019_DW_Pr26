@@ -70,115 +70,119 @@
 				</center>
 			</div>
 		</div>
-		<br><br>
+		<br>
+		<br>
 		<div class="container-fluid">
 
-	<div class="row col-md-12 text-center">
-	<div class="col-md-2"></div>
-		<div class="col-md-8">
-		<h2 class="text-center ">Votre Profil</h2><br>
-			<div class="card card-profile">
-				<div class="card-avatar">
-					<a href="#pablo"> <img class="img" src="images/faces/marc.jpg" />
-					</a>
+			<div class="row col-md-12 text-center">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+					<h2 class="text-center ">Votre Profil</h2>
+					<br>
+					<div class="card card-profile">
+						<div class="card-avatar">
+							<a href="#pablo"> <img class="img"
+								src="images/faces/marc.jpg" />
+							</a>
+						</div>
+						<div class="card-body">
+
+							<h4 class="card-title">${client.getNom()}
+								${client.getPrenom()}</h4>
+							<div class="form-row">
+
+								<div class="col-md-6">
+									<div class="form-group" align="left">
+										<label class="bmd-label-floating">Nom : </label> <strong
+											align="left">${client.getNom()}</strong>
+
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="form-group" align="left">
+										<label class="bmd-label-floating">Prénom : </label> <strong
+											align="left">${client.getPrenom()}</strong>
+
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="form-group" align="left">
+										<label class="bmd-label-floating">CIN : </label> <strong
+											align="left">${client.getNum_cin()}</strong>
+
+									</div>
+								</div>
+							</div>
+
+							<div class="form-row">
+								<div class="col-md-6">
+									<div class="form-group" align="left">
+										<label class="bmd-label-floating"> Email : </label> <strong
+											align="left">${client.getEmail()}</strong>
+
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group" align="left">
+										<label class="bmd-label-floating">Numéro de téléphone
+											: </label> <strong align="left">${client.getNum_telephone()}</strong>
+
+									</div>
+								</div>
+
+							</div>
+
+							<div class="form-row">
+
+
+								<div class="col-md-3">
+									<div class="form-group" align="left">
+										<label class="bmd-label-floating">Ville : </label> <strong
+											align="left">${client.getVille()}</strong>
+
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="form-group" align="left">
+										<label class="bmd-label-floating">Pays : </label> <strong
+											align="left">${client.getPays()}</strong>
+
+									</div>
+								</div>
+							</div>
+
+
+
+							<div class="form-row">
+
+								<div class="col-md-6">
+									<div class="form-group" align="left">
+										<label class="bmd-label-floating">Sexe : </label> <strong
+											align="left">${client.getSexe()}</strong>
+
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group" align="left">
+										<label class="bmd-label-floating">Date naissance : </label> <strong
+											align="left">${client.getDate_naissane()}</strong>
+
+									</div>
+								</div>
+
+
+
+
+							</div>
+
+
+							<p class="card-description"></p>
+						</div>
+					</div>
 				</div>
-				<div class="card-body">
-					
-					<h4 class="card-title">${client.getNom()}
-						${client.getPrenom()}</h4>
-						<div class="form-row">
-
-					<div class="col-md-6">
-						<div class="form-group" align="left">
-							<label class="bmd-label-floating">Nom : </label> <strong
-								align="left">${client.getNom()}</strong>
-
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="form-group" align="left">
-							<label class="bmd-label-floating">Prénom : </label> <strong
-								align="left">${client.getPrenom()}</strong>
-
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="form-group" align="left">
-							<label class="bmd-label-floating">CIN : </label> <strong align="left">${client.getNum_cin()}</strong>
-
-						</div>
-					</div>
-				</div>
-					
-				<div class="form-row">
-					<div class="col-md-6">
-						<div class="form-group" align="left">
-							<label class="bmd-label-floating"> Email : </label> <strong
-								align="left">${client.getEmail()}</strong>
-
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="form-group" align="left">
-							<label class="bmd-label-floating">Numéro de téléphone :
-							</label> <strong align="left">${client.getNum_telephone()}</strong>
-
-						</div>
-					</div>
-
-				</div>
-
-				<div class="form-row">
-
-					
-					<div class="col-md-3">
-						<div class="form-group" align="left">
-							<label class="bmd-label-floating">Ville : </label> <strong
-								align="left">${client.getVille()}</strong>
-
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="form-group" align="left">
-							<label class="bmd-label-floating">Pays : </label> <strong
-								align="left">${client.getPays()}</strong>
-
-						</div>
-					</div>
-				</div>
-
-
-
-				<div class="form-row">
-
-					<div class="col-md-6">
-						<div class="form-group" align="left">
-							<label class="bmd-label-floating">Sexe : </label> <strong
-								align="left">${client.getSexe()}</strong>
-
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="form-group" align="left">
-							<label class="bmd-label-floating">Date naissance : </label> <strong
-								align="left">${client.getDate_naissane()}</strong>
-
-						</div>
-					</div>
-
-
-
-
-				</div>
-				
-
-				<p class="card-description"></p>
 			</div>
 		</div>
-	</div>
-</div>
-</div>
-		
+
 
 		<footer class="ftco-footer ftco-section">
 		<div class="container">

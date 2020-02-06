@@ -92,10 +92,10 @@ td {
 								:
 							</div>
 						</div>
-						<input type="date" class="form-control"
-							placeholder="First Name..." id="date_debut_reservation"
-							name="date_debut_search" required="true">
-					</div>
+								<input type="date" class="form-control"
+									placeholder="First Name..." id="date_debut_reservation"
+									name="date_debut_search" required="true">
+							</div>
 				</div>
 				
 				<div class="form-group bmd-form-group">

@@ -223,9 +223,9 @@
 											<td style="vertical-align: middle; padding-bottom: 0px;">
 												<table border="0" cellpadding="0" cellspacing="0"
 													role="presentation" style="" width="100%">
-													
-													
-													
+
+
+
 													<tr>
 														<td align="center" vertical-align="middle"
 															style="font-size: 0px; padding: 10px 60px; word-break: break-word;">
@@ -233,31 +233,34 @@
 																role="presentation"
 																style="border-collapse: separate; width: 400px; line-height: 100%;">
 																<tr>
-																<c:if test="${demande.getStatut()  != 'Acceptée' && demandeL.getStatut()  != 'Acceptée'}">
-																
-																
-																		<td align="center" bgcolor="#32CD32"
-																		role="presentation"
-																		style="border: 2px solid #32CD32; border-radius: 5px; cursor: auto; padding: 10px 25px; background: #32CD32;"
-																		valign="middle"><a href="AcceptezDemandeClient.ma?id_demande=${demande.getId() }&type=${offre.getType() }"
-																		style="background: #32CD32; color: #000; font-family: Arial, Helvetical, sans-serif; font-size: 14px; font-weight: normal; line-height: 120%; Margin: 0; text-decoration: none; text-transform: uppercase;"
-																		onclick="return confirm('Voulez vous vraiment envoyer une confirmation de cette demande de réservation')">															
-																		<strong>Accépter la demande</strong>
-																		</a></td>
-																		
-															</c:if> 
-															<td>&nbsp;&nbsp;&nbsp;</td>
-																<c:if test="${demande.getStatut()  != 'Non acceptée' && demandeL.getStatut()  != 'Non acceptée'}">
+																	<c:if
+																		test="${demande.getStatut()  != 'Acceptée' && demandeL.getStatut()  != 'Acceptée'}">
 
-																<td align="center" bgcolor="red"
-																		role="presentation"
-																		style="border: 2px solid red;  border-radius: 5px; cursor: auto; padding: 10px 25px; background: red;"
-																		valign="middle"><a href="RefusezDemandeClient.ma?id_demande=${demande.getId() }&type=${type}"
-																		style="background: red; color: #000; font-family: Arial, Helvetical, sans-serif; font-size: 14px; font-weight: normal; line-height: 120%; Margin: 0; text-decoration: none; text-transform: uppercase;"
-																		onclick="return confirm('Voulez vous vraiment refusée cette demande de réservation')">															
-																		<strong>Refuser la demande</strong>
+
+																		<td align="center" bgcolor="#32CD32"
+																			role="presentation"
+																			style="border: 2px solid #32CD32; border-radius: 5px; cursor: auto; padding: 10px 25px; background: #32CD32;"
+																			valign="middle"><a
+																			href="AcceptezDemandeClient.ma?id_demande=${demande.getId() }&type=${offre.getType() }"
+																			style="background: #32CD32; color: #000; font-family: Arial, Helvetical, sans-serif; font-size: 14px; font-weight: normal; line-height: 120%; Margin: 0; text-decoration: none; text-transform: uppercase;"
+																			onclick="return confirm('Voulez vous vraiment envoyer une confirmation de cette demande de réservation')">
+																				<strong>Accépter la demande</strong>
 																		</a></td>
-															</c:if>		
+
+																	</c:if>
+																	<td>&nbsp;&nbsp;&nbsp;</td>
+																	<c:if
+																		test="${demande.getStatut()  != 'Non acceptée' && demandeL.getStatut()  != 'Non acceptée'}">
+
+																		<td align="center" bgcolor="red" role="presentation"
+																			style="border: 2px solid red; border-radius: 5px; cursor: auto; padding: 10px 25px; background: red;"
+																			valign="middle"><a
+																			href="RefusezDemandeClient.ma?id_demande=${demande.getId() }&type=${type}"
+																			style="background: red; color: #000; font-family: Arial, Helvetical, sans-serif; font-size: 14px; font-weight: normal; line-height: 120%; Margin: 0; text-decoration: none; text-transform: uppercase;"
+																			onclick="return confirm('Voulez vous vraiment refusée cette demande de réservation')">
+																				<strong>Refuser la demande</strong>
+																		</a></td>
+																	</c:if>
 																</tr>
 															</table>
 														</td>
@@ -267,9 +270,9 @@
 										</tr>
 									</tbody>
 								</table>
-							</div>
-							</br></br>
-							
+							</div> </br>
+						</br>
+
 							<div class="mj-column-per-25 outlook-group-fix"
 								style="font-size: 13px; text-align: left; direction: ltr; display: inline-block; vertical-align: middle; width: 100%;">
 								<table border="0" cellpadding="0" cellspacing="0"
@@ -282,8 +285,11 @@
 				</tbody>
 			</table>
 		</div>
-		
-		</br></br></br></br>
+
+		</br>
+		</br>
+		</br>
+		</br>
 		<%-- <div class="row text-center">
 			<div class="col-md-3"></div>
 			<c:if test="${demande.getStatut()  != 'Acceptée'}">
@@ -330,11 +336,11 @@
 			</div>
 			</c:if>
 		</div> --%>
-		
+
 
 
 	</div>
-	
+
 
 	<script src="js/core/popper.min.js"></script>
 	<script src="js/core/bootstrap-material-design.min.js"></script>

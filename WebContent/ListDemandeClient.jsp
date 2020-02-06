@@ -44,11 +44,9 @@
 <link rel="stylesheet" href="css/icomoon.css">
 <link rel="stylesheet" href="css/accueil_css/style.css">
 <!-- Icon fontawensom  -->
-
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
 	rel="stylesheet">
-
 <link
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet">
@@ -57,190 +55,194 @@
 <body>
 	<c:if test="${sessionScope.account_type == 'client'}">
 		<c:import url="navbar/NavbarClient.jsp" />
-	
-	<br>
-	<br>
-	<br>
-	<div class="content card" style="width: 98%; margin: 0 auto;">
-		<c:if test="${message != null }">
-			<div class="alert alert-success alert-dismissible fade show"
-				role="alert" style="width: 80%; margin: 0 auto;">
-				<strong>${ message}</strong>
-				<button type="button" class="close" data-dismiss="alert"
-					aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-		</c:if>
+
 		<br>
-		<div class="row justify-content-center">
-			<div class="col-md-12 heading-section text-center ftco-animate mb-5">
-				<span class="subheading">Mes demandes</span>
-				<h3 class="mb-2">
-					<strong>Demandes Achat / Location effectuées</strong>
-				</h3>
-			</div>
-		</div>
-		<div class="col-md-12">
-			<div class="card">
-				<div class="card-header card-header-primary">
-					<h4 class="card-title ">Demandes de location</h4>
-					<p class="card-category">Liste des demandes de location que
-						vous avez effectuées</p>
+		<br>
+		<br>
+		<div class="content card" style="width: 98%; margin: 0 auto;">
+			<c:if test="${message != null }">
+				<div class="alert alert-success alert-dismissible fade show"
+					role="alert" style="width: 80%; margin: 0 auto;">
+					<strong>${ message}</strong>
+					<button type="button" class="close" data-dismiss="alert"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
 				</div>
-				<div class="card-body">
-					<div class="table-responsive">
-						<table class="table">
-							<thead class=" text-primary">
-								<th>N° Demande</th>
-								<th>Date de la demande</th>
-								<th>Date Début</th>
-								<th>Date fin</th>
-								<th>Statut</th>
-								<th>Offre</th>
-								<th>Action</th>
-							</thead>
-							<tbody>
-								<c:forEach items="${ listeDemande }" var="demande">
-									<tr <c:if test="${demande.getConfirmation()  == 'Confirmée'}"> style="background-color: #ffcc66;" title="Déjà confirmée"</c:if>>
-										<td>${demande.getId() }</td>
-										<td>${demande.getDateDemande() }</td>
-										<td>${demande.getDate_debut() }</td>
-										<td>${demande.getDate_fin() }</td>
-										<c:if test="${demande.getStatut()  == 'En attente'}">
-											<td><button class="btn btn-info btn-sm">${demande.getStatut() }</button></td>
-										</c:if>
-										<c:if test="${demande.getStatut()  == 'Acceptée'}">
-											<td><button class="btn btn-success btn-sm">${demande.getStatut() }</button></td>
-										</c:if>
-										<c:if test="${demande.getStatut()  == 'Non acceptée'}">
-											<td><button class="btn btn-danger btn-sm">${demande.getStatut() }</button></td>
-										</c:if>
-										<td><a
-											href="getDetailsOffre.ma?id=${demande.getId_offre() }"
-											class="btn-circle btn-sm" title="Ouvrir offre"
-											style="color: green;"> <i class="far fa-folder-open"></i></a>
-										</td>
+			</c:if>
+			<br>
+			<div class="row justify-content-center">
+				<div class="col-md-12 heading-section text-center ftco-animate mb-5">
+					<span class="subheading">Mes demandes</span>
+					<h3 class="mb-2">
+						<strong>Demandes Achat / Location effectuées</strong>
+					</h3>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-header card-header-primary">
+						<h4 class="card-title ">Demandes de location</h4>
+						<p class="card-category">Liste des demandes de location que
+							vous avez effectuées</p>
+					</div>
+					<div class="card-body">
+						<div class="table-responsive">
+							<table class="table">
+								<thead class=" text-primary">
+									<th>N° Demande</th>
+									<th>Date de la demande</th>
+									<th>Date Début</th>
+									<th>Date fin</th>
+									<th>Statut</th>
+									<th>Offre</th>
+									<th>Action</th>
+								</thead>
+								<tbody>
+									<c:forEach items="${ listeDemande }" var="demande">
+										<tr
+											<c:if test="${demande.getConfirmation()  == 'Confirmée'}"> style="background-color: #ffcc66;" title="Déjà confirmée"</c:if>>
+											<td>${demande.getId() }</td>
+											<td>${demande.getDateDemande() }</td>
+											<td>${demande.getDate_debut() }</td>
+											<td>${demande.getDate_fin() }</td>
+											<c:if test="${demande.getStatut()  == 'En attente'}">
+												<td><button class="btn btn-info btn-sm">${demande.getStatut() }</button></td>
+											</c:if>
+											<c:if test="${demande.getStatut()  == 'Acceptée'}">
+												<td><button class="btn btn-success btn-sm">${demande.getStatut() }</button></td>
+											</c:if>
+											<c:if test="${demande.getStatut()  == 'Non acceptée'}">
+												<td><button class="btn btn-danger btn-sm">${demande.getStatut() }</button></td>
+											</c:if>
+											<td><a
+												href="getDetailsOffre.ma?id=${demande.getId_offre() }"
+												class="btn-circle btn-sm" title="Ouvrir offre"
+												style="color: green;"> <i class="far fa-folder-open"></i></a>
+											</td>
 
-										<td><c:if test="${demande.getStatut()  == 'En attente' }">
-												<a href="SupprimerDemande.ma?id=${demande.getId()}"
-													class="  btn-circle btn-sm" title="Supprimer"
-													onclick="return confirm('Voulez vous vraiment supprimer cette demande');"
-													style="color: red;"><i class="fas fa-trash"></i></a>
-											</c:if></td>
-									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
+											<td><c:if
+													test="${demande.getStatut()  == 'En attente' }">
+													<a href="SupprimerDemande.ma?id=${demande.getId()}"
+														class="  btn-circle btn-sm" title="Supprimer"
+														onclick="return confirm('Voulez vous vraiment supprimer cette demande');"
+														style="color: red;"><i class="fas fa-trash"></i></a>
+												</c:if></td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br> <br> <br>
+			<div class="col-md-12">
+				<div class="card card-plain">
+					<div class="card-header card-header-primary">
+						<h4 class="card-title mt-0">Demandes d'achat</h4>
+						<p class="card-category">Liste des demandes d'achat que vous
+							avez effectuées</p>
+					</div>
+					<div class="card-body">
+						<div class="table-responsive">
+							<table class="table table-hover">
+								<thead class="">
+									<th>N° Demande</th>
+									<th>Date de la demande</th>
+									<th>Statut</th>
+									<th>Offre</th>
+									<th>Action</th>
+								</thead>
+								<tbody>
+									<c:forEach items="${ listeDemandeAchat }" var="demande">
+										<tr
+											<c:if test="${demande.getConfirmation()  == 'Confirmée'}"> style="background-color: #ffcc66;" title="Déjà confirmée"</c:if>>
+											<td>${demande.getId() }</td>
+											<td>${demande.getDateDemande() }</td>
+											<c:if test="${demande.getStatut()  == 'En attente'}">
+												<td><button class="btn btn-info btn-sm">${demande.getStatut() }</button></td>
+											</c:if>
+											<c:if test="${demande.getStatut()  == 'Acceptée'}">
+												<td><button class="btn btn-success btn-sm">${demande.getStatut() }</button></td>
+											</c:if>
+											<c:if test="${demande.getStatut()  == 'Non acceptée'}">
+												<td><button class="btn btn-danger btn-sm">${demande.getStatut() }</button></td>
+											</c:if>
+											<td><a
+												href="getDetailsOffre.ma?id=${demande.getId_offre() }"
+												class="btn-circle btn-sm" title="Ouvrir offre"
+												style="color: green;"> <i class="far fa-folder-open"></i></a>
+											</td>
+											<td><c:if
+													test="${demande.getStatut()  == 'En attente' }">
+													<a href="SupprimerDemandeAchat.ma?id=${demande.getId()}"
+														class="btn-circle btn-sm" title="Supprimer"
+														onclick="return confirm('Voulez vous vraiment supprimer cette demande');"
+														style="color: red;"><i class="fas fa-trash"></i></a>
+												</c:if></td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<br> <br> <br>
-		<div class="col-md-12">
-			<div class="card card-plain">
-				<div class="card-header card-header-primary">
-					<h4 class="card-title mt-0">Demandes d'achat</h4>
-					<p class="card-category">Liste des demandes d'achat que vous
-						avez effectuées</p>
-				</div>
-				<div class="card-body">
-					<div class="table-responsive">
-						<table class="table table-hover">
-							<thead class="">
-								<th>N° Demande</th>
-								<th>Date de la demande</th>
-								<th>Statut</th>
-								<th>Offre</th>
-								<th>Action</th>
-							</thead>
-							<tbody>
-								<c:forEach items="${ listeDemandeAchat }" var="demande">
-									<tr<c:if test="${demande.getConfirmation()  == 'Confirmée'}"> style="background-color: #ffcc66;" title="Déjà confirmée"</c:if>>
-										<td>${demande.getId() }</td>
-										<td>${demande.getDateDemande() }</td>
-										<c:if test="${demande.getStatut()  == 'En attente'}">
-											<td><button class="btn btn-info btn-sm">${demande.getStatut() }</button></td>
-										</c:if>
-										<c:if test="${demande.getStatut()  == 'Acceptée'}">
-											<td><button class="btn btn-success btn-sm">${demande.getStatut() }</button></td>
-										</c:if>
-										<c:if test="${demande.getStatut()  == 'Non acceptée'}">
-											<td><button class="btn btn-danger btn-sm">${demande.getStatut() }</button></td>
-										</c:if>
-										<td><a
-											href="getDetailsOffre.ma?id=${demande.getId_offre() }"
-											class="btn-circle btn-sm" title="Ouvrir offre"
-											style="color: green;"> <i class="far fa-folder-open"></i></a>
-										</td>
-										<td><c:if test="${demande.getStatut()  == 'En attente' }">
-												<a href="SupprimerDemandeAchat.ma?id=${demande.getId()}"
-													class="btn-circle btn-sm" title="Supprimer"
-													onclick="return confirm('Voulez vous vraiment supprimer cette demande');"
-													style="color: red;"><i class="fas fa-trash"></i></a>
-											</c:if></td>
-									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<footer class="ftco-footer ftco-section">
-	<div class="container">
-		<div class="row mb-5">
-			<div class="col-md">
-				<div class="ftco-footer-widget mb-4">
-					<h2 class="ftco-heading-2">Hire && Sale</h2>
-					<p>Réservez des hébergements uniques.</p>
-					<ul class="ftco-footer-social list-unstyled mt-5">
-						<li class="ftco-animate"><a href="#"><span
-								class="icon-twitter"></span></a></li>
-						<li class="ftco-animate"><a href="#"><span
-								class="icon-facebook"></span></a></li>
-						<li class="ftco-animate"><a href="#"><span
-								class="icon-instagram"></span></a></li>
-					</ul>
-				</div>
-			</div>
-
-			<div class="col-md">
-				<div class="ftco-footer-widget mb-4 ml-md-4">
-					<h2 class="ftco-heading-2">À propos</h2>
-					<ul class="list-unstyled">
-						<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Notre
-								Histoire</a></li>
-						<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Nos
-								Carrières</a></li>
-					</ul>
-				</div>
-			</div>
-
-			<div class="col-md">
-				<div class="ftco-footer-widget mb-4">
-					<h2 class="ftco-heading-2">Avez-vous des questions?</h2>
-					<div class="block-23 mb-3">
-						<ul>
-							<li><span class="icon icon-map-marker"></span><span
-								class="text">203 Fake St. Mountain View, San Francisco,
-									California, USA</span></li>
-							<li><a href="#"><span class="icon icon-phone"></span><span
-									class="text">+2 392 3929 210</span></a></li>
-							<li><a href="#"><span class="icon icon-envelope pr-4"></span><span
-									class="text">info@yourdomain.com</span></a></li>
+		<footer class="ftco-footer ftco-section">
+		<div class="container">
+			<div class="row mb-5">
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">Hire && Sale</h2>
+						<p>Réservez des hébergements uniques.</p>
+						<ul class="ftco-footer-social list-unstyled mt-5">
+							<li class="ftco-animate"><a href="#"><span
+									class="icon-twitter"></span></a></li>
+							<li class="ftco-animate"><a href="#"><span
+									class="icon-facebook"></span></a></li>
+							<li class="ftco-animate"><a href="#"><span
+									class="icon-instagram"></span></a></li>
 						</ul>
 					</div>
 				</div>
+
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4 ml-md-4">
+						<h2 class="ftco-heading-2">À propos</h2>
+						<ul class="list-unstyled">
+							<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Notre
+									Histoire</a></li>
+							<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Nos
+									Carrières</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">Avez-vous des questions?</h2>
+						<div class="block-23 mb-3">
+							<ul>
+								<li><span class="icon icon-map-marker"></span><span
+									class="text">203 Fake St. Mountain View, San Francisco,
+										California, USA</span></li>
+								<li><a href="#"><span class="icon icon-phone"></span><span
+										class="text">+2 392 3929 210</span></a></li>
+								<li><a href="#"><span class="icon icon-envelope pr-4"></span><span
+										class="text">info@yourdomain.com</span></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
-	</footer>
-	
+		</footer>
+
 	</c:if>
-	
-	
+
+
 	<script src="js/core/popper.min.js"></script>
 	<script src="js/core/bootstrap-material-design.min.js"></script>
 	<script src="js/plugins/perfect-scrollbar.jquery.min.js"></script>

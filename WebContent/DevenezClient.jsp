@@ -45,8 +45,7 @@
 		</button>
 		<div class="collapse navbar-collapse" id="ftco-nav">
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item"><a href="Accueil.ma"
-					class="nav-link">Acceuil</a></li>
+				<li class="nav-item"><a href="Accueil.ma" class="nav-link">Acceuil</a></li>
 				<li class="nav-item"><a href="Services.ma" class="nav-link">Services</a></li>
 				<li class="nav-item"><a href="DevenezHote.ma" class="nav-link">Devenez
 						Hôte</a></li>
@@ -76,7 +75,8 @@
 		<div class="row block-9 justify-content-center mb-5"
 			style="background-color: #D8EBF7;">
 			<div class="col-md-8 mb-md-5">
-			<br><br>
+				<br>
+				<br>
 				<form method="post" action="InscriptionClient.ma">
 					<div class="form-row">
 						<div class="form-group col-md-6">

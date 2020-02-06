@@ -129,13 +129,15 @@
 					value="${proprietaire.getId() }" hidden="hidden"> <input
 					type="text" name="id_offre" value="${offre.getId() }"
 					hidden="hidden">
-					<center>
-					
-			<br> <br>
-				<input href="#0" type="submit" class="btn btn-success" onclick="return validationFormFromSubmit();" value="Valider Réservation"/>
-			</center>
+				<center>
+
+					<br> <br> <input href="#0" type="submit"
+						class="btn btn-success"
+						onclick="return validationFormFromSubmit();"
+						value="Valider Réservation" />
+				</center>
 			</form>
-			
+
 		</div>
 	</div>
 	<br>
