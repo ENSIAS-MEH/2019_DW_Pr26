@@ -213,7 +213,6 @@ public class LocationServicesImpl implements LocationServicesInter {
 		return locationepositoryImpl.getDemandeAchatById(id);
 	}
 
-
 	@Override
 	public DemandeLocation getDemandeLocationById(int id) {
 		return locationepositoryImpl.getDemandeLocationById(id);
@@ -222,41 +221,41 @@ public class LocationServicesImpl implements LocationServicesInter {
 	@Override
 	public void accepteDemandeAchat(int id) {
 		locationepositoryImpl.accepteDemandeAchat(id);
-		
+
 	}
 
 	@Override
 	public void accepteDemandeLocation(int id) {
 		locationepositoryImpl.accepteDemandeLocation(id);
-		
+
 	}
 
 	@Override
 	public void refuseDemandeAchat(int id) {
 		locationepositoryImpl.refuseDemandeAchat(id);
-		
+
 	}
 
 	@Override
 	public void refuseDemandeLocation(int id) {
 		locationepositoryImpl.refuseDemandeLocation(id);
 	}
-	
-	@Override
-	public ArrayList<Offre> planifierVoyage(String date_debut_forms, String date_fin_forms, String ville){
-		return locationepositoryImpl.planifierVoyage(date_debut_forms, date_fin_forms, ville); 
-	}
 
+	@Override
+	public ArrayList<Offre> planifierVoyage(String date_debut_forms, String date_fin_forms, String ville) {
+		return locationepositoryImpl.planifierVoyage(date_debut_forms, date_fin_forms, ville);
+	}
 
 	public ArrayList<Offre> chercherOffreByOption(boolean ville, boolean pays, boolean nb_chambre,
-			String locationOrVente, String motCles,int id) {
-		return locationepositoryImpl.chercherOffreByOption(ville, pays, nb_chambre, locationOrVente, motCles,id);
+			String locationOrVente, String motCles, int id) {
+		return locationepositoryImpl.chercherOffreByOption(ville, pays, nb_chambre, locationOrVente, motCles, id);
 	}
 
 	@Override
-	public ArrayList<Offre> chercherOffreByDate(String date_debut_forms, String date_fin_forms,int id) {
-		return locationepositoryImpl.chercherOffreByDate(date_debut_forms, date_fin_forms,id);
+	public ArrayList<Offre> chercherOffreByDate(String date_debut_forms, String date_fin_forms, int id) {
+		return locationepositoryImpl.chercherOffreByDate(date_debut_forms, date_fin_forms, id);
 	}
+
 	@Override
 	public ArrayList<Contact> getListContact() {
 		return locationepositoryImpl.getListContact();
@@ -269,7 +268,7 @@ public class LocationServicesImpl implements LocationServicesInter {
 
 	@Override
 	public void SupprimerContact(int id) {
-		locationepositoryImpl.supprimerContact(id);		
+		locationepositoryImpl.supprimerContact(id);
 
 	}
 
@@ -277,8 +276,8 @@ public class LocationServicesImpl implements LocationServicesInter {
 	public int getNbreClient() {
 		return locationepositoryImpl.getNbreClient();
 	}
-	
-	public int getNbreVendeur(){
+
+	public int getNbreVendeur() {
 		return locationepositoryImpl.getNbreVendeur();
 	}
 
@@ -293,39 +292,40 @@ public class LocationServicesImpl implements LocationServicesInter {
 
 	@Override
 	public int getNbreDmdAchat() {
-		return  locationepositoryImpl.getNbreDmdAchat();
+		return locationepositoryImpl.getNbreDmdAchat();
 	}
 
 	@Override
 	public int getAllDmd() {
-		return  locationepositoryImpl.getAllDmd();
+		return locationepositoryImpl.getAllDmd();
 	}
-	
-	public void confirmerLocation(int id){
+
+	public void confirmerLocation(int id) {
 		locationepositoryImpl.confirmerLocation(id);
-	} 
-	public void confirmerVente(int id){
+	}
+
+	public void confirmerVente(int id) {
 		locationepositoryImpl.confirmerVente(id);
 	}
-	
-	public ArrayList<Offre> getOffresConfirmerByIdVendeur(int id){
-		return locationepositoryImpl.getOffresConfirmerByIdVendeur(id); 
+
+	public ArrayList<Offre> getOffresConfirmerByIdVendeur(int id) {
+		return locationepositoryImpl.getOffresConfirmerByIdVendeur(id);
 	}
-	public ArrayList<DemandeLocation> getListDemandeLocationConfirmeByIdVendeur(int id){
+
+	public ArrayList<DemandeLocation> getListDemandeLocationConfirmeByIdVendeur(int id) {
 		return locationepositoryImpl.getListDemandeLocationConfirmeByIdVendeur(id);
 	}
 
 	public ArrayList<DemandeAchat> getListDemandeAchatConfirmeByIdVendeur(int id) {
 		return locationepositoryImpl.getListDemandeAchatConfirmeByIdVendeur(id);
 	}
-	
 
-	public ArrayList<DemandeAchat> getListReservationAchatConfirmeeByIdClient(int id){
+	public ArrayList<DemandeAchat> getListReservationAchatConfirmeeByIdClient(int id) {
 		return locationepositoryImpl.getListReservationAchatConfirmeeByIdClient(id);
 	}
-	public ArrayList<DemandeLocation> getListReservationLocationConfirmeeByIdClient(int id){
+
+	public ArrayList<DemandeLocation> getListReservationLocationConfirmeeByIdClient(int id) {
 		return locationepositoryImpl.getListReservationLocationConfirmeeByIdClient(id);
 	}
-
 
 }

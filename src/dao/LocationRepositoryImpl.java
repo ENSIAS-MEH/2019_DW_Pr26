@@ -991,7 +991,7 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 		DemandeAchat demandeAchat = new DemandeAchat();
 		try {
 
-			PreparedStatement ps = connection.prepareStatement("SELECT * FROM demandeAchat where id=" +id);
+			PreparedStatement ps = connection.prepareStatement("SELECT * FROM demandeAchat where id=" + id);
 
 			ResultSet rs = ps.executeQuery();
 
@@ -1021,11 +1021,11 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 		Connection connection = mangementDataBase.connexionDataBase();
 		DemandeLocation demandeLocation = new DemandeLocation();
 		try {
-			PreparedStatement ps = connection.prepareStatement("SELECT * FROM demandelocation where id=" +id);
+			PreparedStatement ps = connection.prepareStatement("SELECT * FROM demandelocation where id=" + id);
 			ResultSet rs = ps.executeQuery();
-			
+
 			if (rs.next()) {
-				
+
 				demandeLocation.setId(rs.getInt("id"));
 				demandeLocation.setId_vendeur(rs.getInt("id_vendeur"));
 				demandeLocation.setId_demandeur(rs.getInt("id_demandeur"));
@@ -1037,9 +1037,10 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 				demandeLocation.setStatut(rs.getString("statut"));
 				demandeLocation.setConfirmation(rs.getString("confirmer"));
 				demandeLocation.setDate_acceptaion(rs.getString("date_acceptation"));
-				
-			ps.close();
-		}} catch (SQLException e) {
+
+				ps.close();
+			}
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
@@ -1050,10 +1051,10 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 	public void accepteDemandeAchat(int id) {
 		Connection connection = mangementDataBase.connexionDataBase();
 		try {
-			
-			PreparedStatement ps = connection.prepareStatement(
-					"Update demandeachat set statut = 'Acceptée' where id = "+id);
-			
+
+			PreparedStatement ps = connection
+					.prepareStatement("Update demandeachat set statut = 'Acceptée' where id = " + id);
+
 			ps.executeUpdate();
 			ps.close();
 
@@ -1061,16 +1062,15 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
+
 	}
 
 	@Override
 	public void accepteDemandeLocation(int id) {
 		Connection connection = mangementDataBase.connexionDataBase();
 		try {
-			PreparedStatement ps = connection.prepareStatement(
-					"Update demandelocation set statut = 'Acceptée' where id = "+id);
+			PreparedStatement ps = connection
+					.prepareStatement("Update demandelocation set statut = 'Acceptée' where id = " + id);
 			ps.executeUpdate();
 			ps.close();
 		} catch (SQLException e) {
@@ -1083,10 +1083,10 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 	public void refuseDemandeAchat(int id) {
 		Connection connection = mangementDataBase.connexionDataBase();
 		try {
-			
-			PreparedStatement ps = connection.prepareStatement(
-					"Update demandeachat set statut = 'Non acceptée' where id = "+id);
-			
+
+			PreparedStatement ps = connection
+					.prepareStatement("Update demandeachat set statut = 'Non acceptée' where id = " + id);
+
 			ps.executeUpdate();
 			ps.close();
 
@@ -1094,17 +1094,17 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	@Override
 	public void refuseDemandeLocation(int id) {
 		Connection connection = mangementDataBase.connexionDataBase();
 		try {
-			
-			PreparedStatement ps = connection.prepareStatement(
-					"Update demandelocation set statut = 'Non acceptée' where id = "+id);
-			
+
+			PreparedStatement ps = connection
+					.prepareStatement("Update demandelocation set statut = 'Non acceptée' where id = " + id);
+
 			ps.executeUpdate();
 			ps.close();
 
@@ -1112,11 +1112,8 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-	}
-	
-	
 
+	}
 
 	public ArrayList<Offre> chercherOffreByOption(boolean ville, boolean pays, boolean nb_chambre,
 			String locationOrVente, String motCles) {
@@ -1249,11 +1246,10 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 
 		return listeOffre;
 	}
-	
 
-	public ArrayList<Offre> planifierVoyage(String date_debut_forms, String date_fin_forms, String ville){
+	public ArrayList<Offre> planifierVoyage(String date_debut_forms, String date_fin_forms, String ville) {
 		String requeteSql = "SELECT * FROM offre WHERE type = 'Location' and date_debut <= '" + date_debut_forms
-				+ "' and date_fin >= '" + date_fin_forms + "' and ville = '"+ville+"'";
+				+ "' and date_fin >= '" + date_fin_forms + "' and ville = '" + ville + "'";
 		ArrayList<Offre> listeOffre = new ArrayList<>();
 		Connection connection = mangementDataBase.connexionDataBase();
 		try {
@@ -1300,12 +1296,10 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 		return listeOffre;
 	}
 
-
-
 	public ArrayList<Offre> chercherOffreByOption(boolean ville, boolean pays, boolean nb_chambre,
-			String locationOrVente, String motCles,int id) {
+			String locationOrVente, String motCles, int id) {
 		String requeteSql = "";
-		requeteSql += "SELECT * FROM offre WHERE date_fin >= CURDATE() and id_hote = "+id+" and ";
+		requeteSql += "SELECT * FROM offre WHERE date_fin >= CURDATE() and id_hote = " + id + " and ";
 		if (locationOrVente.equals("vente"))
 			requeteSql += "type='Vente' and ( ";
 		else
@@ -1385,9 +1379,9 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 	}
 
 	@Override
-	public ArrayList<Offre> chercherOffreByDate(String date_debut_forms, String date_fin_forms,int id) {
-		String requeteSql = "SELECT * FROM offre WHERE id_hote="+id+" and type = 'Location' and date_debut <= '" + date_debut_forms
-				+ "' and date_fin >= '" + date_fin_forms + "'";
+	public ArrayList<Offre> chercherOffreByDate(String date_debut_forms, String date_fin_forms, int id) {
+		String requeteSql = "SELECT * FROM offre WHERE id_hote=" + id + " and type = 'Location' and date_debut <= '"
+				+ date_debut_forms + "' and date_fin >= '" + date_fin_forms + "'";
 		ArrayList<Offre> listeOffre = new ArrayList<>();
 		Connection connection = mangementDataBase.connexionDataBase();
 		try {
@@ -1434,9 +1428,6 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 		return listeOffre;
 	}
 
-
-	
-	
 	@Override
 	public ArrayList<Contact> getListContact() {
 		ArrayList<Contact> listeContact = new ArrayList<>();
@@ -1445,7 +1436,7 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 			PreparedStatement ps = connection.prepareStatement("select * from contact");
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				Contact contact= new Contact();
+				Contact contact = new Contact();
 				contact.setId(rs.getInt("id"));
 				contact.setNom(rs.getString("nom"));
 				contact.setEmail(rs.getString("email"));
@@ -1499,7 +1490,7 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}		
+		}
 	}
 
 	@Override
@@ -1512,7 +1503,7 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 
 			if (rs.next()) {
 				total = (rs.getInt("nbrClient"));
-				}
+			}
 
 			ps.close();
 
@@ -1523,7 +1514,7 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 		return total;
 
 	}
-	
+
 	public int getNbreVendeur() {
 		int total = 0;
 		Connection connection = mangementDataBase.connexionDataBase();
@@ -1533,7 +1524,7 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 
 			if (rs.next()) {
 				total = (rs.getInt("nbr"));
-				}
+			}
 
 			ps.close();
 
@@ -1544,7 +1535,7 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 		return total;
 
 	}
-	
+
 	public int getNbreOffre() {
 		int total = 0;
 		Connection connection = mangementDataBase.connexionDataBase();
@@ -1554,7 +1545,7 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 
 			if (rs.next()) {
 				total = (rs.getInt("nbr"));
-				}
+			}
 
 			ps.close();
 
@@ -1565,7 +1556,7 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 		return total;
 
 	}
-	
+
 	public int getNbreDmdLocation() {
 		int total = 0;
 		Connection connection = mangementDataBase.connexionDataBase();
@@ -1575,7 +1566,7 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 
 			if (rs.next()) {
 				total = (rs.getInt("nbr"));
-				}
+			}
 
 			ps.close();
 
@@ -1586,7 +1577,7 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 		return total;
 
 	}
-	
+
 	public int getNbreDmdAchat() {
 		int total = 0;
 		Connection connection = mangementDataBase.connexionDataBase();
@@ -1596,7 +1587,7 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 
 			if (rs.next()) {
 				total = (rs.getInt("nbr"));
-				}
+			}
 
 			ps.close();
 
@@ -1607,7 +1598,7 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 		return total;
 
 	}
-	
+
 	public int getAllDmd() {
 		int total = 0;
 		Connection connection = mangementDataBase.connexionDataBase();
@@ -1617,16 +1608,16 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 
 			if (rs.next()) {
 				total += (rs.getInt("nbr"));
-				}
+			}
 
 			ps.close();
-			
+
 			ps = connection.prepareStatement("select count(*) as nbr from demandelocation");
 			rs = ps.executeQuery();
 
 			if (rs.next()) {
 				total += (rs.getInt("nbr"));
-				}
+			}
 
 			ps.close();
 
@@ -1637,41 +1628,13 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 		return total;
 
 	}
-	
-	public void confirmerLocation(int id){
-		Connection connection = mangementDataBase.connexionDataBase();
-		try {
-			
-			PreparedStatement ps = connection.prepareStatement(
-					"Update demandeLocation set confirmer = 'Confirmée' where id = "+id);
-			ps.executeUpdate();
-			ps.close();
 
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}	
-		
-		DemandeLocation demandeLocation = getDemandeLocationById(id); 
-		Offre offre = getOffresById(demandeLocation.getId_offre()); 
-		try {
-			System.out.println(offre.getId());
-			PreparedStatement ps = connection.prepareStatement(
-					"Update offre set etat = 'Confirmée' where id = "+offre.getId());
-			ps.executeUpdate();
-			ps.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	public void confirmerVente(int id){
+	public void confirmerLocation(int id) {
 		Connection connection = mangementDataBase.connexionDataBase();
 		try {
-			
-			PreparedStatement ps = connection.prepareStatement(
-					"Update demandeachat set confirmer = 'Confirmée' where id = "+id);
-			
+
+			PreparedStatement ps = connection
+					.prepareStatement("Update demandeLocation set confirmer = 'Confirmée' where id = " + id);
 			ps.executeUpdate();
 			ps.close();
 
@@ -1679,12 +1642,13 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DemandeAchat demandeAchat = getDemandeAchatById(id); 
-		Offre offre = getOffresById(demandeAchat.getId_offre()); 
+
+		DemandeLocation demandeLocation = getDemandeLocationById(id);
+		Offre offre = getOffresById(demandeLocation.getId_offre());
 		try {
 			System.out.println(offre.getId());
-			PreparedStatement ps = connection.prepareStatement(
-					"Update offre set etat = 'Confirmée' where id = "+offre.getId());
+			PreparedStatement ps = connection
+					.prepareStatement("Update offre set etat = 'Confirmée' where id = " + offre.getId());
 			ps.executeUpdate();
 			ps.close();
 		} catch (SQLException e) {
@@ -1692,13 +1656,42 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 			e.printStackTrace();
 		}
 	}
-	
+
+	public void confirmerVente(int id) {
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+
+			PreparedStatement ps = connection
+					.prepareStatement("Update demandeachat set confirmer = 'Confirmée' where id = " + id);
+
+			ps.executeUpdate();
+			ps.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		DemandeAchat demandeAchat = getDemandeAchatById(id);
+		Offre offre = getOffresById(demandeAchat.getId_offre());
+		try {
+			System.out.println(offre.getId());
+			PreparedStatement ps = connection
+					.prepareStatement("Update offre set etat = 'Confirmée' where id = " + offre.getId());
+			ps.executeUpdate();
+			ps.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 	@Override
 	public ArrayList<Offre> getOffresConfirmerByIdVendeur(int id) {
 		ArrayList<Offre> listeOffre = new ArrayList<>();
 		Connection connection = mangementDataBase.connexionDataBase();
 		try {
-			PreparedStatement ps = connection.prepareStatement("select * from offre where etat = 'Confirmée' and id_hote = " + id);
+			PreparedStatement ps = connection
+					.prepareStatement("select * from offre where etat = 'Confirmée' and id_hote = " + id);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				Offre offre = new Offre();
@@ -1739,14 +1732,14 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 
 		return listeOffre;
 	}
-	
+
 	@Override
 	public ArrayList<DemandeLocation> getListDemandeLocationConfirmeByIdVendeur(int id) {
 		ArrayList<DemandeLocation> listeDemandeLocation = new ArrayList<>();
 		Connection connection = mangementDataBase.connexionDataBase();
 		try {
-			PreparedStatement ps = connection
-					.prepareStatement("SELECT * FROM demandelocation where confirmer='Confirmée' and id_vendeur = " + id);
+			PreparedStatement ps = connection.prepareStatement(
+					"SELECT * FROM demandelocation where confirmer='Confirmée' and id_vendeur = " + id);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				DemandeLocation demandeLocation = new DemandeLocation();
@@ -1770,13 +1763,13 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 
 		return listeDemandeLocation;
 	}
-	
 
-	public ArrayList<DemandeAchat> getListDemandeAchatConfirmeByIdVendeur(int id){
+	public ArrayList<DemandeAchat> getListDemandeAchatConfirmeByIdVendeur(int id) {
 		ArrayList<DemandeAchat> listeDemandeAchat = new ArrayList<>();
 		Connection connection = mangementDataBase.connexionDataBase();
 		try {
-			PreparedStatement ps = connection.prepareStatement("SELECT * FROM demandeachat where confirmer = 'Confirmée' and id_vendeur = " + id);
+			PreparedStatement ps = connection.prepareStatement(
+					"SELECT * FROM demandeachat where confirmer = 'Confirmée' and id_vendeur = " + id);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				DemandeAchat demandeAchat = new DemandeAchat();
@@ -1798,8 +1791,8 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 
 		return listeDemandeAchat;
 	}
-	
-	public ArrayList<DemandeAchat> getListReservationAchatConfirmeeByIdClient(int id){
+
+	public ArrayList<DemandeAchat> getListReservationAchatConfirmeeByIdClient(int id) {
 		ArrayList<DemandeAchat> listeDemandeAchat = new ArrayList<>();
 		Connection connection = mangementDataBase.connexionDataBase();
 		try {
@@ -1825,7 +1818,8 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 
 		return listeDemandeAchat;
 	}
-	public ArrayList<DemandeLocation> getListReservationLocationConfirmeeByIdClient(int id){
+
+	public ArrayList<DemandeLocation> getListReservationLocationConfirmeeByIdClient(int id) {
 		ArrayList<DemandeLocation> listeDemandeLocation = new ArrayList<>();
 		Connection connection = mangementDataBase.connexionDataBase();
 		try {
@@ -1856,5 +1850,3 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 	}
 
 }
-
-

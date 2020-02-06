@@ -1,14 +1,11 @@
 package web.action;
 
 import java.util.ArrayList;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
 import business.LocationServicesImpl;
 import business.LocationServicesInter;
 import models.Contact;
-import models.Vendeur;
 
 public class ContactMessage {
 	private Contact contact;
@@ -48,17 +45,17 @@ public class ContactMessage {
 		locationServices.ajouteContactMessage(new Contact(request.getParameter("nom"), request.getParameter("email"),
 				request.getParameter("sujet"), request.getParameter("message"), type_emetteur));
 	}
-	
+
 	public ArrayList<Contact> ListContact() {
 		return locationServices.getListContact();
 	}
 
-	public  Contact getContactById(int id) {
+	public Contact getContactById(int id) {
 		return locationServices.getContactById(id);
 	}
 
 	public void SupprimerContact(int id) {
 		locationServices.SupprimerContact(id);
-		
+
 	}
 }

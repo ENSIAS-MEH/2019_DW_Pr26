@@ -75,8 +75,8 @@ public class VendeurAction {
 	public void SupprimerVendeur(int id) {
 		locationServices.SupprimerVendeur(id);
 	}
-	
-	public int nbrVendeur () {
-		return  locationServices.getNbreVendeur();
+
+	public int nbrVendeur() {
+		return locationServices.getNbreVendeur();
 	}
 }

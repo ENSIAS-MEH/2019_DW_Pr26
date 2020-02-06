@@ -87,20 +87,20 @@ public class DemandeLocationAction {
 		locationServices.refuseDemandeLocation(id);
 
 	}
-	
+
 	public int getNbreDmdLocation() {
 		return locationServices.getNbreDmdLocation();
 	}
-	
-	public void confirmerLocation(int id){
+
+	public void confirmerLocation(int id) {
 		locationServices.confirmerLocation(id);
 	}
-	
-	public ArrayList<DemandeLocation> getListDemandeLocationConfirmeByIdVendeur(int id){
+
+	public ArrayList<DemandeLocation> getListDemandeLocationConfirmeByIdVendeur(int id) {
 		return locationServices.getListDemandeLocationConfirmeByIdVendeur(id);
 	}
-	
-	public ArrayList<DemandeLocation> getListReservationLocationConfirmeeByIdClient (int id){
-		return locationServices.getListReservationLocationConfirmeeByIdClient (id);
+
+	public ArrayList<DemandeLocation> getListReservationLocationConfirmeeByIdClient(int id) {
+		return locationServices.getListReservationLocationConfirmeeByIdClient(id);
 	}
 }

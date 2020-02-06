@@ -97,14 +97,13 @@ public interface LocationRepositoryInter {
 	public void refuseDemandeLocation(int id);
 
 	public ArrayList<Offre> chercherOffreByDate(String date_debut_forms, String date_fin_forms);
-	
-	public ArrayList<Offre> planifierVoyage(String date_debut_forms, String date_fin_forms, String ville);
 
+	public ArrayList<Offre> planifierVoyage(String date_debut_forms, String date_fin_forms, String ville);
 
 	public ArrayList<Offre> chercherOffreByOption(boolean ville, boolean pays, boolean nb_chambre,
 			String locationOrVente, String motCles, int id);
 
-	public ArrayList<Offre> chercherOffreByDate(String date_debut_forms, String date_fin_forms, int id); 
+	public ArrayList<Offre> chercherOffreByDate(String date_debut_forms, String date_fin_forms, int id);
 
 	public ArrayList<Contact> getListContact();
 
@@ -122,17 +121,20 @@ public interface LocationRepositoryInter {
 
 	public int getNbreDmdAchat();
 
-	public int getAllDmd(); 
-	
-	public void confirmerLocation(int id); 
-	public void confirmerVente(int id); 
-	
-	
-	public ArrayList<Offre> getOffresConfirmerByIdVendeur(int id); 
-	public ArrayList<DemandeLocation> getListDemandeLocationConfirmeByIdVendeur(int id); 
-	public ArrayList<DemandeAchat> getListDemandeAchatConfirmeByIdVendeur(int id); 
-public ArrayList<DemandeAchat> getListReservationAchatConfirmeeByIdClient(int id);
-	public ArrayList<DemandeLocation> getListReservationLocationConfirmeeByIdClient(int id);
+	public int getAllDmd();
 
+	public void confirmerLocation(int id);
+
+	public void confirmerVente(int id);
+
+	public ArrayList<Offre> getOffresConfirmerByIdVendeur(int id);
+
+	public ArrayList<DemandeLocation> getListDemandeLocationConfirmeByIdVendeur(int id);
+
+	public ArrayList<DemandeAchat> getListDemandeAchatConfirmeByIdVendeur(int id);
+
+	public ArrayList<DemandeAchat> getListReservationAchatConfirmeeByIdClient(int id);
+
+	public ArrayList<DemandeLocation> getListReservationLocationConfirmeeByIdClient(int id);
 
 }

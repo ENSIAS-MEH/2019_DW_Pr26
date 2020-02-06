@@ -7,8 +7,8 @@ public class DemandeAchat {
 	private int id_offre;
 	private String dateDemande;
 	private String statut;
-	private String date_acceptaion; 
-	private String confirmation; 
+	private String date_acceptaion;
+	private String confirmation;
 
 	public DemandeAchat() {
 		super();
@@ -32,7 +32,7 @@ public class DemandeAchat {
 		this.dateDemande = dateDemande;
 		this.statut = statut;
 	}
-	
+
 	public String getDate_acceptaion() {
 		return date_acceptaion;
 	}

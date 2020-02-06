@@ -77,31 +77,29 @@ public class DemandeAchatAction {
 
 	public void accepteDemandeAchat(int id) {
 		locationServices.accepteDemandeAchat(id);
-
 	}
 
 	public void refuseDemandeAchat(int id) {
 		locationServices.refuseDemandeAchat(id);
-
 	}
-	
+
 	public int getNbreDmdAchat() {
 		return locationServices.getNbreDmdAchat();
 	}
-	
+
 	public int getAllDmd() {
 		return locationServices.getAllDmd();
 	}
-	
-	public void confirmerVente(int id){
+
+	public void confirmerVente(int id) {
 		locationServices.confirmerVente(id);
 	}
 
-	public ArrayList<DemandeAchat> getListDemandeAchatConfirmeByIdVendeur(int id){
-		return locationServices.getListDemandeAchatConfirmeByIdVendeur(id); 
+	public ArrayList<DemandeAchat> getListDemandeAchatConfirmeByIdVendeur(int id) {
+		return locationServices.getListDemandeAchatConfirmeByIdVendeur(id);
 	}
-	
-	public ArrayList<DemandeAchat> getListReservationAchatConfirmeeByIdClient(int id){
-		return locationServices.getListReservationAchatConfirmeeByIdClient(id); 
+
+	public ArrayList<DemandeAchat> getListReservationAchatConfirmeeByIdClient(int id) {
+		return locationServices.getListReservationAchatConfirmeeByIdClient(id);
 	}
 }
