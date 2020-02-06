@@ -48,7 +48,7 @@
 		<li class="active">Categorie</li>
 		<li>Emplacement</li>
 		<li>Informations</li>
-	
+
 		<li>Description</li>
 	</ul>
 
@@ -60,38 +60,52 @@
 			<h2 class="fs-title">Categorie de l'immobilier</h2>
 			<h3 class="fs-subtitle">Choisissez la catégorie de votre
 				immobilier</h3>
-			
+
 			<!-- Begin What's Your First Name Field -->
 			<div class="categ field hs-form-field">
-				<label for="hs_categ">Transaction <b style="color: red;">*</b> :</label><br>
+				<label for="hs_categ">Transaction <b style="color: red;">*</b>
+					:
+				</label><br>
 				<div class="control row col-md-12">
-					<label class="radio col-md-4"> <input type="radio" name="type" value="Vente" id="vente" checked="checked" onclick="Vente()">
-						Vente
-					</label> <label class="radio col-md-4"> <input type="radio" name="type" value="Location" id="location" onClick="Location()">
+					<label class="radio col-md-4"> <input type="radio"
+						name="type" value="Vente" id="vente" checked="checked"
+						onclick="Vente()"> Vente
+					</label> <label class="radio col-md-4"> <input type="radio"
+						name="type" value="Location" id="location" onClick="Location()">
 						Location
-					</label> <label class="radio col-md-4"> <input type="radio" name="type" value="Location vacances" id="vacances" onClick="Location()">
-						Location vacances
+					</label> <label class="radio col-md-4"> <input type="radio"
+						name="type" value="Location vacances" id="vacances"
+						onClick="Location()"> Location vacances
 					</label>
 				</div>
-				<label for="hs_categ">Catégorie <b style="color: red;">*</b> :</label><br>
+				<label for="hs_categ">Catégorie <b style="color: red;">*</b>
+					:
+				</label><br>
 				<div class="control row col-md-12">
-					<label class="radio col-md-4" style="display: block;" id="Appartement"> <input type="radio" name="categorie" value="Appartement"  checked="checked">
-						Appartement
-					</label> <label class="radio col-md-4" style="display: block;" id="Maison"> <input type="radio" name="categorie" value="Maison" >
+					<label class="radio col-md-4" style="display: block;"
+						id="Appartement"> <input type="radio" name="categorie"
+						value="Appartement" checked="checked"> Appartement
+					</label> <label class="radio col-md-4" style="display: block;" id="Maison">
+						<input type="radio" name="categorie" value="Maison">
 						Maison
-					</label> <label class="radio col-md-4" style="display: block;" id="Villas"> <input type="radio" name="categorie" value="Villas & maisons de luxe" >
-						 Villas & maisons de luxe
-					</label> <label class="radio col-md-4" style="display: block;" id = "Riad"> <input type="radio" name="categorie" value="Riad" >
-						  Riad
-					</label><label class="radio col-md-4" style="display: none;" id = "Chambres"> <input type="radio" name="categorie" value="Chambres" >
-						  Chambres
-					</label><label class="radio col-md-4" id="Hotel" style="display: none;"> <input type="radio" name="categorie" value="Chambre d'un Hôtel" >
-						  Chambre d'un Hôtel
-					</label><label  id="Hauberge" style="display: none;" class="radio col-md-4"> <input type="radio" name="categorie" value="Chambre d'une auberge" >
-						  Chambre d'une auberge
-					</label >
+					</label> <label class="radio col-md-4" style="display: block;" id="Villas">
+						<input type="radio" name="categorie"
+						value="Villas & maisons de luxe"> Villas & maisons de
+						luxe
+					</label> <label class="radio col-md-4" style="display: block;" id="Riad">
+						<input type="radio" name="categorie" value="Riad"> Riad
+					</label><label class="radio col-md-4" style="display: none;" id="Chambres">
+						<input type="radio" name="categorie" value="Chambres">
+						Chambres
+					</label><label class="radio col-md-4" id="Hotel" style="display: none;">
+						<input type="radio" name="categorie" value="Chambre d'un Hôtel">
+						Chambre d'un Hôtel
+					</label><label id="Hauberge" style="display: none;" class="radio col-md-4">
+						<input type="radio" name="categorie" value="Chambre d'une auberge">
+						Chambre d'une auberge
+					</label>
 				</div>
-				  <span class="error1" style="display: none;"> <i
+				<span class="error1" style="display: none;"> <i
 					class="error-log fa fa-exclamation-triangle"></i>
 				</span>
 			</div>
@@ -99,41 +113,36 @@
 
 
 			<!-- Begin What's Your Email Field -->
-<script >
+			<script>
+				function Vente() {
 
+					document.getElementById("Appartement").style.display = "block";
+					document.getElementById("Maison").style.display = "block";
+					document.getElementById("Villas").style.display = "block";
+					document.getElementById("Riad").style.display = "block";
+					document.getElementById("Chambres").style.display = "none";
+					document.getElementById("Hotel").style.display = "none";
+					document.getElementById("Hauberge").style.display = "none";
+					document.getElementById("inf1").style.display = "none";
+					document.getElementById("inf4").style.display = "none";
+					document.getElementById("inf5").style.display = "none";
 
-function Vente() {
- 
- 
-    document.getElementById("Appartement").style.display = "block";
-    document.getElementById("Maison").style.display = "block";
-    document.getElementById("Villas").style.display = "block";
-    document.getElementById("Riad").style.display = "block";
-    document.getElementById("Chambres").style.display = "none";
-    document.getElementById("Hotel").style.display = "none";
-    document.getElementById("Hauberge").style.display = "none";
-    document.getElementById("inf1").style.display = "none";
-    document.getElementById("inf4").style.display = "none";
-    document.getElementById("inf5").style.display = "none";
-  
-}
-function Location() {
-	
-	    document.getElementById("Appartement").style.display = "block";
-	    document.getElementById("Maison").style.display = "block";
-	    document.getElementById("Villas").style.display = "block";
-	    document.getElementById("Riad").style.display = "block";
-	    document.getElementById("Chambres").style.display = "block";
-	    document.getElementById("Hotel").style.display = "block";
-	    document.getElementById("Hauberge").style.display = "block";
-	    document.getElementById("inf1").style.display = "block";
-	    document.getElementById("inf4").style.display = "block";
-	    document.getElementById("inf5").style.display = "block";
-	  
-	}
+				}
+				function Location() {
 
+					document.getElementById("Appartement").style.display = "block";
+					document.getElementById("Maison").style.display = "block";
+					document.getElementById("Villas").style.display = "block";
+					document.getElementById("Riad").style.display = "block";
+					document.getElementById("Chambres").style.display = "block";
+					document.getElementById("Hotel").style.display = "block";
+					document.getElementById("Hauberge").style.display = "block";
+					document.getElementById("inf1").style.display = "block";
+					document.getElementById("inf4").style.display = "block";
+					document.getElementById("inf5").style.display = "block";
 
-</script>
+				}
+			</script>
 
 			<!-- End Total Number of Constituents in Your Database Field -->
 			<input type="button" data-page="1" name="next"
@@ -145,17 +154,18 @@ function Location() {
 		<!-- ACQUISITION FIELD SET -->
 		<fieldset style="width: 100%; float: left; margin: 0;">
 			<h2 class="fs-title">Emplacement</h2>
-			<h3 class="fs-subtitle">Des informations sur l'Emplacement de l'immobilier</h3>
+			<h3 class="fs-subtitle">Des informations sur l'Emplacement de
+				l'immobilier</h3>
 			<!-- Begin Total Number of Donors in Year 1 Field -->
 			<div
 				class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field"
 				id="webform-component-acquisition--amount-1">
 
-				<label for="pays">Pays <b style="color: red;">*</b></label> <input id="pays"
-					class="form-text hs-input" name="pays" required="required"
-					type="text" value="" placeholder="" data-rule-required="true"
-					data-msg-required="Please enter a text"> <span
-					class="error1" style="display: none;"> <i
+				<label for="pays">Pays <b style="color: red;">*</b></label> <input
+					id="pays" class="form-text hs-input" name="pays"
+					required="required" type="text" value="" placeholder=""
+					data-rule-required="true" data-msg-required="Please enter a text">
+				<span class="error1" style="display: none;"> <i
 					class="error-log fa fa-exclamation-triangle"></i>
 				</span>
 			</div>
@@ -166,11 +176,11 @@ function Location() {
 				class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_2 field hs-form-field"
 				id="webform-component-acquisition--amount-2">
 
-				<label for="ville">Ville <b style="color: red;">*</b></label> <input id="ville"
-					class="form-text hs-input" name="ville" required="required"
-					type="text" value="" placeholder="" data-rule-required="true"
-					data-msg-required="Please enter a text"> <span
-					class="error1" style="display: none;"> <i
+				<label for="ville">Ville <b style="color: red;">*</b></label> <input
+					id="ville" class="form-text hs-input" name="ville"
+					required="required" type="text" value="" placeholder=""
+					data-rule-required="true" data-msg-required="Please enter a text">
+				<span class="error1" style="display: none;"> <i
 					class="error-log fa fa-exclamation-triangle"></i>
 				</span>
 			</div>
@@ -181,9 +191,9 @@ function Location() {
 			<div
 				class="form-item webform-component webform-component-textfield webform-container-inline hs_total_donor_percent_change field hs-form-field">
 
-				<label for="adresse">Adresse <b style="color: red;">*</b></label> <input id="adresse"
-					class="form-text hs-input" name="adresse" type="text" value=""
-					required="required" data-rule-required="true"
+				<label for="adresse">Adresse <b style="color: red;">*</b></label> <input
+					id="adresse" class="form-text hs-input" name="adresse" type="text"
+					value="" required="required" data-rule-required="true"
 					data-msg-required="Please enter a text"> <span
 					class="error1" style="display: none;"> <i
 					class="error-log fa fa-exclamation-triangle"></i>
@@ -206,105 +216,108 @@ function Location() {
 				l'immobilier</h3>
 			<!-- Begin Average Gift Size in Year 1 Field -->
 			<div class="row col-md-12">
-			<div class="hs_nombre field hs-form-field col-md-4" style="display: none;" id="inf1">
-				<label for="nmb">Nombre de personne <b style="color: red;">*</b> <br> <input id="nmb"
-					name="nombre_personne" required="required" type="number"
-					maxlength="5" minlength="0" placeholder=""
-					data-rule-required="true"
-					data-msg-required="Please enter a number " min="1" max="100"  > <span
-					class="error1" style="display: none;"> <i
-					class="error-log fa fa-exclamation-triangle"></i>
-				</span></label>
-			</div>
-			<div
-				class="hs_nombre field hs-form-field  col-md-4"
-				id="webform-component-cultivation--amount-4" id="inf2">
+				<div class="hs_nombre field hs-form-field col-md-4"
+					style="display: none;" id="inf1">
+					<label for="nmb">Nombre de personne <b style="color: red;">*</b>
+						<br> <input id="nmb" name="nombre_personne"
+						required="required" type="number" maxlength="5" minlength="0"
+						placeholder="" data-rule-required="true"
+						data-msg-required="Please enter a number " min="1" max="100">
+						<span class="error1" style="display: none;"> <i
+							class="error-log fa fa-exclamation-triangle"></i>
+					</span></label>
+				</div>
+				<div class="hs_nombre field hs-form-field  col-md-4"
+					id="webform-component-cultivation--amount-4" id="inf2">
 
-				<label for="nb_chambre">Nombre de chambres <b style="color: red;">*</b>   <input
-					id="nb_chambre" class="form-text hs-input" name="nb_chambre"
-					required="required"  min="1" max="100" type="number"
-					 placeholder="" data-rule-required="true" maxlength="5" minlength="0"
-					data-msg-required="Please enter a valid number"> <span
-					class="error1" style="display: none;"> <i
-					class="error-log fa fa-exclamation-triangle"></i>
-				</span></label>
-			
-			</div>
-			<div class="hs_nombre field hs-form-field  col-md-4"
-				id="webform-component-cultivation--amount-3 hs_total_giving_in_year_1 field hs-form-field inf3">
+					<label for="nb_chambre">Nombre de chambres <b
+						style="color: red;">*</b> <input id="nb_chambre"
+						class="form-text hs-input" name="nb_chambre" required="required"
+						min="1" max="100" type="number" placeholder=""
+						data-rule-required="true" maxlength="5" minlength="0"
+						data-msg-required="Please enter a valid number"> <span
+						class="error1" style="display: none;"> <i
+							class="error-log fa fa-exclamation-triangle"></i>
+					</span></label>
 
-				<label for="bain">Nombre de salles de bain <b style="color: red;">*</b><input
-					id="bain" class="form-text hs-input" name="salle_bain"
-					required="required" size="60" maxlength="128" type="number"
-					 placeholder="" data-rule-required="true"
-					data-msg-required="Please enter a valid number" min="1" max="100"> <span
-					class="error1" style="display: none;"> <i
-					class="error-log fa fa-exclamation-triangle"></i>
-				</span></label> 
+				</div>
+				<div class="hs_nombre field hs-form-field  col-md-4"
+					id="webform-component-cultivation--amount-3 hs_total_giving_in_year_1 field hs-form-field inf3">
+
+					<label for="bain">Nombre de salles de bain <b
+						style="color: red;">*</b><input id="bain"
+						class="form-text hs-input" name="salle_bain" required="required"
+						size="60" maxlength="128" type="number" placeholder=""
+						data-rule-required="true"
+						data-msg-required="Please enter a valid number" min="1" max="100">
+						<span class="error1" style="display: none;"> <i
+							class="error-log fa fa-exclamation-triangle"></i>
+					</span></label>
+				</div>
+				<!-- End Total Giving In Year 1 Field -->
 			</div>
-			<!-- End Total Giving In Year 1 Field -->
-</div>
 			<!-- Begin Total Giving In Year 2 Field -->
 			<div class="row col-md-12">
-			<div id="inf4" class="col-md-6" style="display: none;">
-			<div
-				class="form-item webform-component webform-component-textfield hs_average_gift_size_in_year_1 field hs-form-field"
-				id="edit-submitted-cultivation-amount-1 average_gift_size_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_3256 " >
+				<div id="inf4" class="col-md-6" style="display: none;">
+					<div
+						class="form-item webform-component webform-component-textfield hs_average_gift_size_in_year_1 field hs-form-field"
+						id="edit-submitted-cultivation-amount-1 average_gift_size_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_3256 ">
 
-				<label for="date_debut">Date début <b style="color: red;">*</b></label> <input id="date_debut"
-					class="form-text hs-input" name="date_debut" required="required"
-					type="date"  placeholder="" data-rule-required="true"
-					data-msg-required="Please enter a valid date"> <span
-					class="error1" style="display: none;"> <i
-					class="error-log fa fa-exclamation-triangle"></i>
-				</span>
-			</div>
-			</div>
-			<!-- End Average Gift Size in Year 1 Field -->
+						<label for="date_debut">Date début <b style="color: red;">*</b></label>
+						<input id="date_debut" class="form-text hs-input"
+							name="date_debut" required="required" type="date" placeholder=""
+							data-rule-required="true"
+							data-msg-required="Please enter a valid date"> <span
+							class="error1" style="display: none;"> <i
+							class="error-log fa fa-exclamation-triangle"></i>
+						</span>
+					</div>
+				</div>
+				<!-- End Average Gift Size in Year 1 Field -->
 
-			<!-- Begin Average Gift Size in Year 2 Field -->
-			<div id="inf5" class="col-md-6" style="display: none;">
-			<div
-				class="form-item webform-component webform-component-textfield hs_average_gift_size_in_year_2 field hs-form-field "
-				id="webform-component-cultivation--amount-2" >
+				<!-- Begin Average Gift Size in Year 2 Field -->
+				<div id="inf5" class="col-md-6" style="display: none;">
+					<div
+						class="form-item webform-component webform-component-textfield hs_average_gift_size_in_year_2 field hs-form-field "
+						id="webform-component-cultivation--amount-2">
 
-				<label for="date_fin">Date fin <b style="color: red;">*</b></label> <input id="date_fin"
-					class="form-text hs-input" name="date_fin" required="required"
-					type="date"  placeholder="" data-rule-required="true"
-					data-msg-required="Please enter a valid date"> <span
-					class="error1" style="display: none;"> <i
-					class="error-log fa fa-exclamation-triangle"></i>
-				</span>
+						<label for="date_fin">Date fin <b style="color: red;">*</b></label>
+						<input id="date_fin" class="form-text hs-input" name="date_fin"
+							required="required" type="date" placeholder=""
+							data-rule-required="true"
+							data-msg-required="Please enter a valid date"> <span
+							class="error1" style="display: none;"> <i
+							class="error-log fa fa-exclamation-triangle"></i>
+						</span>
+					</div>
+				</div>
 			</div>
-</div>
-</div>
-<div class="row col-md-12">
-			<div
-				class="col-md-6 form-item webform-component webform-component-textfield webform-container-inline hs_total_donor_percent_change field hs-form-field inf6">
+			<div class="row col-md-12">
+				<div
+					class="col-md-6 form-item webform-component webform-component-textfield webform-container-inline hs_total_donor_percent_change field hs-form-field inf6">
 
-				<label for="^prix">Prix/Nuit <b style="color: red;">*</b></label> <input id="prix"
-					class="form-text hs-input" name="prix" type="number" 
-					placeholder="0" required="required" data-rule-required="true"
-					data-msg-required="Please enter a number" > <span
-					class="error1" style="display: none;"> <i
-					class="error-log fa fa-exclamation-triangle"></i>
-				</span>
-			</div>
-			<div
-				class="col-md-6 form-item webform-component webform-component-textfield webform-container-inline hs_total_donor_percent_change field hs-form-field ">
+					<label for="^prix">Prix/Nuit <b style="color: red;">*</b></label> <input
+						id="prix" class="form-text hs-input" name="prix" type="number"
+						placeholder="0" required="required" data-rule-required="true"
+						data-msg-required="Please enter a number"> <span
+						class="error1" style="display: none;"> <i
+						class="error-log fa fa-exclamation-triangle"></i>
+					</span>
+				</div>
+				<div
+					class="col-md-6 form-item webform-component webform-component-textfield webform-container-inline hs_total_donor_percent_change field hs-form-field ">
 
-				<label for="devise">Devise <b style="color: red;">*</b></label>
-				<select name="devise" required="required" data-rule-required="true"
-					data-msg-required="Please enter a text">
-				<option value="">choisir une devise</option>
-				<option value="DH">DH</option>
-				<option value="EUR">EUR</option>
-				<option value="USD">USD</option>
-				</select>  <span
-					class="error1" style="display: none;"> <i
-					class="error-log fa fa-exclamation-triangle"></i>
-				</span>
-			</div>
+					<label for="devise">Devise <b style="color: red;">*</b></label> <select
+						name="devise" required="required" data-rule-required="true"
+						data-msg-required="Please enter a text">
+						<option value="">choisir une devise</option>
+						<option value="DH">DH</option>
+						<option value="EUR">EUR</option>
+						<option value="USD">USD</option>
+					</select> <span class="error1" style="display: none;"> <i
+						class="error-log fa fa-exclamation-triangle"></i>
+					</span>
+				</div>
 			</div>
 			<!-- End Average Gift Size in Year 2 Field -->
 
@@ -318,7 +331,7 @@ function Location() {
 
 
 
-		
+
 
 
 		<!-- RETENTION FIELD SET -->
@@ -333,7 +346,7 @@ function Location() {
 				<label for="description">Description </label>
 
 				<textarea id="desciption" class="form-text hs-input"
-					name="description" rows="5" cols="33" ></textarea>
+					name="description" rows="5" cols="33"></textarea>
 
 			</div>
 			<div

@@ -94,9 +94,9 @@
 													class="far fa-folder-open" style="color: green;"></i></a> <c:if
 													test="${sessionScope.account_type == 'vendeur'}">
 													<c:if test="${o.getEtat() == 'en attente'}">
-														<a href="ModifierOffre.ma?id=${o.getId()}"
-															class=" " title="Mettre à jour"
-															style="color: blue;"> <i class="fas fa-sync"></i></a>
+														<a href="ModifierOffre.ma?id=${o.getId()}" class=" "
+															title="Mettre à jour" style="color: blue;"> <i
+															class="fas fa-sync"></i></a>
 													</c:if>
 												</c:if> <c:if test="${o.getEtat() == 'en attente'}">
 													<a href="SupprimerOffre.ma?id=${o.getId()}"

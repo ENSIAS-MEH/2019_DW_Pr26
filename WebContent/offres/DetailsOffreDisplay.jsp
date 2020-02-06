@@ -59,7 +59,8 @@
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet">
 <!--  Jquery  -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -70,7 +71,9 @@
 	<c:if test="${sessionScope.account_type == 'vendeur'}">
 		<c:import url="../navbar/NavbarVendeur.jsp" />
 	</c:if>
-<br><br><br>
+	<br>
+	<br>
+	<br>
 	<div class="content card" style="width: 98%; margin: 0 auto;">
 		<div class="comtainer">
 			<center>
@@ -95,8 +98,7 @@
 				</div>
 			</center>
 		</div>
-		<br>
-		<br>
+		<br> <br>
 		<center>
 			<div class="col-md-6">
 				<div class="card" style="margin: 0 auto;">
@@ -113,33 +115,34 @@
 		</center>
 		<br>
 		<div class="row">
-		<c:if test="${offre.getType() != 'Vente'}">
-			<div class="col-md-6">
-				<div class="card">
-					<div class="card-header card-header-icon card-header-rose">
-						<div class="card-icon">
-							<h4>
-								<i class="material-icons">date_range</i> Date disponibilité
-							</h4>
-						</div>
-					</div>
-					
-					<div class="card-body" style="margin: 0 auto;">
-						<div class="input-group input-daterange">
-
-							<input type="date" value="${offre.getDate_debut()}"
-								readonly="readonly">
-							<div class="input-group-addon"
-								style="font-size: 25px; color: red;">
-								<strong><i class="material-icons">arrow_right_alt</i> </strong>
+			<c:if test="${offre.getType() != 'Vente'}">
+				<div class="col-md-6">
+					<div class="card">
+						<div class="card-header card-header-icon card-header-rose">
+							<div class="card-icon">
+								<h4>
+									<i class="material-icons">date_range</i> Date disponibilité
+								</h4>
 							</div>
-							<input type="date" value="${offre.getDate_fin() }"
-								readonly="readonly">
 						</div>
+
+						<div class="card-body" style="margin: 0 auto;">
+							<div class="input-group input-daterange">
+
+								<input type="date" value="${offre.getDate_debut()}"
+									readonly="readonly">
+								<div class="input-group-addon"
+									style="font-size: 25px; color: red;">
+									<strong><i class="material-icons">arrow_right_alt</i>
+									</strong>
+								</div>
+								<input type="date" value="${offre.getDate_fin() }"
+									readonly="readonly">
+							</div>
+						</div>
+
 					</div>
-					
 				</div>
-			</div>
 			</c:if>
 
 			<div class="col-md-6">
@@ -199,13 +202,12 @@
 					<div class="card-header card-header-text card-header-rose">
 						<div class="card-text">
 							<h4 class="card-title">
-								<i class="material-icons">account_circle</i>
-								Info Propriétaire
+								<i class="material-icons">account_circle</i> Info Propriétaire
 							</h4>
 						</div>
 					</div>
-					
-						
+
+
 					<div class="card-body">
 						<h4>
 							Nom : <strong>${proprietaire.getNom() }</strong>
@@ -302,25 +304,29 @@
 																role="presentation"
 																style="border-collapse: separate; width: 200px; line-height: 100%;">
 																<tr>
-																<c:if test="${offre.getType() == 'Location' }">
-																<td align="center" bgcolor="#32CD32"
-																		role="presentation"
-																		style="border: 2px solid #32CD32; border-radius: 5px; cursor: auto; padding: 10px 25px; background: #32CD32;"
-																		valign="middle"><a href="ReservezOffreClient.ma?id=${offre.getId() }"
-																		style="background: #32CD32; color: #000; font-family: Arial, Helvetical, sans-serif; font-size: 14px; font-weight: normal; line-height: 120%; Margin: 0; text-decoration: none; text-transform: uppercase;"
-																		target="_blank" onclick="return confirm('Voulez vous vraiment envoyez une demande de réservation')">															
-																		<strong>Réservez</strong>
+																	<c:if test="${offre.getType() == 'Location' }">
+																		<td align="center" bgcolor="#32CD32"
+																			role="presentation"
+																			style="border: 2px solid #32CD32; border-radius: 5px; cursor: auto; padding: 10px 25px; background: #32CD32;"
+																			valign="middle"><a
+																			href="ReservezOffreClient.ma?id=${offre.getId() }"
+																			style="background: #32CD32; color: #000; font-family: Arial, Helvetical, sans-serif; font-size: 14px; font-weight: normal; line-height: 120%; Margin: 0; text-decoration: none; text-transform: uppercase;"
+																			target="_blank"
+																			onclick="return confirm('Voulez vous vraiment envoyez une demande de réservation')">
+																				<strong>Réservez</strong>
 																		</a></td>
-															</c:if> <c:if test="${offre.getType() == 'Vente' }">
-																<td align="center" bgcolor="#32CD32"
-																		role="presentation"
-																		style="border: 2px solid #32CD32; border-radius: 5px; cursor: auto; padding: 10px 25px; background: #32CD32;"
-																		valign="middle"><a href="DemandeAchatClient.ma?id_offre=${offre.getId() }&id_vendeur=${proprietaire.getId() }"
-																		style="background: #32CD32; color: #000; font-family: Arial, Helvetical, sans-serif; font-size: 14px; font-weight: normal; line-height: 120%; Margin: 0; text-decoration: none; text-transform: uppercase;"
-																		onclick="return confirm('Voulez vous vraiment envoyez une demande d'achat')">															
-																		<strong>Demande d'achat</strong>
+																	</c:if>
+																	<c:if test="${offre.getType() == 'Vente' }">
+																		<td align="center" bgcolor="#32CD32"
+																			role="presentation"
+																			style="border: 2px solid #32CD32; border-radius: 5px; cursor: auto; padding: 10px 25px; background: #32CD32;"
+																			valign="middle"><a
+																			href="DemandeAchatClient.ma?id_offre=${offre.getId() }&id_vendeur=${proprietaire.getId() }"
+																			style="background: #32CD32; color: #000; font-family: Arial, Helvetical, sans-serif; font-size: 14px; font-weight: normal; line-height: 120%; Margin: 0; text-decoration: none; text-transform: uppercase;"
+																			onclick="return confirm('Voulez vous vraiment envoyez une demande d'achat')">
+																				<strong>Demande d'achat</strong>
 																		</a></td>
-															</c:if>		
+																	</c:if>
 																</tr>
 															</table>
 														</td>
@@ -344,7 +350,7 @@
 			</table>
 		</div>
 	</div>
-	
+
 	<footer class="ftco-footer ftco-section">
 	<div class="container">
 		<div class="row mb-5">
@@ -805,7 +811,7 @@
 
 		});
 	</script>
-	
+
 
 </body>
 

@@ -59,7 +59,8 @@
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet">
 <!--  Jquery  -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <c:if test="${sessionScope.account_type == 'vendeur'}">
 	<c:import url="../navbar/NavbarVendeur.jsp" />
@@ -103,8 +104,7 @@
 				</div>
 			</center>
 		</div>
-		<br>
-		<br>
+		<br> <br>
 		<center>
 			<div class="col-md-6">
 				<div class="card" style="margin: 0 auto;">
@@ -121,7 +121,7 @@
 		</center>
 		<br>
 		<div class="row">
-		<div class="col-md-6">
+			<div class="col-md-6">
 				<div class="card">
 					<div class="card-header card-header-text card-header-primary">
 						<div class="card-text">
@@ -143,7 +143,7 @@
 					</div>
 				</div>
 			</div>
-		
+
 
 			<div class="col-md-6">
 				<div class="card">
@@ -173,39 +173,40 @@
 		</div>
 
 		<div class="row ">
-		<c:if test="${offre.getType() != 'Vente'}">
-		<div class="col-md-3"></div>
-			
-			<div class="col-md-6 ">
-				<div class="card">
-					<div class="card-header card-header-icon card-header-rose">
-						<div class="card-icon">
-							<h4>
-								<i class="material-icons">date_range</i> Date disponibilité
-							</h4>
-						</div>
-					</div>
-					
-					<div class="card-body" style="margin: 0 auto;">
-						<div class="input-group input-daterange">
+			<c:if test="${offre.getType() != 'Vente'}">
+				<div class="col-md-3"></div>
 
-							<input type="date" value="${offre.getDate_debut()}"
-								readonly="readonly">
-							<div class="input-group-addon"
-								style="font-size: 25px; color: red;">
-								<strong><i class="material-icons">arrow_right_alt</i> </strong>
+				<div class="col-md-6 ">
+					<div class="card">
+						<div class="card-header card-header-icon card-header-rose">
+							<div class="card-icon">
+								<h4>
+									<i class="material-icons">date_range</i> Date disponibilité
+								</h4>
 							</div>
-							<input type="date" value="${offre.getDate_fin() }"
-								readonly="readonly">
 						</div>
-					</div>
-					
-				</div>
-			</div>
-			</c:if>
-			
 
-			
+						<div class="card-body" style="margin: 0 auto;">
+							<div class="input-group input-daterange">
+
+								<input type="date" value="${offre.getDate_debut()}"
+									readonly="readonly">
+								<div class="input-group-addon"
+									style="font-size: 25px; color: red;">
+									<strong><i class="material-icons">arrow_right_alt</i>
+									</strong>
+								</div>
+								<input type="date" value="${offre.getDate_fin() }"
+									readonly="readonly">
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</c:if>
+
+
+
 		</div>
 
 		<div class="card" style="width: 80%; margin: 0 auto;">
@@ -249,7 +250,8 @@
 														<td align="center"
 															style="font-size: 0px; padding: 10px 25px; word-break: break-word;">
 
-															<c:if test="${offre.getType() == 'Location' && offre.getType() == 'Location vacances' }">
+															<c:if
+																test="${offre.getType() == 'Location' && offre.getType() == 'Location vacances' }">
 																<div
 																	style="font-family: Arial, Helvetical, sans-serif; font-size: 13px; font-weight: bold; line-height: 110%; text-align: center; color: #000000;">Prix
 																	Total / Nuit</div>
@@ -279,7 +281,7 @@
 															</table>
 														</td>
 													</tr>
-													
+
 												</table>
 											</td>
 										</tr>
@@ -295,13 +297,13 @@
 							</div>
 						</td>
 					</tr>
-					
+
 				</tbody>
 			</table>
 		</div>
 	</div>
-	
-	
+
+
 
 	<script src="js/core/popper.min.js"></script>
 	<script src="js/core/bootstrap-material-design.min.js"></script>
@@ -713,8 +715,7 @@
 
 		});
 	</script>
-	
 
-</body>
 
+	</body>
 </html>

@@ -99,7 +99,8 @@
 									<div class="form-group">
 										<div class="form-field">
 											<label style="text-align: left;">Départ</label> <input
-												type="date" class="form-control" placeholder="Départ" name="">
+												type="date" class="form-control" placeholder="Départ"
+												name="">
 										</div>
 									</div>
 								</div>
@@ -146,198 +147,192 @@
 				<h2 class="mb-2">Offres Exclusives Pour Vous</h2>
 			</div>
 		</div>
-		
+
 		<div class="row">
-		
-			
-			
-			
-					<div class="col-md-4">
-						<div class="property-wrap ftco-animate">
-							<a href="FormConnexionClient.ma?id=${offre1.getId() }" class="img"
-								style="background-image: url(data:image/jpg;base64,${offre1.base64Image})"></a>
-							<div class="text">
-								<p class="price">
-									<span class="old-price">${offre1.getPrix() + 30}</span><span
-										class="orig-price">${offre1.getPrix() }
-										${offre1.getDevise() }<small>/nuit</small>
-									</span>
-								</p>
-								<ul class="property_list">
-									<li><span class="flaticon-bed"></span>${offre1.getNombre_personne() }</li>
-									<li><span class="flaticon-bathtub"></span>${offre1.getSalle_bain() }</li>
-								</ul>
-								<h3>
-									<a href="FormConnexionClient.ma?id=${offre1.getId() }">${offre1.getVille() },
-										${offre1.getPays() }</a>
-								</h3>
-								<span class="location">${offre1.getType() }</span>
-								
-									<a href="FormConnexionClient.ma?id=${offre1.getId() }"
-										class="d-flex align-items-center justify-content-center btn-custom">
-										<span class="ion-ios-link"></span>
-									</a>
-								
-								
-							</div>
-						</div>
+
+
+
+
+			<div class="col-md-4">
+				<div class="property-wrap ftco-animate">
+					<a href="FormConnexionClient.ma?id=${offre1.getId() }" class="img"
+						style="background-image: url(data:image/jpg;base64,${offre1.base64Image})"></a>
+					<div class="text">
+						<p class="price">
+							<span class="old-price">${offre1.getPrix() + 30}</span><span
+								class="orig-price">${offre1.getPrix() }
+								${offre1.getDevise() }<small>/nuit</small>
+							</span>
+						</p>
+						<ul class="property_list">
+							<li><span class="flaticon-bed"></span>${offre1.getNombre_personne() }</li>
+							<li><span class="flaticon-bathtub"></span>${offre1.getSalle_bain() }</li>
+						</ul>
+						<h3>
+							<a href="FormConnexionClient.ma?id=${offre1.getId() }">${offre1.getVille() },
+								${offre1.getPays() }</a>
+						</h3>
+						<span class="location">${offre1.getType() }</span> <a
+							href="FormConnexionClient.ma?id=${offre1.getId() }"
+							class="d-flex align-items-center justify-content-center btn-custom">
+							<span class="ion-ios-link"></span>
+						</a>
+
+
 					</div>
-					<div class="col-md-4">
-						<div class="property-wrap ftco-animate">
-							<a href="FormConnexionClient.ma?id=${offre2.getId() }" class="img"
-								style="background-image: url(data:image/jpg;base64,${offre2.base64Image})"></a>
-							<div class="text">
-								<p class="price">
-									<span class="old-price">${offre2.getPrix() + 30}</span><span
-										class="orig-price">${offre2.getPrix() }
-										${offre2.getDevise() }<small>/nuit</small>
-									</span>
-								</p>
-								<ul class="property_list">
-									<li><span class="flaticon-bed"></span>${offre2.getNombre_personne() }</li>
-									<li><span class="flaticon-bathtub"></span>${offre2.getSalle_bain() }</li>
-								</ul>
-								<h3>
-									<a href="FormConnexionClient.ma?id=${offre2.getId() }">${offre2.getVille() },
-										${offre2.getPays() }</a>
-								</h3>
-								<span class="location">${offre2.getType() }</span>
-								
-									<a href="FormConnexionClient.ma?id=${offre2.getId() }"
-										class="d-flex align-items-center justify-content-center btn-custom">
-										<span class="ion-ios-link"></span>
-									</a>
-								
-								
-							</div>
-						</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="property-wrap ftco-animate">
+					<a href="FormConnexionClient.ma?id=${offre2.getId() }" class="img"
+						style="background-image: url(data:image/jpg;base64,${offre2.base64Image})"></a>
+					<div class="text">
+						<p class="price">
+							<span class="old-price">${offre2.getPrix() + 30}</span><span
+								class="orig-price">${offre2.getPrix() }
+								${offre2.getDevise() }<small>/nuit</small>
+							</span>
+						</p>
+						<ul class="property_list">
+							<li><span class="flaticon-bed"></span>${offre2.getNombre_personne() }</li>
+							<li><span class="flaticon-bathtub"></span>${offre2.getSalle_bain() }</li>
+						</ul>
+						<h3>
+							<a href="FormConnexionClient.ma?id=${offre2.getId() }">${offre2.getVille() },
+								${offre2.getPays() }</a>
+						</h3>
+						<span class="location">${offre2.getType() }</span> <a
+							href="FormConnexionClient.ma?id=${offre2.getId() }"
+							class="d-flex align-items-center justify-content-center btn-custom">
+							<span class="ion-ios-link"></span>
+						</a>
+
+
 					</div>
-					<div class="col-md-4">
-						<div class="property-wrap ftco-animate">
-							<a href="FormConnexionClient.ma?id=${offre3.getId() }" class="img"
-								style="background-image: url(data:image/jpg;base64,${offre3.base64Image})"></a>
-							<div class="text">
-								<p class="price">
-									<span class="old-price">${offre3.getPrix() + 30}</span><span
-										class="orig-price">${offre3.getPrix() }
-										${offre3.getDevise() }<small>/nuit</small>
-									</span>
-								</p>
-								<ul class="property_list">
-									<li><span class="flaticon-bed"></span>${offre3.getNombre_personne() }</li>
-									<li><span class="flaticon-bathtub"></span>${offre3.getSalle_bain() }</li>
-								</ul>
-								<h3>
-									<a href="FormConnexionClient.ma?id=${offre3.getId() }">${offre3.getVille() },
-										${offre3.getPays() }</a>
-								</h3>
-								<span class="location">${offre3.getType() }</span>
-								
-									<a href="FormConnexionClient.ma?id=${offre3.getId() }"
-										class="d-flex align-items-center justify-content-center btn-custom">
-										<span class="ion-ios-link"></span>
-									</a>
-								
-								
-							</div>
-						</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="property-wrap ftco-animate">
+					<a href="FormConnexionClient.ma?id=${offre3.getId() }" class="img"
+						style="background-image: url(data:image/jpg;base64,${offre3.base64Image})"></a>
+					<div class="text">
+						<p class="price">
+							<span class="old-price">${offre3.getPrix() + 30}</span><span
+								class="orig-price">${offre3.getPrix() }
+								${offre3.getDevise() }<small>/nuit</small>
+							</span>
+						</p>
+						<ul class="property_list">
+							<li><span class="flaticon-bed"></span>${offre3.getNombre_personne() }</li>
+							<li><span class="flaticon-bathtub"></span>${offre3.getSalle_bain() }</li>
+						</ul>
+						<h3>
+							<a href="FormConnexionClient.ma?id=${offre3.getId() }">${offre3.getVille() },
+								${offre3.getPays() }</a>
+						</h3>
+						<span class="location">${offre3.getType() }</span> <a
+							href="FormConnexionClient.ma?id=${offre3.getId() }"
+							class="d-flex align-items-center justify-content-center btn-custom">
+							<span class="ion-ios-link"></span>
+						</a>
+
+
 					</div>
-					<div class="col-md-4">
-						<div class="property-wrap ftco-animate">
-							<a href="FormConnexionClient.ma?id=${offre4.getId() }" class="img"
-								style="background-image: url(data:image/jpg;base64,${offre4.base64Image})"></a>
-							<div class="text">
-								<p class="price">
-									<span class="old-price">${offre4.getPrix() + 30}</span><span
-										class="orig-price">${offre4.getPrix() }
-										${offre4.getDevise() }<small>/nuit</small>
-									</span>
-								</p>
-								<ul class="property_list">
-									<li><span class="flaticon-bed"></span>${offre4.getNombre_personne() }</li>
-									<li><span class="flaticon-bathtub"></span>${offre4.getSalle_bain() }</li>
-								</ul>
-								<h3>
-									<a href="FormConnexionClient.ma?id=${offre4.getId() }">${offre4.getVille() },
-										${offre4.getPays() }</a>
-								</h3>
-								<span class="location">${offre4.getType() }</span>
-								
-									<a href="FormConnexionClient.ma?id=${offre4.getId() }"
-										class="d-flex align-items-center justify-content-center btn-custom">
-										<span class="ion-ios-link"></span>
-									</a>
-								
-								
-							</div>
-						</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="property-wrap ftco-animate">
+					<a href="FormConnexionClient.ma?id=${offre4.getId() }" class="img"
+						style="background-image: url(data:image/jpg;base64,${offre4.base64Image})"></a>
+					<div class="text">
+						<p class="price">
+							<span class="old-price">${offre4.getPrix() + 30}</span><span
+								class="orig-price">${offre4.getPrix() }
+								${offre4.getDevise() }<small>/nuit</small>
+							</span>
+						</p>
+						<ul class="property_list">
+							<li><span class="flaticon-bed"></span>${offre4.getNombre_personne() }</li>
+							<li><span class="flaticon-bathtub"></span>${offre4.getSalle_bain() }</li>
+						</ul>
+						<h3>
+							<a href="FormConnexionClient.ma?id=${offre4.getId() }">${offre4.getVille() },
+								${offre4.getPays() }</a>
+						</h3>
+						<span class="location">${offre4.getType() }</span> <a
+							href="FormConnexionClient.ma?id=${offre4.getId() }"
+							class="d-flex align-items-center justify-content-center btn-custom">
+							<span class="ion-ios-link"></span>
+						</a>
+
+
 					</div>
-					<div class="col-md-4">
-						<div class="property-wrap ftco-animate">
-							<a href="FormConnexionClient.ma?id=${offre5.getId() }" class="img"
-								style="background-image: url(data:image/jpg;base64,${offre5.base64Image})"></a>
-							<div class="text">
-								<p class="price">
-									<span class="old-price">${offre5.getPrix() + 30}</span><span
-										class="orig-price">${offre5.getPrix() }
-										${offre5.getDevise() }<small>/nuit</small>
-									</span>
-								</p>
-								<ul class="property_list">
-									<li><span class="flaticon-bed"></span>${offre5.getNombre_personne() }</li>
-									<li><span class="flaticon-bathtub"></span>${offre5.getSalle_bain() }</li>
-								</ul>
-								<h3>
-									<a href="FormConnexionClient.ma?id=${offre5.getId() }">${offre5.getVille() },
-										${offre5.getPays() }</a>
-								</h3>
-								<span class="location">${offre5.getType() }</span>
-								
-									<a href="FormConnexionClient.ma?id=${offre5.getId() }"
-										class="d-flex align-items-center justify-content-center btn-custom">
-										<span class="ion-ios-link"></span>
-									</a>
-								
-								
-							</div>
-						</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="property-wrap ftco-animate">
+					<a href="FormConnexionClient.ma?id=${offre5.getId() }" class="img"
+						style="background-image: url(data:image/jpg;base64,${offre5.base64Image})"></a>
+					<div class="text">
+						<p class="price">
+							<span class="old-price">${offre5.getPrix() + 30}</span><span
+								class="orig-price">${offre5.getPrix() }
+								${offre5.getDevise() }<small>/nuit</small>
+							</span>
+						</p>
+						<ul class="property_list">
+							<li><span class="flaticon-bed"></span>${offre5.getNombre_personne() }</li>
+							<li><span class="flaticon-bathtub"></span>${offre5.getSalle_bain() }</li>
+						</ul>
+						<h3>
+							<a href="FormConnexionClient.ma?id=${offre5.getId() }">${offre5.getVille() },
+								${offre5.getPays() }</a>
+						</h3>
+						<span class="location">${offre5.getType() }</span> <a
+							href="FormConnexionClient.ma?id=${offre5.getId() }"
+							class="d-flex align-items-center justify-content-center btn-custom">
+							<span class="ion-ios-link"></span>
+						</a>
+
+
 					</div>
-					<div class="col-md-4">
-						<div class="property-wrap ftco-animate">
-							<a href="FormConnexionClient.ma?id=${offre6.getId() }" class="img"
-								style="background-image: url(data:image/jpg;base64,${offre6.base64Image})"></a>
-							<div class="text">
-								<p class="price">
-									<span class="old-price">${offre6.getPrix() + 30}</span><span
-										class="orig-price">${offre6.getPrix() }
-										${offre6.getDevise() }<small>/nuit</small>
-									</span>
-								</p>
-								<ul class="property_list">
-									<li><span class="flaticon-bed"></span>${offre6.getNombre_personne() }</li>
-									<li><span class="flaticon-bathtub"></span>${offre6.getSalle_bain() }</li>
-								</ul>
-								<h3>
-									<a href="FormConnexionClient.ma?id=${offre6.getId() }">${offre6.getVille() },
-										${offre6.getPays() }</a>
-								</h3>
-								<span class="location">${offre6.getType() }</span>
-								
-									<a href="FormConnexionClient.ma?id=${offre6.getId() }"
-										class="d-flex align-items-center justify-content-center btn-custom">
-										<span class="ion-ios-link"></span>
-									</a>
-								
-								
-							</div>
-						</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="property-wrap ftco-animate">
+					<a href="FormConnexionClient.ma?id=${offre6.getId() }" class="img"
+						style="background-image: url(data:image/jpg;base64,${offre6.base64Image})"></a>
+					<div class="text">
+						<p class="price">
+							<span class="old-price">${offre6.getPrix() + 30}</span><span
+								class="orig-price">${offre6.getPrix() }
+								${offre6.getDevise() }<small>/nuit</small>
+							</span>
+						</p>
+						<ul class="property_list">
+							<li><span class="flaticon-bed"></span>${offre6.getNombre_personne() }</li>
+							<li><span class="flaticon-bathtub"></span>${offre6.getSalle_bain() }</li>
+						</ul>
+						<h3>
+							<a href="FormConnexionClient.ma?id=${offre6.getId() }">${offre6.getVille() },
+								${offre6.getPays() }</a>
+						</h3>
+						<span class="location">${offre6.getType() }</span> <a
+							href="FormConnexionClient.ma?id=${offre6.getId() }"
+							class="d-flex align-items-center justify-content-center btn-custom">
+							<span class="ion-ios-link"></span>
+						</a>
+
+
 					</div>
-				
-				
-				
-				
-				
-				
+				</div>
+			</div>
+
+
+
+
+
+
 		</div>
 	</div>
 	</section>
