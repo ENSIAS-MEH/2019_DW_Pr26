@@ -10,6 +10,10 @@ public class DemandeLocation {
 	private String dateDemande;
 	private int nb_nuit;
 	private String statut;
+	private String date_acceptaion; 
+	private String confirmation; 
+
+
 
 	public DemandeLocation() {
 		super();
@@ -119,6 +123,22 @@ public class DemandeLocation {
 		return "DemandeReservation [id=" + id + ", date_debut=" + date_debut + ", date_fin=" + date_fin
 				+ ", id_demandeur=" + id_demandeur + ", id_vendeur=" + id_vendeur + ", id_offre=" + id_offre
 				+ ", dateDemande=" + dateDemande + ", nb_nuit=" + nb_nuit + ", statut=" + statut + "]";
+	}
+	
+	public String getDate_acceptaion() {
+		return date_acceptaion;
+	}
+
+	public void setDate_acceptaion(String date_acceptaion) {
+		this.date_acceptaion = date_acceptaion;
+	}
+
+	public String getConfirmation() {
+		return confirmation;
+	}
+
+	public void setConfirmation(String confirmation) {
+		this.confirmation = confirmation;
 	}
 
 }

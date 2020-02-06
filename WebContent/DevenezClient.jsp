@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
-<title>Devenez hôte</title>
+<title>Nouveau client</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -45,16 +45,15 @@
 		</button>
 		<div class="collapse navbar-collapse" id="ftco-nav">
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item "><a href="Accueil.ma" class="nav-link">Acceuil</a></li>
-				<li class="nav-item"><a href="about.html" class="nav-link">À
-						propos</a></li>
-				<li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
-				<li class="nav-item "><a href="DevenezHote.ma" class="nav-link">Devenez
-						hôte</a></li>
+				<li class="nav-item"><a href="Accueil.ma"
+					class="nav-link">Acceuil</a></li>
+				<li class="nav-item"><a href="Services.ma" class="nav-link">Services</a></li>
+				<li class="nav-item"><a href="DevenezHote.ma" class="nav-link">Devenez
+						Hôte</a></li>
 				<li class="nav-item active"><a href="InscriptionClient.ma"
 					class="nav-link">Inscription</a></li>
 				<li class="nav-item"><a href="FormConnexionVendeur.ma"
-					class="nav-link"> Connexion</a></li>
+					class="nav-link"> Connexion Hôte</a></li>
 				<li class="nav-item"><a href="FormConnexionClient.ma"
 					class="nav-link"> Connexion Client</a></li>
 				<li class="nav-item"><a href="contact.ma" class="nav-link">Contact</a></li>
@@ -63,10 +62,8 @@
 	</div>
 	</nav>
 	<!-- END nav -->
-
 	<br>
 	<br>
-
 	<section class="ftco-section goto-here">
 	<div class="container">
 		<div class="row justify-content-center">
@@ -79,6 +76,7 @@
 		<div class="row block-9 justify-content-center mb-5"
 			style="background-color: #D8EBF7;">
 			<div class="col-md-8 mb-md-5">
+			<br><br>
 				<form method="post" action="InscriptionClient.ma">
 					<div class="form-row">
 						<div class="form-group col-md-6">

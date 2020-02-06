@@ -123,6 +123,14 @@ public interface LocationRepositoryInter {
 	public int getNbreDmdAchat();
 
 	public int getAllDmd(); 
+	
+	public void confirmerLocation(int id); 
+	public void confirmerVente(int id); 
+	
+	
+	public ArrayList<Offre> getOffresConfirmerByIdVendeur(int id); 
+	public ArrayList<DemandeLocation> getListDemandeLocationConfirmeByIdVendeur(int id); 
+	public ArrayList<DemandeAchat> getListDemandeAchatConfirmeByIdVendeur(int id); 
 
 
 }

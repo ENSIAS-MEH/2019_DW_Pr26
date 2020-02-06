@@ -99,7 +99,6 @@ public interface LocationServicesInter {
 
 	public ArrayList<Offre> planifierVoyage(String date_debut_forms, String date_fin_forms, String ville);
 
-
 	public ArrayList<Offre> chercherOffreByOption(boolean ville, boolean pays, boolean nb_chambre, String parameter,
 			String parameter2, int id);
 
@@ -114,13 +113,23 @@ public interface LocationServicesInter {
 	public int getNbreClient();
 
 	public int getNbreVendeur();
-	
+
 	public int getNbreOffre();
-	
-	public int getNbreDmdLocation() ;
+
+	public int getNbreDmdLocation();
 
 	public int getNbreDmdAchat();
 
 	public int getAllDmd();
+
+	public void confirmerLocation(int id);
+
+	public void confirmerVente(int id);
+
+	public ArrayList<Offre> getOffresConfirmerByIdVendeur(int id);
+
+	public ArrayList<DemandeLocation> getListDemandeLocationConfirmeByIdVendeur(int id);
+
+	public ArrayList<DemandeAchat> getListDemandeAchatConfirmeByIdVendeur(int id);
 
 }
