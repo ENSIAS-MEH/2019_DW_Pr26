@@ -295,7 +295,7 @@ public class Controller extends HttpServlet {
 				request.setAttribute("active2", "active");
 				int id = Integer.parseInt(request.getParameter("id"));
 				offreAction.SupprimerOffre(id);
-				request.setAttribute("alert", "votre offre a bien été supprimée");
+				request.setAttribute("alert", "Votre offre a bien été supprimée");
 				int id_hote = (int) session.getAttribute("id");
 				request.setAttribute("offres", offreAction.ListOffre(id_hote));
 				views = "offres/ListOffre";
@@ -609,22 +609,22 @@ public class Controller extends HttpServlet {
 
 		// traitement offre
 		else if (action.equals("AjouterOffre")) {
-			request.setAttribute("active1", "active");
+			request.setAttribute("active2", "active");
+			System.out.println("dsvdvdfvdfcvsdicj,sdij,sdilsdkl");
 			int id_hote = (int) session.getAttribute("id");
-			System.out.println("ddd : " + request.getParameter("categorie"));
 			if (offreAction.AjouterOffre(request, id_hote))
 				request.setAttribute("alert", "Félicitations ! Votre nouveau offre a été créé avec succés !");
 			else
-				request.setAttribute("alert", "offre n'a pas été ajoutée");
-			request.setAttribute("type", "acceuil");
-			views = "AcceuilAfterConnexion";
+				request.setAttribute("alert", "Votre offre n'a pas été ajoutée");
+			request.setAttribute("offres", offreAction.ListOffre(id_hote));
+			views = "offres/ListOffre";
 		} else if (action.equals("ModifierOffre")) {
 			request.setAttribute("active2", "active");
 			int id_hote = (int) session.getAttribute("id");
 			if (offreAction.ModifierOffre(request, id_hote))
 				request.setAttribute("alert", "Votre offre a été modifiée avec succées !");
 			else
-				request.setAttribute("alert", "offre n'a pas ete modifiee");
+				request.setAttribute("alert", "Votre offre n'a pas ete modifiée");
 			request.setAttribute("offres", offreAction.ListOffre(id_hote));
 			views = "offres/ListOffre";
 		}
