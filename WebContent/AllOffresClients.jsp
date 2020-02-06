@@ -71,7 +71,7 @@
 			<div class="row justify-content-center">
 				<div class="col-md-12 heading-section text-center ftco-animate mb-5">
 					<span class="subheading">Ce que nous offrons</span>
-					<h2 class="mb-2">Tous nos offres</h2>
+					<h2 class="mb-2">Toutes nos offres</h2>
 				</div>
 			</div>
 			<div class="row">
@@ -115,7 +115,7 @@
 				<div class="col-md">
 					<div class="ftco-footer-widget mb-4">
 						<h2 class="ftco-heading-2">Hire && Sale</h2>
-						<p>Réservez des hébergements uniques.</p>
+						<p>RÃ©servez des hÃ©bergements uniques.</p>
 						<ul class="ftco-footer-social list-unstyled mt-5">
 							<li class="ftco-animate"><a href="#"><span
 									class="icon-twitter"></span></a></li>
@@ -129,12 +129,12 @@
 
 				<div class="col-md">
 					<div class="ftco-footer-widget mb-4 ml-md-4">
-						<h2 class="ftco-heading-2">À propos</h2>
+						<h2 class="ftco-heading-2">Ã€ propos</h2>
 						<ul class="list-unstyled">
 							<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Notre
 									Histoire</a></li>
 							<li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Nos
-									Carrières</a></li>
+									CarriÃ¨res</a></li>
 						</ul>
 					</div>
 				</div>
