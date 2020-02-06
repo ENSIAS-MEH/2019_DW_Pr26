@@ -155,7 +155,7 @@
                   <div class="table-responsive">
                     <table class="table">
                       <thead class=" text-primary">
-                        <th>Type</th>
+                        <th>Type émetteur</th>
                         <th>Nom</th>
                         <th>Sujet</th>
                         <th>Action</th>
