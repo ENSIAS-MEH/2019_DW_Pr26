@@ -29,10 +29,10 @@
 	<div class="wrapper ">
 		<div class="sidebar" data-color="purple" data-background-color="white"
 			data-image="assets/img/sidebar-1.jpg">
-	
+
 			<div class="logo ">
-				<a href="AccueilAdmin.ma" class="simple-text logo-normal active"> Hire && Sale
-				</a>
+				<a href="AccueilAdmin.ma" class="simple-text logo-normal active">
+					Hire && Sale </a>
 			</div>
 			<div class="sidebar-wrapper">
 				<ul class="nav">
@@ -40,12 +40,12 @@
 						href="AccueilAdmin.ma"> <i class="material-icons">home</i>
 							<p>Acceuil</p>
 					</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="#"> <i class="material-icons">dashboard</i>
+					<li class="nav-item"><a class="nav-link" href="#"> <i
+							class="material-icons">dashboard</i>
 							<p>Dashboard</p>
 					</a></li>
-					<li class="nav-item  "><a class="nav-link" href="ListVendeur.ma">
-							<i class="material-icons">account_circle</i>
+					<li class="nav-item  "><a class="nav-link"
+						href="ListVendeur.ma"> <i class="material-icons">account_circle</i>
 							<p>Liste des propriétaires</p>
 					</a></li>
 					<li class="nav-item "><a class="nav-link" href="ListClient.ma">
@@ -108,8 +108,7 @@
 								aria-expanded="false"> <i class="material-icons">notifications</i>
 									<span class="notification">2</span>
 									<p class="d-lg-none d-md-block">Some Actions</p>
-							</a>
-								</li>
+							</a></li>
 							<li class="nav-item dropdown"><a class="nav-link"
 								href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown"
 								aria-haspopup="true" aria-expanded="false"> <i
@@ -119,10 +118,10 @@
 								<div class="dropdown-menu dropdown-menu-right"
 									aria-labelledby="navbarDropdownProfile">
 									<a class="dropdown-item" href="#"
-									style="background-color: gray;">${sessionScope.nom }${sessionScope.prenom }</a>
-								<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="#">Profil</a>
-									<a class="dropdown-item" href="Deconnexion.ma">Se déconnecter</a>
+										style="background-color: gray;">${sessionScope.nom }${sessionScope.prenom }</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="#">Profil</a> <a
+										class="dropdown-item" href="Deconnexion.ma">Se déconnecter</a>
 								</div></li>
 						</ul>
 					</div>
@@ -130,155 +129,159 @@
 			</nav>
 			<!-- End Navbar -->
 			<div class="content">
-		
-		
-		
-		
-	 <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="card card-stats">
-                <div class="card-header card-header-warning card-header-icon">
-                  <div class="card-icon">
-                    <i class="material-icons">content_copy</i>
-                  </div>
-                  <p class="card-category">Clients</p>
-                  <h3 class="card-title">${nbrclt} 
-                    
-                  </h3>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-					<i class="material-icons">supervised_user_circle</i>
-                    <a href="ListClient.ma">Liste des clients</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="card card-stats">
-                <div class="card-header card-header-success card-header-icon">
-                  <div class="card-icon">
-                    <i class="material-icons">account_circle</i>
-                  </div>
-                  <p class="card-category">Propriétaires</p>
-                  <h3 class="card-title">${nbrvendeur}</h3>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons">supervised_user_circle</i> 
-                    <a href="ListVendeur.ma">Liste des propriétaires</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="card card-stats">
-                <div class="card-header card-header-danger card-header-icon">
-                  <div class="card-icon">
-                    <i class="material-icons">local_offer</i>
-                  </div>
-                  <p class="card-category">Offres</p>
-                  <h3 class="card-title">${nbroffre }</h3>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons">local_offer</i> 
-                    <a href="ListOffre.ma">Toutes les offres</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="card card-stats">
-                <div class="card-header card-header-info card-header-icon">
-                  <div class="card-icon">
-                     <i class="material-icons">format_indent_decrease</i>
-                  </div>
-                  <p class="card-category">Demandes</p>
-                  <h3 class="card-title">${alldmd}</h3>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons">format_indent_decrease</i> 
-                    <a href="ListDemandeClient.ma">Toutes les demandes</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>	
 
-   <div class="row">
-            <div class="col-md-4">
-              <div class="card card-chart">
-                <div class="card-header card-header-success">
-                  <div class="ct-chart" id="chart1"></div>
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title">Daily Sales</h4>
-                  <p class="card-category">
-                    <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons">access_time</i> updated 4 minutes ago
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card card-chart">
-                <div class="card-header card-header-warning">
-                  <div class="ct-chart" id="chart1"></div>
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title">Email Subscriptions</h4>
-                  <p class="card-category">Last Campaign Performance</p>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons">access_time</i> campaign sent 2 days ago
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="col-md-4">
-              <div class="card card-chart">
-                <div class="card-header card-header-success">
-                  <div class="ct-chart" id="chart2"></div>
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title">Daily Sales</h4>
-                  <p class="card-category">
-                    <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons">access_time</i> updated 4 minutes ago
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card card-chart">
-                <div class="card-header card-header-danger">
-                  <div class="ct-chart" id="completedTasksChart"></div>
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title">Completed Tasks</h4>
-                  <p class="card-category">Last Campaign Performance</p>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons">access_time</i> campaign sent 2 days ago
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-			
-			
-			
+
+
+
+				<div class="row">
+					<div class="col-lg-3 col-md-6 col-sm-6">
+						<div class="card card-stats">
+							<div class="card-header card-header-warning card-header-icon">
+								<div class="card-icon">
+									<i class="material-icons">content_copy</i>
+								</div>
+								<p class="card-category">Clients</p>
+								<h3 class="card-title">${nbrclt}</h3>
+							</div>
+							<div class="card-footer">
+								<div class="stats">
+									<i class="material-icons">supervised_user_circle</i> <a
+										href="ListClient.ma">Liste des clients</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6 col-sm-6">
+						<div class="card card-stats">
+							<div class="card-header card-header-success card-header-icon">
+								<div class="card-icon">
+									<i class="material-icons">account_circle</i>
+								</div>
+								<p class="card-category">Propriétaires</p>
+								<h3 class="card-title">${nbrvendeur}</h3>
+							</div>
+							<div class="card-footer">
+								<div class="stats">
+									<i class="material-icons">supervised_user_circle</i> <a
+										href="ListVendeur.ma">Liste des propriétaires</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6 col-sm-6">
+						<div class="card card-stats">
+							<div class="card-header card-header-danger card-header-icon">
+								<div class="card-icon">
+									<i class="material-icons">local_offer</i>
+								</div>
+								<p class="card-category">Offres</p>
+								<h3 class="card-title">${nbroffre }</h3>
+							</div>
+							<div class="card-footer">
+								<div class="stats">
+									<i class="material-icons">local_offer</i> <a
+										href="ListOffre.ma">Toutes les offres</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6 col-sm-6">
+						<div class="card card-stats">
+							<div class="card-header card-header-info card-header-icon">
+								<div class="card-icon">
+									<i class="material-icons">format_indent_decrease</i>
+								</div>
+								<p class="card-category">Demandes</p>
+								<h3 class="card-title">${alldmd}</h3>
+							</div>
+							<div class="card-footer">
+								<div class="stats">
+									<i class="material-icons">format_indent_decrease</i> <a
+										href="ListDemandeClient.ma">Toutes les demandes</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-4">
+						<div class="card card-chart">
+							<div class="card-header card-header-success">
+								<div class="ct-chart" id="chart1"></div>
+							</div>
+							<div class="card-body">
+								<h4 class="card-title">Daily Sales</h4>
+								<p class="card-category">
+									<span class="text-success"><i
+										class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.
+								</p>
+							</div>
+							<div class="card-footer">
+								<div class="stats">
+									<i class="material-icons">access_time</i> updated 4 minutes ago
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="card card-chart">
+							<div class="card-header card-header-warning">
+								<div class="ct-chart" id="chart1"></div>
+							</div>
+							<div class="card-body">
+								<h4 class="card-title">Email Subscriptions</h4>
+								<p class="card-category">Last Campaign Performance</p>
+							</div>
+							<div class="card-footer">
+								<div class="stats">
+									<i class="material-icons">access_time</i> campaign sent 2 days
+									ago
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4">
+						<div class="card card-chart">
+							<div class="card-header card-header-success">
+								<div class="ct-chart" id="chart2"></div>
+							</div>
+							<div class="card-body">
+								<h4 class="card-title">Daily Sales</h4>
+								<p class="card-category">
+									<span class="text-success"><i
+										class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.
+								</p>
+							</div>
+							<div class="card-footer">
+								<div class="stats">
+									<i class="material-icons">access_time</i> updated 4 minutes ago
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="card card-chart">
+							<div class="card-header card-header-danger">
+								<div class="ct-chart" id="completedTasksChart"></div>
+							</div>
+							<div class="card-body">
+								<h4 class="card-title">Completed Tasks</h4>
+								<p class="card-category">Last Campaign Performance</p>
+							</div>
+							<div class="card-footer">
+								<div class="stats">
+									<i class="material-icons">access_time</i> campaign sent 2 days
+									ago
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
 			</div>
 
 		</div>
@@ -661,12 +664,12 @@
 						});
 	</script>
 	<script>
-    $(document).ready(function() {
-      // Javascript method's body can be found in assets/js/demos.js
-      md.initDashboardPageCharts();
+		$(document).ready(function() {
+			// Javascript method's body can be found in assets/js/demos.js
+			md.initDashboardPageCharts();
 
-    });
-  </script>
+		});
+	</script>
 </body>
 
 </html>

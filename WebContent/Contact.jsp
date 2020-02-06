@@ -53,8 +53,7 @@
 		</button>
 		<div class="collapse navbar-collapse" id="ftco-nav">
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item"><a href="Accueil.ma"
-					class="nav-link">Acceuil</a></li>
+				<li class="nav-item"><a href="Accueil.ma" class="nav-link">Acceuil</a></li>
 				<li class="nav-item"><a href="Services.ma" class="nav-link">Services</a></li>
 				<li class="nav-item"><a href="DevenezHote.ma" class="nav-link">Devenez
 						Hôte</a></li>
@@ -64,7 +63,8 @@
 					class="nav-link"> Connexion Hôte</a></li>
 				<li class="nav-item"><a href="FormConnexionClient.ma"
 					class="nav-link"> Connexion Client</a></li>
-				<li class="nav-item active"><a href="contact.ma" class="nav-link">Contact</a></li>
+				<li class="nav-item active"><a href="contact.ma"
+					class="nav-link">Contact</a></li>
 			</ul>
 		</div>
 	</div>

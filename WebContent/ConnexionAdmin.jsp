@@ -35,10 +35,10 @@ body {
 		</center>
 		<form method="post" action="ConnexionAdmin.ma" id="login-form">
 			<div id="u" class="form-group">
-				<input id="email" spellcheck=false class="form-control"
-					name="email" type="text" size="18" alt="login" required="">
-				<span class="form-highlight"></span> <span class="form-bar"></span>
-				<label for="email" class="float-label">Email</label>
+				<input id="email" spellcheck=false class="form-control" name="email"
+					type="text" size="18" alt="login" required=""> <span
+					class="form-highlight"></span> <span class="form-bar"></span> <label
+					for="email" class="float-label">Email</label>
 				<erroru> l'Email est obligatoire <i> <svg
 						xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 		    <path d="M0 0h24v24h-24z" fill="none" />
@@ -59,7 +59,7 @@ body {
 				</i> </errorp>
 			</div>
 			<div class="form-group">
-				
+
 				<button type="submit">Se connecter</button>
 			</div>
 		</form>

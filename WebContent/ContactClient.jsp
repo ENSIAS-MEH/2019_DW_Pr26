@@ -75,7 +75,8 @@
 				</button>
 			</div>
 		</c:if>
-		<br><br>
+		<br>
+		<br>
 		<div class="card" style="width: 60%; margin: 0 auto;">
 			<div class="card-body">
 				<center class="font-weight-bold">
