@@ -102,7 +102,7 @@
 							</thead>
 							<tbody>
 								<c:forEach items="${ listeDemande }" var="demande">
-									<tr>
+									<tr <c:if test="${demande.getConfirmation()  == 'Confirmée'}"> style="background-color: #ffcc66;" title="Déjà confirmée"</c:if>>
 										<td>${demande.getId() }</td>
 										<td>${demande.getDateDemande() }</td>
 										<td>${demande.getDate_debut() }</td>
@@ -156,7 +156,7 @@
 							</thead>
 							<tbody>
 								<c:forEach items="${ listeDemandeAchat }" var="demande">
-									<tr>
+									<tr<c:if test="${demande.getConfirmation()  == 'Confirmée'}"> style="background-color: #ffcc66;" title="Déjà confirmée"</c:if>>
 										<td>${demande.getId() }</td>
 										<td>${demande.getDateDemande() }</td>
 										<c:if test="${demande.getStatut()  == 'En attente'}">

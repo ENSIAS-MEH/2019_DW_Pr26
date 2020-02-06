@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import models.Client;
 import models.Offre;
 import web.action.ClientAction;
 import web.action.ContactMessage;
@@ -37,7 +38,7 @@ import web.action.AdminAction;
 		"/RefusezDemandeClient.ma", "/SupprimerDemandeLocationByVendeur.ma", "/SupprimerDemandeAchatByVendeur.ma",
 		"/ChercherOffreByOption.ma", "/ChercherOffreByDate.ma", "/contactByClient.ma", "/accueilClient.ma",
 		"/Dashboard.ma","/PlanifierUnVoyage.ma", "/planifireVoyageForms.ma","/ChercherOffreVendeur.ma","/contactByVendeur.ma" ,
-		"/Message.ma","/DetailMessage.ma","/SupprimerMessage.ma","/Services.ma","/ConfirmerLocation.ma","/ConfirmerVente.ma","/ListeOffreConfirmee.ma","/ListDemandeConfirmee.ma"})
+		"/Message.ma","/DetailMessage.ma","/SupprimerMessage.ma","/Services.ma","/ConfirmerLocation.ma","/ConfirmerVente.ma","/ListeOffreConfirmee.ma","/ListDemandeConfirmee.ma","/MesReservationConfirmee.ma","/ProfilClient.ma"})
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 4)
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -92,7 +93,7 @@ public class Controller extends HttpServlet {
 			}
 
 		} else if (action.equals("AcceuilVendeur")) {
-			if (session.getAttribute("account_type").equals("vendeur")) {
+			if (session.getAttribute("account_type")!=null && session.getAttribute("account_type").equals("vendeur")) {
 				request.setAttribute("active", "active");
 				request.setAttribute("type", "acceuil");
 				views = "AcceuilAfterConnexion";
@@ -109,8 +110,6 @@ public class Controller extends HttpServlet {
 			if(request.getParameter("id") != null){
                 request.setAttribute("alert", "Bonjour! Vous devez tout d'abord vous connecter pour pouvoir continuer");
                 request.setAttribute("id", request.getParameter("id"));
-
-
 			}
 			views = "ConnexionClient";
 		} else if (action.equals("Deconnexion")) {
@@ -122,16 +121,17 @@ public class Controller extends HttpServlet {
 			} else {
 				session.invalidate();
 				session = null;
-				int i = 1;
-				request.setAttribute("offre1", offreAction.getOffre(i++));
-				request.setAttribute("offre2", offreAction.getOffre(i++));
-				request.setAttribute("offre3", offreAction.getOffre(i++));
-				request.setAttribute("offre4", offreAction.getOffre(i++));
-				request.setAttribute("offre5", offreAction.getOffre(i++));
-				request.setAttribute("offre6", offreAction.getOffre(i++));
+				ArrayList<Offre> listeOffre = offreAction.getOffres(); 
+				for(int i =0 ; i<6 && i<listeOffre.size(); i++)
+					request.setAttribute("offre"+(1+i), listeOffre.get(i));
 				views = "Accueil";
 			}
-
+		}else if(action.equals("ProfilClient")){
+			if (session.getAttribute("account_type") != null && session.getAttribute("account_type").equals("client")) {	
+			Client client = clientAction.getClientById((int)session.getAttribute("id")); 
+			request.setAttribute("client", client);
+			views = "ProfilClient"; 
+			} else views = "/404";  
 		}
 		// Administrateur
 		else if (action.equals("ConnexionAdmin")) {
@@ -244,7 +244,6 @@ public class Controller extends HttpServlet {
 				views = "/404";
 		}else if (action.equals("ChercherOffreVendeur")) {
 			if (session.getAttribute("account_type") != null && session.getAttribute("account_type").equals("vendeur")) {
-				
 				request.setAttribute("active5", "active");
 				views = "ChercherOffreClient";
 			} else 
@@ -310,7 +309,7 @@ public class Controller extends HttpServlet {
 			} else
 				views = "/404";
 		} else if (action.equals("getAllOffres")) {
-			if (true) {
+			if (session.getAttribute("account_type") != null && session.getAttribute("account_type").equals("client")) {
 				request.setAttribute("listeOffres", offreAction.getOffresActifs());
 				request.setAttribute("active2", "active");
 				views = "AllOffresClients";
@@ -440,7 +439,17 @@ public class Controller extends HttpServlet {
 				views = "ListReservationClient";
 			} else
 				views = "/404";
-		} else if (action.equals("ChercherOffreClient")) {
+		} else if(action.equals("MesReservationConfirmee")){
+			if (session.getAttribute("account_type") != null && session.getAttribute("account_type").equals("client")) {
+				request.setAttribute("listeDemande",
+						demandeLocationAction.getListReservationLocationConfirmeeByIdClient((int) session.getAttribute("id")));
+				request.setAttribute("listeDemandeAchat",
+						demandeAchatAction.getListReservationAchatConfirmeeByIdClient((int) session.getAttribute("id")));
+				request.setAttribute("active11", "active");
+				views = "ListReservationClient";
+			} else
+				views = "/404";
+		}else if (action.equals("ChercherOffreClient")) {
 			if (session.getAttribute("account_type") != null && session.getAttribute("account_type").equals("client")) {
 				request.setAttribute("active5", "active");
 				views = "ChercherOffreClient";
@@ -511,16 +520,22 @@ public class Controller extends HttpServlet {
 		}else if(action.equals("Services")){
 			views = "Services"; 
 		}else if(action.equals("ListeOffreConfirmee")){
+			if (session.getAttribute("account_type") != null
+					&& session.getAttribute("account_type").equals("vendeur")) {
+		
 			request.setAttribute("active7", "active");
 			int id_hote = (int) session.getAttribute("id");
 			request.setAttribute("offres", offreAction.getOffresConfirmerByIdVendeur(id_hote));
-			views = "offres/ListOffre";
+			views = "offres/ListOffre";}else views = "/404"; 
 		}else if(action.equals("ListDemandeConfirmee")){
+			if (session.getAttribute("account_type") != null
+					&& session.getAttribute("account_type").equals("vendeur")) {
 			request.setAttribute("active4", "active");
 			int id_hote = (int) session.getAttribute("id");
 			request.setAttribute("listeDemandeA", demandeAchatAction.getListDemandeAchatConfirmeByIdVendeur(id_hote));
 			request.setAttribute("listeDemandeL", demandeLocationAction.getListDemandeLocationConfirmeByIdVendeur(id_hote));
 			views = "ListDemandeVendeur";
+			} else views="/404"; 
 		} else
 			views = "/404";
 		request.getRequestDispatcher(views + ".jsp").forward(request, response);

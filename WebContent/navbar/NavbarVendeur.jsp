@@ -8,7 +8,7 @@
 			data-image="img/sidebar-1.jpg">
 			
 			<div class="logo text-center">
-				<a class="navbar-brand" href="Accueil.ma"><i
+				<a class="navbar-brand" href="AcceuilVendeur.ma"><i
 					class="fas fa-hotel"></i> Hire && sale <i class="fas fa-building"></i>
 				</a>
 			</div>

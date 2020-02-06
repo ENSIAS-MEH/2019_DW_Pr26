@@ -139,15 +139,32 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        blablablabl
+      <div class="modal-body" >
+         * Une fois la est demande confirmée, l'utilisateur n'aura pas le droit de modifier ou annulée cette réservation
+         <br> 
+         * L'utilisateur doit contacter le vendeur pour payer les frais de location au plus tôt possible.
+         <br> 
+         * Si vous n'avez pas payer les frais le vendeur il a le droit d'annulée la réservation aprés 3 jours de la confirmation. 
+         <br> 
+         * Aprés le paiment veillez prendre votre reçu.
+         <br>
         <form method="post" action="ConfirmerLocation.ma">
-        <input type="checkbox" required ><label >Accepter conditions d'utilisation</label>
+        <br>
+         <div class="form-check">
+        <label class="form-check-label" style="color: black;">
+          <input class="form-check-input" type="checkbox" value="" required>
+  Accepter les conditions ci-dessus 
+          <span class="form-check-sign">
+              <span class="check"></span>
+          </span>
+      </label>
+      </div>
+        
         <input value="" id="engagement_location" name="id" hidden>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+        <button type="submit" class="btn btn-primary">Confirmer</button>
         </form>
       </div>
     </div>
@@ -164,14 +181,28 @@
         </button>
       </div>
       <div class="modal-body">
-        blablablabl
-        <form method="post" action="ConfirmerVente.ma">
-        <input type="checkbox" required ><label >Accepter conditions d'utilisation</label>
+         * Une fois la est demande confirmée, l'utilisateur n'aura pas le droit de modifier ou annulée cette réservation
+         <br> 
+         * L'utilisateur doit contacter le vendeur pour payer les frais de location au plus tôt possible.
+         <br> 
+         * Si vous n'avez pas payer les frais le vendeur il a le droit d'annulée la réservation aprés 3 jours de la confirmation. 
+         <br> 
+         * Aprés le paiment veillez prendre votre reçu.
+         <br> 
+        <form method="post" action="ConfirmerVente.ma"><div class="form-check"><br>
+        <label class="form-check-label" style="color: black;">
+          <input class="form-check-input" type="checkbox" value="" required>
+  Accepter les conditions ci-dessus 
+          <span class="form-check-sign">
+              <span class="check"></span>
+          </span>
+      </label>
+      </div>
         <input value="" id="engagement_vente" name="id" hidden>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+        <button type="submit" class="btn btn-primary">Confirmer</button>
         </form>
       </div>
     </div>

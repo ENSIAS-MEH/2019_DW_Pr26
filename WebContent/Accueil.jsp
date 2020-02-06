@@ -99,7 +99,7 @@
 									<div class="form-group">
 										<div class="form-field">
 											<label style="text-align: left;">Départ</label> <input
-												type="date" class="form-control" placeholder="Départ">
+												type="date" class="form-control" placeholder="Départ" name="">
 										</div>
 									</div>
 								</div>

@@ -100,4 +100,8 @@ public class DemandeAchatAction {
 	public ArrayList<DemandeAchat> getListDemandeAchatConfirmeByIdVendeur(int id){
 		return locationServices.getListDemandeAchatConfirmeByIdVendeur(id); 
 	}
+	
+	public ArrayList<DemandeAchat> getListReservationAchatConfirmeeByIdClient(int id){
+		return locationServices.getListReservationAchatConfirmeeByIdClient(id); 
+	}
 }

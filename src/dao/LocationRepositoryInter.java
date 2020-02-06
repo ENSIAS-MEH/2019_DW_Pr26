@@ -131,6 +131,8 @@ public interface LocationRepositoryInter {
 	public ArrayList<Offre> getOffresConfirmerByIdVendeur(int id); 
 	public ArrayList<DemandeLocation> getListDemandeLocationConfirmeByIdVendeur(int id); 
 	public ArrayList<DemandeAchat> getListDemandeAchatConfirmeByIdVendeur(int id); 
+public ArrayList<DemandeAchat> getListReservationAchatConfirmeeByIdClient(int id);
+	public ArrayList<DemandeLocation> getListReservationLocationConfirmeeByIdClient(int id);
 
 
 }
