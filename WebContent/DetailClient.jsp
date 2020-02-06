@@ -170,7 +170,7 @@
 	<div class="steps" method="post">
 	
 		<fieldset>
-			<h2 class="fs-title">Données du propriétaire N° ${client.getId()} </h2><br/><br/>
+			<h2 class="fs-title">Données du client N° ${client.getId()} </h2><br/><br/>
 		<div class="row">
 		<div class="col-md-6">
 			<div class="categ field hs-form-field">
