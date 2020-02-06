@@ -181,6 +181,7 @@ public class Controller extends HttpServlet {
 			if (session.getAttribute("account_type") != null
 					&& session.getAttribute("account_type").equals("vendeur")) {
 				request.setAttribute("active3", "active");
+				
 				int id = Integer.parseInt(request.getParameter("id_demande"));
 				String type = request.getParameter("type");
 				request.setAttribute("demande", demandeLocationAction.getDemandeLocationById(id));
@@ -195,6 +196,7 @@ public class Controller extends HttpServlet {
 				int id_hote = (int) session.getAttribute("id");
 				request.setAttribute("listeDemandeA", demandeAchatAction.getListDemandeAchatByIdVendeur(id_hote));
 				request.setAttribute("listeDemandeL", demandeLocationAction.getListDemandeLocationByIdVendeur(id_hote));
+				request.setAttribute("alert", "La demande a bien été acceptée");
 				views = "ListDemandeVendeur";
 
 			} else
@@ -215,6 +217,7 @@ public class Controller extends HttpServlet {
 				int id_hote = (int) session.getAttribute("id");
 				request.setAttribute("listeDemandeA", demandeAchatAction.getListDemandeAchatByIdVendeur(id_hote));
 				request.setAttribute("listeDemandeL", demandeLocationAction.getListDemandeLocationByIdVendeur(id_hote));
+				request.setAttribute("alert", "La demande a bien été refusée");
 				views = "ListDemandeVendeur";
 			} else
 				views = "/404";
@@ -226,6 +229,7 @@ public class Controller extends HttpServlet {
 				int id_hote = (int) session.getAttribute("id");
 				request.setAttribute("listeDemandeA", demandeAchatAction.getListDemandeAchatByIdVendeur(id_hote));
 				request.setAttribute("listeDemandeL", demandeLocationAction.getListDemandeLocationByIdVendeur(id_hote));
+				request.setAttribute("alert", "La demande a bien été supprimée");
 				views = "ListDemandeVendeur";
 			} else
 				views = "/404";
@@ -237,6 +241,7 @@ public class Controller extends HttpServlet {
 				int id_hote = (int) session.getAttribute("id");
 				request.setAttribute("listeDemandeA", demandeAchatAction.getListDemandeAchatByIdVendeur(id_hote));
 				request.setAttribute("listeDemandeL", demandeLocationAction.getListDemandeLocationByIdVendeur(id_hote));
+				request.setAttribute("alert", "La demande a bien été supprimée");
 				views = "ListDemandeVendeur";
 			} else
 				views = "/404";
