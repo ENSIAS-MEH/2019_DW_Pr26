@@ -135,5 +135,9 @@ public interface LocationServicesInter {
 	public ArrayList<DemandeAchat> getListReservationAchatConfirmeeByIdClient(int id);
 
 	public ArrayList<DemandeLocation> getListReservationLocationConfirmeeByIdClient(int id);
+	
+	public ArrayList<DemandeAchat> getListReservationAchatConfirmeeByAdmin();
+
+	public ArrayList<DemandeLocation> getListReservationLocationConfirmeeByAdmin();
 
 }

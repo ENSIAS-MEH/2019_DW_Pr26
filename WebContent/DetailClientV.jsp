@@ -46,10 +46,6 @@
 		<c:import url="navbar/NavbarVendeur.jsp" />
 	</c:if>
 
-
-
-
-
 	<div class="content">
 
 		<c:if test="${alert != null}">

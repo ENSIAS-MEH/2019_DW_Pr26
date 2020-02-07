@@ -34,7 +34,7 @@ import web.action.AdminAction;
 		"/Dashboard.ma", "/PlanifierUnVoyage.ma", "/planifireVoyageForms.ma", "/ChercherOffreVendeur.ma",
 		"/contactByVendeur.ma", "/Message.ma", "/DetailMessage.ma", "/SupprimerMessage.ma", "/Services.ma",
 		"/ConfirmerLocation.ma", "/ConfirmerVente.ma", "/ListeOffreConfirmee.ma", "/ListDemandeConfirmee.ma",
-		"/MesReservationConfirmee.ma", "/ProfilClient.ma" })
+		"/MesReservationConfirmee.ma", "/ProfilClient.ma", "/DemandesConfirmerAdmin.ma" })
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 4)
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -81,6 +81,14 @@ public class Controller extends HttpServlet {
 			views = "DevenezHote";
 		} else if (action.equals("FormConnexionVendeur")) {
 			views = "ConnexionVendeur";
+		} else if (action.equals("DemandesConfirmerAdmin")) {
+			if (session.getAttribute("account_type") != null && session.getAttribute("account_type").equals("admin")) {
+				request.setAttribute("demandeLocation",
+						demandeLocationAction.getListReservationLocationConfirmeeByAdmin());
+				request.setAttribute("demandeAchat", demandeAchatAction.getListReservationAchatConfirmeeByAdmin());
+				views = "ListDemandeConfirmee";
+			} else
+				views = "/404";
 		} else if (action.equals("ProfilVendeur")) {
 			if (session.getAttribute("account_type").equals("vendeur")) {
 				request.setAttribute("vendeur", vendeurAction.getVendeurById((int) session.getAttribute("id")));
@@ -181,7 +189,7 @@ public class Controller extends HttpServlet {
 			if (session.getAttribute("account_type") != null
 					&& session.getAttribute("account_type").equals("vendeur")) {
 				request.setAttribute("active3", "active");
-				
+
 				int id = Integer.parseInt(request.getParameter("id_demande"));
 				String type = request.getParameter("type");
 				request.setAttribute("demande", demandeLocationAction.getDemandeLocationById(id));

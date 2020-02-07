@@ -1849,4 +1849,61 @@ public class LocationRepositoryImpl implements LocationRepositoryInter {
 		return listeDemandeLocation;
 	}
 
+	public ArrayList<DemandeAchat> getListReservationAchatConfirmeeByAdmin() {
+		ArrayList<DemandeAchat> listeDemandeAchat = new ArrayList<>();
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			PreparedStatement ps = connection
+					.prepareStatement("SELECT * FROM demandeachat where confirmer = 'Confirmée'");
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				DemandeAchat demandeAchat = new DemandeAchat();
+				demandeAchat.setId(rs.getInt("id"));
+				demandeAchat.setId_vendeur(rs.getInt("id_vendeur"));
+				demandeAchat.setId_demandeur(rs.getInt("id_demandeur"));
+				demandeAchat.setId_offre(rs.getInt("id_offre"));
+				demandeAchat.setDateDemande(rs.getString("date_demande"));
+				demandeAchat.setStatut(rs.getString("statut"));
+				demandeAchat.setConfirmation(rs.getString("Confirmer"));
+				demandeAchat.setDate_acceptaion(rs.getString("date_acceptation"));
+				listeDemandeAchat.add(demandeAchat);
+			}
+			ps.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return listeDemandeAchat;
+	}
+
+	public ArrayList<DemandeLocation> getListReservationLocationConfirmeeByAdmin() {
+		ArrayList<DemandeLocation> listeDemandeLocation = new ArrayList<>();
+		Connection connection = mangementDataBase.connexionDataBase();
+		try {
+			PreparedStatement ps = connection
+					.prepareStatement("SELECT * FROM demandelocation where confirmer = 'Confirmée'");
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				DemandeLocation demandeLocation = new DemandeLocation();
+				demandeLocation.setId(rs.getInt("id"));
+				demandeLocation.setDate_debut(rs.getString("date_debut"));
+				demandeLocation.setDate_fin(rs.getString("date_fin"));
+				demandeLocation.setId_vendeur(rs.getInt("id_vendeur"));
+				demandeLocation.setId_demandeur(rs.getInt("id_demandeur"));
+				demandeLocation.setId_offre(rs.getInt("id_offre"));
+				demandeLocation.setDateDemande(rs.getString("date_demande"));
+				demandeLocation.setNb_nuit(rs.getInt("nb_nuit"));
+				demandeLocation.setStatut(rs.getString("statut"));
+				demandeLocation.setConfirmation(rs.getString("confirmer"));
+				demandeLocation.setDate_acceptaion(rs.getString("date_acceptation"));
+				listeDemandeLocation.add(demandeLocation);
+			}
+			ps.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return listeDemandeLocation;
+	}
+
 }

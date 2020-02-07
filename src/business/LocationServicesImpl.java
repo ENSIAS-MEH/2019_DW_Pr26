@@ -327,5 +327,14 @@ public class LocationServicesImpl implements LocationServicesInter {
 	public ArrayList<DemandeLocation> getListReservationLocationConfirmeeByIdClient(int id) {
 		return locationepositoryImpl.getListReservationLocationConfirmeeByIdClient(id);
 	}
+	
+
+	public ArrayList<DemandeAchat> getListReservationAchatConfirmeeByAdmin(){
+		return locationepositoryImpl.getListReservationAchatConfirmeeByAdmin(); 
+	}
+
+	public ArrayList<DemandeLocation> getListReservationLocationConfirmeeByAdmin(){
+		return locationepositoryImpl.getListReservationLocationConfirmeeByAdmin(); 
+	}
 
 }

@@ -103,4 +103,8 @@ public class DemandeLocationAction {
 	public ArrayList<DemandeLocation> getListReservationLocationConfirmeeByIdClient(int id) {
 		return locationServices.getListReservationLocationConfirmeeByIdClient(id);
 	}
+	
+	public ArrayList<DemandeLocation> getListReservationLocationConfirmeeByAdmin(){
+		return locationServices.getListReservationLocationConfirmeeByAdmin(); 
+	}
 }

@@ -40,10 +40,7 @@
 						href="AccueilAdmin.ma"> <i class="material-icons">home</i>
 							<p>Acceuil</p>
 					</a></li>
-					<li class="nav-item"><a class="nav-link" href="#"> <i
-							class="material-icons">dashboard</i>
-							<p>Dashboard</p>
-					</a></li>
+					
 					<li class="nav-item  "><a class="nav-link"
 						href="ListVendeur.ma"> <i class="material-icons">account_circle</i>
 							<p>Liste des propriétaires</p>
@@ -60,7 +57,7 @@
 						href="ListDemandeClient.ma"> <i class="material-icons">format_indent_increase</i>
 							<p>Liste des demandes</p>
 					</a></li>
-					<li class="nav-item "><a class="nav-link" href="./icons.html">
+					<li class="nav-item "><a class="nav-link" href="DemandesConfirmerAdmin.ma">
 							<i class="material-icons">format_indent_decrease</i>
 							<p>Demandes confirmées</p>
 					</a></li>
@@ -261,34 +258,10 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-md-4">
-						<div class="card card-chart">
-							<div class="card-header card-header-danger">
-								<div class="ct-chart" id="completedTasksChart"></div>
-							</div>
-							<div class="card-body">
-								<h4 class="card-title">Completed Tasks</h4>
-								<p class="card-category">Last Campaign Performance</p>
-							</div>
-							<div class="card-footer">
-								<div class="stats">
-									<i class="material-icons">access_time</i> campaign sent 2 days
-									ago
-								</div>
-							</div>
-						</div>
-					</div>
 				</div>
-
-
-
 			</div>
-
 		</div>
 	</div>
-
-
-
 
 	<!--   Core JS Files   -->
 	<script src="assets/js/core/jquery.min.js"></script>

@@ -47,10 +47,6 @@
 						href="AccueilAdmin.ma"> <i class="material-icons">home</i>
 							<p>Acceuil</p>
 					</a></li>
-					<li class="nav-item"><a class="nav-link" href="#"> <i
-							class="material-icons">dashboard</i>
-							<p>Dashboard</p>
-					</a></li>
 					<li class="nav-item  active"><a class="nav-link"
 						href="ListVendeur.ma"> <i class="material-icons">account_circle</i>
 							<p>Liste des propriétaires</p>
@@ -67,7 +63,7 @@
 						href="ListDemandeClient.ma"> <i class="material-icons">format_indent_increase</i>
 							<p>Liste des demandes</p>
 					</a></li>
-					<li class="nav-item "><a class="nav-link" href="./icons.html">
+					<li class="nav-item "><a class="nav-link" href="DemandesConfirmerAdmin.ma">
 							<i class="material-icons">format_indent_decrease</i>
 							<p>Demandes confirmées</p>
 					</a></li>

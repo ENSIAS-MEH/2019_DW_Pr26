@@ -61,11 +61,11 @@
 							<i class="material-icons">local_offer</i>
 							<p>Liste des offres</p>
 					</a></li>
-					<li class="nav-item  active"><a class="nav-link"
+					<li class="nav-item"><a class="nav-link"
 						href="ListDemandeClient.ma"> <i class="material-icons">format_indent_increase</i>
 							<p>Liste des demandes</p>
 					</a></li>
-					<li class="nav-item "><a class="nav-link" href="DemandesConfirmerAdmin.ma">
+					<li class="nav-item active"><a class="nav-link" href="DemandesConfirmerAdmin.ma">
 							<i class="material-icons">format_indent_decrease</i>
 							<p>Demandes confirmées</p>
 					</a></li>
@@ -158,7 +158,6 @@
 												<th>Date de la demande</th>
 												<th>Statut</th>
 												<th>Offre</th>
-												<th>Action</th>
 											</thead>
 											<tbody>
 												<c:forEach items="${demandeLocation}" var="location">
@@ -179,14 +178,6 @@
 															class="btn-circle btn-sm" title="Ouvrir offre"
 															style="color: green;"> <i class="far fa-folder-open"></i></a>
 														</td>
-														<td><c:if
-																test="${location.getStatut()  == 'En attente' }">
-																<a
-																	href="SupprimerDemandeAchat.ma?id=${location.getId()}"
-																	class="btn-circle btn-sm" title="Supprimer"
-																	onclick="return confirm('Voulez vous vraiment supprimer cette demande ?');"
-																	style="color: red;"><i class="fas fa-trash"></i></a>
-															</c:if></td>
 													</tr>
 												</c:forEach>
 											</tbody>
@@ -215,7 +206,6 @@
 												<th>Date de la demande</th>
 												<th>Statut</th>
 												<th>Offre</th>
-												<th>Action</th>
 											</thead>
 											<tbody>
 												<c:forEach items="${demandeAchat}" var="Achat">
@@ -228,22 +218,14 @@
 														<c:if test="${Achat.getStatut()  == 'Acceptée'}">
 															<td><button class="btn btn-success btn-sm">${Achat.getStatut() }</button></td>
 														</c:if>
-														<c:if test="${Achat.getStatut()  == 'Non Acceptée'}">
+														<c:if test="${Achat.getStatut()  == 'Non acceptée'}">
 															<td><button class="btn btn-danger btn-sm">${Achat.getStatut() }</button></td>
 														</c:if>
-														
 														<td><a
 															href="DetailOffre.ma?id=${Achat.getId_offre() }"
 															class="btn-circle btn-sm" title="Ouvrir offre"
 															style="color: green;"> <i class="far fa-folder-open"></i></a>
 														</td>
-														<td><c:if
-																test="${Achat.getStatut()  == 'En attente' }">
-																<a href="SupprimerDemandeAchat.ma?id=${Achat.getId()}"
-																	class="btn-circle btn-sm" title="Supprimer"
-																	onclick="return confirm('Voulez vous vraiment supprimer cette demande ?');"
-																	style="color: red;"><i class="fas fa-trash"></i></a>
-															</c:if></td>
 													</tr>
 												</c:forEach>
 											</tbody>
