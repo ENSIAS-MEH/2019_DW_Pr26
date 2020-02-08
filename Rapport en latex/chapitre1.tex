@@ -1,0 +1,254 @@
+
+% Le type de votre document
+\documentclass[a4paper,11pt]{report}
+
+% Quelques packages pour le francais, vous pouvez saisir du texte accentué.
+\usepackage[latin1]{inputenc}
+\usepackage[frenchb]{babel}
+
+% Des trucs biens pour le pdf.
+\usepackage{ae}
+\usepackage{aeguill}
+\usepackage{hyperref}
+
+% Pour inclure des graphiques.
+\usepackage{graphicx}
+
+% Pour faire déborder les cases d'un tableau sur plusieurs lignes.
+\usepackage{multirow}
+
+
+
+\begin{document}
+
+%\selectlanguage{english} %%% remove comment delimiter ('%') and select language if required
+
+
+\noindent 
+
+\includegraphics*[width=0.98in, height=0.98in, keepaspectratio=false]{image1}\includegraphics*[width=1.06in, height=0.90in, keepaspectratio=false]{image2}
+
+
+
+
+
+
+
+\textbf{}
+
+\textbf{}
+
+\textbf{ Rapport du projet du module : Technologie Web}
+
+\textbf{Semestre S3}
+
+\textbf{Option G\'{e}nie Logiciel}
+
+\textbf{}
+
+Intitul\'{e}~:
+
+\textbf{Application Web pour la gestion des achats et des locations des h\'{e}bergements }
+
+\textbf{}
+
+\textbf{}
+
+\textbf{}
+
+~~~~\textbf{}
+
+ 
+
+       
+
+ \textbf{}
+
+\textbf{}
+
+\textbf{}
+
+\textbf{}
+
+\textbf{}
+
+\textbf{Ann\'{e}e Universitaire~: 2019 / 2020}
+
+
+
+
+
+
+\chapter*{Remerciements}
+
+ 
+
+
+
+ Nous tenons tout d'abord \`{a} remercier Monsieur Mahmoud EL HAMLAOUI pour son encadrement qui nous a bien orient\'{e} et aid\'{e} \`{a} voir les choses au clair. Ainsi pour son cours concis et bien organis\'{e} qui nous a permis d'am\'{e}liorer nos connaissances et comp\'{e}tences du c\^{o}t\'{e} conceptuel et analytique.
+
+ Ensuite, nous remercions chacun d'entre nous d'avoir particip\'{e} \`{a} ce projet s\'{e}rieusement et r\'{e}alis\'{e} pleinement son travail en respectant les d\'{e}lais et les consignes qui lui sont attribu\'{e}s.
+
+ Enfin nous dirigeons notre grande reconnaissance \`{a} nos familles et \`{a} tout le comit\'{e} p\'{e}dagogique qui nous a offert cette opportunit\'{e} de travailler sous de bonnes circonstances, avec tant de fiert\'{e} et \`{a} qui nous d\'{e}dions ce travail.
+
+\underbar{\eject }\textbf{\underbar{}}
+
+
+\chapter*{R\'{e}sum\'{e} }
+
+\textbf{\underbar{}}
+
+ Dans le cadre de notre formation au sein de l'Ecole Sup\'{e}rieure d'Informatique et d'Analyse des Syst\`{e}mes nous sommes amen\'{e}s \`{a} r\'{e}aliser une application web JEE. Par cons\'{e}quent, nous avons d\'{e}cid\'{e}s que cette application portera sur le march\'{e} de l'immobilier et sera une plateforme d'\'{e}change d'offres et de demandes.
+
+ Cette application sera une interface entre tous ceux qui veulent mettre en vente ou en location leurs propri\'{e}t\'{e}s, et ceux qui d\'{e}sirent en profiter sans avoir \`{a} se d\'{e}placer ou \`{a} fournir beaucoup d'effort. 
+
+ A travers cette plateforme, le client choisit l'offre qui lui convient, et suit l'\'{e}tat de sa demande jusqu'\`{a} la confirmation ou l'annulation du propri\'{e}taire.
+
+
+
+\underbar{\eject }\textbf{\underbar{}}
+
+
+\chapter*{Abstract}
+
+\textbf{\underbar{}}
+
+  As part of our training at the Higher School of Computer Science and Systems Analysis we are led to create a JEE web application. Therefore, we have decided that this application will focus on the real estate market and will be a platform for the exchange of offers and requests.
+
+This application will be an interface between all those who want to sell or rent their properties, and those who want to enjoy them without having to travel or make a lot of effort.
+
+\noindent Through this platform, the customer chooses the offer that suits him, and follows the status of his request until the owner confirms or cancels it.
+
+
+% La table des matières
+\listoffigures
+\tableofcontents
+
+
+\chapter*{Introduction}
+
+\textbf{\underbar{}}
+
+ L'informatique \'{e}tant une science de traitement automatique de donn\'{e}es s'av\`{e}re b\'{e}n\'{e}fique dans tous les domaines qu'ils soient scientifiques ou professionnels, priv\'{e}s et/ou publics. En observant les grandes entreprises dans le monde, on se rend vite compte qu'elles r\'{e}alisent des travaux complexes en fractions de temps tr\`{e}s r\'{e}duit \`{a} l'aide des machines, ce qui leur couterait des journ\'{e}es manuellement. 
+
+En plus, le commerce \'{e}lectronique connait une formidable croissance et succ\`{e}s gr\^{a}ce \`{a} la s\^{u}ret\'{e}, la disponibilit\'{e} et l'excellence de temps de r\'{e}ponse qui est fourni par ces applications.
+
+En se r\'{e}f\'{e}rant \`{a} la gestion des Locations et des Ventes de logement. Ce genre de travaux ne s'effectuent plus \`{a} la main, mais par les machines et les applications web afin de faciliter la communication entre l'acheteur et le vendeur ou bien entre le locataire et le locateur et la rendre plus facile et plus s\^{u}re.
+
+Donc, le but principal de ce projet consiste \`{a} d\'{e}velopper une application web qui met en place les services qui permettent la gestion \'{e}lectronique des locations et des ventes de logement.
+
+Dans ce contexte, ce pr\'{e}sent rapport sera structur\'{e} en trois chapitre.
+
+Le premier chapitre sera consacr\'{e} \`{a} une pr\'{e}sentation du contexte g\'{e}n\'{e}rale du projet.
+
+La phase d'analyse des besoins et de conception fonctionnelle et technique sera d\'{e}taill\'{e}e dans le deuxi\`{e}me chapitre.
+
+Ensuite, on abordera la partie de la r\'{e}alisation du projet. 
+
+Et pour finir, nous concluons avec les perspectives du travail r\'{e}alis\'{e}.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\chapter{ Contexte G\'{e}n\'{e}ral du Projet                            }
+
+ 
+
+Dans ce chapitre, nous pr\'{e}senterons une vue globale sur notre projet. Nous aborderons dans une premi\`{e}re partie une pr\'{e}sentation du projet, dans la deuxi\`{e}me section les services fournis par notre projet et dans la troisi\`{e}me section le planning du projet.
+
+
+\section{ Pr\'{e}sentation du projet }
+
+
+\subsection{ Contexte du projet}
+
+Ce projet est destin\'{e} pour la gestion de location et vente des h\'{e}bergements, et il rentre dans le cadre de r\'{e}alisation d'une application web qui assure le bon fonctionnement de cette gestion. Le projet est d\'{e}coup\'{e} en 3 parties~: espace client, espace propri\'{e}taire et espace administration. 
+
+
+\subsection{ Objectif du projet }
+
+Il vise \`{a} assurer toutes les gestions : gestion des r\'{e}servations, gestion de location, gestion d'achat, gestion de vente, gestion des offres, gestion des demandes et la gestion des clients et des propri\'{e}taires
+
+La communication entre les utilisateurs de l'application (clients ou propri\'{e}taires) et l'administrateur constitue une chose primordiale c'est pour cela que nous avons aussi mis en place un service d'envoi de mail.
+
+
+\subsection{ R\'{e}sultat attendu du projet}
+
+Apr\`{e}s la r\'{e}alisation de cette application, On souhaite d'obtenir les r\'{e}sultats honorables. Parmi les r\'{e}sultats attendus on trouve : 
+
+\begin{enumerate}
+\item  \^{E}tre facile au propri\'{e}taire d'ajouter des offres et de les g\'{e}rer et de g\'{e}rer les demandes envoy\'{e}es par le client. 
+
+\item  \^{E}tre facile au client de lister les offres et de faire une demande de location ou d'achat d'un h\'{e}bergement. 
+
+\item  \^{E}tre facile \`{a} l'administrateur de g\'{e}rer les utilisateurs, les offres et les demandes. 
+
+\item  Le syst\`{e}me doit stocker les donn\'{e}es qui concernent les utilisateurs et les offres de mani\`{e}re fiable. 
+
+\item  Assurer un acc\`{e}s prot\'{e}ger et rapide. 
+
+\item  Avoir une bonne gestion des diff\'{e}rents composants de l'application. 
+\end{enumerate}
+
+
+\section{  Planning du projet}
+
+
+\subsection{ D\'{e}coupage de projet en tache}
+
+La planification de projet consiste \`{a} effectuer un d\'{e}coupage en phases chronologiques. Pour chaque phase, il faut ensuite d\'{e}terminer la liste des t\^{a}ches \`{a} accomplir, les charges \`{a} pr\'{e}voir et les ressources n\'{e}cessaires.
+
+Le projet va conna\^{i}tre diff\'{e}rentes phases :
+
+\begin{enumerate}
+\item  \textbf{Etude pr\'{e}alable }:~il s'agit de d\'{e}terminer l'analyse des besoins et fonctionnelle de projet.
+
+\item  \textbf{Conception} :~cette phase correspond \`{a} la conception technique de la solution. Des choix qui sont faits \`{a} ce stade d\'{e}pendent l'estimation de la dur\'{e}e de r\'{e}alisation des diff\'{e}rentes t\^{a}ches identifi\'{e}es.
+
+\item  \textbf{R\'{e}alisation} :~d\'{e}veloppement de la solution.
+
+\item  \textbf{Tests} :~tests unitaires, techniques et fonctionnels de la solution.
+\end{enumerate}
+
+
+
+\subsection{ Cycle de vie en V}
+
+Le projet en question utilise un mode de d\'{e}veloppement en cycle en V du fait de son p\'{e}rim\`{e}tre fonctionnel important. Ce mode comprend les phases habituelles~: Analyse, Conception, R\'{e}alisation/d\'{e}veloppement, Int\'{e}gration, Validation.
+
+Le cycle en V est un paradigme du d\'{e}veloppement d'un logiciel, le cycle de vie du projet. Il est repr\'{e}sent\'{e} par un V dont la branche descendante contient toutes les \'{e}tapes de la conception du projet, et la branche montante toutes les \'{e}tapes de tests du projet. La pointe du V, quant \`{a} elle, repr\'{e}sente la r\'{e}alisation concr\`{e}te du projet. Chaque \'{e}tape d'une branche a son pendant dans l'autre branche, c'est-\`{a}-dire qu'une \'{e}tape de conception correspond \`{a} une \'{e}tape de test qui lui est sp\'{e}cifique. A tel point d'ailleurs, qu'une \'{e}tape de test peut \^{e}tre \'{e}labor\'{e}e d\`{e}s que la phase de conception correspondante est termin\'{e}e, ind\'{e}pendamment du reste du projet.
+\begin{figure}
+\includegraphics*[width=5.05in, height=3.11in, keepaspectratio=false]{image3}
+\caption{Le mod\`{e}le de cycle de vie en V}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
+
