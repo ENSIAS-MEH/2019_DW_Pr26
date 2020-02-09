@@ -1,9 +1,9 @@
 
 % Le type de votre document
-\documentclass[a4paper,11pt]{report}
+\documentclass[a4paper,12pt]{report}
 
 % Quelques packages pour le francais, vous pouvez saisir du texte accentué.
-\usepackage[latin1]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage[frenchb]{babel}
 
 % Des trucs biens pour le pdf.
@@ -16,71 +16,87 @@
 
 % Pour faire déborder les cases d'un tableau sur plusieurs lignes.
 \usepackage{multirow}
+\usepackage{fullpage}
+\usepackage{eso-pic}
+ 
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\newcommand{\blap}[1]{\vbox to 0pt{#1\vss}}
+\newcommand\AtUpperLeftCorner[3]{%
+  \put(\LenToUnit{#1},\LenToUnit{\dimexpr\paperheight-#2}){\blap{#3}}%
+}
+\newcommand\AtUpperRightCorner[3]{%
+  \put(\LenToUnit{\dimexpr\paperwidth-#1},\LenToUnit{\dimexpr\paperheight-#2}){\blap{\llap{#3}}}%
+}
+ 
+\title{\LARGE{ \textbf{Application Web pour la gestion des achats et des locations des hébergements} }}
 
-
+\makeatletter
+ 
 
 \begin{document}
+\begin{titlepage}
+    \enlargethispage{2cm}
+ 
+    \AddToShipoutPicture{
+        \AtUpperLeftCorner{1.5cm}{1cm}{\includegraphics[width=4cm]{img/Image1.png}}
+        \AtUpperRightCorner{1.5cm}{1cm}{\includegraphics[width=4cm]{img/Image2.png}}
+    }
+ 
+    \begin{center}
+    \vspace*{5cm}
+    \textsc{\Large Rapport du projet du module : Technologie Web}\\[2cm]
+     \textsc{\Large Semestre S3}\\[0.5cm]
+     \textsc{\Large Option Génie Logiciel}\\[1.5cm]
+     \textbf{Intitulé :}
 
+        \HRule
+        \vspace*{0.5cm}
+        \textsc{\@title}
+        \vspace*{0.5cm}
+        \HRule
+
+ 
+        
+    \end{center}
+ 
+    \vspace*{2cm}
+ % Author and supervisor
+    \begin{minipage}{0.5\textwidth}
+      \begin{flushleft} \large
+        Réalisé par : \\
+        GHAZLANE Mohammed (GL 2) \\
+        NACHIT Btissam  (GL 3) \\
+        SABOUR Ilham  (GL 3) 
+
+      \end{flushleft}
+    \end{minipage}
+     \begin{minipage}{0.5\textwidth}
+      \begin{flushright}
+       \large
+        \emph{Sous la direction de  :}\\ Pr. EL HAMLAOUI Mahmoud \\
+        
+      
+      \end{flushright}
+    \end{minipage}
+    
+
+    \vfill
+
+    % Bottom of the page
+     \begin{center}
+    {\large  Année Universitaire : 2019 / 2020}
+     \end{center}
+\end{titlepage}
+\ClearShipoutPicture
 %\selectlanguage{english} %%% remove comment delimiter ('%') and select language if required
 
 
 \noindent 
 
-\includegraphics*[width=0.98in, height=0.98in, keepaspectratio=false]{image1}\includegraphics*[width=1.06in, height=0.90in, keepaspectratio=false]{image2}
-
-
-
-
-
-
-
-\textbf{}
-
-\textbf{}
-
-\textbf{ Rapport du projet du module : Technologie Web}
-
-\textbf{Semestre S3}
-
-\textbf{Option G\'{e}nie Logiciel}
-
-\textbf{}
-
-Intitul\'{e}~:
-
-\textbf{Application Web pour la gestion des achats et des locations des h\'{e}bergements }
-
-\textbf{}
-
-\textbf{}
-
-\textbf{}
-
-~~~~\textbf{}
-
- 
-
-       
-
- \textbf{}
-
-\textbf{}
-
-\textbf{}
-
-\textbf{}
-
-\textbf{}
-
-\textbf{Ann\'{e}e Universitaire~: 2019 / 2020}
-
-
-
-
 
 
 \chapter*{Remerciements}
-
+\HUGE{
  
 
 
@@ -232,8 +248,11 @@ Le projet en question utilise un mode de d\'{e}veloppement en cycle en V du fait
 
 Le cycle en V est un paradigme du d\'{e}veloppement d'un logiciel, le cycle de vie du projet. Il est repr\'{e}sent\'{e} par un V dont la branche descendante contient toutes les \'{e}tapes de la conception du projet, et la branche montante toutes les \'{e}tapes de tests du projet. La pointe du V, quant \`{a} elle, repr\'{e}sente la r\'{e}alisation concr\`{e}te du projet. Chaque \'{e}tape d'une branche a son pendant dans l'autre branche, c'est-\`{a}-dire qu'une \'{e}tape de conception correspond \`{a} une \'{e}tape de test qui lui est sp\'{e}cifique. A tel point d'ailleurs, qu'une \'{e}tape de test peut \^{e}tre \'{e}labor\'{e}e d\`{e}s que la phase de conception correspondante est termin\'{e}e, ind\'{e}pendamment du reste du projet.
 \begin{figure}
-\includegraphics*[width=5.05in, height=3.11in, keepaspectratio=false]{image3}
-\caption{Le mod\`{e}le de cycle de vie en V}
+\begin{center}
+  \includegraphics*[width=5.05in, height=3.11in, keepaspectratio=false]{img/image3.png}
+\caption{Le mod\`{e}le de cycle de vie en V}  
+\end{center}
+
 \end{figure}
 
 
